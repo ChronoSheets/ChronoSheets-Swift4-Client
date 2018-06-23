@@ -32,6 +32,7 @@ open class UserProfileAPI {
     "CSAuthToken" : "CSAuthToken",
     "LoggedInUser" : {
       "SetupWizardRequired" : true,
+      "IsSubscribedToNewsletter" : true,
       "UserName" : "UserName",
       "Organisation" : {
         "Timezone" : "Timezone",
@@ -70,6 +71,7 @@ open class UserProfileAPI {
     "CSAuthToken" : "CSAuthToken",
     "LoggedInUser" : {
       "SetupWizardRequired" : true,
+      "IsSubscribedToNewsletter" : true,
       "UserName" : "UserName",
       "Organisation" : {
         "Timezone" : "Timezone",

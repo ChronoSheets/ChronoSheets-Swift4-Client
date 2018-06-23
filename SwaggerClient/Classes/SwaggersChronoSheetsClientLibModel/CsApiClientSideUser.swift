@@ -20,11 +20,12 @@ open class CsApiClientSideUser: Codable {
     public var roles: Int64?
     public var alertSettings: Int64?
     public var setupWizardRequired: Bool?
+    public var isSubscribedToNewsletter: Bool?
     public var organisation: CsApiOrganisation?
 
 
     
-    public init(id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, organisation: CsApiOrganisation?) {
+    public init(id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CsApiOrganisation?) {
         self.id = id
         self.organisationId = organisationId
         self.userName = userName
@@ -34,6 +35,7 @@ open class CsApiClientSideUser: Codable {
         self.roles = roles
         self.alertSettings = alertSettings
         self.setupWizardRequired = setupWizardRequired
+        self.isSubscribedToNewsletter = isSubscribedToNewsletter
         self.organisation = organisation
     }
     
@@ -53,6 +55,7 @@ open class CsApiClientSideUser: Codable {
         try container.encodeIfPresent(roles, forKey: "Roles")
         try container.encodeIfPresent(alertSettings, forKey: "AlertSettings")
         try container.encodeIfPresent(setupWizardRequired, forKey: "SetupWizardRequired")
+        try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
         try container.encodeIfPresent(organisation, forKey: "Organisation")
     }
 
@@ -70,6 +73,7 @@ open class CsApiClientSideUser: Codable {
         roles = try container.decodeIfPresent(Int64.self, forKey: "Roles")
         alertSettings = try container.decodeIfPresent(Int64.self, forKey: "AlertSettings")
         setupWizardRequired = try container.decodeIfPresent(Bool.self, forKey: "SetupWizardRequired")
+        isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
         organisation = try container.decodeIfPresent(CsApiOrganisation.self, forKey: "Organisation")
     }
 }

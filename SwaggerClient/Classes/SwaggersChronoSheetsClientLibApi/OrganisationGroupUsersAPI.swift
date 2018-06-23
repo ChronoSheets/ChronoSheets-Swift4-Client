@@ -32,8 +32,8 @@ open class OrganisationGroupUsersAPI {
   "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -61,8 +61,8 @@ open class OrganisationGroupUsersAPI {
     "AlertSettings" : 5,
     "EmailAddress" : "EmailAddress"
   }, {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -98,8 +98,8 @@ open class OrganisationGroupUsersAPI {
   "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -127,8 +127,8 @@ open class OrganisationGroupUsersAPI {
     "AlertSettings" : 5,
     "EmailAddress" : "EmailAddress"
   }, {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",

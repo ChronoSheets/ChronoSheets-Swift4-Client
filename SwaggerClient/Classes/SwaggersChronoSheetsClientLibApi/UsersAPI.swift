@@ -96,8 +96,8 @@ open class UsersAPI {
   "Status" : 0,
   "Message" : "Message",
   "Data" : {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -133,8 +133,8 @@ open class UsersAPI {
   "Status" : 0,
   "Message" : "Message",
   "Data" : {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -212,8 +212,8 @@ open class UsersAPI {
   "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -241,8 +241,8 @@ open class UsersAPI {
     "AlertSettings" : 5,
     "EmailAddress" : "EmailAddress"
   }, {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -278,8 +278,8 @@ open class UsersAPI {
   "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",
@@ -307,8 +307,8 @@ open class UsersAPI {
     "AlertSettings" : 5,
     "EmailAddress" : "EmailAddress"
   }, {
-    "IsSubscribedToNewsletter" : true,
     "SetupWizardRequired" : true,
+    "IsSubscribedToNewsletter" : true,
     "UserName" : "UserName",
     "Organisation" : {
       "Timezone" : "Timezone",

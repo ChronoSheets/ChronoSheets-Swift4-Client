@@ -11,7 +11,6 @@ import Foundation
 
 open class CsApiUserForManagement: Codable {
 
-    public var isSubscribedToNewsletter: Bool?
     public var isAccountActive: Bool?
     public var id: Int?
     public var organisationId: Int?
@@ -22,12 +21,12 @@ open class CsApiUserForManagement: Codable {
     public var roles: Int64?
     public var alertSettings: Int64?
     public var setupWizardRequired: Bool?
+    public var isSubscribedToNewsletter: Bool?
     public var organisation: CsApiOrganisation?
 
 
     
-    public init(isSubscribedToNewsletter: Bool?, isAccountActive: Bool?, id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, organisation: CsApiOrganisation?) {
-        self.isSubscribedToNewsletter = isSubscribedToNewsletter
+    public init(isAccountActive: Bool?, id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CsApiOrganisation?) {
         self.isAccountActive = isAccountActive
         self.id = id
         self.organisationId = organisationId
@@ -38,6 +37,7 @@ open class CsApiUserForManagement: Codable {
         self.roles = roles
         self.alertSettings = alertSettings
         self.setupWizardRequired = setupWizardRequired
+        self.isSubscribedToNewsletter = isSubscribedToNewsletter
         self.organisation = organisation
     }
     
@@ -48,7 +48,6 @@ open class CsApiUserForManagement: Codable {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
         try container.encodeIfPresent(isAccountActive, forKey: "IsAccountActive")
         try container.encodeIfPresent(id, forKey: "Id")
         try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
@@ -59,6 +58,7 @@ open class CsApiUserForManagement: Codable {
         try container.encodeIfPresent(roles, forKey: "Roles")
         try container.encodeIfPresent(alertSettings, forKey: "AlertSettings")
         try container.encodeIfPresent(setupWizardRequired, forKey: "SetupWizardRequired")
+        try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
         try container.encodeIfPresent(organisation, forKey: "Organisation")
     }
 
@@ -67,7 +67,6 @@ open class CsApiUserForManagement: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
         isAccountActive = try container.decodeIfPresent(Bool.self, forKey: "IsAccountActive")
         id = try container.decodeIfPresent(Int.self, forKey: "Id")
         organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
@@ -78,6 +77,7 @@ open class CsApiUserForManagement: Codable {
         roles = try container.decodeIfPresent(Int64.self, forKey: "Roles")
         alertSettings = try container.decodeIfPresent(Int64.self, forKey: "AlertSettings")
         setupWizardRequired = try container.decodeIfPresent(Bool.self, forKey: "SetupWizardRequired")
+        isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
         organisation = try container.decodeIfPresent(CsApiOrganisation.self, forKey: "Organisation")
     }
 }
