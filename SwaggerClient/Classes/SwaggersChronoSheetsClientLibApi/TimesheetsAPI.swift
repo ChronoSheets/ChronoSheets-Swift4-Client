@@ -202,7 +202,7 @@ open class TimesheetsAPI {
 
     /**
      Inserts a single timesheet record
-     - POST /api/Timesheets/InsertSingleTimesheet
+     - PUT /api/Timesheets/InsertSingleTimesheet
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -241,7 +241,7 @@ open class TimesheetsAPI {
 
         let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
