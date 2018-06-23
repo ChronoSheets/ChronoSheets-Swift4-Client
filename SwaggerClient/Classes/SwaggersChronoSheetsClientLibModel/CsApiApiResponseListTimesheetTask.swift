@@ -18,10 +18,9 @@ open class CsApiApiResponseListTimesheetTask: Codable {
         case _3 = 3
         case _4 = 4
         case _5 = 5
-        case _128 = 128
     }
     public var data: [CsApiTimesheetTask]?
-    /** 0 &#x3D; Succeeded, 1 &#x3D; FatalException, 2 &#x3D; GeneralError, 3 &#x3D; ValidationError, 4 &#x3D; UnAuthorized, 5 &#x3D; SessionExpired, 128 &#x3D; TestingABC */
+    /** 0 &#x3D; Succeeded, 1 &#x3D; FatalException, 2 &#x3D; GeneralError, 3 &#x3D; ValidationError, 4 &#x3D; UnAuthorized, 5 &#x3D; SessionExpired */
     public var status: CsApiStatus?
     public var message: String?
 
