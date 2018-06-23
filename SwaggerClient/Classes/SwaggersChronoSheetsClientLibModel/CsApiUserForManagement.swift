@@ -11,7 +11,6 @@ import Foundation
 
 open class CsApiUserForManagement: Codable {
 
-    public var emailAddress: String?
     public var isSubscribedToNewsletter: Bool?
     public var isAccountActive: Bool?
     public var id: Int?
@@ -19,6 +18,7 @@ open class CsApiUserForManagement: Codable {
     public var userName: String?
     public var firstName: String?
     public var lastName: String?
+    public var emailAddress: String?
     public var roles: Int64?
     public var alertSettings: Int64?
     public var setupWizardRequired: Bool?
@@ -26,8 +26,7 @@ open class CsApiUserForManagement: Codable {
 
 
     
-    public init(emailAddress: String?, isSubscribedToNewsletter: Bool?, isAccountActive: Bool?, id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, organisation: CsApiOrganisation?) {
-        self.emailAddress = emailAddress
+    public init(isSubscribedToNewsletter: Bool?, isAccountActive: Bool?, id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, organisation: CsApiOrganisation?) {
         self.isSubscribedToNewsletter = isSubscribedToNewsletter
         self.isAccountActive = isAccountActive
         self.id = id
@@ -35,6 +34,7 @@ open class CsApiUserForManagement: Codable {
         self.userName = userName
         self.firstName = firstName
         self.lastName = lastName
+        self.emailAddress = emailAddress
         self.roles = roles
         self.alertSettings = alertSettings
         self.setupWizardRequired = setupWizardRequired
@@ -48,7 +48,6 @@ open class CsApiUserForManagement: Codable {
 
         var container = encoder.container(keyedBy: String.self)
 
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
         try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
         try container.encodeIfPresent(isAccountActive, forKey: "IsAccountActive")
         try container.encodeIfPresent(id, forKey: "Id")
@@ -56,6 +55,7 @@ open class CsApiUserForManagement: Codable {
         try container.encodeIfPresent(userName, forKey: "UserName")
         try container.encodeIfPresent(firstName, forKey: "FirstName")
         try container.encodeIfPresent(lastName, forKey: "LastName")
+        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
         try container.encodeIfPresent(roles, forKey: "Roles")
         try container.encodeIfPresent(alertSettings, forKey: "AlertSettings")
         try container.encodeIfPresent(setupWizardRequired, forKey: "SetupWizardRequired")
@@ -67,7 +67,6 @@ open class CsApiUserForManagement: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: String.self)
 
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
         isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
         isAccountActive = try container.decodeIfPresent(Bool.self, forKey: "IsAccountActive")
         id = try container.decodeIfPresent(Int.self, forKey: "Id")
@@ -75,6 +74,7 @@ open class CsApiUserForManagement: Codable {
         userName = try container.decodeIfPresent(String.self, forKey: "UserName")
         firstName = try container.decodeIfPresent(String.self, forKey: "FirstName")
         lastName = try container.decodeIfPresent(String.self, forKey: "LastName")
+        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
         roles = try container.decodeIfPresent(Int64.self, forKey: "Roles")
         alertSettings = try container.decodeIfPresent(Int64.self, forKey: "AlertSettings")
         setupWizardRequired = try container.decodeIfPresent(Bool.self, forKey: "SetupWizardRequired")

@@ -55,7 +55,8 @@ open class UserProfileAPI {
       "Roles" : 1,
       "Id" : 0,
       "LastName" : "LastName",
-      "AlertSettings" : 5
+      "AlertSettings" : 5,
+      "EmailAddress" : "EmailAddress"
     }
   }
 }}, {contentType=application/xml, example=<null>
@@ -92,7 +93,8 @@ open class UserProfileAPI {
       "Roles" : 1,
       "Id" : 0,
       "LastName" : "LastName",
-      "AlertSettings" : 5
+      "AlertSettings" : 5,
+      "EmailAddress" : "EmailAddress"
     }
   }
 }}, {contentType=application/xml, example=<null>
