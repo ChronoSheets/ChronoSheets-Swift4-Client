@@ -29,21 +29,21 @@ open class TasksAPI {
      Create a task
      - PUT /api/Tasks/CreateTask
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,21 +87,21 @@ open class TasksAPI {
      Delete a task
      - DELETE /api/Tasks/DeleteTask
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -148,7 +148,7 @@ open class TasksAPI {
      Get a particular task by id
      - GET /api/Tasks/GetTaskById
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "TripEnabled" : true,
@@ -158,11 +158,11 @@ open class TasksAPI {
     "Id" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "TripEnabled" : true,
@@ -172,7 +172,7 @@ open class TasksAPI {
     "Id" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -218,7 +218,7 @@ open class TasksAPI {
      Get tasks in your organisation
      - GET /api/Tasks/GetTasks
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "TripEnabled" : true,
@@ -234,11 +234,11 @@ open class TasksAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "TripEnabled" : true,
@@ -254,7 +254,7 @@ open class TasksAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -297,7 +297,7 @@ open class TasksAPI {
      Get tasks for a particular job
      - GET /api/Tasks/GetTasksForJob
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "TripEnabled" : true,
@@ -313,11 +313,11 @@ open class TasksAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "TripEnabled" : true,
@@ -333,7 +333,7 @@ open class TasksAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -380,21 +380,21 @@ open class TasksAPI {
      Update a task
      - POST /api/Tasks/UpdateTask
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

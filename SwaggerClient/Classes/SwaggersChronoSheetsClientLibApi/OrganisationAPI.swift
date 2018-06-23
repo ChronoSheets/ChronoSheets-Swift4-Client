@@ -28,7 +28,7 @@ open class OrganisationAPI {
      Get your organisation.  Requires 'OrganisationAdmin' permission.
      - GET /api/Organisation/GetOrganisation
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "Timezone" : "Timezone",
@@ -48,11 +48,11 @@ open class OrganisationAPI {
     "SignupToken" : "SignupToken"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "Timezone" : "Timezone",
@@ -72,7 +72,7 @@ open class OrganisationAPI {
     "SignupToken" : "SignupToken"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -115,23 +115,23 @@ open class OrganisationAPI {
      Update an organisation.  Requires 'OrganisationAdmin' permission.
      - POST /api/Organisation/UpdateOrganisation
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ]
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ]
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

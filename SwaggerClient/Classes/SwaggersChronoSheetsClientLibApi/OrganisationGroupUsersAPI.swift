@@ -29,7 +29,7 @@ open class OrganisationGroupUsersAPI {
      Get a collection of organisation group users that belong to an organisation group
      - GET /api/OrganisationGroupUsers/GetOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "IsSubscribedToNewsletter" : true,
@@ -91,11 +91,11 @@ open class OrganisationGroupUsersAPI {
     "EmailAddress" : "EmailAddress"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "IsSubscribedToNewsletter" : true,
@@ -157,7 +157,7 @@ open class OrganisationGroupUsersAPI {
     "EmailAddress" : "EmailAddress"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -204,21 +204,21 @@ open class OrganisationGroupUsersAPI {
      Set the users who belong to an organisation group
      - POST /api/OrganisationGroupUsers/UpdateOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

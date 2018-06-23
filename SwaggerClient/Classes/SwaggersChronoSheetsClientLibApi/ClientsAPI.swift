@@ -29,21 +29,21 @@ open class ClientsAPI {
      Create a client
      - PUT /api/Clients/CreateClient
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,7 +87,7 @@ open class ClientsAPI {
      Get a particular client
      - GET /api/Clients/GetClient
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "ClientState" : "ClientState",
@@ -106,11 +106,11 @@ open class ClientsAPI {
     "ClientSuburb" : "ClientSuburb"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "ClientState" : "ClientState",
@@ -129,7 +129,7 @@ open class ClientsAPI {
     "ClientSuburb" : "ClientSuburb"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -175,7 +175,7 @@ open class ClientsAPI {
      Get a collection of clients that are under your organisation
      - GET /api/Clients/GetClients
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "ClientState" : "ClientState",
@@ -209,11 +209,11 @@ open class ClientsAPI {
     "ClientSuburb" : "ClientSuburb"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "ClientState" : "ClientState",
@@ -247,7 +247,7 @@ open class ClientsAPI {
     "ClientSuburb" : "ClientSuburb"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -290,21 +290,21 @@ open class ClientsAPI {
      Update a client
      - POST /api/Clients/UpdateClient
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

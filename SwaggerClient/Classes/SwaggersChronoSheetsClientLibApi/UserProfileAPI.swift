@@ -26,7 +26,7 @@ open class UserProfileAPI {
     /**
      - POST /api/UserProfile/DoLogin
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : {
     "CSAuthToken" : "CSAuthToken",
@@ -59,11 +59,11 @@ open class UserProfileAPI {
     }
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : {
     "CSAuthToken" : "CSAuthToken",
@@ -96,7 +96,7 @@ open class UserProfileAPI {
     }
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -132,21 +132,21 @@ open class UserProfileAPI {
     /**
      - DELETE /api/UserProfile/DoLogout
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -186,7 +186,7 @@ open class UserProfileAPI {
     /**
      - GET /api/UserProfile/GetMyProfile
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : {
     "IsSubscribedToNewsletter" : true,
@@ -203,11 +203,11 @@ open class UserProfileAPI {
     "EmailAddress" : "EmailAddress"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : {
     "IsSubscribedToNewsletter" : true,
@@ -224,7 +224,7 @@ open class UserProfileAPI {
     "EmailAddress" : "EmailAddress"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -264,21 +264,21 @@ open class UserProfileAPI {
     /**
      - GET /api/UserProfile/KeepSessionAlive
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -319,7 +319,7 @@ open class UserProfileAPI {
     /**
      - POST /api/UserProfile/UpdateMyProfile
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ],
@@ -327,11 +327,11 @@ open class UserProfileAPI {
     "OrganisationId" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ],
@@ -339,7 +339,7 @@ open class UserProfileAPI {
     "OrganisationId" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

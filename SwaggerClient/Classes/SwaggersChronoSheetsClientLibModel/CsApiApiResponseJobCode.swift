@@ -11,15 +11,16 @@ import Foundation
 
 open class CsApiApiResponseJobCode: Codable {
 
-    public enum CsApiStatus: String, Codable { 
-        case succeeded = "Succeeded"
-        case fatalException = "FatalException"
-        case generalError = "GeneralError"
-        case validationError = "ValidationError"
-        case unAuthorized = "UnAuthorized"
-        case sessionExpired = "SessionExpired"
+    public enum CsApiStatus: Int, Codable { 
+        case _0 = 0
+        case _1 = 1
+        case _2 = 2
+        case _3 = 3
+        case _4 = 4
+        case _5 = 5
     }
     public var data: CsApiJobCode?
+    /** 0 &#x3D; Succeeded, 1 &#x3D; FatalException, 2 &#x3D; GeneralError, 3 &#x3D; ValidationError, 4 &#x3D; UnAuthorized, 5 &#x3D; SessionExpired */
     public var status: CsApiStatus?
     public var message: String?
 

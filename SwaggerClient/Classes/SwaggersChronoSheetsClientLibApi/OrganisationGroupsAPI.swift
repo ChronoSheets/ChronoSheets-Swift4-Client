@@ -29,21 +29,21 @@ open class OrganisationGroupsAPI {
      Create an organisation group
      - PUT /api/OrganisationGroups/CreateOrganisationGroup
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,7 +87,7 @@ open class OrganisationGroupsAPI {
      Get a particular organisation group
      - GET /api/OrganisationGroups/GetOrganisationGroup
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "IsDeleted" : true,
@@ -96,11 +96,11 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "IsDeleted" : true,
@@ -109,7 +109,7 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -155,7 +155,7 @@ open class OrganisationGroupsAPI {
      Get a collection of organisation groups that are under your organisation
      - GET /api/OrganisationGroups/GetOrganisationGroups
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -169,11 +169,11 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -187,7 +187,7 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -230,7 +230,7 @@ open class OrganisationGroupsAPI {
      Get org groups for a particular job
      - GET /api/OrganisationGroups/GetOrganisationGroupsForJob
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -244,11 +244,11 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -262,7 +262,7 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -309,7 +309,7 @@ open class OrganisationGroupsAPI {
      Get org groups for a particular vehicle
      - GET /api/OrganisationGroups/GetOrganisationGroupsForVehicle
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -323,11 +323,11 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -341,7 +341,7 @@ open class OrganisationGroupsAPI {
     "Id" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -388,21 +388,21 @@ open class OrganisationGroupsAPI {
      Update an organisation group
      - POST /api/OrganisationGroups/UpdateOrganisationGroup
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

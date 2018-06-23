@@ -29,21 +29,21 @@ open class UserJobFavouritesAPI {
      Create a job favourite
      - PUT /api/UserJobFavourites/CreateJobFavourite
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,21 +87,21 @@ open class UserJobFavouritesAPI {
      Delete a job favourite
      - DELETE /api/UserJobFavourites/DeleteJobFavourite
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -147,7 +147,7 @@ open class UserJobFavouritesAPI {
      Get your job favourites
      - GET /api/UserJobFavourites/GetJobFavourites
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "Id" : 0,
@@ -157,11 +157,11 @@ open class UserJobFavouritesAPI {
     "JobId" : 6
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : [ {
     "Id" : 0,
@@ -171,7 +171,7 @@ open class UserJobFavouritesAPI {
     "JobId" : 6
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

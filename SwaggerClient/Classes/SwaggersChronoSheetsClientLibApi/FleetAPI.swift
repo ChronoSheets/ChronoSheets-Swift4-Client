@@ -29,21 +29,21 @@ open class FleetAPI {
      Create a vehicle
      - PUT /api/Fleet/CreateVehicle
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,7 +87,7 @@ open class FleetAPI {
      Get a particular vehicle
      - GET /api/Fleet/GetVehicleById
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "IsDeleted" : true,
@@ -102,11 +102,11 @@ open class FleetAPI {
     "Name" : "Name"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "IsDeleted" : true,
@@ -121,7 +121,7 @@ open class FleetAPI {
     "Name" : "Name"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -168,7 +168,7 @@ open class FleetAPI {
      Get a collection of vehicles that are under your organisation
      - GET /api/Fleet/GetVehicles
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -194,11 +194,11 @@ open class FleetAPI {
     "Name" : "Name"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "IsDeleted" : true,
@@ -224,7 +224,7 @@ open class FleetAPI {
     "Name" : "Name"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -271,21 +271,21 @@ open class FleetAPI {
      Update a vehicle
      - POST /api/Fleet/UpdateVehicle
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

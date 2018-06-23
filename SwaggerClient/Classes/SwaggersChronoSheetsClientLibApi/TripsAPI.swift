@@ -29,21 +29,21 @@ open class TripsAPI {
      Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.
      - POST /api/Trips/CreateTrip
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,12 +87,12 @@ open class TripsAPI {
      Get trip by Id
      - GET /api/Trips/GetMyTripById
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 2,
   "Message" : "Message",
   "Data" : {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 7.061401241503109,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -103,30 +103,30 @@ open class TripsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : "Unknown",
+    "MobilePlatform" : 2,
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 9.301444243932576,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     }, {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     } ],
-    "CostPerKilometer" : 2.3021358869347655
+    "CostPerKilometer" : 7.061401241503109
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 2,
   "Message" : "Message",
   "Data" : {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 7.061401241503109,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -137,21 +137,21 @@ open class TripsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : "Unknown",
+    "MobilePlatform" : 2,
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 9.301444243932576,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     }, {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     } ],
-    "CostPerKilometer" : 2.3021358869347655
+    "CostPerKilometer" : 7.061401241503109
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -202,13 +202,13 @@ open class TripsAPI {
      Get my trips
      - GET /api/Trips/GetMyTrips
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 7.061401241503109,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -219,22 +219,22 @@ open class TripsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : "Unknown",
+    "MobilePlatform" : 2,
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 9.301444243932576,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     }, {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     } ],
-    "CostPerKilometer" : 2.3021358869347655
+    "CostPerKilometer" : 7.061401241503109
   }, {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 7.061401241503109,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -245,32 +245,32 @@ open class TripsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : "Unknown",
+    "MobilePlatform" : 2,
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 9.301444243932576,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     }, {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     } ],
-    "CostPerKilometer" : 2.3021358869347655
+    "CostPerKilometer" : 7.061401241503109
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 6,
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 7.061401241503109,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -281,22 +281,22 @@ open class TripsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : "Unknown",
+    "MobilePlatform" : 2,
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 9.301444243932576,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     }, {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     } ],
-    "CostPerKilometer" : 2.3021358869347655
+    "CostPerKilometer" : 7.061401241503109
   }, {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 7.061401241503109,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -307,22 +307,22 @@ open class TripsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : "Unknown",
+    "MobilePlatform" : 2,
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 9.301444243932576,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     }, {
-      "Latitude" : 2.027123023002322,
-      "Longitude" : 4.145608029883936
+      "Latitude" : 4.145608029883936,
+      "Longitude" : 7.386281948385884
     } ],
-    "CostPerKilometer" : 2.3021358869347655
+    "CostPerKilometer" : 7.061401241503109
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      

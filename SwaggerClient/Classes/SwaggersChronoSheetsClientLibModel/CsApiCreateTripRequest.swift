@@ -11,15 +11,16 @@ import Foundation
 
 open class CsApiCreateTripRequest: Codable {
 
-    public enum CsApiMobilePlatform: String, Codable { 
-        case unknown = "Unknown"
-        case ios = "iOS"
-        case android = "Android"
+    public enum CsApiMobilePlatform: Int, Codable { 
+        case _0 = 0
+        case _1 = 1
+        case _2 = 2
     }
     public var timesheetId: Int?
     public var vehicleId: Int?
     public var pathCoordsStringCsv: String?
     public var distanceMeters: Double?
+    /** 0 &#x3D; Unknown, 1 &#x3D; iOS, 2 &#x3D; Android */
     public var mobilePlatform: CsApiMobilePlatform?
 
 

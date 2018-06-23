@@ -29,7 +29,7 @@ open class UsersAPI {
      Create a user in your organisation
      - PUT /api/Users/CreateTimesheetUser
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ],
@@ -37,11 +37,11 @@ open class UsersAPI {
     "OrganisationId" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ],
@@ -49,7 +49,7 @@ open class UsersAPI {
     "OrganisationId" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -93,7 +93,7 @@ open class UsersAPI {
      Get a particular user in your organisation
      - GET /api/Users/GetTimesheetUser
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "IsSubscribedToNewsletter" : true,
@@ -126,11 +126,11 @@ open class UsersAPI {
     "EmailAddress" : "EmailAddress"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 0,
   "Message" : "Message",
   "Data" : {
     "IsSubscribedToNewsletter" : true,
@@ -163,7 +163,7 @@ open class UsersAPI {
     "EmailAddress" : "EmailAddress"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -209,7 +209,7 @@ open class UsersAPI {
      Get users for your organisation
      - GET /api/Users/GetTimesheetUsers
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "IsSubscribedToNewsletter" : true,
@@ -271,11 +271,11 @@ open class UsersAPI {
     "EmailAddress" : "EmailAddress"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 5,
   "Message" : "Message",
   "Data" : [ {
     "IsSubscribedToNewsletter" : true,
@@ -337,7 +337,7 @@ open class UsersAPI {
     "EmailAddress" : "EmailAddress"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -380,7 +380,7 @@ open class UsersAPI {
      Update a user
      - POST /api/Users/UpdateTimesheetUser
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ],
@@ -388,11 +388,11 @@ open class UsersAPI {
     "OrganisationId" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
+  "Status" : 1,
   "Message" : "Message",
   "Data" : {
     "ValidationErrors" : [ "ValidationErrors", "ValidationErrors" ],
@@ -400,7 +400,7 @@ open class UsersAPI {
     "OrganisationId" : 0
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>aeiou</Status>
+  <Status>123</Status>
   <Message>aeiou</Message>
 </null>}]
      
