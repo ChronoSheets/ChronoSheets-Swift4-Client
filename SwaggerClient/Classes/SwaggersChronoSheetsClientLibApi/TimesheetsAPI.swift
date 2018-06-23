@@ -12,6 +12,64 @@ import Alamofire
 
 open class TimesheetsAPI {
     /**
+     Inserts a single timesheet record
+     
+     - parameter request: (body) The timesheet request object 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+        timesheetsCreateSingleTimesheetWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error);
+        }
+    }
+
+
+    /**
+     Inserts a single timesheet record
+     - PUT /api/Timesheets/CreateSingleTimesheet
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : 0
+}}, {contentType=application/xml, example=<null>
+  <Data>123</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : 0
+}}, {contentType=application/xml, example=<null>
+  <Data>123</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter request: (body) The timesheet request object 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     */
+    open class func timesheetsCreateSingleTimesheetWithRequestBuilder(request: CsApiTimesheet, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+        let path = "/api/Timesheets/CreateSingleTimesheet"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
+
+        let url = NSURLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+    }
+
+    /**
      Delete a timesheet
      
      - parameter timesheetId: (query) The ID of the timesheet to delete 
@@ -184,64 +242,6 @@ open class TimesheetsAPI {
         let requestBuilder: RequestBuilder<CsApiApiResponseListTimesheet>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
-    }
-
-    /**
-     Inserts a single timesheet record
-     
-     - parameter request: (body) The timesheet request object 
-     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    open class func timesheetsInsertSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
-        timesheetsInsertSingleTimesheetWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
-        }
-    }
-
-
-    /**
-     Inserts a single timesheet record
-     - PUT /api/Timesheets/InsertSingleTimesheet
-     - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
-  "Message" : "Message",
-  "Data" : 0
-}}, {contentType=application/xml, example=<null>
-  <Data>123</Data>
-  <Status>aeiou</Status>
-  <Message>aeiou</Message>
-</null>}]
-     - examples: [{contentType=application/json, example={
-  "Status" : "Succeeded",
-  "Message" : "Message",
-  "Data" : 0
-}}, {contentType=application/xml, example=<null>
-  <Data>123</Data>
-  <Status>aeiou</Status>
-  <Message>aeiou</Message>
-</null>}]
-     
-     - parameter request: (body) The timesheet request object 
-     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
-
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
-     */
-    open class func timesheetsInsertSingleTimesheetWithRequestBuilder(request: CsApiTimesheet, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
-        let path = "/api/Timesheets/InsertSingleTimesheet"
-        let URLString = SwaggerClientAPI.basePath + path
-        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
-
-        let url = NSURLComponents(string: URLString)
-
-        let nillableHeaders: [String: Any?] = [
-            "x-chronosheets-auth": xChronosheetsAuth
-        ]
-        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
-
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
-
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
