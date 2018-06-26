@@ -18,7 +18,7 @@ open class FleetAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func fleetCreateVehicle(request: CsApiInsertVehicleRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func fleetCreateVehicle(request: CSInsertVehicleRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         fleetCreateVehicleWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class FleetAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func fleetCreateVehicleWithRequestBuilder(request: CsApiInsertVehicleRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func fleetCreateVehicleWithRequestBuilder(request: CSInsertVehicleRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/Fleet/CreateVehicle"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class FleetAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class FleetAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func fleetGetVehicleById(vehicleId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseFleetVehicle?,_ error: Error?) -> Void)) {
+    open class func fleetGetVehicleById(vehicleId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseFleetVehicle?,_ error: Error?) -> Void)) {
         fleetGetVehicleByIdWithRequestBuilder(vehicleId: vehicleId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -128,9 +128,9 @@ open class FleetAPI {
      - parameter vehicleId: (query) The ID of the vehicle you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseFleetVehicle> 
+     - returns: RequestBuilder<CSApiResponseFleetVehicle> 
      */
-    open class func fleetGetVehicleByIdWithRequestBuilder(vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseFleetVehicle> {
+    open class func fleetGetVehicleByIdWithRequestBuilder(vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseFleetVehicle> {
         let path = "/api/Fleet/GetVehicleById"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -145,7 +145,7 @@ open class FleetAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseFleetVehicle>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseFleetVehicle>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -157,7 +157,7 @@ open class FleetAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func fleetGetVehicles(includeDeleted: Bool, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListFleetVehicle?,_ error: Error?) -> Void)) {
+    open class func fleetGetVehicles(includeDeleted: Bool, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListFleetVehicle?,_ error: Error?) -> Void)) {
         fleetGetVehiclesWithRequestBuilder(includeDeleted: includeDeleted, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -231,9 +231,9 @@ open class FleetAPI {
      - parameter includeDeleted: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListFleetVehicle> 
+     - returns: RequestBuilder<CSApiResponseListFleetVehicle> 
      */
-    open class func fleetGetVehiclesWithRequestBuilder(includeDeleted: Bool, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListFleetVehicle> {
+    open class func fleetGetVehiclesWithRequestBuilder(includeDeleted: Bool, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListFleetVehicle> {
         let path = "/api/Fleet/GetVehicles"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -248,7 +248,7 @@ open class FleetAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListFleetVehicle>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListFleetVehicle>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -260,7 +260,7 @@ open class FleetAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func fleetUpdateVehicle(request: CsApiSaveVehicleRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func fleetUpdateVehicle(request: CSSaveVehicleRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         fleetUpdateVehicleWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -292,9 +292,9 @@ open class FleetAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func fleetUpdateVehicleWithRequestBuilder(request: CsApiSaveVehicleRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func fleetUpdateVehicleWithRequestBuilder(request: CSSaveVehicleRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/Fleet/UpdateVehicle"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -306,7 +306,7 @@ open class FleetAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

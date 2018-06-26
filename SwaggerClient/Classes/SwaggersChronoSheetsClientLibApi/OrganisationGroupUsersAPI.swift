@@ -18,7 +18,7 @@ open class OrganisationGroupUsersAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func organisationGroupUsersGetOrganisationGroupUsers(orgGroupId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListUserForManagement?,_ error: Error?) -> Void)) {
+    open class func organisationGroupUsersGetOrganisationGroupUsers(orgGroupId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUserForManagement?,_ error: Error?) -> Void)) {
         organisationGroupUsersGetOrganisationGroupUsersWithRequestBuilder(orgGroupId: orgGroupId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -164,9 +164,9 @@ open class OrganisationGroupUsersAPI {
      - parameter orgGroupId: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListUserForManagement> 
+     - returns: RequestBuilder<CSApiResponseListUserForManagement> 
      */
-    open class func organisationGroupUsersGetOrganisationGroupUsersWithRequestBuilder(orgGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListUserForManagement> {
+    open class func organisationGroupUsersGetOrganisationGroupUsersWithRequestBuilder(orgGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserForManagement> {
         let path = "/api/OrganisationGroupUsers/GetOrganisationGroupUsers"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -181,7 +181,7 @@ open class OrganisationGroupUsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -193,7 +193,7 @@ open class OrganisationGroupUsersAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func organisationGroupUsersUpdateOrganisationGroupUsers(request: CsApiSetOrganisationGroupUsersRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func organisationGroupUsersUpdateOrganisationGroupUsers(request: CSSetOrganisationGroupUsersRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         organisationGroupUsersUpdateOrganisationGroupUsersWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -225,9 +225,9 @@ open class OrganisationGroupUsersAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func organisationGroupUsersUpdateOrganisationGroupUsersWithRequestBuilder(request: CsApiSetOrganisationGroupUsersRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func organisationGroupUsersUpdateOrganisationGroupUsersWithRequestBuilder(request: CSSetOrganisationGroupUsersRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/OrganisationGroupUsers/UpdateOrganisationGroupUsers"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -239,7 +239,7 @@ open class OrganisationGroupUsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

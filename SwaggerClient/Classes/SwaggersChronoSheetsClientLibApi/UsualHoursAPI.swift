@@ -18,7 +18,7 @@ open class UsualHoursAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func usualHoursGetUsualHours(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListUsualHoursDay?,_ error: Error?) -> Void)) {
+    open class func usualHoursGetUsualHours(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUsualHoursDay?,_ error: Error?) -> Void)) {
         usualHoursGetUsualHoursWithRequestBuilder(userId: userId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -128,9 +128,9 @@ open class UsualHoursAPI {
      - parameter userId: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListUsualHoursDay> 
+     - returns: RequestBuilder<CSApiResponseListUsualHoursDay> 
      */
-    open class func usualHoursGetUsualHoursWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListUsualHoursDay> {
+    open class func usualHoursGetUsualHoursWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUsualHoursDay> {
         let path = "/api/UsualHours/GetUsualHours"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -145,7 +145,7 @@ open class UsualHoursAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListUsualHoursDay>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListUsualHoursDay>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -157,7 +157,7 @@ open class UsualHoursAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func usualHoursSetUsualHours(request: CsApiSetUsualHoursRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func usualHoursSetUsualHours(request: CSSetUsualHoursRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         usualHoursSetUsualHoursWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -189,9 +189,9 @@ open class UsualHoursAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func usualHoursSetUsualHoursWithRequestBuilder(request: CsApiSetUsualHoursRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func usualHoursSetUsualHoursWithRequestBuilder(request: CSSetUsualHoursRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/UsualHours/SetUsualHours"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -203,7 +203,7 @@ open class UsualHoursAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

@@ -18,7 +18,7 @@ open class TasksAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tasksCreateTask(request: CsApiInsertTaskRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func tasksCreateTask(request: CSInsertTaskRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         tasksCreateTaskWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class TasksAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func tasksCreateTaskWithRequestBuilder(request: CsApiInsertTaskRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func tasksCreateTaskWithRequestBuilder(request: CSInsertTaskRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/Tasks/CreateTask"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class TasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class TasksAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tasksDeleteTask(taskId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func tasksDeleteTask(taskId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         tasksDeleteTaskWithRequestBuilder(taskId: taskId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -108,9 +108,9 @@ open class TasksAPI {
      - parameter taskId: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func tasksDeleteTaskWithRequestBuilder(taskId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func tasksDeleteTaskWithRequestBuilder(taskId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/Tasks/DeleteTask"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -125,7 +125,7 @@ open class TasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -137,7 +137,7 @@ open class TasksAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tasksGetTaskById(taskId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseTimesheetTask?,_ error: Error?) -> Void)) {
+    open class func tasksGetTaskById(taskId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseTimesheetTask?,_ error: Error?) -> Void)) {
         tasksGetTaskByIdWithRequestBuilder(taskId: taskId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -179,9 +179,9 @@ open class TasksAPI {
      - parameter taskId: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseTimesheetTask> 
+     - returns: RequestBuilder<CSApiResponseTimesheetTask> 
      */
-    open class func tasksGetTaskByIdWithRequestBuilder(taskId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseTimesheetTask> {
+    open class func tasksGetTaskByIdWithRequestBuilder(taskId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTimesheetTask> {
         let path = "/api/Tasks/GetTaskById"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -196,7 +196,7 @@ open class TasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseTimesheetTask>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseTimesheetTask>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -207,7 +207,7 @@ open class TasksAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tasksGetTasks(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListTimesheetTask?,_ error: Error?) -> Void)) {
+    open class func tasksGetTasks(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListTimesheetTask?,_ error: Error?) -> Void)) {
         tasksGetTasksWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -260,9 +260,9 @@ open class TasksAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListTimesheetTask> 
+     - returns: RequestBuilder<CSApiResponseListTimesheetTask> 
      */
-    open class func tasksGetTasksWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListTimesheetTask> {
+    open class func tasksGetTasksWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListTimesheetTask> {
         let path = "/api/Tasks/GetTasks"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -274,7 +274,7 @@ open class TasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListTimesheetTask>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListTimesheetTask>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -286,7 +286,7 @@ open class TasksAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tasksGetTasksForJob(jobId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListTimesheetTask?,_ error: Error?) -> Void)) {
+    open class func tasksGetTasksForJob(jobId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListTimesheetTask?,_ error: Error?) -> Void)) {
         tasksGetTasksForJobWithRequestBuilder(jobId: jobId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -340,9 +340,9 @@ open class TasksAPI {
      - parameter jobId: (query) The ID of the job 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListTimesheetTask> 
+     - returns: RequestBuilder<CSApiResponseListTimesheetTask> 
      */
-    open class func tasksGetTasksForJobWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListTimesheetTask> {
+    open class func tasksGetTasksForJobWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListTimesheetTask> {
         let path = "/api/Tasks/GetTasksForJob"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -357,7 +357,7 @@ open class TasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListTimesheetTask>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListTimesheetTask>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -369,7 +369,7 @@ open class TasksAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tasksUpdateTask(request: CsApiUpdateTaskRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func tasksUpdateTask(request: CSUpdateTaskRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         tasksUpdateTaskWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -401,9 +401,9 @@ open class TasksAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func tasksUpdateTaskWithRequestBuilder(request: CsApiUpdateTaskRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func tasksUpdateTaskWithRequestBuilder(request: CSUpdateTaskRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/Tasks/UpdateTask"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -415,7 +415,7 @@ open class TasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

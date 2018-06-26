@@ -20,7 +20,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
+    open class func reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
         reportsGetAllChartsDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -290,9 +290,9 @@ open class ReportsAPI {
      - parameter userIds: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseCombinedReportsData> 
+     - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
      */
-    open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseCombinedReportsData> {
+    open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseCombinedReportsData> {
         let path = "/api/Reports/GetAllChartsDataAdmin"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -309,7 +309,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseCombinedReportsData>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseCombinedReportsData>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -322,7 +322,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
+    open class func reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
         reportsGetAllChartsDataUserWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -591,9 +591,9 @@ open class ReportsAPI {
      - parameter endDate: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseCombinedReportsData> 
+     - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
      */
-    open class func reportsGetAllChartsDataUserWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseCombinedReportsData> {
+    open class func reportsGetAllChartsDataUserWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseCombinedReportsData> {
         let path = "/api/Reports/GetAllChartsDataUser"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -609,7 +609,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseCombinedReportsData>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseCombinedReportsData>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -621,7 +621,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetOrgTripById(tripId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseTrip?,_ error: Error?) -> Void)) {
+    open class func reportsGetOrgTripById(tripId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseTrip?,_ error: Error?) -> Void)) {
         reportsGetOrgTripByIdWithRequestBuilder(tripId: tripId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -703,9 +703,9 @@ open class ReportsAPI {
      - parameter tripId: (query) The ID of the trip 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseTrip> 
+     - returns: RequestBuilder<CSApiResponseTrip> 
      */
-    open class func reportsGetOrgTripByIdWithRequestBuilder(tripId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseTrip> {
+    open class func reportsGetOrgTripByIdWithRequestBuilder(tripId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTrip> {
         let path = "/api/Reports/GetOrgTripById"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -720,7 +720,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseTrip>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseTrip>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -736,7 +736,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment?,_ error: Error?) -> Void)) {
+    open class func reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment?,_ error: Error?) -> Void)) {
         reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -886,9 +886,9 @@ open class ReportsAPI {
      - parameter userIds: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment> 
+     - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> 
      */
-    open class func reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment> {
+    open class func reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> {
         let path = "/api/Reports/GetOrganisationTimesheetFileAttachments"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -907,7 +907,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseForPaginatedListOrgReportTimesheetFileAttachment>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -923,7 +923,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseForPaginatedListOrgReportTrip?,_ error: Error?) -> Void)) {
+    open class func reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTrip?,_ error: Error?) -> Void)) {
         reportsGetOrganisationTripsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -1081,9 +1081,9 @@ open class ReportsAPI {
      - parameter userIds: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseForPaginatedListOrgReportTrip> 
+     - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> 
      */
-    open class func reportsGetOrganisationTripsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseForPaginatedListOrgReportTrip> {
+    open class func reportsGetOrganisationTripsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> {
         let path = "/api/Reports/GetOrganisationTrips"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1102,7 +1102,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseForPaginatedListOrgReportTrip>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1110,7 +1110,7 @@ open class ReportsAPI {
     /**
      * enum for parameter sort
      */
-    public enum CsApiSort_reportsGetRawDataAdmin: String { 
+    public enum CSSort_reportsGetRawDataAdmin: String { 
         case emailAddress = "EmailAddress"
         case jobCode = "JobCode"
         case taskName = "TaskName"
@@ -1130,7 +1130,7 @@ open class ReportsAPI {
     /**
      * enum for parameter order
      */
-    public enum CsApiOrder_reportsGetRawDataAdmin: String { 
+    public enum CSOrder_reportsGetRawDataAdmin: String { 
         case ascending = "Ascending"
         case descending = "Descending"
     }
@@ -1148,7 +1148,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: String, sort: CsApiSort_reportsGetRawDataAdmin, order: CsApiOrder_reportsGetRawDataAdmin, skip: Int, take: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseForPaginatedListRawReportItem?,_ error: Error?) -> Void)) {
+    open class func reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: String, sort: CSSort_reportsGetRawDataAdmin, order: CSOrder_reportsGetRawDataAdmin, skip: Int, take: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListRawReportItem?,_ error: Error?) -> Void)) {
         reportsGetRawDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, sort: sort, order: order, skip: skip, take: take, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -1256,9 +1256,9 @@ open class ReportsAPI {
      - parameter take: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseForPaginatedListRawReportItem> 
+     - returns: RequestBuilder<CSApiResponseForPaginatedListRawReportItem> 
      */
-    open class func reportsGetRawDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, sort: CsApiSort_reportsGetRawDataAdmin, order: CsApiOrder_reportsGetRawDataAdmin, skip: Int, take: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseForPaginatedListRawReportItem> {
+    open class func reportsGetRawDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, sort: CSSort_reportsGetRawDataAdmin, order: CSOrder_reportsGetRawDataAdmin, skip: Int, take: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListRawReportItem> {
         let path = "/api/Reports/GetRawDataAdmin"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1279,7 +1279,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseForPaginatedListRawReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListRawReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1293,7 +1293,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListProjectCostingReportItem?,_ error: Error?) -> Void)) {
+    open class func reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListProjectCostingReportItem?,_ error: Error?) -> Void)) {
         reportsProjectCostingsAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -1357,9 +1357,9 @@ open class ReportsAPI {
      - parameter userIds: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListProjectCostingReportItem> 
+     - returns: RequestBuilder<CSApiResponseListProjectCostingReportItem> 
      */
-    open class func reportsProjectCostingsAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListProjectCostingReportItem> {
+    open class func reportsProjectCostingsAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListProjectCostingReportItem> {
         let path = "/api/Reports/ProjectCostingsAdmin"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1376,7 +1376,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListProjectCostingReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListProjectCostingReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1389,7 +1389,7 @@ open class ReportsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListJobSeriesReportItem?,_ error: Error?) -> Void)) {
+    open class func reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListJobSeriesReportItem?,_ error: Error?) -> Void)) {
         reportsUserJobsOverTimeWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -1460,9 +1460,9 @@ open class ReportsAPI {
      - parameter endDate: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListJobSeriesReportItem> 
+     - returns: RequestBuilder<CSApiResponseListJobSeriesReportItem> 
      */
-    open class func reportsUserJobsOverTimeWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListJobSeriesReportItem> {
+    open class func reportsUserJobsOverTimeWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListJobSeriesReportItem> {
         let path = "/api/Reports/UserJobsOverTime"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1478,7 +1478,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListJobSeriesReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListJobSeriesReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

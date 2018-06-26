@@ -18,7 +18,7 @@ open class UserJobFavouritesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userJobFavouritesCreateJobFavourite(request: CsApiInsertUserJobFavouriteRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func userJobFavouritesCreateJobFavourite(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         userJobFavouritesCreateJobFavouriteWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class UserJobFavouritesAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func userJobFavouritesCreateJobFavouriteWithRequestBuilder(request: CsApiInsertUserJobFavouriteRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func userJobFavouritesCreateJobFavouriteWithRequestBuilder(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/UserJobFavourites/CreateJobFavourite"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class UserJobFavouritesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class UserJobFavouritesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userJobFavouritesDeleteJobFavourite(jobId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func userJobFavouritesDeleteJobFavourite(jobId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         userJobFavouritesDeleteJobFavouriteWithRequestBuilder(jobId: jobId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -108,9 +108,9 @@ open class UserJobFavouritesAPI {
      - parameter jobId: (query) The ID of the Job 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func userJobFavouritesDeleteJobFavouriteWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func userJobFavouritesDeleteJobFavouriteWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/UserJobFavourites/DeleteJobFavourite"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -125,7 +125,7 @@ open class UserJobFavouritesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -136,7 +136,7 @@ open class UserJobFavouritesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userJobFavouritesGetJobFavourites(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListUserJobFavourite?,_ error: Error?) -> Void)) {
+    open class func userJobFavouritesGetJobFavourites(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUserJobFavourite?,_ error: Error?) -> Void)) {
         userJobFavouritesGetJobFavouritesWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -177,9 +177,9 @@ open class UserJobFavouritesAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListUserJobFavourite> 
+     - returns: RequestBuilder<CSApiResponseListUserJobFavourite> 
      */
-    open class func userJobFavouritesGetJobFavouritesWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListUserJobFavourite> {
+    open class func userJobFavouritesGetJobFavouritesWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserJobFavourite> {
         let path = "/api/UserJobFavourites/GetJobFavourites"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -191,7 +191,7 @@ open class UserJobFavouritesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListUserJobFavourite>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListUserJobFavourite>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

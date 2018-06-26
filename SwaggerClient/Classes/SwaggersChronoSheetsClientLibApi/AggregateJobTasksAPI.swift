@@ -17,7 +17,7 @@ open class AggregateJobTasksAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListAggregateJobCode?,_ error: Error?) -> Void)) {
+    open class func aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListAggregateJobCode?,_ error: Error?) -> Void)) {
         aggregateJobTasksGetAggregateJobTasksWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -122,9 +122,9 @@ open class AggregateJobTasksAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListAggregateJobCode> 
+     - returns: RequestBuilder<CSApiResponseListAggregateJobCode> 
      */
-    open class func aggregateJobTasksGetAggregateJobTasksWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListAggregateJobCode> {
+    open class func aggregateJobTasksGetAggregateJobTasksWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListAggregateJobCode> {
         let path = "/api/AggregateJobTasks/GetAggregateJobTasks"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -136,7 +136,7 @@ open class AggregateJobTasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListAggregateJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListAggregateJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

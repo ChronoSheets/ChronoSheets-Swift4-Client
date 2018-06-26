@@ -18,7 +18,7 @@ open class UsersAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func usersCreateTimesheetUser(request: CsApiInsertUserRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInsertUserResponse?,_ error: Error?) -> Void)) {
+    open class func usersCreateTimesheetUser(request: CSInsertUserRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInsertUserResponse?,_ error: Error?) -> Void)) {
         usersCreateTimesheetUserWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -56,9 +56,9 @@ open class UsersAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInsertUserResponse> 
+     - returns: RequestBuilder<CSApiResponseInsertUserResponse> 
      */
-    open class func usersCreateTimesheetUserWithRequestBuilder(request: CsApiInsertUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInsertUserResponse> {
+    open class func usersCreateTimesheetUserWithRequestBuilder(request: CSInsertUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInsertUserResponse> {
         let path = "/api/Users/CreateTimesheetUser"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -70,7 +70,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInsertUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInsertUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -82,7 +82,7 @@ open class UsersAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func usersGetTimesheetUser(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseUserForManagement?,_ error: Error?) -> Void)) {
+    open class func usersGetTimesheetUser(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUserForManagement?,_ error: Error?) -> Void)) {
         usersGetTimesheetUserWithRequestBuilder(userId: userId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -170,9 +170,9 @@ open class UsersAPI {
      - parameter userId: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseUserForManagement> 
+     - returns: RequestBuilder<CSApiResponseUserForManagement> 
      */
-    open class func usersGetTimesheetUserWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseUserForManagement> {
+    open class func usersGetTimesheetUserWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUserForManagement> {
         let path = "/api/Users/GetTimesheetUser"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -187,7 +187,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -198,7 +198,7 @@ open class UsersAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func usersGetTimesheetUsers(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListUserForManagement?,_ error: Error?) -> Void)) {
+    open class func usersGetTimesheetUsers(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUserForManagement?,_ error: Error?) -> Void)) {
         usersGetTimesheetUsersWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -343,9 +343,9 @@ open class UsersAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListUserForManagement> 
+     - returns: RequestBuilder<CSApiResponseListUserForManagement> 
      */
-    open class func usersGetTimesheetUsersWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListUserForManagement> {
+    open class func usersGetTimesheetUsersWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserForManagement> {
         let path = "/api/Users/GetTimesheetUsers"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -357,7 +357,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -369,7 +369,7 @@ open class UsersAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func usersUpdateTimesheetUser(request: CsApiUpdateUserRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseUpdateUserResponse?,_ error: Error?) -> Void)) {
+    open class func usersUpdateTimesheetUser(request: CSUpdateUserRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUpdateUserResponse?,_ error: Error?) -> Void)) {
         usersUpdateTimesheetUserWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -407,9 +407,9 @@ open class UsersAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseUpdateUserResponse> 
+     - returns: RequestBuilder<CSApiResponseUpdateUserResponse> 
      */
-    open class func usersUpdateTimesheetUserWithRequestBuilder(request: CsApiUpdateUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseUpdateUserResponse> {
+    open class func usersUpdateTimesheetUserWithRequestBuilder(request: CSUpdateUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUpdateUserResponse> {
         let path = "/api/Users/UpdateTimesheetUser"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -421,7 +421,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseUpdateUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUpdateUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

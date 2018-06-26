@@ -18,7 +18,7 @@ open class UserPayRatesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userPayRatesCreatePayRate(request: CsApiInsertUserHourlyRateRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func userPayRatesCreatePayRate(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         userPayRatesCreatePayRateWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class UserPayRatesAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func userPayRatesCreatePayRateWithRequestBuilder(request: CsApiInsertUserHourlyRateRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func userPayRatesCreatePayRateWithRequestBuilder(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/UserPayRates/CreatePayRate"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class UserPayRatesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class UserPayRatesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userPayRatesGetPayRates(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListUserHourlyRate?,_ error: Error?) -> Void)) {
+    open class func userPayRatesGetPayRates(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUserHourlyRate?,_ error: Error?) -> Void)) {
         userPayRatesGetPayRatesWithRequestBuilder(userId: userId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -142,9 +142,9 @@ open class UserPayRatesAPI {
      - parameter userId: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListUserHourlyRate> 
+     - returns: RequestBuilder<CSApiResponseListUserHourlyRate> 
      */
-    open class func userPayRatesGetPayRatesWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListUserHourlyRate> {
+    open class func userPayRatesGetPayRatesWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserHourlyRate> {
         let path = "/api/UserPayRates/GetPayRates"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -159,7 +159,7 @@ open class UserPayRatesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListUserHourlyRate>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListUserHourlyRate>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

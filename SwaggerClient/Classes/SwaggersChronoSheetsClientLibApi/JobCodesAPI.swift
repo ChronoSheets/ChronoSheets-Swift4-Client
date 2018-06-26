@@ -18,7 +18,7 @@ open class JobCodesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func jobCodesCreateJobCode(request: CsApiInsertJobCodeRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func jobCodesCreateJobCode(request: CSInsertJobCodeRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         jobCodesCreateJobCodeWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class JobCodesAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func jobCodesCreateJobCodeWithRequestBuilder(request: CsApiInsertJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func jobCodesCreateJobCodeWithRequestBuilder(request: CSInsertJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/JobCodes/CreateJobCode"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class JobCodesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func jobCodesDeleteJobCode(jobCodeId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func jobCodesDeleteJobCode(jobCodeId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         jobCodesDeleteJobCodeWithRequestBuilder(jobCodeId: jobCodeId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -108,9 +108,9 @@ open class JobCodesAPI {
      - parameter jobCodeId: (query) The ID of the job code your want to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func jobCodesDeleteJobCodeWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func jobCodesDeleteJobCodeWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/JobCodes/DeleteJobCode"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -125,7 +125,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -137,7 +137,7 @@ open class JobCodesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func jobCodesGetJobCodeById(jobCodeId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseJobCode?,_ error: Error?) -> Void)) {
+    open class func jobCodesGetJobCodeById(jobCodeId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseJobCode?,_ error: Error?) -> Void)) {
         jobCodesGetJobCodeByIdWithRequestBuilder(jobCodeId: jobCodeId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -185,9 +185,9 @@ open class JobCodesAPI {
      - parameter jobCodeId: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseJobCode> 
+     - returns: RequestBuilder<CSApiResponseJobCode> 
      */
-    open class func jobCodesGetJobCodeByIdWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseJobCode> {
+    open class func jobCodesGetJobCodeByIdWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseJobCode> {
         let path = "/api/JobCodes/GetJobCodeById"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -202,7 +202,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -213,7 +213,7 @@ open class JobCodesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func jobCodesGetJobCodes(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListJobCode?,_ error: Error?) -> Void)) {
+    open class func jobCodesGetJobCodes(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListJobCode?,_ error: Error?) -> Void)) {
         jobCodesGetJobCodesWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -278,9 +278,9 @@ open class JobCodesAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListJobCode> 
+     - returns: RequestBuilder<CSApiResponseListJobCode> 
      */
-    open class func jobCodesGetJobCodesWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListJobCode> {
+    open class func jobCodesGetJobCodesWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListJobCode> {
         let path = "/api/JobCodes/GetJobCodes"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -292,7 +292,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -304,7 +304,7 @@ open class JobCodesAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func jobCodesUpdateJobCode(request: CsApiUpdateJobCodeRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func jobCodesUpdateJobCode(request: CSUpdateJobCodeRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         jobCodesUpdateJobCodeWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -336,9 +336,9 @@ open class JobCodesAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func jobCodesUpdateJobCodeWithRequestBuilder(request: CsApiUpdateJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func jobCodesUpdateJobCodeWithRequestBuilder(request: CSUpdateJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/JobCodes/UpdateJobCode"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -350,7 +350,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

@@ -18,7 +18,7 @@ open class TimesheetsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timesheetsCreateSingleTimesheet(request: CsApiTimesheet, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func timesheetsCreateSingleTimesheet(request: CSTimesheet, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         timesheetsCreateSingleTimesheetWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class TimesheetsAPI {
      - parameter request: (body) The timesheet request object 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func timesheetsCreateSingleTimesheetWithRequestBuilder(request: CsApiTimesheet, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func timesheetsCreateSingleTimesheetWithRequestBuilder(request: CSTimesheet, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/Timesheets/CreateSingleTimesheet"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class TimesheetsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class TimesheetsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timesheetsDeleteTimesheet(timesheetId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func timesheetsDeleteTimesheet(timesheetId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         timesheetsDeleteTimesheetWithRequestBuilder(timesheetId: timesheetId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -108,9 +108,9 @@ open class TimesheetsAPI {
      - parameter timesheetId: (query) The ID of the timesheet to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func timesheetsDeleteTimesheetWithRequestBuilder(timesheetId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func timesheetsDeleteTimesheetWithRequestBuilder(timesheetId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/Timesheets/DeleteTimesheet"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -125,7 +125,7 @@ open class TimesheetsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -138,7 +138,7 @@ open class TimesheetsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListTimesheet?,_ error: Error?) -> Void)) {
+    open class func timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListTimesheet?,_ error: Error?) -> Void)) {
         timesheetsGetTimesheetsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -221,9 +221,9 @@ open class TimesheetsAPI {
      - parameter endDate: (query) The end date of the date range 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListTimesheet> 
+     - returns: RequestBuilder<CSApiResponseListTimesheet> 
      */
-    open class func timesheetsGetTimesheetsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListTimesheet> {
+    open class func timesheetsGetTimesheetsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListTimesheet> {
         let path = "/api/Timesheets/GetTimesheets"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -239,7 +239,7 @@ open class TimesheetsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListTimesheet>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListTimesheet>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -251,7 +251,7 @@ open class TimesheetsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timesheetsUpdateTimesheets(request: CsApiBatchUpdateTimesheetRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListInt32?,_ error: Error?) -> Void)) {
+    open class func timesheetsUpdateTimesheets(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListInt32?,_ error: Error?) -> Void)) {
         timesheetsUpdateTimesheetsWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -283,9 +283,9 @@ open class TimesheetsAPI {
      - parameter request: (body) The batch update timesheets request 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListInt32> 
+     - returns: RequestBuilder<CSApiResponseListInt32> 
      */
-    open class func timesheetsUpdateTimesheetsWithRequestBuilder(request: CsApiBatchUpdateTimesheetRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListInt32> {
+    open class func timesheetsUpdateTimesheetsWithRequestBuilder(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListInt32> {
         let path = "/api/Timesheets/UpdateTimesheets"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -297,7 +297,7 @@ open class TimesheetsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

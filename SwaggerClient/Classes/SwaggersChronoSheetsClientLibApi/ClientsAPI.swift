@@ -18,7 +18,7 @@ open class ClientsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func clientsCreateClient(request: CsApiInsertClientRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func clientsCreateClient(request: CSInsertClientRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         clientsCreateClientWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class ClientsAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func clientsCreateClientWithRequestBuilder(request: CsApiInsertClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func clientsCreateClientWithRequestBuilder(request: CSInsertClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/Clients/CreateClient"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class ClientsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func clientsGetClient(clientId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseClient?,_ error: Error?) -> Void)) {
+    open class func clientsGetClient(clientId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseClient?,_ error: Error?) -> Void)) {
         clientsGetClientWithRequestBuilder(clientId: clientId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -136,9 +136,9 @@ open class ClientsAPI {
      - parameter clientId: (query) The ID of the client you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseClient> 
+     - returns: RequestBuilder<CSApiResponseClient> 
      */
-    open class func clientsGetClientWithRequestBuilder(clientId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseClient> {
+    open class func clientsGetClientWithRequestBuilder(clientId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseClient> {
         let path = "/api/Clients/GetClient"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -153,7 +153,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseClient>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseClient>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -164,7 +164,7 @@ open class ClientsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func clientsGetClients(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListClient?,_ error: Error?) -> Void)) {
+    open class func clientsGetClients(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListClient?,_ error: Error?) -> Void)) {
         clientsGetClientsWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -253,9 +253,9 @@ open class ClientsAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListClient> 
+     - returns: RequestBuilder<CSApiResponseListClient> 
      */
-    open class func clientsGetClientsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListClient> {
+    open class func clientsGetClientsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListClient> {
         let path = "/api/Clients/GetClients"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -267,7 +267,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListClient>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListClient>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -279,7 +279,7 @@ open class ClientsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func clientsUpdateClient(request: CsApiSaveClientRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func clientsUpdateClient(request: CSSaveClientRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         clientsUpdateClientWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -311,9 +311,9 @@ open class ClientsAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func clientsUpdateClientWithRequestBuilder(request: CsApiSaveClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func clientsUpdateClientWithRequestBuilder(request: CSSaveClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/Clients/UpdateClient"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -325,7 +325,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

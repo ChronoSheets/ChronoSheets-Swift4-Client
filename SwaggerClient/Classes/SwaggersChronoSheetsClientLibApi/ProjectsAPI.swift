@@ -18,7 +18,7 @@ open class ProjectsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func projectsCreateProject(request: CsApiInsertProjectRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseInt32?,_ error: Error?) -> Void)) {
+    open class func projectsCreateProject(request: CSInsertProjectRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         projectsCreateProjectWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -50,9 +50,9 @@ open class ProjectsAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseInt32> 
+     - returns: RequestBuilder<CSApiResponseInt32> 
      */
-    open class func projectsCreateProjectWithRequestBuilder(request: CsApiInsertProjectRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseInt32> {
+    open class func projectsCreateProjectWithRequestBuilder(request: CSInsertProjectRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/Projects/CreateProject"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -64,7 +64,7 @@ open class ProjectsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -76,7 +76,7 @@ open class ProjectsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func projectsGetProjectById(projectId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseProject?,_ error: Error?) -> Void)) {
+    open class func projectsGetProjectById(projectId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseProject?,_ error: Error?) -> Void)) {
         projectsGetProjectByIdWithRequestBuilder(projectId: projectId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -122,9 +122,9 @@ open class ProjectsAPI {
      - parameter projectId: (query) The ID of the project 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseProject> 
+     - returns: RequestBuilder<CSApiResponseProject> 
      */
-    open class func projectsGetProjectByIdWithRequestBuilder(projectId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseProject> {
+    open class func projectsGetProjectByIdWithRequestBuilder(projectId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseProject> {
         let path = "/api/Projects/GetProjectById"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -139,7 +139,7 @@ open class ProjectsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseProject>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseProject>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -151,7 +151,7 @@ open class ProjectsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func projectsGetProjectsForClient(clientId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseListProject?,_ error: Error?) -> Void)) {
+    open class func projectsGetProjectsForClient(clientId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListProject?,_ error: Error?) -> Void)) {
         projectsGetProjectsForClientWithRequestBuilder(clientId: clientId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -213,9 +213,9 @@ open class ProjectsAPI {
      - parameter clientId: (query) The ID of the client 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseListProject> 
+     - returns: RequestBuilder<CSApiResponseListProject> 
      */
-    open class func projectsGetProjectsForClientWithRequestBuilder(clientId: Int, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseListProject> {
+    open class func projectsGetProjectsForClientWithRequestBuilder(clientId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListProject> {
         let path = "/api/Projects/GetProjectsForClient"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -230,7 +230,7 @@ open class ProjectsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseListProject>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListProject>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -242,7 +242,7 @@ open class ProjectsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func projectsUpdateProject(request: CsApiUpdateProjectRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func projectsUpdateProject(request: CSUpdateProjectRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         projectsUpdateProjectWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -274,9 +274,9 @@ open class ProjectsAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func projectsUpdateProjectWithRequestBuilder(request: CsApiUpdateProjectRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func projectsUpdateProjectWithRequestBuilder(request: CSUpdateProjectRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/Projects/UpdateProject"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -288,7 +288,7 @@ open class ProjectsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

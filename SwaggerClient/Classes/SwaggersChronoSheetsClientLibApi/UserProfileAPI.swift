@@ -16,7 +16,7 @@ open class UserProfileAPI {
      - parameter request: (body)  
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userProfileDoLogin(request: CsApiDoLoginRequest, completion: @escaping ((_ data: CsApiApiResponseDoLoginResponse?,_ error: Error?) -> Void)) {
+    open class func userProfileDoLogin(request: CSDoLoginRequest, completion: @escaping ((_ data: CSApiResponseDoLoginResponse?,_ error: Error?) -> Void)) {
         userProfileDoLoginWithRequestBuilder(request: request).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -106,9 +106,9 @@ open class UserProfileAPI {
      
      - parameter request: (body)  
 
-     - returns: RequestBuilder<CsApiApiResponseDoLoginResponse> 
+     - returns: RequestBuilder<CSApiResponseDoLoginResponse> 
      */
-    open class func userProfileDoLoginWithRequestBuilder(request: CsApiDoLoginRequest) -> RequestBuilder<CsApiApiResponseDoLoginResponse> {
+    open class func userProfileDoLoginWithRequestBuilder(request: CSDoLoginRequest) -> RequestBuilder<CSApiResponseDoLoginResponse> {
         let path = "/api/UserProfile/DoLogin"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -116,7 +116,7 @@ open class UserProfileAPI {
         let url = NSURLComponents(string: URLString)
 
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseDoLoginResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseDoLoginResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
@@ -126,7 +126,7 @@ open class UserProfileAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userProfileDoLogout(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func userProfileDoLogout(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         userProfileDoLogoutWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -156,9 +156,9 @@ open class UserProfileAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func userProfileDoLogoutWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func userProfileDoLogoutWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/UserProfile/DoLogout"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -170,7 +170,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -180,7 +180,7 @@ open class UserProfileAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userProfileGetMyProfile(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseUserProfile?,_ error: Error?) -> Void)) {
+    open class func userProfileGetMyProfile(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUserProfile?,_ error: Error?) -> Void)) {
         userProfileGetMyProfileWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -234,9 +234,9 @@ open class UserProfileAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseUserProfile> 
+     - returns: RequestBuilder<CSApiResponseUserProfile> 
      */
-    open class func userProfileGetMyProfileWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseUserProfile> {
+    open class func userProfileGetMyProfileWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUserProfile> {
         let path = "/api/UserProfile/GetMyProfile"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -248,7 +248,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseUserProfile>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUserProfile>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -258,7 +258,7 @@ open class UserProfileAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userProfileKeepSessionAlive(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseBoolean?,_ error: Error?) -> Void)) {
+    open class func userProfileKeepSessionAlive(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         userProfileKeepSessionAliveWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -288,9 +288,9 @@ open class UserProfileAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseBoolean> 
+     - returns: RequestBuilder<CSApiResponseBoolean> 
      */
-    open class func userProfileKeepSessionAliveWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseBoolean> {
+    open class func userProfileKeepSessionAliveWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/UserProfile/KeepSessionAlive"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -302,7 +302,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -313,7 +313,7 @@ open class UserProfileAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userProfileUpdateMyProfile(request: CsApiUpdateMyProfileRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseSignupResponse?,_ error: Error?) -> Void)) {
+    open class func userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseSignupResponse?,_ error: Error?) -> Void)) {
         userProfileUpdateMyProfileWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -350,9 +350,9 @@ open class UserProfileAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseSignupResponse> 
+     - returns: RequestBuilder<CSApiResponseSignupResponse> 
      */
-    open class func userProfileUpdateMyProfileWithRequestBuilder(request: CsApiUpdateMyProfileRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseSignupResponse> {
+    open class func userProfileUpdateMyProfileWithRequestBuilder(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseSignupResponse> {
         let path = "/api/UserProfile/UpdateMyProfile"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -364,7 +364,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseSignupResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseSignupResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

@@ -17,7 +17,7 @@ open class OrganisationAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func organisationGetOrganisation(xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseOrganisation?,_ error: Error?) -> Void)) {
+    open class func organisationGetOrganisation(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseOrganisation?,_ error: Error?) -> Void)) {
         organisationGetOrganisationWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -78,9 +78,9 @@ open class OrganisationAPI {
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseOrganisation> 
+     - returns: RequestBuilder<CSApiResponseOrganisation> 
      */
-    open class func organisationGetOrganisationWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseOrganisation> {
+    open class func organisationGetOrganisationWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseOrganisation> {
         let path = "/api/Organisation/GetOrganisation"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -92,7 +92,7 @@ open class OrganisationAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseOrganisation>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseOrganisation>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -104,7 +104,7 @@ open class OrganisationAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func organisationUpdateOrganisation(request: CsApiUpdateOrganisationRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CsApiApiResponseUpdateOrganisationResponse?,_ error: Error?) -> Void)) {
+    open class func organisationUpdateOrganisation(request: CSUpdateOrganisationRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUpdateOrganisationResponse?,_ error: Error?) -> Void)) {
         organisationUpdateOrganisationWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -138,9 +138,9 @@ open class OrganisationAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CsApiApiResponseUpdateOrganisationResponse> 
+     - returns: RequestBuilder<CSApiResponseUpdateOrganisationResponse> 
      */
-    open class func organisationUpdateOrganisationWithRequestBuilder(request: CsApiUpdateOrganisationRequest, xChronosheetsAuth: String) -> RequestBuilder<CsApiApiResponseUpdateOrganisationResponse> {
+    open class func organisationUpdateOrganisationWithRequestBuilder(request: CSUpdateOrganisationRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUpdateOrganisationResponse> {
         let path = "/api/Organisation/UpdateOrganisation"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -152,7 +152,7 @@ open class OrganisationAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CsApiApiResponseUpdateOrganisationResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUpdateOrganisationResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
