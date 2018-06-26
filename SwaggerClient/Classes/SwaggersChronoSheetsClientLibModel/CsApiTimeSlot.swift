@@ -11,16 +11,15 @@ import Foundation
 
 open class CsApiTimeSlot: Codable {
 
-    public enum CsApiDayType: Int, Codable { 
-        case _0 = 0
-        case _1 = 1
-        case _2 = 2
-        case _3 = 3
-        case _4 = 4
-        case _5 = 5
-        case _6 = 6
+    public enum CsApiDayType: String, Codable { 
+        case monday = "Monday"
+        case tuesday = "Tuesday"
+        case wednesday = "Wednesday"
+        case thursday = "Thursday"
+        case friday = "Friday"
+        case saturday = "Saturday"
+        case sunday = "Sunday"
     }
-    /** 0 &#x3D; Monday, 1 &#x3D; Tuesday, 2 &#x3D; Wednesday, 3 &#x3D; Thursday, 4 &#x3D; Friday, 5 &#x3D; Saturday, 6 &#x3D; Sunday */
     public var dayType: CsApiDayType?
     public var usualHourId: Int?
     public var startHour: Int?

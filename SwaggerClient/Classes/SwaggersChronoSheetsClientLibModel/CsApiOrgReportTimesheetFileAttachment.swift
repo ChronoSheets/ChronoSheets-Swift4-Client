@@ -11,20 +11,20 @@ import Foundation
 
 open class CsApiOrgReportTimesheetFileAttachment: Codable {
 
-    public enum CsApiMobilePlatform: Int, Codable { 
-        case _0 = 0
-        case _1 = 1
-        case _2 = 2
+    public enum CsApiMobilePlatform: String, Codable { 
+        case unknown = "Unknown"
+        case ios = "iOS"
+        case android = "Android"
     }
-    public enum CsApiAttachmentType: Int, Codable { 
-        case _1 = 1
-        case _30 = 30
-        case _31 = 31
-        case _32 = 32
-        case _33 = 33
-        case _34 = 34
-        case _35 = 35
-        case _100 = 100
+    public enum CsApiAttachmentType: String, Codable { 
+        case image = "Image"
+        case wordDoc = "WordDoc"
+        case pdf = "Pdf"
+        case msspreadsheet = "MSSpreadSheet"
+        case mspowerpoint = "MSPowerPoint"
+        case richTextFormat = "RichTextFormat"
+        case zipFile = "ZipFile"
+        case other = "Other"
     }
     public var username: String?
     public var emailAddress: String?
@@ -40,9 +40,7 @@ open class CsApiOrgReportTimesheetFileAttachment: Codable {
     public var fileAttachmentId: Int?
     public var userId: Int?
     public var orgId: Int?
-    /** 0 &#x3D; Unknown, 1 &#x3D; iOS, 2 &#x3D; Android */
     public var mobilePlatform: CsApiMobilePlatform?
-    /** 1 &#x3D; Image, 30 &#x3D; WordDoc, 31 &#x3D; Pdf, 32 &#x3D; MSSpreadSheet, 33 &#x3D; MSPowerPoint, 34 &#x3D; RichTextFormat, 35 &#x3D; ZipFile, 100 &#x3D; Other */
     public var attachmentType: CsApiAttachmentType?
     public var notes: String?
     public var nonImageFilePath: String?

@@ -29,21 +29,21 @@ open class UserPayRatesAPI {
      Create a new pay rate for a particular user, archiving the previous pay rate
      - PUT /api/UserPayRates/CreatePayRate
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,7 +87,7 @@ open class UserPayRatesAPI {
      Get a collection of pay rates for a particular user, specified by user id
      - GET /api/UserPayRates/GetPayRates
      - examples: [{contentType=application/json, example={
-  "Status" : 2,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "IsCurrent" : true,
@@ -109,11 +109,11 @@ open class UserPayRatesAPI {
     "HourlyRate" : 5.962133916683182
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 2,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "IsCurrent" : true,
@@ -135,7 +135,7 @@ open class UserPayRatesAPI {
     "HourlyRate" : 5.962133916683182
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      

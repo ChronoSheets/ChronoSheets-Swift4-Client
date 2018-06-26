@@ -29,21 +29,21 @@ open class ProjectsAPI {
      Create a project
      - PUT /api/Projects/CreateProject
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,7 +87,7 @@ open class ProjectsAPI {
      Get project by Id
      - GET /api/Projects/GetProjectById
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
@@ -99,11 +99,11 @@ open class ProjectsAPI {
     "CostEstimation" : 5.962133916683182
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
@@ -115,7 +115,7 @@ open class ProjectsAPI {
     "CostEstimation" : 5.962133916683182
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -162,7 +162,7 @@ open class ProjectsAPI {
      Get projects for a particular client
      - GET /api/Projects/GetProjectsForClient
      - examples: [{contentType=application/json, example={
-  "Status" : 5,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
@@ -182,11 +182,11 @@ open class ProjectsAPI {
     "CostEstimation" : 5.962133916683182
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 5,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
@@ -206,7 +206,7 @@ open class ProjectsAPI {
     "CostEstimation" : 5.962133916683182
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -253,21 +253,21 @@ open class ProjectsAPI {
      Update a project
      - POST /api/Projects/UpdateProject
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      

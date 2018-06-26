@@ -29,21 +29,21 @@ open class JobCodesAPI {
      Create a job code
      - PUT /api/JobCodes/CreateJobCode
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,21 +87,21 @@ open class JobCodesAPI {
      Delete a job code
      - DELETE /api/JobCodes/DeleteJobCode
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -148,7 +148,7 @@ open class JobCodesAPI {
      Get a particular job code by job code id
      - GET /api/JobCodes/GetJobCodeById
      - examples: [{contentType=application/json, example={
-  "Status" : 5,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "Project" : "Project",
@@ -161,11 +161,11 @@ open class JobCodesAPI {
     "Code" : "Code"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 5,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "Project" : "Project",
@@ -178,7 +178,7 @@ open class JobCodesAPI {
     "Code" : "Code"
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -224,7 +224,7 @@ open class JobCodesAPI {
      Get job codes for your organisation
      - GET /api/JobCodes/GetJobCodes
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "Project" : "Project",
@@ -246,11 +246,11 @@ open class JobCodesAPI {
     "Code" : "Code"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "Project" : "Project",
@@ -272,7 +272,7 @@ open class JobCodesAPI {
     "Code" : "Code"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -315,21 +315,21 @@ open class JobCodesAPI {
      Update a job code
      - POST /api/JobCodes/UpdateJobCode
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      

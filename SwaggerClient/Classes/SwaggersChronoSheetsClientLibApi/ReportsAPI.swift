@@ -31,7 +31,7 @@ open class ReportsAPI {
      Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects)
      - GET /api/Reports/GetAllChartsDataAdmin
      - examples: [{contentType=application/json, example={
-  "Status" : 8,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "TotalsProjects" : [ {
@@ -154,11 +154,11 @@ open class ReportsAPI {
     } ]
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 8,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "TotalsProjects" : [ {
@@ -281,7 +281,7 @@ open class ReportsAPI {
     } ]
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -333,7 +333,7 @@ open class ReportsAPI {
      Get Consolidated User Reports Data (Jobs and Tasks)
      - GET /api/Reports/GetAllChartsDataUser
      - examples: [{contentType=application/json, example={
-  "Status" : 8,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "TotalsProjects" : [ {
@@ -456,11 +456,11 @@ open class ReportsAPI {
     } ]
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 8,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "TotalsProjects" : [ {
@@ -583,7 +583,7 @@ open class ReportsAPI {
     } ]
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -632,12 +632,12 @@ open class ReportsAPI {
      Get trip by Id, for reporting purposes
      - GET /api/Reports/GetOrgTripById
      - examples: [{contentType=application/json, example={
-  "Status" : 2,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 9.301444243932576,
+    "TripTotalCost" : 7.061401241503109,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -648,30 +648,30 @@ open class ReportsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : 2,
+    "MobilePlatform" : "Unknown",
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 3.616076749251911,
+    "TotalTripDistanceMeters" : 9.301444243932576,
     "PathCoordinates" : [ {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     }, {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     } ],
-    "CostPerKilometer" : 7.061401241503109
+    "CostPerKilometer" : 2.3021358869347655
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 2,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
-    "TripTotalCost" : 9.301444243932576,
+    "TripTotalCost" : 7.061401241503109,
     "VehicleId" : 1,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -682,21 +682,21 @@ open class ReportsAPI {
     "TripId" : 0,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 5,
-    "MobilePlatform" : 2,
+    "MobilePlatform" : "Unknown",
     "VehicleModel" : "VehicleModel",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 3.616076749251911,
+    "TotalTripDistanceMeters" : 9.301444243932576,
     "PathCoordinates" : [ {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     }, {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     } ],
-    "CostPerKilometer" : 7.061401241503109
+    "CostPerKilometer" : 2.3021358869347655
   }
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -747,7 +747,7 @@ open class ReportsAPI {
      Reports on Organisation timesheet file attachments
      - GET /api/Reports/GetOrganisationTimesheetFileAttachments
      - examples: [{contentType=application/json, example={
-  "Status" : 4,
+  "Status" : "Succeeded",
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
@@ -756,23 +756,23 @@ open class ReportsAPI {
     "OriginalFileName" : "OriginalFileName",
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
-    "Latitude" : 9.301444243932576,
+    "Latitude" : 2.3021358869347655,
     "NonImageFilePath" : "NonImageFilePath",
     "Notes" : "Notes",
     "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
-    "AttachmentType" : 7,
+    "AttachmentType" : "Image",
     "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
     "FirstName" : "FirstName",
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
-    "StorageAllocationBytes" : 2,
-    "Longitude" : 3.616076749251911,
+    "StorageAllocationBytes" : 9,
+    "Longitude" : 7.061401241503109,
     "EmailAddress" : "EmailAddress",
     "FileAttachmentId" : 1,
     "ImageMediumFilePath" : "ImageMediumFilePath",
     "OrgId" : 5,
     "ImageSmallFilePath" : "ImageSmallFilePath",
-    "MobilePlatform" : 2,
+    "MobilePlatform" : "Unknown",
     "Username" : "Username",
     "ImageLargeFilePath" : "ImageLargeFilePath",
     "UserId" : 5,
@@ -784,23 +784,23 @@ open class ReportsAPI {
     "OriginalFileName" : "OriginalFileName",
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
-    "Latitude" : 9.301444243932576,
+    "Latitude" : 2.3021358869347655,
     "NonImageFilePath" : "NonImageFilePath",
     "Notes" : "Notes",
     "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
-    "AttachmentType" : 7,
+    "AttachmentType" : "Image",
     "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
     "FirstName" : "FirstName",
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
-    "StorageAllocationBytes" : 2,
-    "Longitude" : 3.616076749251911,
+    "StorageAllocationBytes" : 9,
+    "Longitude" : 7.061401241503109,
     "EmailAddress" : "EmailAddress",
     "FileAttachmentId" : 1,
     "ImageMediumFilePath" : "ImageMediumFilePath",
     "OrgId" : 5,
     "ImageSmallFilePath" : "ImageSmallFilePath",
-    "MobilePlatform" : 2,
+    "MobilePlatform" : "Unknown",
     "Username" : "Username",
     "ImageLargeFilePath" : "ImageLargeFilePath",
     "UserId" : 5,
@@ -809,11 +809,11 @@ open class ReportsAPI {
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 4,
+  "Status" : "Succeeded",
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
@@ -822,23 +822,23 @@ open class ReportsAPI {
     "OriginalFileName" : "OriginalFileName",
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
-    "Latitude" : 9.301444243932576,
+    "Latitude" : 2.3021358869347655,
     "NonImageFilePath" : "NonImageFilePath",
     "Notes" : "Notes",
     "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
-    "AttachmentType" : 7,
+    "AttachmentType" : "Image",
     "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
     "FirstName" : "FirstName",
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
-    "StorageAllocationBytes" : 2,
-    "Longitude" : 3.616076749251911,
+    "StorageAllocationBytes" : 9,
+    "Longitude" : 7.061401241503109,
     "EmailAddress" : "EmailAddress",
     "FileAttachmentId" : 1,
     "ImageMediumFilePath" : "ImageMediumFilePath",
     "OrgId" : 5,
     "ImageSmallFilePath" : "ImageSmallFilePath",
-    "MobilePlatform" : 2,
+    "MobilePlatform" : "Unknown",
     "Username" : "Username",
     "ImageLargeFilePath" : "ImageLargeFilePath",
     "UserId" : 5,
@@ -850,23 +850,23 @@ open class ReportsAPI {
     "OriginalFileName" : "OriginalFileName",
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
-    "Latitude" : 9.301444243932576,
+    "Latitude" : 2.3021358869347655,
     "NonImageFilePath" : "NonImageFilePath",
     "Notes" : "Notes",
     "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
-    "AttachmentType" : 7,
+    "AttachmentType" : "Image",
     "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
     "FirstName" : "FirstName",
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
-    "StorageAllocationBytes" : 2,
-    "Longitude" : 3.616076749251911,
+    "StorageAllocationBytes" : 9,
+    "Longitude" : 7.061401241503109,
     "EmailAddress" : "EmailAddress",
     "FileAttachmentId" : 1,
     "ImageMediumFilePath" : "ImageMediumFilePath",
     "OrgId" : 5,
     "ImageSmallFilePath" : "ImageSmallFilePath",
-    "MobilePlatform" : 2,
+    "MobilePlatform" : "Unknown",
     "Username" : "Username",
     "ImageLargeFilePath" : "ImageLargeFilePath",
     "UserId" : 5,
@@ -875,7 +875,7 @@ open class ReportsAPI {
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -934,14 +934,14 @@ open class ReportsAPI {
      Reports on Organisation trips (GPS tracking from whole organisation)
      - GET /api/Reports/GetOrganisationTrips
      - examples: [{contentType=application/json, example={
-  "Status" : 1,
+  "Status" : "Succeeded",
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
     "FirstName" : "FirstName",
-    "TripTotalCost" : 3.616076749251911,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 5,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -953,25 +953,25 @@ open class ReportsAPI {
     "TripId" : 6,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 2,
-    "MobilePlatform" : 7,
+    "MobilePlatform" : "Unknown",
     "VehicleModel" : "VehicleModel",
     "Username" : "Username",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 2.027123023002322,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     }, {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     } ],
     "LastName" : "LastName",
-    "CostPerKilometer" : 9.301444243932576
+    "CostPerKilometer" : 7.061401241503109
   }, {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
     "FirstName" : "FirstName",
-    "TripTotalCost" : 3.616076749251911,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 5,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -983,35 +983,35 @@ open class ReportsAPI {
     "TripId" : 6,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 2,
-    "MobilePlatform" : 7,
+    "MobilePlatform" : "Unknown",
     "VehicleModel" : "VehicleModel",
     "Username" : "Username",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 2.027123023002322,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     }, {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     } ],
     "LastName" : "LastName",
-    "CostPerKilometer" : 9.301444243932576
+    "CostPerKilometer" : 7.061401241503109
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 1,
+  "Status" : "Succeeded",
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
     "FirstName" : "FirstName",
-    "TripTotalCost" : 3.616076749251911,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 5,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1023,25 +1023,25 @@ open class ReportsAPI {
     "TripId" : 6,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 2,
-    "MobilePlatform" : 7,
+    "MobilePlatform" : "Unknown",
     "VehicleModel" : "VehicleModel",
     "Username" : "Username",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 2.027123023002322,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     }, {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     } ],
     "LastName" : "LastName",
-    "CostPerKilometer" : 9.301444243932576
+    "CostPerKilometer" : 7.061401241503109
   }, {
     "EndAddress" : "EndAddress",
     "VehicleMake" : "VehicleMake",
     "FirstName" : "FirstName",
-    "TripTotalCost" : 3.616076749251911,
+    "TripTotalCost" : 9.301444243932576,
     "VehicleId" : 5,
     "VehicleName" : "VehicleName",
     "CacheExpiryDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1053,24 +1053,24 @@ open class ReportsAPI {
     "TripId" : 6,
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
     "OrgId" : 2,
-    "MobilePlatform" : 7,
+    "MobilePlatform" : "Unknown",
     "VehicleModel" : "VehicleModel",
     "Username" : "Username",
     "UserId" : 5,
-    "TotalTripDistanceMeters" : 2.027123023002322,
+    "TotalTripDistanceMeters" : 3.616076749251911,
     "PathCoordinates" : [ {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     }, {
-      "Latitude" : 4.145608029883936,
-      "Longitude" : 7.386281948385884
+      "Latitude" : 2.027123023002322,
+      "Longitude" : 4.145608029883936
     } ],
     "LastName" : "LastName",
-    "CostPerKilometer" : 9.301444243932576
+    "CostPerKilometer" : 7.061401241503109
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -1110,29 +1110,29 @@ open class ReportsAPI {
     /**
      * enum for parameter sort
      */
-    public enum CsApiSort_reportsGetRawDataAdmin: Int { 
-        case _0 = 0
-        case _1 = 1
-        case _2 = 2
-        case _3 = 3
-        case _4 = 4
-        case _5 = 5
-        case _6 = 6
-        case _7 = 7
-        case _8 = 8
-        case _9 = 9
-        case _10 = 10
-        case _11 = 11
-        case _12 = 12
-        case _13 = 13
+    public enum CsApiSort_reportsGetRawDataAdmin: String { 
+        case emailAddress = "EmailAddress"
+        case jobCode = "JobCode"
+        case taskName = "TaskName"
+        case clientName = "ClientName"
+        case projectName = "ProjectName"
+        case startDate = "StartDate"
+        case endDate = "EndDate"
+        case spanSeconds = "SpanSeconds"
+        case description = "Description"
+        case payAmount = "PayAmount"
+        case payOvertimeAmount = "PayOvertimeAmount"
+        case tripCost = "TripCost"
+        case tripDistanceMeters = "TripDistanceMeters"
+        case username = "Username"
     }
 
     /**
      * enum for parameter order
      */
-    public enum CsApiOrder_reportsGetRawDataAdmin: Int { 
-        case _0 = 0
-        case _1 = 1
+    public enum CsApiOrder_reportsGetRawDataAdmin: String { 
+        case ascending = "Ascending"
+        case descending = "Descending"
     }
 
     /**
@@ -1141,8 +1141,8 @@ open class ReportsAPI {
      - parameter startDate: (query)  
      - parameter endDate: (query)  
      - parameter userIds: (query)  
-     - parameter sort: (query) 0 &#x3D; Username, 1 &#x3D; EmailAddress, 2 &#x3D; JobCode, 3 &#x3D; TaskName, 4 &#x3D; ClientName, 5 &#x3D; ProjectName, 6 &#x3D; StartDate, 7 &#x3D; EndDate, 8 &#x3D; SpanSeconds, 9 &#x3D; Description, 10 &#x3D; PayAmount, 11 &#x3D; PayOvertimeAmount, 12 &#x3D; TripCost, 13 &#x3D; TripDistanceMeters 
-     - parameter order: (query) 0 &#x3D; Ascending, 1 &#x3D; Descending 
+     - parameter sort: (query)  
+     - parameter order: (query)  
      - parameter skip: (query)  
      - parameter take: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -1159,7 +1159,7 @@ open class ReportsAPI {
      Get Timesheets Raw Data
      - GET /api/Reports/GetRawDataAdmin
      - examples: [{contentType=application/json, example={
-  "Status" : 3,
+  "Status" : "Succeeded",
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
@@ -1199,11 +1199,11 @@ open class ReportsAPI {
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 3,
+  "Status" : "Succeeded",
   "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : [ {
@@ -1243,15 +1243,15 @@ open class ReportsAPI {
   } ]
 }}, {contentType=application/xml, example=<null>
   <TotalSetCount>123</TotalSetCount>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
      - parameter startDate: (query)  
      - parameter endDate: (query)  
      - parameter userIds: (query)  
-     - parameter sort: (query) 0 &#x3D; Username, 1 &#x3D; EmailAddress, 2 &#x3D; JobCode, 3 &#x3D; TaskName, 4 &#x3D; ClientName, 5 &#x3D; ProjectName, 6 &#x3D; StartDate, 7 &#x3D; EndDate, 8 &#x3D; SpanSeconds, 9 &#x3D; Description, 10 &#x3D; PayAmount, 11 &#x3D; PayOvertimeAmount, 12 &#x3D; TripCost, 13 &#x3D; TripDistanceMeters 
-     - parameter order: (query) 0 &#x3D; Ascending, 1 &#x3D; Descending 
+     - parameter sort: (query)  
+     - parameter order: (query)  
      - parameter skip: (query)  
      - parameter take: (query)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -1304,7 +1304,7 @@ open class ReportsAPI {
      Gets project cost estimations VS actual cost for date range and users
      - GET /api/Reports/ProjectCostingsAdmin
      - examples: [{contentType=application/json, example={
-  "Status" : 2,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "ClientName" : "ClientName",
@@ -1324,11 +1324,11 @@ open class ReportsAPI {
     "ActualCost" : 5.637376656633329
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 2,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "ClientName" : "ClientName",
@@ -1348,7 +1348,7 @@ open class ReportsAPI {
     "ActualCost" : 5.637376656633329
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -1400,7 +1400,7 @@ open class ReportsAPI {
      Timeseries jobs data for the logged in user
      - GET /api/Reports/UserJobsOverTime
      - examples: [{contentType=application/json, example={
-  "Status" : 5,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1424,11 +1424,11 @@ open class ReportsAPI {
     "JobId" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 5,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "StartDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1452,7 +1452,7 @@ open class ReportsAPI {
     "JobId" : 0
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      

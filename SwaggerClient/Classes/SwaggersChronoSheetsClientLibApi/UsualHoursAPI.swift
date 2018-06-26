@@ -29,99 +29,99 @@ open class UsualHoursAPI {
      Get usual hours (rostered hours) for an employee
      - GET /api/UsualHours/GetUsualHours
      - examples: [{contentType=application/json, example={
-  "Status" : 3,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
-    "DeleteUsualHours" : [ 9, 9 ],
-    "DayType" : 0,
+    "DeleteUsualHours" : [ 2, 2 ],
+    "DayType" : "Monday",
     "TimeSlots" : [ {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     }, {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     } ]
   }, {
-    "DeleteUsualHours" : [ 9, 9 ],
-    "DayType" : 0,
+    "DeleteUsualHours" : [ 2, 2 ],
+    "DayType" : "Monday",
     "TimeSlots" : [ {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     }, {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     } ]
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 3,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
-    "DeleteUsualHours" : [ 9, 9 ],
-    "DayType" : 0,
+    "DeleteUsualHours" : [ 2, 2 ],
+    "DayType" : "Monday",
     "TimeSlots" : [ {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     }, {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     } ]
   }, {
-    "DeleteUsualHours" : [ 9, 9 ],
-    "DayType" : 0,
+    "DeleteUsualHours" : [ 2, 2 ],
+    "DayType" : "Monday",
     "TimeSlots" : [ {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     }, {
-      "StartMinute" : 5,
-      "StartHour" : 5,
-      "UsualHourId" : 1,
-      "DayType" : 6,
-      "EndHour" : 2,
-      "EndMinute" : 7,
+      "StartMinute" : 1,
+      "StartHour" : 6,
+      "UsualHourId" : 0,
+      "DayType" : "Monday",
+      "EndHour" : 5,
+      "EndMinute" : 5,
       "IsValid" : true
     } ]
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -168,21 +168,21 @@ open class UsualHoursAPI {
      Set usual hours (rostered hours) for an employee
      - POST /api/UsualHours/SetUsualHours
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      

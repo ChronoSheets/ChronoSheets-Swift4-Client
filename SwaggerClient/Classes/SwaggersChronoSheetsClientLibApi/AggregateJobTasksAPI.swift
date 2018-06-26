@@ -28,7 +28,7 @@ open class AggregateJobTasksAPI {
      Get jobs and tasks information, aggregated
      - GET /api/AggregateJobTasks/GetAggregateJobTasks
      - examples: [{contentType=application/json, example={
-  "Status" : 7,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "Project" : "Project",
@@ -70,11 +70,11 @@ open class AggregateJobTasksAPI {
     "Code" : "Code"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 7,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "Project" : "Project",
@@ -116,7 +116,7 @@ open class AggregateJobTasksAPI {
     "Code" : "Code"
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      

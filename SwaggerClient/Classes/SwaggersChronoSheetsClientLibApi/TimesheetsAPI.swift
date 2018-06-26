@@ -29,21 +29,21 @@ open class TimesheetsAPI {
      Inserts a single timesheet record
      - PUT /api/Timesheets/CreateSingleTimesheet
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : 0
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -87,21 +87,21 @@ open class TimesheetsAPI {
      Delete a timesheet
      - DELETE /api/Timesheets/DeleteTimesheet
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 0,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : true
 }}, {contentType=application/xml, example=<null>
   <Data>true</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -149,7 +149,7 @@ open class TimesheetsAPI {
      Get timesheets between start and end dates
      - GET /api/Timesheets/GetTimesheets
      - examples: [{contentType=application/json, example={
-  "Status" : 3,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "TaskId" : 5,
@@ -179,11 +179,11 @@ open class TimesheetsAPI {
     "TripId" : 5
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 3,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ {
     "TaskId" : 5,
@@ -213,7 +213,7 @@ open class TimesheetsAPI {
     "TripId" : 5
   } ]
 }}, {contentType=application/xml, example=<null>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
@@ -262,21 +262,21 @@ open class TimesheetsAPI {
      Batch update timesheets
      - POST /api/Timesheets/UpdateTimesheets
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ 0, 0 ]
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
-  "Status" : 6,
+  "Status" : "Succeeded",
   "Message" : "Message",
   "Data" : [ 0, 0 ]
 }}, {contentType=application/xml, example=<null>
   <Data>123</Data>
-  <Status>123</Status>
+  <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      
