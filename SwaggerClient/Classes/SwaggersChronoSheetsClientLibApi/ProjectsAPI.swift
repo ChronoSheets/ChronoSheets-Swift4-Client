@@ -12,9 +12,9 @@ import Alamofire
 
 open class ProjectsAPI {
     /**
-     Create a project
+     Create a project.  Requires the 'ManageClientsAndProjects' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Project Request object containing values for the new Project to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class ProjectsAPI {
 
 
     /**
-     Create a project
+     Create a project.  Requires the 'ManageClientsAndProjects' permission.
      - PUT /api/Projects/CreateProject
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class ProjectsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Project Request object containing values for the new Project to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -70,9 +70,9 @@ open class ProjectsAPI {
     }
 
     /**
-     Get project by Id
+     Get a project by its Id.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      
-     - parameter projectId: (query) The ID of the project 
+     - parameter projectId: (query) The ID of the Project you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -84,7 +84,7 @@ open class ProjectsAPI {
 
 
     /**
-     Get project by Id
+     Get a project by its Id.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      - GET /api/Projects/GetProjectById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -119,7 +119,7 @@ open class ProjectsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter projectId: (query) The ID of the project 
+     - parameter projectId: (query) The ID of the Project you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseProject> 
@@ -145,7 +145,7 @@ open class ProjectsAPI {
     }
 
     /**
-     Get projects for a particular client
+     Get projects for a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      
      - parameter clientId: (query) The ID of the client 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -159,7 +159,7 @@ open class ProjectsAPI {
 
 
     /**
-     Get projects for a particular client
+     Get projects for a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      - GET /api/Projects/GetProjectsForClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -236,9 +236,9 @@ open class ProjectsAPI {
     }
 
     /**
-     Update a project
+     Update a project.  Requires the 'ManageClientsAndProjects' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -250,7 +250,7 @@ open class ProjectsAPI {
 
 
     /**
-     Update a project
+     Update a project.  Requires the 'ManageClientsAndProjects' permission.
      - POST /api/Projects/UpdateProject
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -271,7 +271,7 @@ open class ProjectsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Update Project Request object containing updated fields.  Make sure to specify the Project Id in the request object so that ChronoSheets knows which Project to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 

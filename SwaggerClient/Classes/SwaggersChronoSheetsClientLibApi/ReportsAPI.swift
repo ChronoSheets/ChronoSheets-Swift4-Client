@@ -12,11 +12,11 @@ import Alamofire
 
 open class ReportsAPI {
     /**
-     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects)
+     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -28,7 +28,7 @@ open class ReportsAPI {
 
 
     /**
-     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects)
+     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetAllChartsDataAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -285,9 +285,9 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
@@ -315,10 +315,10 @@ open class ReportsAPI {
     }
 
     /**
-     Get Consolidated User Reports Data (Jobs and Tasks)
+     Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.  Requires the 'ViewOwnReports' permission.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -330,7 +330,7 @@ open class ReportsAPI {
 
 
     /**
-     Get Consolidated User Reports Data (Jobs and Tasks)
+     Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.  Requires the 'ViewOwnReports' permission.
      - GET /api/Reports/GetAllChartsDataUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -587,8 +587,8 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
@@ -615,9 +615,9 @@ open class ReportsAPI {
     }
 
     /**
-     Get trip by Id, for reporting purposes
+     Get trip by Id, for reporting purposes.  Requires the 'ReportAdmin' permission.
      
-     - parameter tripId: (query) The ID of the trip 
+     - parameter tripId: (query) The ID of the Trip you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -629,7 +629,7 @@ open class ReportsAPI {
 
 
     /**
-     Get trip by Id, for reporting purposes
+     Get trip by Id, for reporting purposes.  Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetOrgTripById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -700,7 +700,7 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter tripId: (query) The ID of the trip 
+     - parameter tripId: (query) The ID of the Trip you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseTrip> 
@@ -726,13 +726,13 @@ open class ReportsAPI {
     }
 
     /**
-     Reports on Organisation timesheet file attachments
+     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the 'ReportAdmin' permission.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter skip: (query) Skip this many items 
+     - parameter take: (query) Take this many items 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -744,7 +744,7 @@ open class ReportsAPI {
 
 
     /**
-     Reports on Organisation timesheet file attachments
+     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetOrganisationTimesheetFileAttachments
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -879,11 +879,11 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter skip: (query) Skip this many items 
+     - parameter take: (query) Take this many items 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> 
@@ -913,13 +913,13 @@ open class ReportsAPI {
     }
 
     /**
-     Reports on Organisation trips (GPS tracking from whole organisation)
+     Reports on Organisation trips (GPS tracking from whole organisation).  Requires the 'ReportAdmin' permission.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter skip: (query) Skip this many items 
+     - parameter take: (query) Take this many items 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -931,7 +931,7 @@ open class ReportsAPI {
 
 
     /**
-     Reports on Organisation trips (GPS tracking from whole organisation)
+     Reports on Organisation trips (GPS tracking from whole organisation).  Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetOrganisationTrips
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -1074,11 +1074,11 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter skip: (query) Skip this many items 
+     - parameter take: (query) Take this many items 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> 
@@ -1136,15 +1136,15 @@ open class ReportsAPI {
     }
 
     /**
-     Get Timesheets Raw Data
+     Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter userIds: (query)  
-     - parameter sort: (query)  
-     - parameter order: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter sort: (query) Decide which column to sort on 
+     - parameter order: (query) Decide which direction to sort the column 
+     - parameter skip: (query) Skip this many rows 
+     - parameter take: (query) Take this many rows 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1156,7 +1156,7 @@ open class ReportsAPI {
 
 
     /**
-     Get Timesheets Raw Data
+     Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetRawDataAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -1247,13 +1247,13 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter userIds: (query)  
-     - parameter sort: (query)  
-     - parameter order: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter sort: (query) Decide which column to sort on 
+     - parameter order: (query) Decide which direction to sort the column 
+     - parameter skip: (query) Skip this many rows 
+     - parameter take: (query) Take this many rows 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListRawReportItem> 
@@ -1285,11 +1285,11 @@ open class ReportsAPI {
     }
 
     /**
-     Gets project cost estimations VS actual cost for date range and users
+     Gets project cost estimations VS actual cost for date range and users.  Requires the 'ReportAdmin' permission.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1301,7 +1301,7 @@ open class ReportsAPI {
 
 
     /**
-     Gets project cost estimations VS actual cost for date range and users
+     Gets project cost estimations VS actual cost for date range and users.  Requires the 'ReportAdmin' permission.
      - GET /api/Reports/ProjectCostingsAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -1352,9 +1352,9 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter userIds: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListProjectCostingReportItem> 
@@ -1382,10 +1382,10 @@ open class ReportsAPI {
     }
 
     /**
-     Timeseries jobs data for the logged in user
+     Timeseries jobs data for the logged in user.  Requires the 'ViewOwnReports' or 'SubmitTimesheets'.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1397,7 +1397,7 @@ open class ReportsAPI {
 
 
     /**
-     Timeseries jobs data for the logged in user
+     Timeseries jobs data for the logged in user.  Requires the 'ViewOwnReports' or 'SubmitTimesheets'.
      - GET /api/Reports/UserJobsOverTime
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -1456,8 +1456,8 @@ open class ReportsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListJobSeriesReportItem> 
