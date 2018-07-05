@@ -313,7 +313,7 @@ open class UserProfileAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseSignupResponse?,_ error: Error?) -> Void)) {
+    open class func userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUpdateProfileResponse?,_ error: Error?) -> Void)) {
         userProfileUpdateMyProfileWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
@@ -350,9 +350,9 @@ open class UserProfileAPI {
      - parameter request: (body)  
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CSApiResponseSignupResponse> 
+     - returns: RequestBuilder<CSApiResponseUpdateProfileResponse> 
      */
-    open class func userProfileUpdateMyProfileWithRequestBuilder(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseSignupResponse> {
+    open class func userProfileUpdateMyProfileWithRequestBuilder(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUpdateProfileResponse> {
         let path = "/api/UserProfile/UpdateMyProfile"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
@@ -364,7 +364,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseSignupResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUpdateProfileResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

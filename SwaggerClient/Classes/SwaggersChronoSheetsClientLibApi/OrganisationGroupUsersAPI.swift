@@ -12,9 +12,9 @@ import Alamofire
 
 open class OrganisationGroupUsersAPI {
     /**
-     Get a collection of organisation group users that belong to an organisation group
+     Get a collection of organisation group users that belong to an organisation group.  Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
      
-     - parameter orgGroupId: (query)  
+     - parameter orgGroupId: (query) An OrganisatioGroup Id 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class OrganisationGroupUsersAPI {
 
 
     /**
-     Get a collection of organisation group users that belong to an organisation group
+     Get a collection of organisation group users that belong to an organisation group.  Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
      - GET /api/OrganisationGroupUsers/GetOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -161,7 +161,7 @@ open class OrganisationGroupUsersAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter orgGroupId: (query)  
+     - parameter orgGroupId: (query) An OrganisatioGroup Id 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListUserForManagement> 
@@ -189,7 +189,7 @@ open class OrganisationGroupUsersAPI {
     /**
      Set the users who belong to an organisation group
      
-     - parameter request: (body)  
+     - parameter request: (body) A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -222,7 +222,7 @@ open class OrganisationGroupUsersAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 

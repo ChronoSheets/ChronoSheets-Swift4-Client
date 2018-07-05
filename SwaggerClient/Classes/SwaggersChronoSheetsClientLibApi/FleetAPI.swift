@@ -12,9 +12,9 @@ import Alamofire
 
 open class FleetAPI {
     /**
-     Create a vehicle
+     Create a vehicle.  Requires the 'ManageFleet' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Vehicle Request object containing values for the new Vehicle to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class FleetAPI {
 
 
     /**
-     Create a vehicle
+     Create a vehicle.  Requires the 'ManageFleet' permission.
      - PUT /api/Fleet/CreateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class FleetAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Vehicle Request object containing values for the new Vehicle to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -72,7 +72,7 @@ open class FleetAPI {
     /**
      Get a particular vehicle
      
-     - parameter vehicleId: (query) The ID of the vehicle you want to get 
+     - parameter vehicleId: (query) The ID of the Vehicle you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -125,7 +125,7 @@ open class FleetAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter vehicleId: (query) The ID of the vehicle you want to get 
+     - parameter vehicleId: (query) The ID of the Vehicle you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseFleetVehicle> 
@@ -153,7 +153,7 @@ open class FleetAPI {
     /**
      Get a collection of vehicles that are under your organisation
      
-     - parameter includeDeleted: (query)  
+     - parameter includeDeleted: (query) Whether or not to include deleted vehicles 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -228,7 +228,7 @@ open class FleetAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter includeDeleted: (query)  
+     - parameter includeDeleted: (query) Whether or not to include deleted vehicles 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListFleetVehicle> 
@@ -254,9 +254,9 @@ open class FleetAPI {
     }
 
     /**
-     Update a vehicle
+     Update a vehicle.  Requires the 'ManageFleet' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -268,7 +268,7 @@ open class FleetAPI {
 
 
     /**
-     Update a vehicle
+     Update a vehicle.  Requires the 'ManageFleet' permission.
      - POST /api/Fleet/UpdateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -289,7 +289,7 @@ open class FleetAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 

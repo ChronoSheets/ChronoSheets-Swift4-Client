@@ -100,7 +100,7 @@ open class OrganisationAPI {
     /**
      Update an organisation.  Requires 'OrganisationAdmin' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -135,7 +135,7 @@ open class OrganisationAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseUpdateOrganisationResponse> 

@@ -12,9 +12,9 @@ import Alamofire
 
 open class ClientsAPI {
     /**
-     Create a client
+     Create a client.  Requires the 'ManageClientsAndProjects' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Client Request object containing values for the new Client to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class ClientsAPI {
 
 
     /**
-     Create a client
+     Create a client.  Requires the 'ManageClientsAndProjects' permission.
      - PUT /api/Clients/CreateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class ClientsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Client Request object containing values for the new Client to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -70,9 +70,9 @@ open class ClientsAPI {
     }
 
     /**
-     Get a particular client
+     Get a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      
-     - parameter clientId: (query) The ID of the client you want to get 
+     - parameter clientId: (query) The ID of the Client you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -84,7 +84,7 @@ open class ClientsAPI {
 
 
     /**
-     Get a particular client
+     Get a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      - GET /api/Clients/GetClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -133,7 +133,7 @@ open class ClientsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter clientId: (query) The ID of the client you want to get 
+     - parameter clientId: (query) The ID of the Client you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseClient> 
@@ -159,7 +159,7 @@ open class ClientsAPI {
     }
 
     /**
-     Get a collection of clients that are under your organisation
+     Get a collection of clients that are under your organisation.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -172,7 +172,7 @@ open class ClientsAPI {
 
 
     /**
-     Get a collection of clients that are under your organisation
+     Get a collection of clients that are under your organisation.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      - GET /api/Clients/GetClients
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -273,9 +273,9 @@ open class ClientsAPI {
     }
 
     /**
-     Update a client
+     Update a client.  Requires the 'ManageClientsAndProjects' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -287,7 +287,7 @@ open class ClientsAPI {
 
 
     /**
-     Update a client
+     Update a client.  Requires the 'ManageClientsAndProjects' permission.
      - POST /api/Clients/UpdateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -308,7 +308,7 @@ open class ClientsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 

@@ -12,7 +12,7 @@ import Alamofire
 
 open class AggregateJobTasksAPI {
     /**
-     Get jobs and tasks information, aggregated
+     Get jobs and tasks information, aggregated.  Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -25,7 +25,7 @@ open class AggregateJobTasksAPI {
 
 
     /**
-     Get jobs and tasks information, aggregated
+     Get jobs and tasks information, aggregated.  Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      - GET /api/AggregateJobTasks/GetAggregateJobTasks
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
