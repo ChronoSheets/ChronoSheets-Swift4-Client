@@ -16,7 +16,7 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -287,7 +287,7 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
@@ -732,7 +732,7 @@ open class ReportsAPI {
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter skip: (query) Skip this many items 
      - parameter take: (query) Take this many items 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -883,7 +883,7 @@ open class ReportsAPI {
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter skip: (query) Skip this many items 
      - parameter take: (query) Take this many items 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> 
@@ -919,7 +919,7 @@ open class ReportsAPI {
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter skip: (query) Skip this many items 
      - parameter take: (query) Take this many items 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1078,7 +1078,7 @@ open class ReportsAPI {
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter skip: (query) Skip this many items 
      - parameter take: (query) Take this many items 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> 
@@ -1140,7 +1140,7 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter sort: (query) Decide which column to sort on 
      - parameter order: (query) Decide which direction to sort the column 
      - parameter skip: (query) Skip this many rows 
@@ -1249,7 +1249,7 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter sort: (query) Decide which column to sort on 
      - parameter order: (query) Decide which direction to sort the column 
      - parameter skip: (query) Skip this many rows 
@@ -1289,7 +1289,7 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -1354,7 +1354,7 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) The Ids of the users, if you want to filter the report data to particular users 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListProjectCostingReportItem> 
