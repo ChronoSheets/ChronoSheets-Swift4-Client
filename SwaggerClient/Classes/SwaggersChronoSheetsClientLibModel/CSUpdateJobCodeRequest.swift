@@ -8,15 +8,23 @@
 import Foundation
 
 
+/** Fields used to update an existing JobCode */
 
 open class CSUpdateJobCodeRequest: Codable {
 
+    /** The Id of the JobCode to be updated */
     public var id: Int?
+    /** The new JobCode to be set */
     public var code: String?
+    /** The Id of the Project to be associated to */
     public var projectId: Int?
+    /** The Id of the Client to be associated to */
     public var clientId: Int?
+    /** A collection of Task Ids to be available when choosing this JobCode */
     public var linkedTaskIds: [Int]?
+    /** Restrict the access to this JobCode by specifying which Organisation Groups can have access.  Only employees in these Organisation Groups will be able to access this JobCode */
     public var linkedOrgGroupIds: [Int]?
+    /** Whether or not this JobCode is to be marked as deleted */
     public var isDeleted: Bool?
 
 

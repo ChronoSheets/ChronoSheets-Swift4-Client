@@ -8,10 +8,13 @@
 import Foundation
 
 
+/** A Response object containing important information that can be used after the user has logged in */
 
 open class CSDoLoginResponse: Codable {
 
+    /** The ChronoSheets Auth Token.  Use this token for all subsequent requests to the API.  The Auth Token does these things: holds your session and gives you appropraite authorisation to access API endpoints based on your UserRoles */
     public var cSAuthToken: String?
+    /** An object containg all your account information */
     public var loggedInUser: CSClientSideUser?
 
 

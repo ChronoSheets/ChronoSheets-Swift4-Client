@@ -8,12 +8,17 @@
 import Foundation
 
 
+/** Fields for inserting a new set of Pay Rates for a user.  Archiving of the previous Pay Rate is done for you automatically */
 
 open class CSInsertUserHourlyRateRequest: Codable {
 
+    /** The Id of the User that is getting the new set of Pay Rates */
     public var userId: Int?
+    /** The Hourly Rate the employee should receive during their usual rostered hours */
     public var hourlyRate: Double?
+    /** The Hourly Rate the employee should receive during outside of their usual rostered hours */
     public var hourlyOvertimeRate: Double?
+    /** The current date time */
     public var currentDate: Date?
 
 

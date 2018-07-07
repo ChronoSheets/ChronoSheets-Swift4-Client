@@ -20,8 +20,11 @@ open class CSUsualHoursDay: Codable {
         case saturday = "Saturday"
         case sunday = "Sunday"
     }
+    /** Specify which day this collection of Roster timeslots is for (Monday-Sunday) */
     public var dayType: CSDayType?
+    /** A collection of TimeSlots within this day */
     public var timeSlots: [CSTimeSlot]?
+    /** Mark here which existing UsualHours are to be deleted */
     public var deleteUsualHours: [Int]?
 
 

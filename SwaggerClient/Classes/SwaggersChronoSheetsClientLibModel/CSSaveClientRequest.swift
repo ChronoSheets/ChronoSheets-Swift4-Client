@@ -8,20 +8,33 @@
 import Foundation
 
 
+/** Fields used to save a Client */
 
 open class CSSaveClientRequest: Codable {
 
+    /** The Id of the Client */
     public var id: Int?
+    /** The name of the Client */
     public var clientName: String?
+    /** Address line 1 of the Client */
     public var clientAddressLine1: String?
+    /** Address line 2 of the Client */
     public var clientAddressLine2: String?
+    /** The suburb of the Client&#39;s address */
     public var clientSuburb: String?
+    /** The state of the Client&#39;s address */
     public var clientState: String?
+    /** The post code of the Client&#39;s address */
     public var clientPostCode: String?
+    /** The name of the contact working with the Client */
     public var personOfContact: String?
+    /** The phone number of the Client */
     public var clientPhoneNumber: String?
+    /** The mobile phone number of the Client */
     public var clientMobileNumber: String?
+    /** The email address of the Client */
     public var clientEmailAddress: String?
+    /** The Client&#39;s website URL */
     public var clientWebURL: String?
 
 

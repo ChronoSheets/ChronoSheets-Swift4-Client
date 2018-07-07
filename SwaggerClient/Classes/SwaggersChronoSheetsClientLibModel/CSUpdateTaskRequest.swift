@@ -8,12 +8,17 @@
 import Foundation
 
 
+/** Fields used to update a Task */
 
 open class CSUpdateTaskRequest: Codable {
 
+    /** The Id of the Task that is to be updated */
     public var id: Int?
+    /** The updated Task Name */
     public var taskName: String?
+    /** Whether or not this Task should be marked as deleted */
     public var isDeleted: Bool?
+    /** Whether or not this Task should have GPS Trip Recording enabled */
     public var tripEnabled: Bool?
 
 

@@ -8,18 +8,29 @@
 import Foundation
 
 
+/** Field for updating your Organisation */
 
 open class CSUpdateOrganisationRequest: Codable {
 
+    /** The Id of your Organisation.  This is validated based on your current Auth Token */
     public var organsationId: Int?
+    /** The updated organisation name */
     public var organisationName: String?
+    /** The updated Address Line 1 value */
     public var addressLine01: String?
+    /** The updated Address Line 2 value */
     public var addressLine02: String?
+    /** The updated address suburb */
     public var organisationSuburb: String?
+    /** The updated address state */
     public var organisationState: String?
+    /** The updated address postcode */
     public var organisationPostcode: String?
+    /** The updated address country */
     public var organisationCountry: String?
+    /** The updated contact phone number */
     public var organisationPhone: String?
+    /** The update organisation email address */
     public var organisationEmailAddress: String?
 
 

@@ -8,10 +8,13 @@
 import Foundation
 
 
+/** Fields for inserting a new Task */
 
 open class CSInsertTaskRequest: Codable {
 
+    /** The name of the Task.  Used to identify the Task when the user is selecting from a list of available Tasks */
     public var taskName: String?
+    /** Whether or not GPS Trip Tracking is enabled on this Task.  GPS Trip tracking is available on the iOS and Android apps.  If it&#39;s enabled an additional dialog is shown to the user after Task selection that allows the User to choose if they want to record the GPS data */
     public var tripEnabled: Bool?
 
 

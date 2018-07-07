@@ -8,16 +8,25 @@
 import Foundation
 
 
+/** Fields for updating an employee User Account */
 
 open class CSUpdateUserRequest: Codable {
 
+    /** The Id of the User that is to be updated */
     public var userId: Int?
+    /** The Email Address of the employee */
     public var emailAddress: String?
+    /** The First Name of the employee */
     public var firstName: String?
+    /** The Last Name of the employee */
     public var lastName: String?
+    /** Whether or not the employee is subscribed to ChronoSheets newsletters */
     public var isSubscribedToNewsletter: Bool?
+    /** Whether or not the employee account is active */
     public var isAccountActive: Bool?
+    /** A BIT field designating which Roles/Permissions the employee will have when they sign in.  See the {timesheets.types.Enums.UserRoles} Enum for more details */
     public var roles: Int64?
+    /** A BIT field designating which Alerts the employee will receive.  See the {timesheets.types.Enums.AlertSettings} Enum for more details */
     public var alertSettings: Int64?
 
 

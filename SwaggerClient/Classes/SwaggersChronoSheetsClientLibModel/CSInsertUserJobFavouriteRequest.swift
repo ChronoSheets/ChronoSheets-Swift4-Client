@@ -8,9 +8,11 @@
 import Foundation
 
 
+/** Used to mark a JobCode as a Favourite.  Favourites can be used in the Mobile app and on the ChronoSheets website */
 
 open class CSInsertUserJobFavouriteRequest: Codable {
 
+    /** The Id of the JobCode that is being marked as a favourite */
     public var jobId: Int?
 
 

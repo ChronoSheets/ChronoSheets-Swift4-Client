@@ -8,13 +8,19 @@
 import Foundation
 
 
+/** Fields for inserting a new Job Code */
 
 open class CSInsertJobCodeRequest: Codable {
 
+    /** A short code for the Job.  This is referred to as a Job Code */
     public var code: String?
+    /** The linked Project.  Time spent with this JobCode is on this Project */
     public var projectId: Int?
+    /** The linked Client.  Time spent with this JobCode is for this Client */
     public var clientId: Int?
+    /** A list of Task Ids.  This are the Tasks that become available to the employee when they select this JobCode */
     public var linkedTaskIds: [Int]?
+    /** Optionally restrict access to the JobCode by specifying which Organisation Groups can use it */
     public var linkedOrgGroupIds: [Int]?
 
 

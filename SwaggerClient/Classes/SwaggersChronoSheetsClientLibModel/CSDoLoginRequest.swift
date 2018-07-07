@@ -8,10 +8,13 @@
 import Foundation
 
 
+/** An API Request object for logging into ChronoSheets */
 
 open class CSDoLoginRequest: Codable {
 
+    /** Your ChronoSheets username or registered email address */
     public var usernameOrEmail: String?
+    /** Your ChronoSheets password */
     public var password: String?
 
 

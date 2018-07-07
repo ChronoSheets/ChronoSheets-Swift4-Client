@@ -8,6 +8,7 @@
 import Foundation
 
 
+/** Contains fields for creating a Trip */
 
 open class CSCreateTripRequest: Codable {
 
@@ -16,10 +17,15 @@ open class CSCreateTripRequest: Codable {
         case ios = "iOS"
         case android = "Android"
     }
+    /** The associated Timesheet record Id.  The Trip will be linked to the Timesheet with this TimesheetId */
     public var timesheetId: Int?
+    /** The associated Vehicle Id.  The Trip will show that this Vehicle was used */
     public var vehicleId: Int?
+    /** A CSV of GPS path co-ordinates.  Format example: -37.8433562,144.7226188;[Lat1],[Long1];........[LatN],[LongN] */
     public var pathCoordsStringCsv: String?
+    /** The total distance of the Trip */
     public var distanceMeters: Double?
+    /** The Mobile platform that the Trip was recorded on */
     public var mobilePlatform: CSMobilePlatform?
 
 

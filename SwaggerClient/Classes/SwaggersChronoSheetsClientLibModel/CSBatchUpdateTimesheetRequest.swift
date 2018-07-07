@@ -8,9 +8,11 @@
 import Foundation
 
 
+/** Contains a collection of Timesheet objects that are to be either created or updated.  If the ID of the timesheet is specified in the Timesheet object, then that Timesheet will be updated otherwise it will be created */
 
 open class CSBatchUpdateTimesheetRequest: Codable {
 
+    /** A collection of Timesheet objects to be either created or updated */
     public var timesheets: [CSTimesheet]?
 
 

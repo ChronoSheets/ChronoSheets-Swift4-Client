@@ -8,13 +8,19 @@
 import Foundation
 
 
+/** Fields for updating a project */
 
 open class CSUpdateProjectRequest: Codable {
 
+    /** The Id of the Project that is to be updated */
     public var projectId: Int?
+    /** The new name of the Project */
     public var projectName: String?
+    /** The updated estimated cost of the Project */
     public var costEstimation: Double?
+    /** The updated project start date */
     public var startDate: Date?
+    /** The update project end date */
     public var endDate: Date?
 
 

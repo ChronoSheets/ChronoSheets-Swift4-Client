@@ -8,10 +8,13 @@
 import Foundation
 
 
+/** An object that can be used to set the Usual Hours (Rostered Hours) of an employee user account */
 
 open class CSSetUsualHoursRequest: Codable {
 
+    /** A Collection of days (Mon-Sun) with updated Roster timeslots */
     public var usualHoursData: [CSUsualHoursDay]?
+    /** The Id of the User that these updated Rostered Hours will be applied to */
     public var userId: Int?
 
 

@@ -8,11 +8,15 @@
 import Foundation
 
 
+/** Fields used to save an OrganisationGroup */
 
 open class CSSaveOrganisationGroupRequest: Codable {
 
+    /** The Id of the Organisation Group you want to update/save */
     public var id: Int?
+    /** The updated name of the Organisation Group */
     public var organisationGroupName: String?
+    /** Whether or not the Organisation Group is to be marked as deleted */
     public var isDeleted: Bool?
 
 

@@ -8,15 +8,23 @@
 import Foundation
 
 
+/** Fields for inserting a new Vehicle */
 
 open class CSInsertVehicleRequest: Codable {
 
+    /** The Name of the Vehicle */
     public var name: String?
+    /** The fuel cost / running cost of the Vehicle, measured per kilometer */
     public var costPerKilometer: Double?
+    /** The make of the Vehicle */
     public var make: String?
+    /** The model of the Vehicle */
     public var model: String?
+    /** The year the Vehicle was made */
     public var year: String?
+    /** The Licence Plate Number of the Vehicle */
     public var licencePlateNumber: String?
+    /** Optionally restrict this Vehicle to only be available to employees within these Organisation Groups */
     public var linkedOrgGroupIds: [Int]?
 
 
