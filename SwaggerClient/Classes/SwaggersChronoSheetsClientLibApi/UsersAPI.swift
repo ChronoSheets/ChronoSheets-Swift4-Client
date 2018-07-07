@@ -12,9 +12,9 @@ import Alamofire
 
 open class UsersAPI {
     /**
-     Create a user in your organisation
+     Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert User Request object containing values for the new User to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class UsersAPI {
 
 
     /**
-     Create a user in your organisation
+     Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.
      - PUT /api/Users/CreateTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -53,7 +53,7 @@ open class UsersAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert User Request object containing values for the new User to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInsertUserResponse> 
@@ -76,9 +76,9 @@ open class UsersAPI {
     }
 
     /**
-     Get a particular user in your organisation
+     Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
      
-     - parameter userId: (query)  
+     - parameter userId: (query) The User ID of the UserForManagement you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -90,7 +90,7 @@ open class UsersAPI {
 
 
     /**
-     Get a particular user in your organisation
+     Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
      - GET /api/Users/GetTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -167,7 +167,7 @@ open class UsersAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter userId: (query)  
+     - parameter userId: (query) The User ID of the UserForManagement you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseUserForManagement> 
@@ -193,7 +193,7 @@ open class UsersAPI {
     }
 
     /**
-     Get users for your organisation
+     Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -206,7 +206,7 @@ open class UsersAPI {
 
 
     /**
-     Get users for your organisation
+     Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
      - GET /api/Users/GetTimesheetUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -363,9 +363,9 @@ open class UsersAPI {
     }
 
     /**
-     Update a user
+     Update a user account.  Requires the 'ManageOrganisationUsers' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -377,7 +377,7 @@ open class UsersAPI {
 
 
     /**
-     Update a user
+     Update a user account.  Requires the 'ManageOrganisationUsers' permission.
      - POST /api/Users/UpdateTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -404,7 +404,7 @@ open class UsersAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) A Update User Request object containing updated fields.  Make sure to specify the User Id in the request object so that ChronoSheets knows which User to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseUpdateUserResponse> 

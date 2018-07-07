@@ -12,7 +12,7 @@ import Alamofire
 
 open class JobCodesAPI {
     /**
-     Create a job code.  Requires the 'ManageJobsAndTask' permission.
+     Create a job code.    Requires the 'ManageJobsAndTask' permission.
      
      - parameter request: (body) An Insert JobCode Request object containing values for the new JobCode to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -26,7 +26,7 @@ open class JobCodesAPI {
 
 
     /**
-     Create a job code.  Requires the 'ManageJobsAndTask' permission.
+     Create a job code.    Requires the 'ManageJobsAndTask' permission.
      - PUT /api/JobCodes/CreateJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -70,7 +70,7 @@ open class JobCodesAPI {
     }
 
     /**
-     Delete a job code.  Requires the 'ManageJobsAndTask' permission.
+     Delete a job code.    Requires the 'ManageJobsAndTask' permission.
      
      - parameter jobCodeId: (query) The ID of the job code you want to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -84,7 +84,7 @@ open class JobCodesAPI {
 
 
     /**
-     Delete a job code.  Requires the 'ManageJobsAndTask' permission.
+     Delete a job code.    Requires the 'ManageJobsAndTask' permission.
      - DELETE /api/JobCodes/DeleteJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -131,7 +131,7 @@ open class JobCodesAPI {
     }
 
     /**
-     Get a particular job code by job code id.  Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
+     Get a particular job code by job code id.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
      
      - parameter jobCodeId: (query) The ID of the JobCode you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -145,7 +145,7 @@ open class JobCodesAPI {
 
 
     /**
-     Get a particular job code by job code id.  Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
+     Get a particular job code by job code id.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
      - GET /api/JobCodes/GetJobCodeById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -208,7 +208,7 @@ open class JobCodesAPI {
     }
 
     /**
-     Get job codes for your organisation.  Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
+     Get job codes for your organisation.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -221,7 +221,7 @@ open class JobCodesAPI {
 
 
     /**
-     Get job codes for your organisation.  Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
+     Get job codes for your organisation.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
      - GET /api/JobCodes/GetJobCodes
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -298,7 +298,7 @@ open class JobCodesAPI {
     }
 
     /**
-     Update a job code.  Requires the 'ManageJobsAndTask' permission.
+     Update a job code.    Requires the 'ManageJobsAndTask' permission.
      
      - parameter request: (body) A Update JobCode Request object containing updated fields.  Make sure to specify the JobCode Id in the request object so that ChronoSheets knows which JobCode to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -312,7 +312,7 @@ open class JobCodesAPI {
 
 
     /**
-     Update a job code.  Requires the 'ManageJobsAndTask' permission.
+     Update a job code.    Requires the 'ManageJobsAndTask' permission.
      - POST /api/JobCodes/UpdateJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

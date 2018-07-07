@@ -12,7 +12,7 @@ import Alamofire
 
 open class FleetAPI {
     /**
-     Create a vehicle.  Requires the 'ManageFleet' permission.
+     Create a vehicle.    Requires the 'ManageFleet' permission.
      
      - parameter request: (body) An Insert Vehicle Request object containing values for the new Vehicle to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -26,7 +26,7 @@ open class FleetAPI {
 
 
     /**
-     Create a vehicle.  Requires the 'ManageFleet' permission.
+     Create a vehicle.    Requires the 'ManageFleet' permission.
      - PUT /api/Fleet/CreateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -70,7 +70,7 @@ open class FleetAPI {
     }
 
     /**
-     Get a particular vehicle
+     Get a particular vehicle.  Does not require any special permission.
      
      - parameter vehicleId: (query) The ID of the Vehicle you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -84,7 +84,7 @@ open class FleetAPI {
 
 
     /**
-     Get a particular vehicle
+     Get a particular vehicle.  Does not require any special permission.
      - GET /api/Fleet/GetVehicleById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -151,7 +151,7 @@ open class FleetAPI {
     }
 
     /**
-     Get a collection of vehicles that are under your organisation
+     Get a collection of vehicles that are under your organisation.    Does not require any special permission.
      
      - parameter includeDeleted: (query) Whether or not to include deleted vehicles 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -165,7 +165,7 @@ open class FleetAPI {
 
 
     /**
-     Get a collection of vehicles that are under your organisation
+     Get a collection of vehicles that are under your organisation.    Does not require any special permission.
      - GET /api/Fleet/GetVehicles
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -254,7 +254,7 @@ open class FleetAPI {
     }
 
     /**
-     Update a vehicle.  Requires the 'ManageFleet' permission.
+     Update a vehicle.    Requires the 'ManageFleet' permission.
      
      - parameter request: (body) A Save Vehicle Request object containing updated fields.  Make sure to specify the Vehicle Id in the request object so that ChronoSheets knows which Vehicle to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -268,7 +268,7 @@ open class FleetAPI {
 
 
     /**
-     Update a vehicle.  Requires the 'ManageFleet' permission.
+     Update a vehicle.    Requires the 'ManageFleet' permission.
      - POST /api/Fleet/UpdateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

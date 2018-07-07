@@ -12,9 +12,9 @@ import Alamofire
 
 open class TasksAPI {
     /**
-     Create a task
+     Create a task.    Requires the 'ManageJobsAndTask' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Task Request object containing values for the new Task to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class TasksAPI {
 
 
     /**
-     Create a task
+     Create a task.    Requires the 'ManageJobsAndTask' permission.
      - PUT /api/Tasks/CreateTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class TasksAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert Task Request object containing values for the new Task to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -70,9 +70,9 @@ open class TasksAPI {
     }
 
     /**
-     Delete a task
+     Delete a task.    Requires the 'ManageJobsAndTask' permission.
      
-     - parameter taskId: (query)  
+     - parameter taskId: (query) The ID of the Task you want to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -84,7 +84,7 @@ open class TasksAPI {
 
 
     /**
-     Delete a task
+     Delete a task.    Requires the 'ManageJobsAndTask' permission.
      - DELETE /api/Tasks/DeleteTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -105,7 +105,7 @@ open class TasksAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter taskId: (query)  
+     - parameter taskId: (query) The ID of the Task you want to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 
@@ -131,9 +131,9 @@ open class TasksAPI {
     }
 
     /**
-     Get a particular task by id
+     Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      
-     - parameter taskId: (query)  
+     - parameter taskId: (query) The ID of the TimesheetTask you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -145,7 +145,7 @@ open class TasksAPI {
 
 
     /**
-     Get a particular task by id
+     Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      - GET /api/Tasks/GetTaskById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -176,7 +176,7 @@ open class TasksAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter taskId: (query)  
+     - parameter taskId: (query) The ID of the TimesheetTask you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseTimesheetTask> 
@@ -202,7 +202,7 @@ open class TasksAPI {
     }
 
     /**
-     Get tasks in your organisation
+     Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -215,7 +215,7 @@ open class TasksAPI {
 
 
     /**
-     Get tasks in your organisation
+     Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      - GET /api/Tasks/GetTasks
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -280,7 +280,7 @@ open class TasksAPI {
     }
 
     /**
-     Get tasks for a particular job
+     Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      
      - parameter jobId: (query) The ID of the job 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -294,7 +294,7 @@ open class TasksAPI {
 
 
     /**
-     Get tasks for a particular job
+     Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
      - GET /api/Tasks/GetTasksForJob
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -363,9 +363,9 @@ open class TasksAPI {
     }
 
     /**
-     Update a task
+     Update a task.    Requires the 'ManageJobsAndTask' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -377,7 +377,7 @@ open class TasksAPI {
 
 
     /**
-     Update a task
+     Update a task.    Requires the 'ManageJobsAndTask' permission.
      - POST /api/Tasks/UpdateTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -398,7 +398,7 @@ open class TasksAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Update Task Request object containing updated fields.  Make sure to specify the Task Id in the request object so that ChronoSheets knows which Task to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 

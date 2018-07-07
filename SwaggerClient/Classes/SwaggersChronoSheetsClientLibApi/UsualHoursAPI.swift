@@ -12,9 +12,9 @@ import Alamofire
 
 open class UsualHoursAPI {
     /**
-     Get usual hours (rostered hours) for an employee
+     Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
      
-     - parameter userId: (query)  
+     - parameter userId: (query) The ID of the User for which you want to get UsualHours for 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class UsualHoursAPI {
 
 
     /**
-     Get usual hours (rostered hours) for an employee
+     Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
      - GET /api/UsualHours/GetUsualHours
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -125,7 +125,7 @@ open class UsualHoursAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter userId: (query)  
+     - parameter userId: (query) The ID of the User for which you want to get UsualHours for 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListUsualHoursDay> 
@@ -151,9 +151,9 @@ open class UsualHoursAPI {
     }
 
     /**
-     Set usual hours (rostered hours) for an employee
+     Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
      
-     - parameter request: (body)  
+     - parameter request: (body) A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -165,7 +165,7 @@ open class UsualHoursAPI {
 
 
     /**
-     Set usual hours (rostered hours) for an employee
+     Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
      - POST /api/UsualHours/SetUsualHours
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -186,7 +186,7 @@ open class UsualHoursAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 

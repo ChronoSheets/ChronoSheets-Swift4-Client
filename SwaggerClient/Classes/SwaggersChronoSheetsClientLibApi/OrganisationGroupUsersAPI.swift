@@ -12,7 +12,7 @@ import Alamofire
 
 open class OrganisationGroupUsersAPI {
     /**
-     Get a collection of organisation group users that belong to an organisation group.  Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
+     Get a collection of organisation group users that belong to an organisation group.    Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
      
      - parameter orgGroupId: (query) An OrganisatioGroup Id 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -26,7 +26,7 @@ open class OrganisationGroupUsersAPI {
 
 
     /**
-     Get a collection of organisation group users that belong to an organisation group.  Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
+     Get a collection of organisation group users that belong to an organisation group.    Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
      - GET /api/OrganisationGroupUsers/GetOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -187,7 +187,7 @@ open class OrganisationGroupUsersAPI {
     }
 
     /**
-     Set the users who belong to an organisation group
+     Set the users who belong to an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
      
      - parameter request: (body) A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -201,7 +201,7 @@ open class OrganisationGroupUsersAPI {
 
 
     /**
-     Set the users who belong to an organisation group
+     Set the users who belong to an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
      - POST /api/OrganisationGroupUsers/UpdateOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

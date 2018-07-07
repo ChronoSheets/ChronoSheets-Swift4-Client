@@ -12,9 +12,9 @@ import Alamofire
 
 open class TimesheetsAPI {
     /**
-     Inserts a single timesheet record
+     Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.
      
-     - parameter request: (body) The timesheet request object 
+     - parameter request: (body) A Timesheet Request object containing values for the new Timesheet to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class TimesheetsAPI {
 
 
     /**
-     Inserts a single timesheet record
+     Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.
      - PUT /api/Timesheets/CreateSingleTimesheet
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class TimesheetsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body) The timesheet request object 
+     - parameter request: (body) A Timesheet Request object containing values for the new Timesheet to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -70,9 +70,9 @@ open class TimesheetsAPI {
     }
 
     /**
-     Delete a timesheet
+     Delete a timesheet.    Requires the 'SubmitTimesheets' permission.
      
-     - parameter timesheetId: (query) The ID of the timesheet to delete 
+     - parameter timesheetId: (query) The ID of the Timesheet you want to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -84,7 +84,7 @@ open class TimesheetsAPI {
 
 
     /**
-     Delete a timesheet
+     Delete a timesheet.    Requires the 'SubmitTimesheets' permission.
      - DELETE /api/Timesheets/DeleteTimesheet
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -105,7 +105,7 @@ open class TimesheetsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter timesheetId: (query) The ID of the timesheet to delete 
+     - parameter timesheetId: (query) The ID of the Timesheet you want to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 
@@ -131,7 +131,7 @@ open class TimesheetsAPI {
     }
 
     /**
-     Get timesheets between start and end dates
+     Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.
      
      - parameter startDate: (query) The start date of the date range 
      - parameter endDate: (query) The end date of the date range 
@@ -146,7 +146,7 @@ open class TimesheetsAPI {
 
 
     /**
-     Get timesheets between start and end dates
+     Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.
      - GET /api/Timesheets/GetTimesheets
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -245,9 +245,9 @@ open class TimesheetsAPI {
     }
 
     /**
-     Batch update timesheets
+     Batch update timesheets.    Requires the 'SubmitTimesheets' permission.
      
-     - parameter request: (body) The batch update timesheets request 
+     - parameter request: (body) A BatchUpdateTimesheet Request object containing values for the new Timesheets to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -259,7 +259,7 @@ open class TimesheetsAPI {
 
 
     /**
-     Batch update timesheets
+     Batch update timesheets.    Requires the 'SubmitTimesheets' permission.
      - POST /api/Timesheets/UpdateTimesheets
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -280,7 +280,7 @@ open class TimesheetsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body) The batch update timesheets request 
+     - parameter request: (body) A BatchUpdateTimesheet Request object containing values for the new Timesheets to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListInt32> 

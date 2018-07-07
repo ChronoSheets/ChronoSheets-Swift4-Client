@@ -12,7 +12,7 @@ import Alamofire
 
 open class OrganisationGroupsAPI {
     /**
-     Create an organisation group.  Requires the 'ManageOrganisationGroups' permissions.
+     Create an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
      
      - parameter request: (body) An Insert OrganisationGroup Request object containing values for the new OrganisationGroup to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -26,7 +26,7 @@ open class OrganisationGroupsAPI {
 
 
     /**
-     Create an organisation group.  Requires the 'ManageOrganisationGroups' permissions.
+     Create an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
      - PUT /api/OrganisationGroups/CreateOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -70,7 +70,7 @@ open class OrganisationGroupsAPI {
     }
 
     /**
-     Get a particular organisation group.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
+     Get a particular organisation group.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
      
      - parameter organisationGroupId: (query) The ID of the OrganisationGroup you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -84,7 +84,7 @@ open class OrganisationGroupsAPI {
 
 
     /**
-     Get a particular organisation group.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
+     Get a particular organisation group.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
      - GET /api/OrganisationGroups/GetOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -139,7 +139,7 @@ open class OrganisationGroupsAPI {
     }
 
     /**
-     Get a collection of organisation groups that are under your organisation.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
+     Get a collection of organisation groups that are under your organisation.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -152,7 +152,7 @@ open class OrganisationGroupsAPI {
 
 
     /**
-     Get a collection of organisation groups that are under your organisation.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
+     Get a collection of organisation groups that are under your organisation.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
      - GET /api/OrganisationGroups/GetOrganisationGroups
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -213,7 +213,7 @@ open class OrganisationGroupsAPI {
     }
 
     /**
-     Get org groups for a particular job.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
+     Get org groups for a particular job.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
      
      - parameter jobId: (query) The ID of the job 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -227,7 +227,7 @@ open class OrganisationGroupsAPI {
 
 
     /**
-     Get org groups for a particular job.  Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
+     Get org groups for a particular job.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
      - GET /api/OrganisationGroups/GetOrganisationGroupsForJob
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -292,7 +292,7 @@ open class OrganisationGroupsAPI {
     }
 
     /**
-     Get org groups for a particular vehicle.  Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.
+     Get org groups for a particular vehicle.    Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.
      
      - parameter vehicleId: (query) The ID of the vehicle 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -306,7 +306,7 @@ open class OrganisationGroupsAPI {
 
 
     /**
-     Get org groups for a particular vehicle.  Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.
+     Get org groups for a particular vehicle.    Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.
      - GET /api/OrganisationGroups/GetOrganisationGroupsForVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -371,7 +371,7 @@ open class OrganisationGroupsAPI {
     }
 
     /**
-     Update an organisation group.  Requires the 'ManageOrganisationGroups' permissions.
+     Update an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
      
      - parameter request: (body) A Save OrganisationGroup Request object containing updated fields.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -385,7 +385,7 @@ open class OrganisationGroupsAPI {
 
 
     /**
-     Update an organisation group.  Requires the 'ManageOrganisationGroups' permissions.
+     Update an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
      - POST /api/OrganisationGroups/UpdateOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

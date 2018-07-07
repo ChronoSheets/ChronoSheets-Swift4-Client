@@ -12,9 +12,9 @@ import Alamofire
 
 open class UserPayRatesAPI {
     /**
-     Create a new pay rate for a particular user, archiving the previous pay rate
+     Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the 'ManageOrganisationUsers' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class UserPayRatesAPI {
 
 
     /**
-     Create a new pay rate for a particular user, archiving the previous pay rate
+     Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the 'ManageOrganisationUsers' permission.
      - PUT /api/UserPayRates/CreatePayRate
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class UserPayRatesAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert UserHourlyRate Request object containing values for the new UserHourlyRate to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -70,9 +70,9 @@ open class UserPayRatesAPI {
     }
 
     /**
-     Get a collection of pay rates for a particular user, specified by user id
+     Get a collection of pay rates for a particular user, specified by user id.    Requires the 'ManageOrganisationUsers' permission.
      
-     - parameter userId: (query)  
+     - parameter userId: (query) The ID of the User for which you want to get UserHourlyRate objects 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -84,7 +84,7 @@ open class UserPayRatesAPI {
 
 
     /**
-     Get a collection of pay rates for a particular user, specified by user id
+     Get a collection of pay rates for a particular user, specified by user id.    Requires the 'ManageOrganisationUsers' permission.
      - GET /api/UserPayRates/GetPayRates
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -139,7 +139,7 @@ open class UserPayRatesAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter userId: (query)  
+     - parameter userId: (query) The ID of the User for which you want to get UserHourlyRate objects 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListUserHourlyRate> 

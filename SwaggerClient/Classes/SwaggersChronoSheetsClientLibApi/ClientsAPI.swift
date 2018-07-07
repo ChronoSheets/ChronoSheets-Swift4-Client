@@ -12,7 +12,7 @@ import Alamofire
 
 open class ClientsAPI {
     /**
-     Create a client.  Requires the 'ManageClientsAndProjects' permission.
+     Create a client.    Requires the 'ManageClientsAndProjects' permission.
      
      - parameter request: (body) An Insert Client Request object containing values for the new Client to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -26,7 +26,7 @@ open class ClientsAPI {
 
 
     /**
-     Create a client.  Requires the 'ManageClientsAndProjects' permission.
+     Create a client.    Requires the 'ManageClientsAndProjects' permission.
      - PUT /api/Clients/CreateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -70,7 +70,7 @@ open class ClientsAPI {
     }
 
     /**
-     Get a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
+     Get a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      
      - parameter clientId: (query) The ID of the Client you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -84,7 +84,7 @@ open class ClientsAPI {
 
 
     /**
-     Get a particular client.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
+     Get a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      - GET /api/Clients/GetClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -159,7 +159,7 @@ open class ClientsAPI {
     }
 
     /**
-     Get a collection of clients that are under your organisation.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
+     Get a collection of clients that are under your organisation.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -172,7 +172,7 @@ open class ClientsAPI {
 
 
     /**
-     Get a collection of clients that are under your organisation.  Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
+     Get a collection of clients that are under your organisation.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
      - GET /api/Clients/GetClients
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -273,7 +273,7 @@ open class ClientsAPI {
     }
 
     /**
-     Update a client.  Requires the 'ManageClientsAndProjects' permission.
+     Update a client.    Requires the 'ManageClientsAndProjects' permission.
      
      - parameter request: (body) A Save Client Request object containing updated fields.  Make sure to specify the Client Id in the request object so that ChronoSheets knows which Client to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -287,7 +287,7 @@ open class ClientsAPI {
 
 
     /**
-     Update a client.  Requires the 'ManageClientsAndProjects' permission.
+     Update a client.    Requires the 'ManageClientsAndProjects' permission.
      - POST /api/Clients/UpdateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

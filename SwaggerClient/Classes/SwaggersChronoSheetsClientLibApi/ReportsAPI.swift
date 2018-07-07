@@ -12,7 +12,7 @@ import Alamofire
 
 open class ReportsAPI {
     /**
-     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
+     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -28,7 +28,7 @@ open class ReportsAPI {
 
 
     /**
-     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
+     Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetAllChartsDataAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -315,7 +315,7 @@ open class ReportsAPI {
     }
 
     /**
-     Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.  Requires the 'ViewOwnReports' permission.
+     Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -330,7 +330,7 @@ open class ReportsAPI {
 
 
     /**
-     Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.  Requires the 'ViewOwnReports' permission.
+     Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.
      - GET /api/Reports/GetAllChartsDataUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -615,7 +615,7 @@ open class ReportsAPI {
     }
 
     /**
-     Get trip by Id, for reporting purposes.  Requires the 'ReportAdmin' permission.
+     Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.
      
      - parameter tripId: (query) The ID of the Trip you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -629,7 +629,7 @@ open class ReportsAPI {
 
 
     /**
-     Get trip by Id, for reporting purposes.  Requires the 'ReportAdmin' permission.
+     Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetOrgTripById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -726,7 +726,7 @@ open class ReportsAPI {
     }
 
     /**
-     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the 'ReportAdmin' permission.
+     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the 'ReportAdmin' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -744,7 +744,7 @@ open class ReportsAPI {
 
 
     /**
-     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.  Requires the 'ReportAdmin' permission.
+     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetOrganisationTimesheetFileAttachments
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -913,7 +913,7 @@ open class ReportsAPI {
     }
 
     /**
-     Reports on Organisation trips (GPS tracking from whole organisation).  Requires the 'ReportAdmin' permission.
+     Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -931,7 +931,7 @@ open class ReportsAPI {
 
 
     /**
-     Reports on Organisation trips (GPS tracking from whole organisation).  Requires the 'ReportAdmin' permission.
+     Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetOrganisationTrips
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -1136,7 +1136,7 @@ open class ReportsAPI {
     }
 
     /**
-     Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
+     Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -1156,7 +1156,7 @@ open class ReportsAPI {
 
 
     /**
-     Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.  Requires the 'ReportAdmin' permission.
+     Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetRawDataAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -1285,7 +1285,7 @@ open class ReportsAPI {
     }
 
     /**
-     Gets project cost estimations VS actual cost for date range and users.  Requires the 'ReportAdmin' permission.
+     Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -1301,7 +1301,7 @@ open class ReportsAPI {
 
 
     /**
-     Gets project cost estimations VS actual cost for date range and users.  Requires the 'ReportAdmin' permission.
+     Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.
      - GET /api/Reports/ProjectCostingsAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -1382,7 +1382,7 @@ open class ReportsAPI {
     }
 
     /**
-     Timeseries jobs data for the logged in user.  Requires the 'ViewOwnReports' or 'SubmitTimesheets'.
+     Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -1397,7 +1397,7 @@ open class ReportsAPI {
 
 
     /**
-     Timeseries jobs data for the logged in user.  Requires the 'ViewOwnReports' or 'SubmitTimesheets'.
+     Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.
      - GET /api/Reports/UserJobsOverTime
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

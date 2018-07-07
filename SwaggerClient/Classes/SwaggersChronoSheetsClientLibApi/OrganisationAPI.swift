@@ -12,7 +12,7 @@ import Alamofire
 
 open class OrganisationAPI {
     /**
-     Get your organisation.  Requires 'OrganisationAdmin' permission.
+     Get your organisation.    Requires 'OrganisationAdmin' permission.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -25,7 +25,7 @@ open class OrganisationAPI {
 
 
     /**
-     Get your organisation.  Requires 'OrganisationAdmin' permission.
+     Get your organisation.    Requires 'OrganisationAdmin' permission.
      - GET /api/Organisation/GetOrganisation
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -98,7 +98,7 @@ open class OrganisationAPI {
     }
 
     /**
-     Update an organisation.  Requires 'OrganisationAdmin' permission.
+     Update an organisation.    Requires 'OrganisationAdmin' permission.
      
      - parameter request: (body) An Update Organsation Request object containing updated fields.  Make sure to specify the Organsation Id in the request object so that ChronoSheets knows which Organsation to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -112,7 +112,7 @@ open class OrganisationAPI {
 
 
     /**
-     Update an organisation.  Requires 'OrganisationAdmin' permission.
+     Update an organisation.    Requires 'OrganisationAdmin' permission.
      - POST /api/Organisation/UpdateOrganisation
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

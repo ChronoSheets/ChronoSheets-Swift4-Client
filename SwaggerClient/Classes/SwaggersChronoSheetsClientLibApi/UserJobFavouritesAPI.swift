@@ -12,9 +12,9 @@ import Alamofire
 
 open class UserJobFavouritesAPI {
     /**
-     Create a job favourite
+     Create a job favourite.    Requires the 'SubmitTimesheets' permission.
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert UserJobFavourite Request object containing values for the new UserJobFavourite to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class UserJobFavouritesAPI {
 
 
     /**
-     Create a job favourite
+     Create a job favourite.    Requires the 'SubmitTimesheets' permission.
      - PUT /api/UserJobFavourites/CreateJobFavourite
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class UserJobFavouritesAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body)  
+     - parameter request: (body) An Insert UserJobFavourite Request object containing values for the new UserJobFavourite to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -70,9 +70,9 @@ open class UserJobFavouritesAPI {
     }
 
     /**
-     Delete a job favourite
+     Delete a job favourite.    Requires the 'SubmitTimesheets' permission.
      
-     - parameter jobId: (query) The ID of the Job 
+     - parameter jobId: (query) The ID of the Job for the Job Favourite you want to delete. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -84,7 +84,7 @@ open class UserJobFavouritesAPI {
 
 
     /**
-     Delete a job favourite
+     Delete a job favourite.    Requires the 'SubmitTimesheets' permission.
      - DELETE /api/UserJobFavourites/DeleteJobFavourite
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -105,7 +105,7 @@ open class UserJobFavouritesAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter jobId: (query) The ID of the Job 
+     - parameter jobId: (query) The ID of the Job for the Job Favourite you want to delete. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 
@@ -131,7 +131,7 @@ open class UserJobFavouritesAPI {
     }
 
     /**
-     Get your job favourites
+     Get your job favourites.    Requires the 'SubmitTimesheets' permission.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
@@ -144,7 +144,7 @@ open class UserJobFavouritesAPI {
 
 
     /**
-     Get your job favourites
+     Get your job favourites.    Requires the 'SubmitTimesheets' permission.
      - GET /api/UserJobFavourites/GetJobFavourites
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",

@@ -12,9 +12,9 @@ import Alamofire
 
 open class TripsAPI {
     /**
-     Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.
+     Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the 'SubmitTimesheets' permission.
      
-     - parameter request: (body) The create trip request 
+     - parameter request: (body) A Create Trip Request object containing values for the new Trip to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -26,7 +26,7 @@ open class TripsAPI {
 
 
     /**
-     Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.
+     Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the 'SubmitTimesheets' permission.
      - POST /api/Trips/CreateTrip
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -47,7 +47,7 @@ open class TripsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body) The create trip request 
+     - parameter request: (body) A Create Trip Request object containing values for the new Trip to create 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 
@@ -70,9 +70,9 @@ open class TripsAPI {
     }
 
     /**
-     Get trip by Id
+     Get trip by Id.    Requires the 'ViewMyTrips' permission.
      
-     - parameter tripId: (query) The ID of the trip 
+     - parameter tripId: (query) The ID of the Trip you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -84,7 +84,7 @@ open class TripsAPI {
 
 
     /**
-     Get trip by Id
+     Get trip by Id.    Requires the 'ViewMyTrips' permission.
      - GET /api/Trips/GetMyTripById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -155,7 +155,7 @@ open class TripsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter tripId: (query) The ID of the trip 
+     - parameter tripId: (query) The ID of the Trip you want to get 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseTrip> 
@@ -181,13 +181,13 @@ open class TripsAPI {
     }
 
     /**
-     Get my trips
+     Get my trips.  Get the GPS trips you've recorded and submitted.    Requires the 'ViewMyTrips' permission.
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
-     - parameter vehicleId: (query)  
+     - parameter startDate: (query) The Start date of the date range.  Trips after this date will be obtained. 
+     - parameter endDate: (query) The End date of the date range.  Trips before this date will be obtained. 
+     - parameter skip: (query) Skip this many Trips 
+     - parameter take: (query) Take this many Trips 
+     - parameter vehicleId: (query) Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -199,7 +199,7 @@ open class TripsAPI {
 
 
     /**
-     Get my trips
+     Get my trips.  Get the GPS trips you've recorded and submitted.    Requires the 'ViewMyTrips' permission.
      - GET /api/Trips/GetMyTrips
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -326,11 +326,11 @@ open class TripsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter startDate: (query)  
-     - parameter endDate: (query)  
-     - parameter skip: (query)  
-     - parameter take: (query)  
-     - parameter vehicleId: (query)  
+     - parameter startDate: (query) The Start date of the date range.  Trips after this date will be obtained. 
+     - parameter endDate: (query) The End date of the date range.  Trips before this date will be obtained. 
+     - parameter skip: (query) Skip this many Trips 
+     - parameter take: (query) Take this many Trips 
+     - parameter vehicleId: (query) Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListTrip> 
