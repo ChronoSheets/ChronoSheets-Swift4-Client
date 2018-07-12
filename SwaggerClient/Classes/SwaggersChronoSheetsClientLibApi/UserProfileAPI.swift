@@ -26,7 +26,7 @@ open class UserProfileAPI {
 
     /**
      Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.
-     - POST /api/UserProfile/DoLogin
+     - PUT /api/UserProfile/DoLogin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -120,7 +120,7 @@ open class UserProfileAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseDoLoginResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
 
     /**
@@ -331,7 +331,7 @@ open class UserProfileAPI {
 
     /**
      Update your own profile.  Use this method to update your profile information or update/change your password.    Does not require any special permissions.
-     - POST /api/UserProfile/UpdateMyProfile
+     - PUT /api/UserProfile/UpdateMyProfile
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -376,7 +376,7 @@ open class UserProfileAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseUpdateProfileResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

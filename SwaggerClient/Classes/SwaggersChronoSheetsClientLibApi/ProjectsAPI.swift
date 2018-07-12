@@ -27,7 +27,7 @@ open class ProjectsAPI {
 
     /**
      Create a project.    Requires the 'ManageClientsAndProjects' permission.
-     - PUT /api/Projects/CreateProject
+     - POST /api/Projects/CreateProject
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class ProjectsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -251,7 +251,7 @@ open class ProjectsAPI {
 
     /**
      Update a project.    Requires the 'ManageClientsAndProjects' permission.
-     - POST /api/Projects/UpdateProject
+     - PUT /api/Projects/UpdateProject
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -290,7 +290,7 @@ open class ProjectsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

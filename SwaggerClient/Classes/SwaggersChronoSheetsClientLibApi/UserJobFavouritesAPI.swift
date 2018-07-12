@@ -27,7 +27,7 @@ open class UserJobFavouritesAPI {
 
     /**
      Create a job favourite.    Requires the 'SubmitTimesheets' permission.
-     - PUT /api/UserJobFavourites/CreateJobFavourite
+     - POST /api/UserJobFavourites/CreateJobFavourite
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class UserJobFavouritesAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**

@@ -113,7 +113,7 @@ open class OrganisationAPI {
 
     /**
      Update an organisation.    Requires 'OrganisationAdmin' permission.
-     - POST /api/Organisation/UpdateOrganisation
+     - PUT /api/Organisation/UpdateOrganisation
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -154,7 +154,7 @@ open class OrganisationAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseUpdateOrganisationResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

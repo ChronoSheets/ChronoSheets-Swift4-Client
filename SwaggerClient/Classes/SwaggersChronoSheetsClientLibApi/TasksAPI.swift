@@ -27,7 +27,7 @@ open class TasksAPI {
 
     /**
      Create a task.    Requires the 'ManageJobsAndTask' permission.
-     - PUT /api/Tasks/CreateTask
+     - POST /api/Tasks/CreateTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class TasksAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -378,7 +378,7 @@ open class TasksAPI {
 
     /**
      Update a task.    Requires the 'ManageJobsAndTask' permission.
-     - POST /api/Tasks/UpdateTask
+     - PUT /api/Tasks/UpdateTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -417,7 +417,7 @@ open class TasksAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

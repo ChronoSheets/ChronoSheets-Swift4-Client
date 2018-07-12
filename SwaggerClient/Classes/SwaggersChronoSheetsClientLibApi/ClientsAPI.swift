@@ -27,7 +27,7 @@ open class ClientsAPI {
 
     /**
      Create a client.    Requires the 'ManageClientsAndProjects' permission.
-     - PUT /api/Clients/CreateClient
+     - POST /api/Clients/CreateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class ClientsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -288,7 +288,7 @@ open class ClientsAPI {
 
     /**
      Update a client.    Requires the 'ManageClientsAndProjects' permission.
-     - POST /api/Clients/UpdateClient
+     - PUT /api/Clients/UpdateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -327,7 +327,7 @@ open class ClientsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

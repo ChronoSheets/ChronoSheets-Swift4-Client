@@ -27,7 +27,7 @@ open class TimesheetsAPI {
 
     /**
      Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.
-     - PUT /api/Timesheets/CreateSingleTimesheet
+     - POST /api/Timesheets/CreateSingleTimesheet
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class TimesheetsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -260,7 +260,7 @@ open class TimesheetsAPI {
 
     /**
      Batch update timesheets.    Requires the 'SubmitTimesheets' permission.
-     - POST /api/Timesheets/UpdateTimesheets
+     - PUT /api/Timesheets/UpdateTimesheets
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -299,7 +299,7 @@ open class TimesheetsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseListInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

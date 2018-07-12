@@ -27,7 +27,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Create an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
-     - PUT /api/OrganisationGroups/CreateOrganisationGroup
+     - POST /api/OrganisationGroups/CreateOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class OrganisationGroupsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -386,7 +386,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Update an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
-     - POST /api/OrganisationGroups/UpdateOrganisationGroup
+     - PUT /api/OrganisationGroups/UpdateOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -425,7 +425,7 @@ open class OrganisationGroupsAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

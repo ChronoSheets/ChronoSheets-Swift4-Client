@@ -202,7 +202,7 @@ open class OrganisationGroupUsersAPI {
 
     /**
      Set the users who belong to an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
-     - POST /api/OrganisationGroupUsers/UpdateOrganisationGroupUsers
+     - PUT /api/OrganisationGroupUsers/UpdateOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -241,7 +241,7 @@ open class OrganisationGroupUsersAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

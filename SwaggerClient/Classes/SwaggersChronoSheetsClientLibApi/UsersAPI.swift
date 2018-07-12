@@ -27,7 +27,7 @@ open class UsersAPI {
 
     /**
      Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.
-     - PUT /api/Users/CreateTimesheetUser
+     - POST /api/Users/CreateTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -72,7 +72,7 @@ open class UsersAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInsertUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -378,7 +378,7 @@ open class UsersAPI {
 
     /**
      Update a user account.  Requires the 'ManageOrganisationUsers' permission.
-     - POST /api/Users/UpdateTimesheetUser
+     - PUT /api/Users/UpdateTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -423,7 +423,7 @@ open class UsersAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseUpdateUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

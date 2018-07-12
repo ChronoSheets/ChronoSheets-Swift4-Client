@@ -27,7 +27,7 @@ open class FleetAPI {
 
     /**
      Create a vehicle.    Requires the 'ManageFleet' permission.
-     - PUT /api/Fleet/CreateVehicle
+     - POST /api/Fleet/CreateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class FleetAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -269,7 +269,7 @@ open class FleetAPI {
 
     /**
      Update a vehicle.    Requires the 'ManageFleet' permission.
-     - POST /api/Fleet/UpdateVehicle
+     - PUT /api/Fleet/UpdateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -308,7 +308,7 @@ open class FleetAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }

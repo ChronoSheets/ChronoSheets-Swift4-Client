@@ -27,7 +27,7 @@ open class JobCodesAPI {
 
     /**
      Create a job code.    Requires the 'ManageJobsAndTask' permission.
-     - PUT /api/JobCodes/CreateJobCode
+     - POST /api/JobCodes/CreateJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -66,7 +66,7 @@ open class JobCodesAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
     /**
@@ -313,7 +313,7 @@ open class JobCodesAPI {
 
     /**
      Update a job code.    Requires the 'ManageJobsAndTask' permission.
-     - POST /api/JobCodes/UpdateJobCode
+     - PUT /api/JobCodes/UpdateJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -352,7 +352,7 @@ open class JobCodesAPI {
 
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
+        return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
 
 }
