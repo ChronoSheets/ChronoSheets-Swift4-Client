@@ -615,6 +615,131 @@ open class ReportsAPI {
     }
 
     /**
+     Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.
+     
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListFleetSummaryReportItem?,_ error: Error?) -> Void)) {
+        reportsGetFleetSummaryAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error);
+        }
+    }
+
+
+    /**
+     Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.
+     - GET /api/Reports/GetFleetSummaryAdmin
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : [ {
+    "IsDeleted" : true,
+    "PermittedEmployees" : [ 9, 9 ],
+    "OrganisationId" : 2,
+    "Make" : "Make",
+    "TotalRunningCostDollars" : 5.962133916683182,
+    "TotalDistanceMetersFiltered" : 0.8008281904610115,
+    "LicencePlateNumber" : "LicencePlateNumber",
+    "Name" : "Name",
+    "Year" : "Year",
+    "Model" : "Model",
+    "Id" : 5,
+    "CostPerKilometer" : 7.061401241503109,
+    "TotalDistanceMeters" : 6.027456183070403,
+    "TotalRunningCostDollarsFiltered" : 1.4658129805029452
+  }, {
+    "IsDeleted" : true,
+    "PermittedEmployees" : [ 9, 9 ],
+    "OrganisationId" : 2,
+    "Make" : "Make",
+    "TotalRunningCostDollars" : 5.962133916683182,
+    "TotalDistanceMetersFiltered" : 0.8008281904610115,
+    "LicencePlateNumber" : "LicencePlateNumber",
+    "Name" : "Name",
+    "Year" : "Year",
+    "Model" : "Model",
+    "Id" : 5,
+    "CostPerKilometer" : 7.061401241503109,
+    "TotalDistanceMeters" : 6.027456183070403,
+    "TotalRunningCostDollarsFiltered" : 1.4658129805029452
+  } ]
+}}, {contentType=application/xml, example=<null>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : [ {
+    "IsDeleted" : true,
+    "PermittedEmployees" : [ 9, 9 ],
+    "OrganisationId" : 2,
+    "Make" : "Make",
+    "TotalRunningCostDollars" : 5.962133916683182,
+    "TotalDistanceMetersFiltered" : 0.8008281904610115,
+    "LicencePlateNumber" : "LicencePlateNumber",
+    "Name" : "Name",
+    "Year" : "Year",
+    "Model" : "Model",
+    "Id" : 5,
+    "CostPerKilometer" : 7.061401241503109,
+    "TotalDistanceMeters" : 6.027456183070403,
+    "TotalRunningCostDollarsFiltered" : 1.4658129805029452
+  }, {
+    "IsDeleted" : true,
+    "PermittedEmployees" : [ 9, 9 ],
+    "OrganisationId" : 2,
+    "Make" : "Make",
+    "TotalRunningCostDollars" : 5.962133916683182,
+    "TotalDistanceMetersFiltered" : 0.8008281904610115,
+    "LicencePlateNumber" : "LicencePlateNumber",
+    "Name" : "Name",
+    "Year" : "Year",
+    "Model" : "Model",
+    "Id" : 5,
+    "CostPerKilometer" : 7.061401241503109,
+    "TotalDistanceMeters" : 6.027456183070403,
+    "TotalRunningCostDollarsFiltered" : 1.4658129805029452
+  } ]
+}}, {contentType=application/xml, example=<null>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CSApiResponseListFleetSummaryReportItem> 
+     */
+    open class func reportsGetFleetSummaryAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListFleetSummaryReportItem> {
+        let path = "/api/Reports/GetFleetSummaryAdmin"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "StartDate": startDate.encodeToJSON(), 
+            "EndDate": endDate.encodeToJSON(), 
+            "UserIds": userIds
+        ])
+        
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CSApiResponseListFleetSummaryReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.
      
      - parameter tripId: (query) The ID of the Trip you want to get 
@@ -726,7 +851,7 @@ open class ReportsAPI {
     }
 
     /**
-     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the 'ReportAdmin' permission.
+     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
@@ -744,7 +869,7 @@ open class ReportsAPI {
 
 
     /**
-     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records.    Requires the 'ReportAdmin' permission.
+     Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.
      - GET /api/Reports/GetOrganisationTimesheetFileAttachments
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -908,6 +1033,232 @@ open class ReportsAPI {
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
+     Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.
+     
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter skip: (query) Skip this many items 
+     - parameter take: (query) Take this many items 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
+     - parameter keywords: (query) Search the transcripts by keyword(s) 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, keywords: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTranscript?,_ error: Error?) -> Void)) {
+        reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, userIds: userIds, keywords: keywords, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error);
+        }
+    }
+
+
+    /**
+     Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.
+     - GET /api/Reports/GetOrganisationTranscripts
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "TotalSetCount" : 0,
+  "Message" : "Message",
+  "Data" : [ {
+    "TimesheetEnd" : "2000-01-23T04:56:07.000+00:00",
+    "DateImageCaptured" : "2000-01-23T04:56:07.000+00:00",
+    "OriginalFileName" : "OriginalFileName",
+    "FinishedJob" : true,
+    "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
+    "JobName" : "JobName",
+    "TimesheetId" : 1,
+    "Latitude" : 7.061401241503109,
+    "CompletedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "StartedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "Created" : "2000-01-23T04:56:07.000+00:00",
+    "MediaType" : "Other",
+    "NonImageFilePath" : "NonImageFilePath",
+    "TranscriptionStatus" : "Saved",
+    "Notes" : "Notes",
+    "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
+    "AttachmentType" : "Image",
+    "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
+    "FirstName" : "FirstName",
+    "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
+    "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
+    "StorageAllocationBytes" : 3,
+    "Longitude" : 9.301444243932576,
+    "EmailAddress" : "EmailAddress",
+    "FileAttachmentId" : 5,
+    "ImageMediumFilePath" : "ImageMediumFilePath",
+    "TranscriptionId" : 6,
+    "OrgId" : 2,
+    "ImageSmallFilePath" : "ImageSmallFilePath",
+    "MobilePlatform" : "Unknown",
+    "Contents" : "Contents",
+    "Username" : "Username",
+    "ImageLargeFilePath" : "ImageLargeFilePath",
+    "UserId" : 5,
+    "LastName" : "LastName",
+    "DateUploaded" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "TimesheetEnd" : "2000-01-23T04:56:07.000+00:00",
+    "DateImageCaptured" : "2000-01-23T04:56:07.000+00:00",
+    "OriginalFileName" : "OriginalFileName",
+    "FinishedJob" : true,
+    "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
+    "JobName" : "JobName",
+    "TimesheetId" : 1,
+    "Latitude" : 7.061401241503109,
+    "CompletedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "StartedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "Created" : "2000-01-23T04:56:07.000+00:00",
+    "MediaType" : "Other",
+    "NonImageFilePath" : "NonImageFilePath",
+    "TranscriptionStatus" : "Saved",
+    "Notes" : "Notes",
+    "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
+    "AttachmentType" : "Image",
+    "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
+    "FirstName" : "FirstName",
+    "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
+    "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
+    "StorageAllocationBytes" : 3,
+    "Longitude" : 9.301444243932576,
+    "EmailAddress" : "EmailAddress",
+    "FileAttachmentId" : 5,
+    "ImageMediumFilePath" : "ImageMediumFilePath",
+    "TranscriptionId" : 6,
+    "OrgId" : 2,
+    "ImageSmallFilePath" : "ImageSmallFilePath",
+    "MobilePlatform" : "Unknown",
+    "Contents" : "Contents",
+    "Username" : "Username",
+    "ImageLargeFilePath" : "ImageLargeFilePath",
+    "UserId" : 5,
+    "LastName" : "LastName",
+    "DateUploaded" : "2000-01-23T04:56:07.000+00:00"
+  } ]
+}}, {contentType=application/xml, example=<null>
+  <TotalSetCount>123</TotalSetCount>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "TotalSetCount" : 0,
+  "Message" : "Message",
+  "Data" : [ {
+    "TimesheetEnd" : "2000-01-23T04:56:07.000+00:00",
+    "DateImageCaptured" : "2000-01-23T04:56:07.000+00:00",
+    "OriginalFileName" : "OriginalFileName",
+    "FinishedJob" : true,
+    "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
+    "JobName" : "JobName",
+    "TimesheetId" : 1,
+    "Latitude" : 7.061401241503109,
+    "CompletedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "StartedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "Created" : "2000-01-23T04:56:07.000+00:00",
+    "MediaType" : "Other",
+    "NonImageFilePath" : "NonImageFilePath",
+    "TranscriptionStatus" : "Saved",
+    "Notes" : "Notes",
+    "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
+    "AttachmentType" : "Image",
+    "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
+    "FirstName" : "FirstName",
+    "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
+    "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
+    "StorageAllocationBytes" : 3,
+    "Longitude" : 9.301444243932576,
+    "EmailAddress" : "EmailAddress",
+    "FileAttachmentId" : 5,
+    "ImageMediumFilePath" : "ImageMediumFilePath",
+    "TranscriptionId" : 6,
+    "OrgId" : 2,
+    "ImageSmallFilePath" : "ImageSmallFilePath",
+    "MobilePlatform" : "Unknown",
+    "Contents" : "Contents",
+    "Username" : "Username",
+    "ImageLargeFilePath" : "ImageLargeFilePath",
+    "UserId" : 5,
+    "LastName" : "LastName",
+    "DateUploaded" : "2000-01-23T04:56:07.000+00:00"
+  }, {
+    "TimesheetEnd" : "2000-01-23T04:56:07.000+00:00",
+    "DateImageCaptured" : "2000-01-23T04:56:07.000+00:00",
+    "OriginalFileName" : "OriginalFileName",
+    "FinishedJob" : true,
+    "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
+    "JobName" : "JobName",
+    "TimesheetId" : 1,
+    "Latitude" : 7.061401241503109,
+    "CompletedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "StartedProcessing" : "2000-01-23T04:56:07.000+00:00",
+    "Created" : "2000-01-23T04:56:07.000+00:00",
+    "MediaType" : "Other",
+    "NonImageFilePath" : "NonImageFilePath",
+    "TranscriptionStatus" : "Saved",
+    "Notes" : "Notes",
+    "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
+    "AttachmentType" : "Image",
+    "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
+    "FirstName" : "FirstName",
+    "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
+    "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
+    "StorageAllocationBytes" : 3,
+    "Longitude" : 9.301444243932576,
+    "EmailAddress" : "EmailAddress",
+    "FileAttachmentId" : 5,
+    "ImageMediumFilePath" : "ImageMediumFilePath",
+    "TranscriptionId" : 6,
+    "OrgId" : 2,
+    "ImageSmallFilePath" : "ImageSmallFilePath",
+    "MobilePlatform" : "Unknown",
+    "Contents" : "Contents",
+    "Username" : "Username",
+    "ImageLargeFilePath" : "ImageLargeFilePath",
+    "UserId" : 5,
+    "LastName" : "LastName",
+    "DateUploaded" : "2000-01-23T04:56:07.000+00:00"
+  } ]
+}}, {contentType=application/xml, example=<null>
+  <TotalSetCount>123</TotalSetCount>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
+     - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
+     - parameter skip: (query) Skip this many items 
+     - parameter take: (query) Take this many items 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
+     - parameter keywords: (query) Search the transcripts by keyword(s) 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> 
+     */
+    open class func reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, keywords: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
+        let path = "/api/Reports/GetOrganisationTranscripts"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "StartDate": startDate.encodeToJSON(), 
+            "EndDate": endDate.encodeToJSON(), 
+            "Skip": skip.encodeToJSON(), 
+            "Take": take.encodeToJSON(), 
+            "UserIds": userIds, 
+            "Keywords": keywords
+        ])
+        
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1308,20 +1659,22 @@ open class ReportsAPI {
   "Message" : "Message",
   "Data" : [ {
     "ClientName" : "ClientName",
+    "ActualCostFiltered" : 5.637376656633329,
     "ProjectName" : "ProjectName",
     "ProjectId" : 0,
     "OrganisationId" : 1,
     "EstimatedCost" : 5.962133916683182,
     "ClientId" : 6,
-    "ActualCost" : 5.637376656633329
+    "ActualCost" : 2.3021358869347655
   }, {
     "ClientName" : "ClientName",
+    "ActualCostFiltered" : 5.637376656633329,
     "ProjectName" : "ProjectName",
     "ProjectId" : 0,
     "OrganisationId" : 1,
     "EstimatedCost" : 5.962133916683182,
     "ClientId" : 6,
-    "ActualCost" : 5.637376656633329
+    "ActualCost" : 2.3021358869347655
   } ]
 }}, {contentType=application/xml, example=<null>
   <Status>aeiou</Status>
@@ -1332,20 +1685,22 @@ open class ReportsAPI {
   "Message" : "Message",
   "Data" : [ {
     "ClientName" : "ClientName",
+    "ActualCostFiltered" : 5.637376656633329,
     "ProjectName" : "ProjectName",
     "ProjectId" : 0,
     "OrganisationId" : 1,
     "EstimatedCost" : 5.962133916683182,
     "ClientId" : 6,
-    "ActualCost" : 5.637376656633329
+    "ActualCost" : 2.3021358869347655
   }, {
     "ClientName" : "ClientName",
+    "ActualCostFiltered" : 5.637376656633329,
     "ProjectName" : "ProjectName",
     "ProjectId" : 0,
     "OrganisationId" : 1,
     "EstimatedCost" : 5.962133916683182,
     "ClientId" : 6,
-    "ActualCost" : 5.637376656633329
+    "ActualCost" : 2.3021358869347655
   } ]
 }}, {contentType=application/xml, example=<null>
   <Status>aeiou</Status>

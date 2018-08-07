@@ -17,17 +17,19 @@ open class CSProjectCostingReportItem: Codable {
     public var organisationId: Int?
     public var clientName: String?
     public var estimatedCost: Double?
+    public var actualCostFiltered: Double?
     public var actualCost: Double?
 
 
     
-    public init(projectId: Int?, projectName: String?, clientId: Int?, organisationId: Int?, clientName: String?, estimatedCost: Double?, actualCost: Double?) {
+    public init(projectId: Int?, projectName: String?, clientId: Int?, organisationId: Int?, clientName: String?, estimatedCost: Double?, actualCostFiltered: Double?, actualCost: Double?) {
         self.projectId = projectId
         self.projectName = projectName
         self.clientId = clientId
         self.organisationId = organisationId
         self.clientName = clientName
         self.estimatedCost = estimatedCost
+        self.actualCostFiltered = actualCostFiltered
         self.actualCost = actualCost
     }
     
@@ -44,6 +46,7 @@ open class CSProjectCostingReportItem: Codable {
         try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
         try container.encodeIfPresent(clientName, forKey: "ClientName")
         try container.encodeIfPresent(estimatedCost, forKey: "EstimatedCost")
+        try container.encodeIfPresent(actualCostFiltered, forKey: "ActualCostFiltered")
         try container.encodeIfPresent(actualCost, forKey: "ActualCost")
     }
 
@@ -58,6 +61,7 @@ open class CSProjectCostingReportItem: Codable {
         organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
         clientName = try container.decodeIfPresent(String.self, forKey: "ClientName")
         estimatedCost = try container.decodeIfPresent(Double.self, forKey: "EstimatedCost")
+        actualCostFiltered = try container.decodeIfPresent(Double.self, forKey: "ActualCostFiltered")
         actualCost = try container.decodeIfPresent(Double.self, forKey: "ActualCost")
     }
 }
