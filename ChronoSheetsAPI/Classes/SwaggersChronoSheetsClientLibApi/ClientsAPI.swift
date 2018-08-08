@@ -54,7 +54,7 @@ open class ClientsAPI {
      */
     open class func clientsCreateClientWithRequestBuilder(request: CSInsertClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/Clients/CreateClient"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -64,7 +64,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -140,7 +140,7 @@ open class ClientsAPI {
      */
     open class func clientsGetClientWithRequestBuilder(clientId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseClient> {
         let path = "/api/Clients/GetClient"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -153,7 +153,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseClient>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseClient>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -257,7 +257,7 @@ open class ClientsAPI {
      */
     open class func clientsGetClientsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListClient> {
         let path = "/api/Clients/GetClients"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -267,7 +267,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListClient>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListClient>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -315,7 +315,7 @@ open class ClientsAPI {
      */
     open class func clientsUpdateClientWithRequestBuilder(request: CSSaveClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/Clients/UpdateClient"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -325,7 +325,7 @@ open class ClientsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

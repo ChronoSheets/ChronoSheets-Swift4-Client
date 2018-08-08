@@ -54,7 +54,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsCreateOrganisationGroupWithRequestBuilder(request: CSInsertOrganisationGroupRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/OrganisationGroups/CreateOrganisationGroup"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -64,7 +64,7 @@ open class OrganisationGroupsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -120,7 +120,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroupWithRequestBuilder(organisationGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseOrganisationGroup> {
         let path = "/api/OrganisationGroups/GetOrganisationGroup"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -133,7 +133,7 @@ open class OrganisationGroupsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseOrganisationGroup>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseOrganisationGroup>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -197,7 +197,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroupsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListOrganisationGroup> {
         let path = "/api/OrganisationGroups/GetOrganisationGroups"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -207,7 +207,7 @@ open class OrganisationGroupsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListOrganisationGroup>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListOrganisationGroup>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -273,7 +273,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroupsForJobWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListOrganisationGroup> {
         let path = "/api/OrganisationGroups/GetOrganisationGroupsForJob"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -286,7 +286,7 @@ open class OrganisationGroupsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListOrganisationGroup>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListOrganisationGroup>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -352,7 +352,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroupsForVehicleWithRequestBuilder(vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListOrganisationGroup> {
         let path = "/api/OrganisationGroups/GetOrganisationGroupsForVehicle"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -365,7 +365,7 @@ open class OrganisationGroupsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListOrganisationGroup>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListOrganisationGroup>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -413,7 +413,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsUpdateOrganisationGroupWithRequestBuilder(request: CSSaveOrganisationGroupRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/OrganisationGroups/UpdateOrganisationGroup"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -423,7 +423,7 @@ open class OrganisationGroupsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

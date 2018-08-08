@@ -60,7 +60,7 @@ open class UsersAPI {
      */
     open class func usersCreateTimesheetUserWithRequestBuilder(request: CSInsertUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInsertUserResponse> {
         let path = "/api/Users/CreateTimesheetUser"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -70,7 +70,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseInsertUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInsertUserResponse>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -174,7 +174,7 @@ open class UsersAPI {
      */
     open class func usersGetTimesheetUserWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUserForManagement> {
         let path = "/api/Users/GetTimesheetUser"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -187,7 +187,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUserForManagement>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -347,7 +347,7 @@ open class UsersAPI {
      */
     open class func usersGetTimesheetUsersWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserForManagement> {
         let path = "/api/Users/GetTimesheetUsers"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -357,7 +357,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListUserForManagement>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -411,7 +411,7 @@ open class UsersAPI {
      */
     open class func usersUpdateTimesheetUserWithRequestBuilder(request: CSUpdateUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUpdateUserResponse> {
         let path = "/api/Users/UpdateTimesheetUser"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -421,7 +421,7 @@ open class UsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseUpdateUserResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUpdateUserResponse>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

@@ -112,13 +112,13 @@ open class UserProfileAPI {
      */
     open class func userProfileDoLoginWithRequestBuilder(request: CSDoLoginRequest) -> RequestBuilder<CSApiResponseDoLoginResponse> {
         let path = "/api/UserProfile/DoLogin"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
 
 
-        let requestBuilder: RequestBuilder<CSApiResponseDoLoginResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseDoLoginResponse>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
@@ -164,7 +164,7 @@ open class UserProfileAPI {
      */
     open class func userProfileDoLogoutWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/UserProfile/DoLogout"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -174,7 +174,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -244,7 +244,7 @@ open class UserProfileAPI {
      */
     open class func userProfileGetMyProfileWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUserProfile> {
         let path = "/api/UserProfile/GetMyProfile"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -254,7 +254,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseUserProfile>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUserProfile>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -300,7 +300,7 @@ open class UserProfileAPI {
      */
     open class func userProfileKeepSessionAliveWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/UserProfile/KeepSessionAlive"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -310,7 +310,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -364,7 +364,7 @@ open class UserProfileAPI {
      */
     open class func userProfileUpdateMyProfileWithRequestBuilder(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUpdateProfileResponse> {
         let path = "/api/UserProfile/UpdateMyProfile"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -374,7 +374,7 @@ open class UserProfileAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseUpdateProfileResponse>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseUpdateProfileResponse>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

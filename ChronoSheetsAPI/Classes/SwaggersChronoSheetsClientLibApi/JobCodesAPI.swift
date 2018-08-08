@@ -54,7 +54,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesCreateJobCodeWithRequestBuilder(request: CSInsertJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
         let path = "/api/JobCodes/CreateJobCode"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -64,7 +64,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseInt32>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }
@@ -112,7 +112,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesDeleteJobCodeWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/JobCodes/DeleteJobCode"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -125,7 +125,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -189,7 +189,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesGetJobCodeByIdWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseJobCode> {
         let path = "/api/JobCodes/GetJobCodeById"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -202,7 +202,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseJobCode>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -282,7 +282,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesGetJobCodesWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListJobCode> {
         let path = "/api/JobCodes/GetJobCodes"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -292,7 +292,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListJobCode>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -340,7 +340,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesUpdateJobCodeWithRequestBuilder(request: CSUpdateJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/JobCodes/UpdateJobCode"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -350,7 +350,7 @@ open class JobCodesAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

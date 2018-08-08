@@ -6,7 +6,7 @@
 
 import Foundation
 
-open class SwaggerClientAPI {
+open class ChronoSheetsAPIAPI {
     open static var basePath = "https://www.chronosheets.com"
     open static var credential: URLCredential?
     open static var customHeaders: [String:String] = [:]
@@ -31,7 +31,7 @@ open class RequestBuilder<T> {
         self.isBody = isBody
         self.headers = headers
 
-        addHeaders(SwaggerClientAPI.customHeaders)
+        addHeaders(ChronoSheetsAPIAPI.customHeaders)
     }
 
     open func addHeaders(_ aHeaders:[String:String]) {
@@ -50,7 +50,7 @@ open class RequestBuilder<T> {
     }
 
     open func addCredential() -> Self {
-        self.credential = SwaggerClientAPI.credential
+        self.credential = ChronoSheetsAPIAPI.credential
         return self
     }
 }

@@ -178,7 +178,7 @@ open class AggregateClientProjectsAPI {
      */
     open class func aggregateClientProjectsGetAggregateClientProjectsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListAggregateClient> {
         let path = "/api/AggregateClientProjects/GetAggregateClientProjects"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -188,7 +188,7 @@ open class AggregateClientProjectsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListAggregateClient>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListAggregateClient>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

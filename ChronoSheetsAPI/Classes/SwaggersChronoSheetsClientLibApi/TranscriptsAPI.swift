@@ -212,7 +212,7 @@ open class TranscriptsAPI {
      */
     open class func transcriptsGetMyTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, keyword: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
         let path = "/api/Transcripts/GetMyTranscripts"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -229,7 +229,7 @@ open class TranscriptsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

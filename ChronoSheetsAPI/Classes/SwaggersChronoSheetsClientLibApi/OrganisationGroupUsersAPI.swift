@@ -168,7 +168,7 @@ open class OrganisationGroupUsersAPI {
      */
     open class func organisationGroupUsersGetOrganisationGroupUsersWithRequestBuilder(orgGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserForManagement> {
         let path = "/api/OrganisationGroupUsers/GetOrganisationGroupUsers"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -181,7 +181,7 @@ open class OrganisationGroupUsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListUserForManagement>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListUserForManagement>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -229,7 +229,7 @@ open class OrganisationGroupUsersAPI {
      */
     open class func organisationGroupUsersUpdateOrganisationGroupUsersWithRequestBuilder(request: CSSetOrganisationGroupUsersRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
         let path = "/api/OrganisationGroupUsers/UpdateOrganisationGroupUsers"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
         let url = NSURLComponents(string: URLString)
@@ -239,7 +239,7 @@ open class OrganisationGroupUsersAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true, headers: headerParameters)
     }

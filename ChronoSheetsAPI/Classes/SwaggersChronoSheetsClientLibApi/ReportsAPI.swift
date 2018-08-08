@@ -294,7 +294,7 @@ open class ReportsAPI {
      */
     open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseCombinedReportsData> {
         let path = "/api/Reports/GetAllChartsDataAdmin"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -309,7 +309,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseCombinedReportsData>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseCombinedReportsData>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -595,7 +595,7 @@ open class ReportsAPI {
      */
     open class func reportsGetAllChartsDataUserWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseCombinedReportsData> {
         let path = "/api/Reports/GetAllChartsDataUser"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -609,7 +609,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseCombinedReportsData>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseCombinedReportsData>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -719,7 +719,7 @@ open class ReportsAPI {
      */
     open class func reportsGetFleetSummaryAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListFleetSummaryReportItem> {
         let path = "/api/Reports/GetFleetSummaryAdmin"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -734,7 +734,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListFleetSummaryReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListFleetSummaryReportItem>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -832,7 +832,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrgTripByIdWithRequestBuilder(tripId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTrip> {
         let path = "/api/Reports/GetOrgTripById"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -845,7 +845,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseTrip>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseTrip>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1015,7 +1015,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> {
         let path = "/api/Reports/GetOrganisationTimesheetFileAttachments"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -1032,7 +1032,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1240,7 +1240,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, keywords: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
         let path = "/api/Reports/GetOrganisationTranscripts"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -1258,7 +1258,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1436,7 +1436,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrganisationTripsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> {
         let path = "/api/Reports/GetOrganisationTrips"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -1453,7 +1453,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1611,7 +1611,7 @@ open class ReportsAPI {
      */
     open class func reportsGetRawDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, sort: CSSort_reportsGetRawDataAdmin, order: CSOrder_reportsGetRawDataAdmin, skip: Int, take: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListRawReportItem> {
         let path = "/api/Reports/GetRawDataAdmin"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -1630,7 +1630,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListRawReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListRawReportItem>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1716,7 +1716,7 @@ open class ReportsAPI {
      */
     open class func reportsProjectCostingsAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListProjectCostingReportItem> {
         let path = "/api/Reports/ProjectCostingsAdmin"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -1731,7 +1731,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListProjectCostingReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListProjectCostingReportItem>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
@@ -1819,7 +1819,7 @@ open class ReportsAPI {
      */
     open class func reportsUserJobsOverTimeWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListJobSeriesReportItem> {
         let path = "/api/Reports/UserJobsOverTime"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -1833,7 +1833,7 @@ open class ReportsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListJobSeriesReportItem>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListJobSeriesReportItem>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

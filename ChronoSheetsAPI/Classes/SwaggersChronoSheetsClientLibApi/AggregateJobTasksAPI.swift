@@ -126,7 +126,7 @@ open class AggregateJobTasksAPI {
      */
     open class func aggregateJobTasksGetAggregateJobTasksWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListAggregateJobCode> {
         let path = "/api/AggregateJobTasks/GetAggregateJobTasks"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -136,7 +136,7 @@ open class AggregateJobTasksAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseListAggregateJobCode>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseListAggregateJobCode>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }

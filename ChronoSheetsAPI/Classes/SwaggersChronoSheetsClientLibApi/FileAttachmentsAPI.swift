@@ -158,7 +158,7 @@ open class FileAttachmentsAPI {
      */
     open class func fileAttachmentsGetMyFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment> {
         let path = "/api/FileAttachments/GetMyFileAttachments"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
 
         let url = NSURLComponents(string: URLString)
@@ -174,7 +174,7 @@ open class FileAttachmentsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
