@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license = 
   s.homepage = 'http://tsheets.xyz/api'
   s.summary = 'Swift4 API Client for ChronoSheets'
-  s.description = 'Swift4 API Client for ChronoSheets'
+  s.description = 'ChronoSheets is a flexible timesheet solution for small to medium businesses, it is free for small teams of up to 5 and there are iOS and Android apps available. Use the ChronoSheets API to create your own custom integrations. Before starting, sign up for a ChronoSheets account at http://tsheets.xyz/signup.'
   s.documentation_url = 'http://tsheets.xyz/api'
   s.source_files = 'ChronoSheetsAPI/Classes/**/*.swift'
   s.dependency 'Alamofire', '~> 4.5.0'
