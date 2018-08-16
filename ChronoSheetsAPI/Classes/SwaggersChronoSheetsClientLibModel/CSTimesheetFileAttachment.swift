@@ -50,10 +50,11 @@ open class CSTimesheetFileAttachment: Codable {
     public var dateUploaded: Date?
     public var dateImageCaptured: Date?
     public var storageAllocationBytes: Int64?
+    public var audioDurationSeconds: Int?
 
 
     
-    public init(timesheetId: Int?, documentS3SignedUrl: String?, imageLargeS3SignedUrl: String?, imageMediumS3SignedUrl: String?, imageSmallS3SignedUrl: String?, timesheetStart: Date?, timesheetEnd: Date?, fileAttachmentId: Int?, userId: Int?, orgId: Int?, mobilePlatform: CSMobilePlatform?, attachmentType: CSAttachmentType?, notes: String?, nonImageFilePath: String?, imageLargeFilePath: String?, imageMediumFilePath: String?, imageSmallFilePath: String?, originalFileName: String?, latitude: Double?, longitude: Double?, dateUploaded: Date?, dateImageCaptured: Date?, storageAllocationBytes: Int64?) {
+    public init(timesheetId: Int?, documentS3SignedUrl: String?, imageLargeS3SignedUrl: String?, imageMediumS3SignedUrl: String?, imageSmallS3SignedUrl: String?, timesheetStart: Date?, timesheetEnd: Date?, fileAttachmentId: Int?, userId: Int?, orgId: Int?, mobilePlatform: CSMobilePlatform?, attachmentType: CSAttachmentType?, notes: String?, nonImageFilePath: String?, imageLargeFilePath: String?, imageMediumFilePath: String?, imageSmallFilePath: String?, originalFileName: String?, latitude: Double?, longitude: Double?, dateUploaded: Date?, dateImageCaptured: Date?, storageAllocationBytes: Int64?, audioDurationSeconds: Int?) {
         self.timesheetId = timesheetId
         self.documentS3SignedUrl = documentS3SignedUrl
         self.imageLargeS3SignedUrl = imageLargeS3SignedUrl
@@ -77,6 +78,7 @@ open class CSTimesheetFileAttachment: Codable {
         self.dateUploaded = dateUploaded
         self.dateImageCaptured = dateImageCaptured
         self.storageAllocationBytes = storageAllocationBytes
+        self.audioDurationSeconds = audioDurationSeconds
     }
     
 
@@ -109,6 +111,7 @@ open class CSTimesheetFileAttachment: Codable {
         try container.encodeIfPresent(dateUploaded, forKey: "DateUploaded")
         try container.encodeIfPresent(dateImageCaptured, forKey: "DateImageCaptured")
         try container.encodeIfPresent(storageAllocationBytes, forKey: "StorageAllocationBytes")
+        try container.encodeIfPresent(audioDurationSeconds, forKey: "AudioDurationSeconds")
     }
 
     // Decodable protocol methods
@@ -139,6 +142,7 @@ open class CSTimesheetFileAttachment: Codable {
         dateUploaded = try container.decodeIfPresent(Date.self, forKey: "DateUploaded")
         dateImageCaptured = try container.decodeIfPresent(Date.self, forKey: "DateImageCaptured")
         storageAllocationBytes = try container.decodeIfPresent(Int64.self, forKey: "StorageAllocationBytes")
+        audioDurationSeconds = try container.decodeIfPresent(Int.self, forKey: "AudioDurationSeconds")
     }
 }
 

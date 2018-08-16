@@ -103,13 +103,20 @@ open class UsersAPI {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
-      "SubscriptionPlanId" : "SubscriptionPlanId",
+      "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
       "EmailAddress" : "EmailAddress",
       "Name" : "Name",
-      "NumberSeatsAvailable" : 6,
+      "PricingPlans" : [ {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      }, {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      } ],
       "State" : "State",
       "Phone" : "Phone",
+      "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
       "AddressLine02" : "AddressLine02",
       "Country" : "Country",
       "Id" : 0,
@@ -140,13 +147,20 @@ open class UsersAPI {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
-      "SubscriptionPlanId" : "SubscriptionPlanId",
+      "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
       "EmailAddress" : "EmailAddress",
       "Name" : "Name",
-      "NumberSeatsAvailable" : 6,
+      "PricingPlans" : [ {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      }, {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      } ],
       "State" : "State",
       "Phone" : "Phone",
+      "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
       "AddressLine02" : "AddressLine02",
       "Country" : "Country",
       "Id" : 0,
@@ -219,13 +233,20 @@ open class UsersAPI {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
-      "SubscriptionPlanId" : "SubscriptionPlanId",
+      "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
       "EmailAddress" : "EmailAddress",
       "Name" : "Name",
-      "NumberSeatsAvailable" : 6,
+      "PricingPlans" : [ {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      }, {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      } ],
       "State" : "State",
       "Phone" : "Phone",
+      "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
       "AddressLine02" : "AddressLine02",
       "Country" : "Country",
       "Id" : 0,
@@ -248,13 +269,20 @@ open class UsersAPI {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
-      "SubscriptionPlanId" : "SubscriptionPlanId",
+      "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
       "EmailAddress" : "EmailAddress",
       "Name" : "Name",
-      "NumberSeatsAvailable" : 6,
+      "PricingPlans" : [ {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      }, {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      } ],
       "State" : "State",
       "Phone" : "Phone",
+      "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
       "AddressLine02" : "AddressLine02",
       "Country" : "Country",
       "Id" : 0,
@@ -285,13 +313,20 @@ open class UsersAPI {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
-      "SubscriptionPlanId" : "SubscriptionPlanId",
+      "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
       "EmailAddress" : "EmailAddress",
       "Name" : "Name",
-      "NumberSeatsAvailable" : 6,
+      "PricingPlans" : [ {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      }, {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      } ],
       "State" : "State",
       "Phone" : "Phone",
+      "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
       "AddressLine02" : "AddressLine02",
       "Country" : "Country",
       "Id" : 0,
@@ -314,13 +349,20 @@ open class UsersAPI {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
-      "SubscriptionPlanId" : "SubscriptionPlanId",
+      "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
       "EmailAddress" : "EmailAddress",
       "Name" : "Name",
-      "NumberSeatsAvailable" : 6,
+      "PricingPlans" : [ {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      }, {
+        "PlanId" : "PlanId",
+        "Quantity" : 6
+      } ],
       "State" : "State",
       "Phone" : "Phone",
+      "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
       "AddressLine02" : "AddressLine02",
       "Country" : "Country",
       "Id" : 0,

@@ -12,6 +12,67 @@ import Alamofire
 
 open class FileAttachmentsAPI {
     /**
+     Delete a particular timesheet file attachment
+     
+     - parameter fileAttachmentId: (query) The Id of the file attachment to delete 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
+        fileAttachmentsDeleteTimesheetFileAttachmentWithRequestBuilder(fileAttachmentId: fileAttachmentId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error);
+        }
+    }
+
+
+    /**
+     Delete a particular timesheet file attachment
+     - DELETE /api/FileAttachments/DeleteTimesheetFileAttachment
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : true
+}}, {contentType=application/xml, example=<null>
+  <Data>true</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : true
+}}, {contentType=application/xml, example=<null>
+  <Data>true</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter fileAttachmentId: (query) The Id of the file attachment to delete 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CSApiResponseBoolean> 
+     */
+    open class func fileAttachmentsDeleteTimesheetFileAttachmentWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
+        let path = "/api/FileAttachments/DeleteTimesheetFileAttachment"
+        let URLString = ChronoSheetsAPIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "FileAttachmentId": fileAttachmentId.encodeToJSON()
+        ])
+        
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      Get my file attachments.  Get files you've attached to timesheets.
      
      - parameter startDate: (query) The Start date of the date range.  File attachments after this date will be obtained. 
@@ -45,6 +106,7 @@ open class FileAttachmentsAPI {
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
     "Latitude" : 2.3021358869347655,
+    "AudioDurationSeconds" : 3,
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
     "StorageAllocationBytes" : 9,
@@ -69,6 +131,7 @@ open class FileAttachmentsAPI {
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
     "Latitude" : 2.3021358869347655,
+    "AudioDurationSeconds" : 3,
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
     "StorageAllocationBytes" : 9,
@@ -103,6 +166,7 @@ open class FileAttachmentsAPI {
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
     "Latitude" : 2.3021358869347655,
+    "AudioDurationSeconds" : 3,
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
     "StorageAllocationBytes" : 9,
@@ -127,6 +191,7 @@ open class FileAttachmentsAPI {
     "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
     "TimesheetId" : 6,
     "Latitude" : 2.3021358869347655,
+    "AudioDurationSeconds" : 3,
     "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
     "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
     "StorageAllocationBytes" : 9,
