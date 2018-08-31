@@ -16,17 +16,19 @@ open class CSProject: Codable {
     public var organisationId: Int?
     public var projectName: String?
     public var costEstimation: Double?
+    public var costActual: Double?
     public var startDate: Date?
     public var endDate: Date?
 
 
     
-    public init(id: Int?, clientId: Int?, organisationId: Int?, projectName: String?, costEstimation: Double?, startDate: Date?, endDate: Date?) {
+    public init(id: Int?, clientId: Int?, organisationId: Int?, projectName: String?, costEstimation: Double?, costActual: Double?, startDate: Date?, endDate: Date?) {
         self.id = id
         self.clientId = clientId
         self.organisationId = organisationId
         self.projectName = projectName
         self.costEstimation = costEstimation
+        self.costActual = costActual
         self.startDate = startDate
         self.endDate = endDate
     }
@@ -43,6 +45,7 @@ open class CSProject: Codable {
         try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
         try container.encodeIfPresent(projectName, forKey: "ProjectName")
         try container.encodeIfPresent(costEstimation, forKey: "CostEstimation")
+        try container.encodeIfPresent(costActual, forKey: "CostActual")
         try container.encodeIfPresent(startDate, forKey: "StartDate")
         try container.encodeIfPresent(endDate, forKey: "EndDate")
     }
@@ -57,6 +60,7 @@ open class CSProject: Codable {
         organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
         projectName = try container.decodeIfPresent(String.self, forKey: "ProjectName")
         costEstimation = try container.decodeIfPresent(Double.self, forKey: "CostEstimation")
+        costActual = try container.decodeIfPresent(Double.self, forKey: "CostActual")
         startDate = try container.decodeIfPresent(Date.self, forKey: "StartDate")
         endDate = try container.decodeIfPresent(Date.self, forKey: "EndDate")
     }

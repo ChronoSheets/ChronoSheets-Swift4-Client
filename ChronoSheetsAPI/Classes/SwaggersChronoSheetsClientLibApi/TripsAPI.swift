@@ -185,14 +185,14 @@ open class TripsAPI {
      
      - parameter startDate: (query) The Start date of the date range.  Trips after this date will be obtained. 
      - parameter endDate: (query) The End date of the date range.  Trips before this date will be obtained. 
-     - parameter skip: (query) Skip this many Trips 
-     - parameter take: (query) Take this many Trips 
-     - parameter vehicleId: (query) Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many Trips (optional)
+     - parameter take: (query) Take this many Trips (optional)
+     - parameter vehicleId: (query) Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tripsGetMyTrips(startDate: Date, endDate: Date, skip: Int, take: Int, vehicleId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListTrip?,_ error: Error?) -> Void)) {
-        tripsGetMyTripsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, vehicleId: vehicleId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func tripsGetMyTrips(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, vehicleId: Int? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListTrip?,_ error: Error?) -> Void)) {
+        tripsGetMyTripsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, vehicleId: vehicleId).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -328,14 +328,14 @@ open class TripsAPI {
      
      - parameter startDate: (query) The Start date of the date range.  Trips after this date will be obtained. 
      - parameter endDate: (query) The End date of the date range.  Trips before this date will be obtained. 
-     - parameter skip: (query) Skip this many Trips 
-     - parameter take: (query) Take this many Trips 
-     - parameter vehicleId: (query) Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many Trips (optional)
+     - parameter take: (query) Take this many Trips (optional)
+     - parameter vehicleId: (query) Filter by a particular Vehicle (get trips made with a particular vehicle), specified by VehicleId (optional)
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListTrip> 
      */
-    open class func tripsGetMyTripsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListTrip> {
+    open class func tripsGetMyTripsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, vehicleId: Int? = nil) -> RequestBuilder<CSApiResponseForPaginatedListTrip> {
         let path = "/api/Trips/GetMyTrips"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -344,9 +344,9 @@ open class TripsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
-            "Skip": skip.encodeToJSON(), 
-            "Take": take.encodeToJSON(), 
-            "VehicleId": vehicleId.encodeToJSON()
+            "Skip": skip?.encodeToJSON(), 
+            "Take": take?.encodeToJSON(), 
+            "VehicleId": vehicleId?.encodeToJSON()
         ])
         
         let nillableHeaders: [String: Any?] = [

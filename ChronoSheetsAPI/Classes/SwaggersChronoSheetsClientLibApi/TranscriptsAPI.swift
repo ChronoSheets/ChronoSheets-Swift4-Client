@@ -16,14 +16,14 @@ open class TranscriptsAPI {
      
      - parameter startDate: (query) The Start date of the date range.  Transcripts after this date will be obtained. 
      - parameter endDate: (query) The End date of the date range.  Transcripts before this date will be obtained. 
-     - parameter skip: (query) Skip this many transcripts 
-     - parameter take: (query) Take this many transcripts 
-     - parameter keyword: (query) Search the text content of the transcript keywords 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many transcripts (optional)
+     - parameter take: (query) Take this many transcripts (optional)
+     - parameter keyword: (query) Search the text content of the transcript keywords (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func transcriptsGetMyTranscripts(startDate: Date, endDate: Date, skip: Int, take: Int, keyword: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTranscript?,_ error: Error?) -> Void)) {
-        transcriptsGetMyTranscriptsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, keyword: keyword, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, keyword: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTranscript?,_ error: Error?) -> Void)) {
+        transcriptsGetMyTranscriptsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, keyword: keyword).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -207,14 +207,14 @@ open class TranscriptsAPI {
      
      - parameter startDate: (query) The Start date of the date range.  Transcripts after this date will be obtained. 
      - parameter endDate: (query) The End date of the date range.  Transcripts before this date will be obtained. 
-     - parameter skip: (query) Skip this many transcripts 
-     - parameter take: (query) Take this many transcripts 
-     - parameter keyword: (query) Search the text content of the transcript keywords 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many transcripts (optional)
+     - parameter take: (query) Take this many transcripts (optional)
+     - parameter keyword: (query) Search the text content of the transcript keywords (optional)
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> 
      */
-    open class func transcriptsGetMyTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, keyword: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
+    open class func transcriptsGetMyTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, keyword: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
         let path = "/api/Transcripts/GetMyTranscripts"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -223,8 +223,8 @@ open class TranscriptsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
-            "Skip": skip.encodeToJSON(), 
-            "Take": take.encodeToJSON(), 
+            "Skip": skip?.encodeToJSON(), 
+            "Take": take?.encodeToJSON(), 
             "Keyword": keyword
         ])
         

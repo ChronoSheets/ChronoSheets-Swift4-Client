@@ -77,13 +77,13 @@ open class FileAttachmentsAPI {
      
      - parameter startDate: (query) The Start date of the date range.  File attachments after this date will be obtained. 
      - parameter endDate: (query) The End date of the date range.  File attachments before this date will be obtained. 
-     - parameter skip: (query) Skip this many File attachments 
-     - parameter take: (query) Take this many File attachments 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many File attachments (optional)
+     - parameter take: (query) Take this many File attachments (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func fileAttachmentsGetMyFileAttachments(startDate: Date, endDate: Date, skip: Int, take: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListTimesheetFileAttachment?,_ error: Error?) -> Void)) {
-        fileAttachmentsGetMyFileAttachmentsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func fileAttachmentsGetMyFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListTimesheetFileAttachment?,_ error: Error?) -> Void)) {
+        fileAttachmentsGetMyFileAttachmentsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -215,13 +215,13 @@ open class FileAttachmentsAPI {
      
      - parameter startDate: (query) The Start date of the date range.  File attachments after this date will be obtained. 
      - parameter endDate: (query) The End date of the date range.  File attachments before this date will be obtained. 
-     - parameter skip: (query) Skip this many File attachments 
-     - parameter take: (query) Take this many File attachments 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many File attachments (optional)
+     - parameter take: (query) Take this many File attachments (optional)
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment> 
      */
-    open class func fileAttachmentsGetMyFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment> {
+    open class func fileAttachmentsGetMyFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil) -> RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment> {
         let path = "/api/FileAttachments/GetMyFileAttachments"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -230,8 +230,8 @@ open class FileAttachmentsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
-            "Skip": skip.encodeToJSON(), 
-            "Take": take.encodeToJSON()
+            "Skip": skip?.encodeToJSON(), 
+            "Take": take?.encodeToJSON()
         ])
         
         let nillableHeaders: [String: Any?] = [

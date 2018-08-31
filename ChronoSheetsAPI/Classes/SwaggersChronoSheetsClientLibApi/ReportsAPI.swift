@@ -16,12 +16,12 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
-        reportsGetAllChartsDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
+        reportsGetAllChartsDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -287,12 +287,12 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
 
      - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
      */
-    open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseCombinedReportsData> {
+    open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil) -> RequestBuilder<CSApiResponseCombinedReportsData> {
         let path = "/api/Reports/GetAllChartsDataAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -619,12 +619,12 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListFleetSummaryReportItem?,_ error: Error?) -> Void)) {
-        reportsGetFleetSummaryAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseListFleetSummaryReportItem?,_ error: Error?) -> Void)) {
+        reportsGetFleetSummaryAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -712,12 +712,12 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
 
      - returns: RequestBuilder<CSApiResponseListFleetSummaryReportItem> 
      */
-    open class func reportsGetFleetSummaryAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListFleetSummaryReportItem> {
+    open class func reportsGetFleetSummaryAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil) -> RequestBuilder<CSApiResponseListFleetSummaryReportItem> {
         let path = "/api/Reports/GetFleetSummaryAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -855,14 +855,14 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter skip: (query) Skip this many items 
-     - parameter take: (query) Take this many items 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many items (optional)
+     - parameter take: (query) Take this many items (optional)
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment?,_ error: Error?) -> Void)) {
-        reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment?,_ error: Error?) -> Void)) {
+        reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, userIds: userIds).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -1010,14 +1010,14 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter skip: (query) Skip this many items 
-     - parameter take: (query) Take this many items 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many items (optional)
+     - parameter take: (query) Take this many items (optional)
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> 
      */
-    open class func reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> {
+    open class func reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> {
         let path = "/api/Reports/GetOrganisationTimesheetFileAttachments"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1026,8 +1026,8 @@ open class ReportsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
-            "Skip": skip.encodeToJSON(), 
-            "Take": take.encodeToJSON(), 
+            "Skip": skip?.encodeToJSON(), 
+            "Take": take?.encodeToJSON(), 
             "UserIds": userIds
         ])
         
@@ -1046,15 +1046,15 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter skip: (query) Skip this many items 
-     - parameter take: (query) Take this many items 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
-     - parameter keywords: (query) Search the transcripts by keyword(s) 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many items (optional)
+     - parameter take: (query) Take this many items (optional)
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
+     - parameter keywords: (query) Search the transcripts by keyword(s) (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, keywords: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTranscript?,_ error: Error?) -> Void)) {
-        reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, userIds: userIds, keywords: keywords, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, keywords: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTranscript?,_ error: Error?) -> Void)) {
+        reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, userIds: userIds, keywords: keywords).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -1238,15 +1238,15 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter skip: (query) Skip this many items 
-     - parameter take: (query) Take this many items 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
-     - parameter keywords: (query) Search the transcripts by keyword(s) 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many items (optional)
+     - parameter take: (query) Take this many items (optional)
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
+     - parameter keywords: (query) Search the transcripts by keyword(s) (optional)
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> 
      */
-    open class func reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, keywords: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
+    open class func reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, keywords: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
         let path = "/api/Reports/GetOrganisationTranscripts"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1255,8 +1255,8 @@ open class ReportsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
-            "Skip": skip.encodeToJSON(), 
-            "Take": take.encodeToJSON(), 
+            "Skip": skip?.encodeToJSON(), 
+            "Take": take?.encodeToJSON(), 
             "UserIds": userIds, 
             "Keywords": keywords
         ])
@@ -1276,14 +1276,14 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter skip: (query) Skip this many items 
-     - parameter take: (query) Take this many items 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many items (optional)
+     - parameter take: (query) Take this many items (optional)
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetOrganisationTrips(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTrip?,_ error: Error?) -> Void)) {
-        reportsGetOrganisationTripsWithRequestBuilder(startDate: startDate, endDate: endDate, skip: skip, take: take, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTrip?,_ error: Error?) -> Void)) {
+        reportsGetOrganisationTripsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, userIds: userIds).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -1435,14 +1435,14 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter skip: (query) Skip this many items 
-     - parameter take: (query) Take this many items 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter skip: (query) Skip this many items (optional)
+     - parameter take: (query) Take this many items (optional)
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> 
      */
-    open class func reportsGetOrganisationTripsWithRequestBuilder(startDate: Date, endDate: Date, skip: Int, take: Int, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> {
+    open class func reportsGetOrganisationTripsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> {
         let path = "/api/Reports/GetOrganisationTrips"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1451,8 +1451,8 @@ open class ReportsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
-            "Skip": skip.encodeToJSON(), 
-            "Take": take.encodeToJSON(), 
+            "Skip": skip?.encodeToJSON(), 
+            "Take": take?.encodeToJSON(), 
             "UserIds": userIds
         ])
         
@@ -1499,16 +1499,16 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
-     - parameter sort: (query) Decide which column to sort on 
-     - parameter order: (query) Decide which direction to sort the column 
-     - parameter skip: (query) Skip this many rows 
-     - parameter take: (query) Take this many rows 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
+     - parameter sort: (query) Decide which column to sort on (optional)
+     - parameter order: (query) Decide which direction to sort the column (optional)
+     - parameter skip: (query) Skip this many rows (optional)
+     - parameter take: (query) Take this many rows (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetRawDataAdmin(startDate: Date, endDate: Date, userIds: String, sort: CSSort_reportsGetRawDataAdmin, order: CSOrder_reportsGetRawDataAdmin, skip: Int, take: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedListRawReportItem?,_ error: Error?) -> Void)) {
-        reportsGetRawDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, sort: sort, order: order, skip: skip, take: take, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, sort: CSSort_reportsGetRawDataAdmin? = nil, order: CSOrder_reportsGetRawDataAdmin? = nil, skip: Int? = nil, take: Int? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListRawReportItem?,_ error: Error?) -> Void)) {
+        reportsGetRawDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds, sort: sort, order: order, skip: skip, take: take).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -1608,16 +1608,16 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
-     - parameter sort: (query) Decide which column to sort on 
-     - parameter order: (query) Decide which direction to sort the column 
-     - parameter skip: (query) Skip this many rows 
-     - parameter take: (query) Take this many rows 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
+     - parameter sort: (query) Decide which column to sort on (optional)
+     - parameter order: (query) Decide which direction to sort the column (optional)
+     - parameter skip: (query) Skip this many rows (optional)
+     - parameter take: (query) Take this many rows (optional)
 
      - returns: RequestBuilder<CSApiResponseForPaginatedListRawReportItem> 
      */
-    open class func reportsGetRawDataAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, sort: CSSort_reportsGetRawDataAdmin, order: CSOrder_reportsGetRawDataAdmin, skip: Int, take: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedListRawReportItem> {
+    open class func reportsGetRawDataAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, sort: CSSort_reportsGetRawDataAdmin? = nil, order: CSOrder_reportsGetRawDataAdmin? = nil, skip: Int? = nil, take: Int? = nil) -> RequestBuilder<CSApiResponseForPaginatedListRawReportItem> {
         let path = "/api/Reports/GetRawDataAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1627,10 +1627,10 @@ open class ReportsAPI {
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "UserIds": userIds, 
-            "Sort": sort.rawValue, 
-            "Order": order.rawValue, 
-            "Skip": skip.encodeToJSON(), 
-            "Take": take.encodeToJSON()
+            "Sort": sort?.rawValue, 
+            "Order": order?.rawValue, 
+            "Skip": skip?.encodeToJSON(), 
+            "Take": take?.encodeToJSON()
         ])
         
         let nillableHeaders: [String: Any?] = [
@@ -1648,12 +1648,12 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsProjectCostingsAdmin(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListProjectCostingReportItem?,_ error: Error?) -> Void)) {
-        reportsProjectCostingsAdminWithRequestBuilder(startDate: startDate, endDate: endDate, userIds: userIds, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseListProjectCostingReportItem?,_ error: Error?) -> Void)) {
+        reportsProjectCostingsAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -1717,12 +1717,12 @@ open class ReportsAPI {
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
-     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
 
      - returns: RequestBuilder<CSApiResponseListProjectCostingReportItem> 
      */
-    open class func reportsProjectCostingsAdminWithRequestBuilder(startDate: Date, endDate: Date, userIds: String, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListProjectCostingReportItem> {
+    open class func reportsProjectCostingsAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil) -> RequestBuilder<CSApiResponseListProjectCostingReportItem> {
         let path = "/api/Reports/ProjectCostingsAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil

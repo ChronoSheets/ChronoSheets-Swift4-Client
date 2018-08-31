@@ -153,12 +153,12 @@ open class FleetAPI {
     /**
      Get a collection of vehicles that are under your organisation.    Does not require any special permission.
      
-     - parameter includeDeleted: (query) Whether or not to include deleted vehicles 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter includeDeleted: (query) Whether or not to include deleted vehicles (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func fleetGetVehicles(includeDeleted: Bool, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListFleetVehicle?,_ error: Error?) -> Void)) {
-        fleetGetVehiclesWithRequestBuilder(includeDeleted: includeDeleted, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+    open class func fleetGetVehicles(xChronosheetsAuth: String, includeDeleted: Bool? = nil, completion: @escaping ((_ data: CSApiResponseListFleetVehicle?,_ error: Error?) -> Void)) {
+        fleetGetVehiclesWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth, includeDeleted: includeDeleted).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -228,12 +228,12 @@ open class FleetAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter includeDeleted: (query) Whether or not to include deleted vehicles 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter includeDeleted: (query) Whether or not to include deleted vehicles (optional)
 
      - returns: RequestBuilder<CSApiResponseListFleetVehicle> 
      */
-    open class func fleetGetVehiclesWithRequestBuilder(includeDeleted: Bool, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListFleetVehicle> {
+    open class func fleetGetVehiclesWithRequestBuilder(xChronosheetsAuth: String, includeDeleted: Bool? = nil) -> RequestBuilder<CSApiResponseListFleetVehicle> {
         let path = "/api/Fleet/GetVehicles"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
