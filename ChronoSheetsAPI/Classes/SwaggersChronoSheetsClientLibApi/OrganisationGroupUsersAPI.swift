@@ -14,7 +14,7 @@ open class OrganisationGroupUsersAPI {
     /**
      Get a collection of organisation group users that belong to an organisation group.    Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
      
-     - parameter orgGroupId: (query) An OrganisatioGroup Id 
+     - parameter orgGroupId: (query) An OrganisationGroup Id 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -38,6 +38,7 @@ open class OrganisationGroupUsersAPI {
     "Organisation" : {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
+      "IsActive" : true,
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
       "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
@@ -74,6 +75,7 @@ open class OrganisationGroupUsersAPI {
     "Organisation" : {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
+      "IsActive" : true,
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
       "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
@@ -118,6 +120,7 @@ open class OrganisationGroupUsersAPI {
     "Organisation" : {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
+      "IsActive" : true,
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
       "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
@@ -154,6 +157,7 @@ open class OrganisationGroupUsersAPI {
     "Organisation" : {
       "Timezone" : "Timezone",
       "Suburb" : "Suburb",
+      "IsActive" : true,
       "SubscriptionCustomerId" : "SubscriptionCustomerId",
       "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
       "Postcode" : "Postcode",
@@ -189,7 +193,7 @@ open class OrganisationGroupUsersAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter orgGroupId: (query) An OrganisatioGroup Id 
+     - parameter orgGroupId: (query) An OrganisationGroup Id 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListUserForManagement> 
@@ -217,7 +221,7 @@ open class OrganisationGroupUsersAPI {
     /**
      Set the users who belong to an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
      
-     - parameter request: (body) A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update 
+     - parameter request: (body) A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update. CsvUserIds is a comma separated list of User Ids, e.g. 1,2,3,4 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -250,7 +254,7 @@ open class OrganisationGroupUsersAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body) A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update 
+     - parameter request: (body) A request object specifying which users belong to an organisation group.  Make sure to specify the OrganisationGroup Id in the request object so that ChronoSheets knows which OrganisationGroup to update. CsvUserIds is a comma separated list of User Ids, e.g. 1,2,3,4 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseBoolean> 

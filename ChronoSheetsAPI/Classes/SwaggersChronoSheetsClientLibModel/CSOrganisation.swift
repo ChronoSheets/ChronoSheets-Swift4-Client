@@ -24,13 +24,14 @@ open class CSOrganisation: Codable {
     public var timezone: String?
     public var subscriptionCustomerId: String?
     public var signupToken: String?
+    public var isActive: Bool?
     public var subscriptionCycleStart: Date?
     public var subscriptionCycleEnd: Date?
     public var pricingPlans: [CSOrganisationPricingPlan]?
 
 
     
-    public init(id: Int?, name: String?, addressLine01: String?, addressLine02: String?, suburb: String?, state: String?, postcode: String?, country: String?, phone: String?, emailAddress: String?, timezone: String?, subscriptionCustomerId: String?, signupToken: String?, subscriptionCycleStart: Date?, subscriptionCycleEnd: Date?, pricingPlans: [CSOrganisationPricingPlan]?) {
+    public init(id: Int?, name: String?, addressLine01: String?, addressLine02: String?, suburb: String?, state: String?, postcode: String?, country: String?, phone: String?, emailAddress: String?, timezone: String?, subscriptionCustomerId: String?, signupToken: String?, isActive: Bool?, subscriptionCycleStart: Date?, subscriptionCycleEnd: Date?, pricingPlans: [CSOrganisationPricingPlan]?) {
         self.id = id
         self.name = name
         self.addressLine01 = addressLine01
@@ -44,6 +45,7 @@ open class CSOrganisation: Codable {
         self.timezone = timezone
         self.subscriptionCustomerId = subscriptionCustomerId
         self.signupToken = signupToken
+        self.isActive = isActive
         self.subscriptionCycleStart = subscriptionCycleStart
         self.subscriptionCycleEnd = subscriptionCycleEnd
         self.pricingPlans = pricingPlans
@@ -69,6 +71,7 @@ open class CSOrganisation: Codable {
         try container.encodeIfPresent(timezone, forKey: "Timezone")
         try container.encodeIfPresent(subscriptionCustomerId, forKey: "SubscriptionCustomerId")
         try container.encodeIfPresent(signupToken, forKey: "SignupToken")
+        try container.encodeIfPresent(isActive, forKey: "IsActive")
         try container.encodeIfPresent(subscriptionCycleStart, forKey: "SubscriptionCycleStart")
         try container.encodeIfPresent(subscriptionCycleEnd, forKey: "SubscriptionCycleEnd")
         try container.encodeIfPresent(pricingPlans, forKey: "PricingPlans")
@@ -92,6 +95,7 @@ open class CSOrganisation: Codable {
         timezone = try container.decodeIfPresent(String.self, forKey: "Timezone")
         subscriptionCustomerId = try container.decodeIfPresent(String.self, forKey: "SubscriptionCustomerId")
         signupToken = try container.decodeIfPresent(String.self, forKey: "SignupToken")
+        isActive = try container.decodeIfPresent(Bool.self, forKey: "IsActive")
         subscriptionCycleStart = try container.decodeIfPresent(Date.self, forKey: "SubscriptionCycleStart")
         subscriptionCycleEnd = try container.decodeIfPresent(Date.self, forKey: "SubscriptionCycleEnd")
         pricingPlans = try container.decodeIfPresent([CSOrganisationPricingPlan].self, forKey: "PricingPlans")

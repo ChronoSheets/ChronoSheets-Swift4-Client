@@ -33,6 +33,7 @@ open class OrganisationAPI {
   "Data" : {
     "Timezone" : "Timezone",
     "Suburb" : "Suburb",
+    "IsActive" : true,
     "SubscriptionCustomerId" : "SubscriptionCustomerId",
     "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
     "Postcode" : "Postcode",
@@ -64,6 +65,7 @@ open class OrganisationAPI {
   "Data" : {
     "Timezone" : "Timezone",
     "Suburb" : "Suburb",
+    "IsActive" : true,
     "SubscriptionCustomerId" : "SubscriptionCustomerId",
     "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
     "Postcode" : "Postcode",

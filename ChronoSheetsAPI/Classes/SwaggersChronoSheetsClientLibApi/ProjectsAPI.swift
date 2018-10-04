@@ -14,7 +14,7 @@ open class ProjectsAPI {
     /**
      Create a project.    Requires the 'ManageClientsAndProjects' permission.
      
-     - parameter request: (body) An Insert Project Request object containing values for the new Project to create 
+     - parameter request: (body) An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -47,7 +47,7 @@ open class ProjectsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body) An Insert Project Request object containing values for the new Project to create 
+     - parameter request: (body) An Insert Project Request object containing values for the new Project to create.  Make sure to specify a correct Client Id - this will be used to attach the new project under that client. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseInt32> 

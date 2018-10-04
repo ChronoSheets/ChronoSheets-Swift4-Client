@@ -247,7 +247,7 @@ open class TimesheetsAPI {
     /**
      Batch update timesheets.    Requires the 'SubmitTimesheets' permission.
      
-     - parameter request: (body) A BatchUpdateTimesheet Request object containing values for the new Timesheets to create 
+     - parameter request: (body) A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
@@ -280,7 +280,7 @@ open class TimesheetsAPI {
   <Message>aeiou</Message>
 </null>}]
      
-     - parameter request: (body) A BatchUpdateTimesheet Request object containing values for the new Timesheets to create 
+     - parameter request: (body) A BatchUpdateTimesheet Request object containing values for the new Timesheets to create or update.  If the timesheet Id is specified, then an update will be performed, else the timesheet record will be created. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
      - returns: RequestBuilder<CSApiResponseListInt32> 
