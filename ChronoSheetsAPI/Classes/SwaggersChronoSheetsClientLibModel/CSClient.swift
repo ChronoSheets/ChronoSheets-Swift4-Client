@@ -11,19 +11,33 @@ import Foundation
 
 open class CSClient: Codable {
 
+    /** The ID of the client */
     public var id: Int?
+    /** The ID of your organisation */
     public var organisationId: Int?
+    /** The name of the client */
     public var clientName: String?
+    /** The address line 1 of the client */
     public var clientAddressLine1: String?
+    /** The address line 2 of the client */
     public var clientAddressLine2: String?
+    /** The address suburb of the client */
     public var clientSuburb: String?
+    /** The address state of the client */
     public var clientState: String?
+    /** The postcode of the client */
     public var clientPostCode: String?
+    /** The contact person working under the client */
     public var personOfContact: String?
+    /** The phone number of the client */
     public var clientPhoneNumber: String?
+    /** The mobile phone number of the client */
     public var clientMobileNumber: String?
+    /** The email address of the client */
     public var clientEmailAddress: String?
+    /** The website URL of the client */
     public var clientWebURL: String?
+    /** The number of projects under the client */
     public var projectCount: Int?
 
 

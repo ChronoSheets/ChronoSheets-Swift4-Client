@@ -11,13 +11,21 @@ import Foundation
 
 open class CSJobCode: Codable {
 
+    /** The ID of the job code (not the code itself) */
     public var id: Int?
+    /** The job code itself */
     public var code: String?
+    /** The name of the client */
     public var client: String?
+    /** The ID of the client */
     public var clientId: Int?
+    /** The name of the project */
     public var project: String?
+    /** The ID of the project */
     public var projectId: Int?
+    /** Your organisation ID */
     public var organisationId: Int?
+    /** A flag indicating whether or not the job code has been marked as deleted */
     public var isDeleted: Bool?
 
 

@@ -11,12 +11,19 @@ import Foundation
 
 open class CSAggregateProject: Codable {
 
+    /** The ID of the project */
     public var id: Int?
+    /** The ID of the client that this project is assigned to */
     public var clientId: Int?
+    /** The ID of your organisation */
     public var organisationId: Int?
+    /** The name of the project (can be viewed in PROJECT TIMELINES) */
     public var projectName: String?
+    /** The estimated cost of the project (can be viewed in PROJECT TIMELINES) */
     public var costEstimation: Double?
+    /** The start date of the project (can be viewed in PROJECT TIMELINES) */
     public var startDate: Date?
+    /** The end date of the project (can be viewed in PROJECT TIMELINES) */
     public var endDate: Date?
 
 

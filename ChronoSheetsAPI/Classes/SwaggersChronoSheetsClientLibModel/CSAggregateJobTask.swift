@@ -11,8 +11,11 @@ import Foundation
 
 open class CSAggregateJobTask: Codable {
 
+    /** The Id of the task */
     public var id: Int?
+    /** The label of the task */
     public var label: String?
+    /** A flag indicating that this task has been marked as deleted */
     public var isDeleted: Bool?
 
 

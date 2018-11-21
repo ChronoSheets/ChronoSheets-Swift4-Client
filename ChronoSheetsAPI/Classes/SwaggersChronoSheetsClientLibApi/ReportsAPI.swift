@@ -12,16 +12,32 @@ import Alamofire
 
 open class ReportsAPI {
     /**
+     * enum for parameter forceOnlyThisChart
+     */
+    public enum CSForceOnlyThisChart_reportsGetAllChartsDataAdmin: String { 
+        case notForced = "NotForced"
+        case seriesJobCodes = "SeriesJobCodes"
+        case seriesClients = "SeriesClients"
+        case seriesProjects = "SeriesProjects"
+        case seriesTasks = "SeriesTasks"
+        case totalsClients = "TotalsClients"
+        case totalsJobCodes = "TotalsJobCodes"
+        case totalsProjects = "TotalsProjects"
+        case totalsTasks = "TotalsTasks"
+    }
+
+    /**
      Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
      
      - parameter startDate: (query) The start date for the date range.  Report data in the response is after this date 
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
+     - parameter forceOnlyThisChart: (query) A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the &#39;NotForced&#39; option. (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
-        reportsGetAllChartsDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds).execute { (response, error) -> Void in
+    open class func reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, forceOnlyThisChart: CSForceOnlyThisChart_reportsGetAllChartsDataAdmin? = nil, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
+        reportsGetAllChartsDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds, forceOnlyThisChart: forceOnlyThisChart).execute { (response, error) -> Void in
             completion(response?.body, error);
         }
     }
@@ -289,10 +305,11 @@ open class ReportsAPI {
      - parameter endDate: (query) The end date for the date range.  Report data in the response is before this date 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter userIds: (query) A comma-separated list of user Ids, if you want to filter the report data to particular users.  If you want all, send a blank string. (optional)
+     - parameter forceOnlyThisChart: (query) A flag to indicate which report data you require.  Choose a particular set of data, or if you want all data use the &#39;NotForced&#39; option. (optional)
 
      - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
      */
-    open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil) -> RequestBuilder<CSApiResponseCombinedReportsData> {
+    open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, forceOnlyThisChart: CSForceOnlyThisChart_reportsGetAllChartsDataAdmin? = nil) -> RequestBuilder<CSApiResponseCombinedReportsData> {
         let path = "/api/Reports/GetAllChartsDataAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -301,7 +318,8 @@ open class ReportsAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
-            "UserIds": userIds
+            "UserIds": userIds, 
+            "ForceOnlyThisChart": forceOnlyThisChart?.rawValue
         ])
         
         let nillableHeaders: [String: Any?] = [
