@@ -33,15 +33,18 @@ open class UserProfileAPI {
   "Data" : {
     "CSAuthToken" : "CSAuthToken",
     "LoggedInUser" : {
+      "IsPrimaryAccount" : true,
       "SetupWizardRequired" : true,
       "IsSubscribedToNewsletter" : true,
       "UserName" : "UserName",
       "Organisation" : {
         "Timezone" : "Timezone",
         "Suburb" : "Suburb",
+        "SubscriptionSource" : "None",
         "IsActive" : true,
         "SubscriptionCustomerId" : "SubscriptionCustomerId",
         "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
+        "StripeCouponCode" : "StripeCouponCode",
         "Postcode" : "Postcode",
         "EmailAddress" : "EmailAddress",
         "Name" : "Name",
@@ -52,6 +55,7 @@ open class UserProfileAPI {
           "PlanId" : "PlanId",
           "Quantity" : 6
         } ],
+        "MobileSignUpCode" : "MobileSignUpCode",
         "State" : "State",
         "Phone" : "Phone",
         "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
@@ -59,7 +63,8 @@ open class UserProfileAPI {
         "Country" : "Country",
         "Id" : 0,
         "AddressLine01" : "AddressLine01",
-        "SignupToken" : "SignupToken"
+        "SignupToken" : "SignupToken",
+        "SignUpSource" : "Desktop"
       },
       "FirstName" : "FirstName",
       "OrganisationId" : 6,
@@ -80,15 +85,18 @@ open class UserProfileAPI {
   "Data" : {
     "CSAuthToken" : "CSAuthToken",
     "LoggedInUser" : {
+      "IsPrimaryAccount" : true,
       "SetupWizardRequired" : true,
       "IsSubscribedToNewsletter" : true,
       "UserName" : "UserName",
       "Organisation" : {
         "Timezone" : "Timezone",
         "Suburb" : "Suburb",
+        "SubscriptionSource" : "None",
         "IsActive" : true,
         "SubscriptionCustomerId" : "SubscriptionCustomerId",
         "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
+        "StripeCouponCode" : "StripeCouponCode",
         "Postcode" : "Postcode",
         "EmailAddress" : "EmailAddress",
         "Name" : "Name",
@@ -99,6 +107,7 @@ open class UserProfileAPI {
           "PlanId" : "PlanId",
           "Quantity" : 6
         } ],
+        "MobileSignUpCode" : "MobileSignUpCode",
         "State" : "State",
         "Phone" : "Phone",
         "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
@@ -106,7 +115,8 @@ open class UserProfileAPI {
         "Country" : "Country",
         "Id" : 0,
         "AddressLine01" : "AddressLine01",
-        "SignupToken" : "SignupToken"
+        "SignupToken" : "SignupToken",
+        "SignUpSource" : "Desktop"
       },
       "FirstName" : "FirstName",
       "OrganisationId" : 6,

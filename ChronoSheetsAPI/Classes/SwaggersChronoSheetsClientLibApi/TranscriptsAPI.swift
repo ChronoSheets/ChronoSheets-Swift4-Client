@@ -12,6 +12,85 @@ import Alamofire
 
 open class TranscriptsAPI {
     /**
+     Get an audio to text transcript for a particular audio file attachment
+     
+     - parameter fileAttachmentId: (query) The ID of the file attachment that has a transcript.  It should be an audio file attachment. 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func transcriptsGetMyTranscript(fileAttachmentId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedTranscription?,_ error: Error?) -> Void)) {
+        transcriptsGetMyTranscriptWithRequestBuilder(fileAttachmentId: fileAttachmentId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error);
+        }
+    }
+
+
+    /**
+     Get an audio to text transcript for a particular audio file attachment
+     - GET /api/Transcripts/GetMyTranscript
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "TotalSetCount" : 0,
+  "Message" : "Message",
+  "Data" : {
+    "Status" : "Saved",
+    "OrgId" : 1,
+    "Contents" : "Contents",
+    "MediaType" : "Other",
+    "Id" : 6,
+    "FileAttachmentId" : 5,
+    "Created" : "2000-01-23T04:56:07.000+00:00"
+  }
+}}, {contentType=application/xml, example=<null>
+  <TotalSetCount>123</TotalSetCount>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "TotalSetCount" : 0,
+  "Message" : "Message",
+  "Data" : {
+    "Status" : "Saved",
+    "OrgId" : 1,
+    "Contents" : "Contents",
+    "MediaType" : "Other",
+    "Id" : 6,
+    "FileAttachmentId" : 5,
+    "Created" : "2000-01-23T04:56:07.000+00:00"
+  }
+}}, {contentType=application/xml, example=<null>
+  <TotalSetCount>123</TotalSetCount>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter fileAttachmentId: (query) The ID of the file attachment that has a transcript.  It should be an audio file attachment. 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CSApiResponseForPaginatedTranscription> 
+     */
+    open class func transcriptsGetMyTranscriptWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedTranscription> {
+        let path = "/api/Transcripts/GetMyTranscript"
+        let URLString = ChronoSheetsAPIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+
+        let url = NSURLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+            "FileAttachmentId": fileAttachmentId.encodeToJSON()
+        ])
+        
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedTranscription>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      Get my file transcripts.  Get audio to text transcripts that you've created.
      
      - parameter startDate: (query) The Start date of the date range.  Transcripts after this date will be obtained. 

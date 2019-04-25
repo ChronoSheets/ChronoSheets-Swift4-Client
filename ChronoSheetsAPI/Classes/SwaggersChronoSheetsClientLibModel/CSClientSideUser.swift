@@ -22,10 +22,11 @@ open class CSClientSideUser: Codable {
     public var setupWizardRequired: Bool?
     public var isSubscribedToNewsletter: Bool?
     public var organisation: CSOrganisation?
+    public var isPrimaryAccount: Bool?
 
 
     
-    public init(id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CSOrganisation?) {
+    public init(id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CSOrganisation?, isPrimaryAccount: Bool?) {
         self.id = id
         self.organisationId = organisationId
         self.userName = userName
@@ -37,6 +38,7 @@ open class CSClientSideUser: Codable {
         self.setupWizardRequired = setupWizardRequired
         self.isSubscribedToNewsletter = isSubscribedToNewsletter
         self.organisation = organisation
+        self.isPrimaryAccount = isPrimaryAccount
     }
     
 
@@ -57,6 +59,7 @@ open class CSClientSideUser: Codable {
         try container.encodeIfPresent(setupWizardRequired, forKey: "SetupWizardRequired")
         try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
         try container.encodeIfPresent(organisation, forKey: "Organisation")
+        try container.encodeIfPresent(isPrimaryAccount, forKey: "IsPrimaryAccount")
     }
 
     // Decodable protocol methods
@@ -75,6 +78,7 @@ open class CSClientSideUser: Codable {
         setupWizardRequired = try container.decodeIfPresent(Bool.self, forKey: "SetupWizardRequired")
         isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
         organisation = try container.decodeIfPresent(CSOrganisation.self, forKey: "Organisation")
+        isPrimaryAccount = try container.decodeIfPresent(Bool.self, forKey: "IsPrimaryAccount")
     }
 }
 

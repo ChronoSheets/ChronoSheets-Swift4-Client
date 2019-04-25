@@ -23,10 +23,11 @@ open class CSUserForManagement: Codable {
     public var setupWizardRequired: Bool?
     public var isSubscribedToNewsletter: Bool?
     public var organisation: CSOrganisation?
+    public var isPrimaryAccount: Bool?
 
 
     
-    public init(isAccountActive: Bool?, id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CSOrganisation?) {
+    public init(isAccountActive: Bool?, id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CSOrganisation?, isPrimaryAccount: Bool?) {
         self.isAccountActive = isAccountActive
         self.id = id
         self.organisationId = organisationId
@@ -39,6 +40,7 @@ open class CSUserForManagement: Codable {
         self.setupWizardRequired = setupWizardRequired
         self.isSubscribedToNewsletter = isSubscribedToNewsletter
         self.organisation = organisation
+        self.isPrimaryAccount = isPrimaryAccount
     }
     
 
@@ -60,6 +62,7 @@ open class CSUserForManagement: Codable {
         try container.encodeIfPresent(setupWizardRequired, forKey: "SetupWizardRequired")
         try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
         try container.encodeIfPresent(organisation, forKey: "Organisation")
+        try container.encodeIfPresent(isPrimaryAccount, forKey: "IsPrimaryAccount")
     }
 
     // Decodable protocol methods
@@ -79,6 +82,7 @@ open class CSUserForManagement: Codable {
         setupWizardRequired = try container.decodeIfPresent(Bool.self, forKey: "SetupWizardRequired")
         isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
         organisation = try container.decodeIfPresent(CSOrganisation.self, forKey: "Organisation")
+        isPrimaryAccount = try container.decodeIfPresent(Bool.self, forKey: "IsPrimaryAccount")
     }
 }
 

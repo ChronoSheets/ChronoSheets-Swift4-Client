@@ -33,9 +33,11 @@ open class OrganisationAPI {
   "Data" : {
     "Timezone" : "Timezone",
     "Suburb" : "Suburb",
+    "SubscriptionSource" : "None",
     "IsActive" : true,
     "SubscriptionCustomerId" : "SubscriptionCustomerId",
     "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
+    "StripeCouponCode" : "StripeCouponCode",
     "Postcode" : "Postcode",
     "EmailAddress" : "EmailAddress",
     "Name" : "Name",
@@ -46,6 +48,7 @@ open class OrganisationAPI {
       "PlanId" : "PlanId",
       "Quantity" : 6
     } ],
+    "MobileSignUpCode" : "MobileSignUpCode",
     "State" : "State",
     "Phone" : "Phone",
     "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
@@ -53,7 +56,8 @@ open class OrganisationAPI {
     "Country" : "Country",
     "Id" : 0,
     "AddressLine01" : "AddressLine01",
-    "SignupToken" : "SignupToken"
+    "SignupToken" : "SignupToken",
+    "SignUpSource" : "Desktop"
   }
 }}, {contentType=application/xml, example=<null>
   <Status>aeiou</Status>
@@ -65,9 +69,11 @@ open class OrganisationAPI {
   "Data" : {
     "Timezone" : "Timezone",
     "Suburb" : "Suburb",
+    "SubscriptionSource" : "None",
     "IsActive" : true,
     "SubscriptionCustomerId" : "SubscriptionCustomerId",
     "SubscriptionCycleStart" : "2000-01-23T04:56:07.000+00:00",
+    "StripeCouponCode" : "StripeCouponCode",
     "Postcode" : "Postcode",
     "EmailAddress" : "EmailAddress",
     "Name" : "Name",
@@ -78,6 +84,7 @@ open class OrganisationAPI {
       "PlanId" : "PlanId",
       "Quantity" : 6
     } ],
+    "MobileSignUpCode" : "MobileSignUpCode",
     "State" : "State",
     "Phone" : "Phone",
     "SubscriptionCycleEnd" : "2000-01-23T04:56:07.000+00:00",
@@ -85,7 +92,8 @@ open class OrganisationAPI {
     "Country" : "Country",
     "Id" : 0,
     "AddressLine01" : "AddressLine01",
-    "SignupToken" : "SignupToken"
+    "SignupToken" : "SignupToken",
+    "SignUpSource" : "Desktop"
   }
 }}, {contentType=application/xml, example=<null>
   <Status>aeiou</Status>

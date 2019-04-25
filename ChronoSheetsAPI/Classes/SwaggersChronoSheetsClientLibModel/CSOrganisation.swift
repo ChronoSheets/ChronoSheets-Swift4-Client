@@ -11,6 +11,17 @@ import Foundation
 
 open class CSOrganisation: Codable {
 
+    public enum CSSubscriptionSource: String, Codable { 
+        case _none = "None"
+        case stripe = "Stripe"
+        case appleInApp = "AppleInApp"
+        case googleInApp = "GoogleInApp"
+    }
+    public enum CSSignUpSource: String, Codable { 
+        case desktop = "Desktop"
+        case mobileiOS = "MobileiOS"
+        case mobileAndroid = "MobileAndroid"
+    }
     public var id: Int?
     public var name: String?
     public var addressLine01: String?
@@ -25,13 +36,17 @@ open class CSOrganisation: Codable {
     public var subscriptionCustomerId: String?
     public var signupToken: String?
     public var isActive: Bool?
+    public var stripeCouponCode: String?
+    public var subscriptionSource: CSSubscriptionSource?
+    public var signUpSource: CSSignUpSource?
+    public var mobileSignUpCode: String?
     public var subscriptionCycleStart: Date?
     public var subscriptionCycleEnd: Date?
     public var pricingPlans: [CSOrganisationPricingPlan]?
 
 
     
-    public init(id: Int?, name: String?, addressLine01: String?, addressLine02: String?, suburb: String?, state: String?, postcode: String?, country: String?, phone: String?, emailAddress: String?, timezone: String?, subscriptionCustomerId: String?, signupToken: String?, isActive: Bool?, subscriptionCycleStart: Date?, subscriptionCycleEnd: Date?, pricingPlans: [CSOrganisationPricingPlan]?) {
+    public init(id: Int?, name: String?, addressLine01: String?, addressLine02: String?, suburb: String?, state: String?, postcode: String?, country: String?, phone: String?, emailAddress: String?, timezone: String?, subscriptionCustomerId: String?, signupToken: String?, isActive: Bool?, stripeCouponCode: String?, subscriptionSource: CSSubscriptionSource?, signUpSource: CSSignUpSource?, mobileSignUpCode: String?, subscriptionCycleStart: Date?, subscriptionCycleEnd: Date?, pricingPlans: [CSOrganisationPricingPlan]?) {
         self.id = id
         self.name = name
         self.addressLine01 = addressLine01
@@ -46,6 +61,10 @@ open class CSOrganisation: Codable {
         self.subscriptionCustomerId = subscriptionCustomerId
         self.signupToken = signupToken
         self.isActive = isActive
+        self.stripeCouponCode = stripeCouponCode
+        self.subscriptionSource = subscriptionSource
+        self.signUpSource = signUpSource
+        self.mobileSignUpCode = mobileSignUpCode
         self.subscriptionCycleStart = subscriptionCycleStart
         self.subscriptionCycleEnd = subscriptionCycleEnd
         self.pricingPlans = pricingPlans
@@ -72,6 +91,10 @@ open class CSOrganisation: Codable {
         try container.encodeIfPresent(subscriptionCustomerId, forKey: "SubscriptionCustomerId")
         try container.encodeIfPresent(signupToken, forKey: "SignupToken")
         try container.encodeIfPresent(isActive, forKey: "IsActive")
+        try container.encodeIfPresent(stripeCouponCode, forKey: "StripeCouponCode")
+        try container.encodeIfPresent(subscriptionSource, forKey: "SubscriptionSource")
+        try container.encodeIfPresent(signUpSource, forKey: "SignUpSource")
+        try container.encodeIfPresent(mobileSignUpCode, forKey: "MobileSignUpCode")
         try container.encodeIfPresent(subscriptionCycleStart, forKey: "SubscriptionCycleStart")
         try container.encodeIfPresent(subscriptionCycleEnd, forKey: "SubscriptionCycleEnd")
         try container.encodeIfPresent(pricingPlans, forKey: "PricingPlans")
@@ -96,6 +119,10 @@ open class CSOrganisation: Codable {
         subscriptionCustomerId = try container.decodeIfPresent(String.self, forKey: "SubscriptionCustomerId")
         signupToken = try container.decodeIfPresent(String.self, forKey: "SignupToken")
         isActive = try container.decodeIfPresent(Bool.self, forKey: "IsActive")
+        stripeCouponCode = try container.decodeIfPresent(String.self, forKey: "StripeCouponCode")
+        subscriptionSource = try container.decodeIfPresent(CSSubscriptionSource.self, forKey: "SubscriptionSource")
+        signUpSource = try container.decodeIfPresent(CSSignUpSource.self, forKey: "SignUpSource")
+        mobileSignUpCode = try container.decodeIfPresent(String.self, forKey: "MobileSignUpCode")
         subscriptionCycleStart = try container.decodeIfPresent(Date.self, forKey: "SubscriptionCycleStart")
         subscriptionCycleEnd = try container.decodeIfPresent(Date.self, forKey: "SubscriptionCycleEnd")
         pricingPlans = try container.decodeIfPresent([CSOrganisationPricingPlan].self, forKey: "PricingPlans")
