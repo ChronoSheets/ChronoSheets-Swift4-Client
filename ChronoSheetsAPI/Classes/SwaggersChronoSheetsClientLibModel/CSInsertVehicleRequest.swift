@@ -10,7 +10,7 @@ import Foundation
 
 /** Fields for inserting a new Vehicle */
 
-open class CSInsertVehicleRequest: Codable {
+public struct CSInsertVehicleRequest: Codable {
 
     /** The Name of the Vehicle */
     public var name: String?
@@ -27,8 +27,6 @@ open class CSInsertVehicleRequest: Codable {
     /** Optionally restrict this Vehicle to only be available to employees within these Organisation Groups */
     public var linkedOrgGroupIds: [Int]?
 
-
-    
     public init(name: String?, costPerKilometer: Double?, make: String?, model: String?, year: String?, licencePlateNumber: String?, linkedOrgGroupIds: [Int]?) {
         self.name = name
         self.costPerKilometer = costPerKilometer
@@ -38,35 +36,17 @@ open class CSInsertVehicleRequest: Codable {
         self.licencePlateNumber = licencePlateNumber
         self.linkedOrgGroupIds = linkedOrgGroupIds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(name, forKey: "Name")
-        try container.encodeIfPresent(costPerKilometer, forKey: "CostPerKilometer")
-        try container.encodeIfPresent(make, forKey: "Make")
-        try container.encodeIfPresent(model, forKey: "Model")
-        try container.encodeIfPresent(year, forKey: "Year")
-        try container.encodeIfPresent(licencePlateNumber, forKey: "LicencePlateNumber")
-        try container.encodeIfPresent(linkedOrgGroupIds, forKey: "LinkedOrgGroupIds")
+    public enum CodingKeys: String, CodingKey { 
+        case name = "Name"
+        case costPerKilometer = "CostPerKilometer"
+        case make = "Make"
+        case model = "Model"
+        case year = "Year"
+        case licencePlateNumber = "LicencePlateNumber"
+        case linkedOrgGroupIds = "LinkedOrgGroupIds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        name = try container.decodeIfPresent(String.self, forKey: "Name")
-        costPerKilometer = try container.decodeIfPresent(Double.self, forKey: "CostPerKilometer")
-        make = try container.decodeIfPresent(String.self, forKey: "Make")
-        model = try container.decodeIfPresent(String.self, forKey: "Model")
-        year = try container.decodeIfPresent(String.self, forKey: "Year")
-        licencePlateNumber = try container.decodeIfPresent(String.self, forKey: "LicencePlateNumber")
-        linkedOrgGroupIds = try container.decodeIfPresent([Int].self, forKey: "LinkedOrgGroupIds")
-    }
 }
 

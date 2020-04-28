@@ -20,7 +20,7 @@ open class TasksAPI {
      */
     open class func tasksCreateTask(request: CSInsertTaskRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         tasksCreateTaskWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class TasksAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -78,7 +77,7 @@ open class TasksAPI {
      */
     open class func tasksDeleteTask(taskId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         tasksDeleteTaskWithRequestBuilder(taskId: taskId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -114,12 +113,11 @@ open class TasksAPI {
         let path = "/api/Tasks/DeleteTask"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "TaskId": taskId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -139,7 +137,7 @@ open class TasksAPI {
      */
     open class func tasksGetTaskById(taskId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseTimesheetTask?,_ error: Error?) -> Void)) {
         tasksGetTaskByIdWithRequestBuilder(taskId: taskId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -185,12 +183,11 @@ open class TasksAPI {
         let path = "/api/Tasks/GetTaskById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "TaskId": taskId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -209,7 +206,7 @@ open class TasksAPI {
      */
     open class func tasksGetTasks(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListTimesheetTask?,_ error: Error?) -> Void)) {
         tasksGetTasksWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -266,9 +263,8 @@ open class TasksAPI {
         let path = "/api/Tasks/GetTasks"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -288,7 +284,7 @@ open class TasksAPI {
      */
     open class func tasksGetTasksForJob(jobId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListTimesheetTask?,_ error: Error?) -> Void)) {
         tasksGetTasksForJobWithRequestBuilder(jobId: jobId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -346,12 +342,11 @@ open class TasksAPI {
         let path = "/api/Tasks/GetTasksForJob"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "JobId": jobId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -371,7 +366,7 @@ open class TasksAPI {
      */
     open class func tasksUpdateTask(request: CSUpdateTaskRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         tasksUpdateTaskWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -408,8 +403,7 @@ open class TasksAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

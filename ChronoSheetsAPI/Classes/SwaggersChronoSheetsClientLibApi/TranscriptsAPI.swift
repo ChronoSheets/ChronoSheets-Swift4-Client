@@ -20,7 +20,7 @@ open class TranscriptsAPI {
      */
     open class func transcriptsGetMyTranscript(fileAttachmentId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedTranscription?,_ error: Error?) -> Void)) {
         transcriptsGetMyTranscriptWithRequestBuilder(fileAttachmentId: fileAttachmentId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -74,12 +74,11 @@ open class TranscriptsAPI {
         let path = "/api/Transcripts/GetMyTranscript"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "FileAttachmentId": fileAttachmentId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -103,7 +102,7 @@ open class TranscriptsAPI {
      */
     open class func transcriptsGetMyTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, keyword: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTranscript?,_ error: Error?) -> Void)) {
         transcriptsGetMyTranscriptsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, keyword: keyword).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -297,16 +296,15 @@ open class TranscriptsAPI {
         let path = "/api/Transcripts/GetMyTranscripts"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "Skip": skip?.encodeToJSON(), 
             "Take": take?.encodeToJSON(), 
             "Keyword": keyword
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

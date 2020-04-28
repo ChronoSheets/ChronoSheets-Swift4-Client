@@ -9,36 +9,21 @@ import Foundation
 
 
 
-open class CSUserJobFavourite: Codable {
+public struct CSUserJobFavourite: Codable {
 
-    public var id: Int?
+    public var _id: Int?
     public var jobId: Int?
 
-
-    
-    public init(id: Int?, jobId: Int?) {
-        self.id = id
+    public init(_id: Int?, jobId: Int?) {
+        self._id = _id
         self.jobId = jobId
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(jobId, forKey: "JobId")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case jobId = "JobId"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        jobId = try container.decodeIfPresent(Int.self, forKey: "JobId")
-    }
 }
 

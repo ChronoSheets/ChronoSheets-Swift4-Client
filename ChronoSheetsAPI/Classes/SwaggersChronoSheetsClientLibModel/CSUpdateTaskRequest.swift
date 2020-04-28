@@ -10,10 +10,10 @@ import Foundation
 
 /** Fields used to update a Task */
 
-open class CSUpdateTaskRequest: Codable {
+public struct CSUpdateTaskRequest: Codable {
 
     /** The Id of the Task that is to be updated */
-    public var id: Int?
+    public var _id: Int?
     /** The updated Task Name */
     public var taskName: String?
     /** Whether or not this Task should be marked as deleted */
@@ -21,37 +21,20 @@ open class CSUpdateTaskRequest: Codable {
     /** Whether or not this Task should have GPS Trip Recording enabled */
     public var tripEnabled: Bool?
 
-
-    
-    public init(id: Int?, taskName: String?, isDeleted: Bool?, tripEnabled: Bool?) {
-        self.id = id
+    public init(_id: Int?, taskName: String?, isDeleted: Bool?, tripEnabled: Bool?) {
+        self._id = _id
         self.taskName = taskName
         self.isDeleted = isDeleted
         self.tripEnabled = tripEnabled
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(taskName, forKey: "TaskName")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
-        try container.encodeIfPresent(tripEnabled, forKey: "TripEnabled")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case taskName = "TaskName"
+        case isDeleted = "IsDeleted"
+        case tripEnabled = "TripEnabled"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        taskName = try container.decodeIfPresent(String.self, forKey: "TaskName")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-        tripEnabled = try container.decodeIfPresent(Bool.self, forKey: "TripEnabled")
-    }
 }
 

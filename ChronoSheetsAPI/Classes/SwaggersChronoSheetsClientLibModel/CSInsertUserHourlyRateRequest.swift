@@ -10,7 +10,7 @@ import Foundation
 
 /** Fields for inserting a new set of Pay Rates for a user.  Archiving of the previous Pay Rate is done for you automatically */
 
-open class CSInsertUserHourlyRateRequest: Codable {
+public struct CSInsertUserHourlyRateRequest: Codable {
 
     /** The Id of the User that is getting the new set of Pay Rates */
     public var userId: Int?
@@ -21,37 +21,20 @@ open class CSInsertUserHourlyRateRequest: Codable {
     /** The current date time */
     public var currentDate: Date?
 
-
-    
     public init(userId: Int?, hourlyRate: Double?, hourlyOvertimeRate: Double?, currentDate: Date?) {
         self.userId = userId
         self.hourlyRate = hourlyRate
         self.hourlyOvertimeRate = hourlyOvertimeRate
         self.currentDate = currentDate
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(hourlyRate, forKey: "HourlyRate")
-        try container.encodeIfPresent(hourlyOvertimeRate, forKey: "HourlyOvertimeRate")
-        try container.encodeIfPresent(currentDate, forKey: "CurrentDate")
+    public enum CodingKeys: String, CodingKey { 
+        case userId = "UserId"
+        case hourlyRate = "HourlyRate"
+        case hourlyOvertimeRate = "HourlyOvertimeRate"
+        case currentDate = "CurrentDate"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        hourlyRate = try container.decodeIfPresent(Double.self, forKey: "HourlyRate")
-        hourlyOvertimeRate = try container.decodeIfPresent(Double.self, forKey: "HourlyOvertimeRate")
-        currentDate = try container.decodeIfPresent(Date.self, forKey: "CurrentDate")
-    }
 }
 

@@ -10,10 +10,10 @@ import Foundation
 
 /** Fields used to update an existing JobCode */
 
-open class CSUpdateJobCodeRequest: Codable {
+public struct CSUpdateJobCodeRequest: Codable {
 
     /** The Id of the JobCode to be updated */
-    public var id: Int?
+    public var _id: Int?
     /** The new JobCode to be set */
     public var code: String?
     /** The Id of the Project to be associated to */
@@ -27,10 +27,8 @@ open class CSUpdateJobCodeRequest: Codable {
     /** Whether or not this JobCode is to be marked as deleted */
     public var isDeleted: Bool?
 
-
-    
-    public init(id: Int?, code: String?, projectId: Int?, clientId: Int?, linkedTaskIds: [Int]?, linkedOrgGroupIds: [Int]?, isDeleted: Bool?) {
-        self.id = id
+    public init(_id: Int?, code: String?, projectId: Int?, clientId: Int?, linkedTaskIds: [Int]?, linkedOrgGroupIds: [Int]?, isDeleted: Bool?) {
+        self._id = _id
         self.code = code
         self.projectId = projectId
         self.clientId = clientId
@@ -38,35 +36,17 @@ open class CSUpdateJobCodeRequest: Codable {
         self.linkedOrgGroupIds = linkedOrgGroupIds
         self.isDeleted = isDeleted
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(code, forKey: "Code")
-        try container.encodeIfPresent(projectId, forKey: "ProjectId")
-        try container.encodeIfPresent(clientId, forKey: "ClientId")
-        try container.encodeIfPresent(linkedTaskIds, forKey: "LinkedTaskIds")
-        try container.encodeIfPresent(linkedOrgGroupIds, forKey: "LinkedOrgGroupIds")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case code = "Code"
+        case projectId = "ProjectId"
+        case clientId = "ClientId"
+        case linkedTaskIds = "LinkedTaskIds"
+        case linkedOrgGroupIds = "LinkedOrgGroupIds"
+        case isDeleted = "IsDeleted"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        code = try container.decodeIfPresent(String.self, forKey: "Code")
-        projectId = try container.decodeIfPresent(Int.self, forKey: "ProjectId")
-        clientId = try container.decodeIfPresent(Int.self, forKey: "ClientId")
-        linkedTaskIds = try container.decodeIfPresent([Int].self, forKey: "LinkedTaskIds")
-        linkedOrgGroupIds = try container.decodeIfPresent([Int].self, forKey: "LinkedOrgGroupIds")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-    }
 }
 

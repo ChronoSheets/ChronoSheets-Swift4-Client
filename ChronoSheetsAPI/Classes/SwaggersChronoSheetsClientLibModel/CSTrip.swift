@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSTrip: Codable {
+public struct CSTrip: Codable {
 
     public enum CSMobilePlatform: String, Codable { 
         case unknown = "Unknown"
@@ -36,8 +36,6 @@ open class CSTrip: Codable {
     public var pathCoordinates: [CSTripCoordinate]?
     public var cacheExpiryDate: Date?
 
-
-    
     public init(tripId: Int?, timesheetId: Int?, vehicleId: Int?, userId: Int?, orgId: Int?, mobilePlatform: CSMobilePlatform?, startDate: Date?, endDate: Date?, vehicleName: String?, vehicleMake: String?, vehicleModel: String?, vehicleYear: String?, costPerKilometer: Double?, tripTotalCost: Double?, totalTripDistanceMeters: Double?, startAddress: String?, endAddress: String?, pathCoordinates: [CSTripCoordinate]?, cacheExpiryDate: Date?) {
         self.tripId = tripId
         self.timesheetId = timesheetId
@@ -59,59 +57,29 @@ open class CSTrip: Codable {
         self.pathCoordinates = pathCoordinates
         self.cacheExpiryDate = cacheExpiryDate
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(tripId, forKey: "TripId")
-        try container.encodeIfPresent(timesheetId, forKey: "TimesheetId")
-        try container.encodeIfPresent(vehicleId, forKey: "VehicleId")
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(orgId, forKey: "OrgId")
-        try container.encodeIfPresent(mobilePlatform, forKey: "MobilePlatform")
-        try container.encodeIfPresent(startDate, forKey: "StartDate")
-        try container.encodeIfPresent(endDate, forKey: "EndDate")
-        try container.encodeIfPresent(vehicleName, forKey: "VehicleName")
-        try container.encodeIfPresent(vehicleMake, forKey: "VehicleMake")
-        try container.encodeIfPresent(vehicleModel, forKey: "VehicleModel")
-        try container.encodeIfPresent(vehicleYear, forKey: "VehicleYear")
-        try container.encodeIfPresent(costPerKilometer, forKey: "CostPerKilometer")
-        try container.encodeIfPresent(tripTotalCost, forKey: "TripTotalCost")
-        try container.encodeIfPresent(totalTripDistanceMeters, forKey: "TotalTripDistanceMeters")
-        try container.encodeIfPresent(startAddress, forKey: "StartAddress")
-        try container.encodeIfPresent(endAddress, forKey: "EndAddress")
-        try container.encodeIfPresent(pathCoordinates, forKey: "PathCoordinates")
-        try container.encodeIfPresent(cacheExpiryDate, forKey: "CacheExpiryDate")
+    public enum CodingKeys: String, CodingKey { 
+        case tripId = "TripId"
+        case timesheetId = "TimesheetId"
+        case vehicleId = "VehicleId"
+        case userId = "UserId"
+        case orgId = "OrgId"
+        case mobilePlatform = "MobilePlatform"
+        case startDate = "StartDate"
+        case endDate = "EndDate"
+        case vehicleName = "VehicleName"
+        case vehicleMake = "VehicleMake"
+        case vehicleModel = "VehicleModel"
+        case vehicleYear = "VehicleYear"
+        case costPerKilometer = "CostPerKilometer"
+        case tripTotalCost = "TripTotalCost"
+        case totalTripDistanceMeters = "TotalTripDistanceMeters"
+        case startAddress = "StartAddress"
+        case endAddress = "EndAddress"
+        case pathCoordinates = "PathCoordinates"
+        case cacheExpiryDate = "CacheExpiryDate"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        tripId = try container.decodeIfPresent(Int.self, forKey: "TripId")
-        timesheetId = try container.decodeIfPresent(Int.self, forKey: "TimesheetId")
-        vehicleId = try container.decodeIfPresent(Int.self, forKey: "VehicleId")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        orgId = try container.decodeIfPresent(Int.self, forKey: "OrgId")
-        mobilePlatform = try container.decodeIfPresent(CSMobilePlatform.self, forKey: "MobilePlatform")
-        startDate = try container.decodeIfPresent(Date.self, forKey: "StartDate")
-        endDate = try container.decodeIfPresent(Date.self, forKey: "EndDate")
-        vehicleName = try container.decodeIfPresent(String.self, forKey: "VehicleName")
-        vehicleMake = try container.decodeIfPresent(String.self, forKey: "VehicleMake")
-        vehicleModel = try container.decodeIfPresent(String.self, forKey: "VehicleModel")
-        vehicleYear = try container.decodeIfPresent(String.self, forKey: "VehicleYear")
-        costPerKilometer = try container.decodeIfPresent(Double.self, forKey: "CostPerKilometer")
-        tripTotalCost = try container.decodeIfPresent(Double.self, forKey: "TripTotalCost")
-        totalTripDistanceMeters = try container.decodeIfPresent(Double.self, forKey: "TotalTripDistanceMeters")
-        startAddress = try container.decodeIfPresent(String.self, forKey: "StartAddress")
-        endAddress = try container.decodeIfPresent(String.self, forKey: "EndAddress")
-        pathCoordinates = try container.decodeIfPresent([CSTripCoordinate].self, forKey: "PathCoordinates")
-        cacheExpiryDate = try container.decodeIfPresent(Date.self, forKey: "CacheExpiryDate")
-    }
 }
 

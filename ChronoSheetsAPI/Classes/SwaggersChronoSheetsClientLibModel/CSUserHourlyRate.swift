@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSUserHourlyRate: Codable {
+public struct CSUserHourlyRate: Codable {
 
     public var rateId: Int?
     public var userId: Int?
@@ -20,8 +20,6 @@ open class CSUserHourlyRate: Codable {
     public var startDateTime: Date?
     public var endDateTime: Date?
 
-
-    
     public init(rateId: Int?, userId: Int?, organisationId: Int?, isCurrent: Bool?, hourlyRate: Double?, hourlyOvertimeRate: Double?, startDateTime: Date?, endDateTime: Date?) {
         self.rateId = rateId
         self.userId = userId
@@ -32,37 +30,18 @@ open class CSUserHourlyRate: Codable {
         self.startDateTime = startDateTime
         self.endDateTime = endDateTime
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(rateId, forKey: "RateId")
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(isCurrent, forKey: "IsCurrent")
-        try container.encodeIfPresent(hourlyRate, forKey: "HourlyRate")
-        try container.encodeIfPresent(hourlyOvertimeRate, forKey: "HourlyOvertimeRate")
-        try container.encodeIfPresent(startDateTime, forKey: "StartDateTime")
-        try container.encodeIfPresent(endDateTime, forKey: "EndDateTime")
+    public enum CodingKeys: String, CodingKey { 
+        case rateId = "RateId"
+        case userId = "UserId"
+        case organisationId = "OrganisationId"
+        case isCurrent = "IsCurrent"
+        case hourlyRate = "HourlyRate"
+        case hourlyOvertimeRate = "HourlyOvertimeRate"
+        case startDateTime = "StartDateTime"
+        case endDateTime = "EndDateTime"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        rateId = try container.decodeIfPresent(Int.self, forKey: "RateId")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        isCurrent = try container.decodeIfPresent(Bool.self, forKey: "IsCurrent")
-        hourlyRate = try container.decodeIfPresent(Double.self, forKey: "HourlyRate")
-        hourlyOvertimeRate = try container.decodeIfPresent(Double.self, forKey: "HourlyOvertimeRate")
-        startDateTime = try container.decodeIfPresent(Date.self, forKey: "StartDateTime")
-        endDateTime = try container.decodeIfPresent(Date.self, forKey: "EndDateTime")
-    }
 }
 

@@ -20,7 +20,7 @@ open class UserPayRatesAPI {
      */
     open class func userPayRatesCreatePayRate(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         userPayRatesCreatePayRateWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class UserPayRatesAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -78,7 +77,7 @@ open class UserPayRatesAPI {
      */
     open class func userPayRatesGetPayRates(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUserHourlyRate?,_ error: Error?) -> Void)) {
         userPayRatesGetPayRatesWithRequestBuilder(userId: userId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -148,12 +147,11 @@ open class UserPayRatesAPI {
         let path = "/api/UserPayRates/GetPayRates"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "UserId": userId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

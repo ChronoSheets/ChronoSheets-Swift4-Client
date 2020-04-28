@@ -20,7 +20,7 @@ open class ClientsAPI {
      */
     open class func clientsCreateClient(request: CSInsertClientRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         clientsCreateClientWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class ClientsAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -78,7 +77,7 @@ open class ClientsAPI {
      */
     open class func clientsGetClient(clientId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseClient?,_ error: Error?) -> Void)) {
         clientsGetClientWithRequestBuilder(clientId: clientId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -142,12 +141,11 @@ open class ClientsAPI {
         let path = "/api/Clients/GetClient"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "ClientId": clientId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -166,7 +164,7 @@ open class ClientsAPI {
      */
     open class func clientsGetClients(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListClient?,_ error: Error?) -> Void)) {
         clientsGetClientsWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -259,9 +257,8 @@ open class ClientsAPI {
         let path = "/api/Clients/GetClients"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -281,7 +278,7 @@ open class ClientsAPI {
      */
     open class func clientsUpdateClient(request: CSSaveClientRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         clientsUpdateClientWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -318,8 +315,7 @@ open class ClientsAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSProjectSeriesReportItem: Codable {
+public struct CSProjectSeriesReportItem: Codable {
 
     public var startDate: Date?
     public var endDate: Date?
@@ -17,8 +17,6 @@ open class CSProjectSeriesReportItem: Codable {
     public var projectName: String?
     public var spanSeconds: Int?
 
-
-    
     public init(startDate: Date?, endDate: Date?, projectId: Int?, projectName: String?, spanSeconds: Int?) {
         self.startDate = startDate
         self.endDate = endDate
@@ -26,31 +24,15 @@ open class CSProjectSeriesReportItem: Codable {
         self.projectName = projectName
         self.spanSeconds = spanSeconds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(startDate, forKey: "StartDate")
-        try container.encodeIfPresent(endDate, forKey: "EndDate")
-        try container.encodeIfPresent(projectId, forKey: "ProjectId")
-        try container.encodeIfPresent(projectName, forKey: "ProjectName")
-        try container.encodeIfPresent(spanSeconds, forKey: "SpanSeconds")
+    public enum CodingKeys: String, CodingKey { 
+        case startDate = "StartDate"
+        case endDate = "EndDate"
+        case projectId = "ProjectId"
+        case projectName = "ProjectName"
+        case spanSeconds = "SpanSeconds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        startDate = try container.decodeIfPresent(Date.self, forKey: "StartDate")
-        endDate = try container.decodeIfPresent(Date.self, forKey: "EndDate")
-        projectId = try container.decodeIfPresent(Int.self, forKey: "ProjectId")
-        projectName = try container.decodeIfPresent(String.self, forKey: "ProjectName")
-        spanSeconds = try container.decodeIfPresent(Int.self, forKey: "SpanSeconds")
-    }
 }
 

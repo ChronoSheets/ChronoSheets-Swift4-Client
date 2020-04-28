@@ -9,9 +9,9 @@ import Foundation
 
 
 
-open class CSProject: Codable {
+public struct CSProject: Codable {
 
-    public var id: Int?
+    public var _id: Int?
     public var clientId: Int?
     public var organisationId: Int?
     public var projectName: String?
@@ -20,10 +20,8 @@ open class CSProject: Codable {
     public var startDate: Date?
     public var endDate: Date?
 
-
-    
-    public init(id: Int?, clientId: Int?, organisationId: Int?, projectName: String?, costEstimation: Double?, costActual: Double?, startDate: Date?, endDate: Date?) {
-        self.id = id
+    public init(_id: Int?, clientId: Int?, organisationId: Int?, projectName: String?, costEstimation: Double?, costActual: Double?, startDate: Date?, endDate: Date?) {
+        self._id = _id
         self.clientId = clientId
         self.organisationId = organisationId
         self.projectName = projectName
@@ -32,37 +30,18 @@ open class CSProject: Codable {
         self.startDate = startDate
         self.endDate = endDate
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(clientId, forKey: "ClientId")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(projectName, forKey: "ProjectName")
-        try container.encodeIfPresent(costEstimation, forKey: "CostEstimation")
-        try container.encodeIfPresent(costActual, forKey: "CostActual")
-        try container.encodeIfPresent(startDate, forKey: "StartDate")
-        try container.encodeIfPresent(endDate, forKey: "EndDate")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case clientId = "ClientId"
+        case organisationId = "OrganisationId"
+        case projectName = "ProjectName"
+        case costEstimation = "CostEstimation"
+        case costActual = "CostActual"
+        case startDate = "StartDate"
+        case endDate = "EndDate"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        clientId = try container.decodeIfPresent(Int.self, forKey: "ClientId")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        projectName = try container.decodeIfPresent(String.self, forKey: "ProjectName")
-        costEstimation = try container.decodeIfPresent(Double.self, forKey: "CostEstimation")
-        costActual = try container.decodeIfPresent(Double.self, forKey: "CostActual")
-        startDate = try container.decodeIfPresent(Date.self, forKey: "StartDate")
-        endDate = try container.decodeIfPresent(Date.self, forKey: "EndDate")
-    }
 }
 

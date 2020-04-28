@@ -10,38 +10,23 @@ import Foundation
 
 /** Fields for inserting a new Task */
 
-open class CSInsertTaskRequest: Codable {
+public struct CSInsertTaskRequest: Codable {
 
     /** The name of the Task.  Used to identify the Task when the user is selecting from a list of available Tasks */
     public var taskName: String?
     /** Whether or not GPS Trip Tracking is enabled on this Task.  GPS Trip tracking is available on the iOS and Android apps.  If it&#39;s enabled an additional dialog is shown to the user after Task selection that allows the User to choose if they want to record the GPS data */
     public var tripEnabled: Bool?
 
-
-    
     public init(taskName: String?, tripEnabled: Bool?) {
         self.taskName = taskName
         self.tripEnabled = tripEnabled
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(taskName, forKey: "TaskName")
-        try container.encodeIfPresent(tripEnabled, forKey: "TripEnabled")
+    public enum CodingKeys: String, CodingKey { 
+        case taskName = "TaskName"
+        case tripEnabled = "TripEnabled"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        taskName = try container.decodeIfPresent(String.self, forKey: "TaskName")
-        tripEnabled = try container.decodeIfPresent(Bool.self, forKey: "TripEnabled")
-    }
 }
 

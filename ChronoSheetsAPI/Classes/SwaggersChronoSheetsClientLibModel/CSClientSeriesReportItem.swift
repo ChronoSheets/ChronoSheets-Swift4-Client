@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSClientSeriesReportItem: Codable {
+public struct CSClientSeriesReportItem: Codable {
 
     public var startDate: Date?
     public var endDate: Date?
@@ -17,8 +17,6 @@ open class CSClientSeriesReportItem: Codable {
     public var clientName: String?
     public var spanSeconds: Int?
 
-
-    
     public init(startDate: Date?, endDate: Date?, clientId: Int?, clientName: String?, spanSeconds: Int?) {
         self.startDate = startDate
         self.endDate = endDate
@@ -26,31 +24,15 @@ open class CSClientSeriesReportItem: Codable {
         self.clientName = clientName
         self.spanSeconds = spanSeconds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(startDate, forKey: "StartDate")
-        try container.encodeIfPresent(endDate, forKey: "EndDate")
-        try container.encodeIfPresent(clientId, forKey: "ClientId")
-        try container.encodeIfPresent(clientName, forKey: "ClientName")
-        try container.encodeIfPresent(spanSeconds, forKey: "SpanSeconds")
+    public enum CodingKeys: String, CodingKey { 
+        case startDate = "StartDate"
+        case endDate = "EndDate"
+        case clientId = "ClientId"
+        case clientName = "ClientName"
+        case spanSeconds = "SpanSeconds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        startDate = try container.decodeIfPresent(Date.self, forKey: "StartDate")
-        endDate = try container.decodeIfPresent(Date.self, forKey: "EndDate")
-        clientId = try container.decodeIfPresent(Int.self, forKey: "ClientId")
-        clientName = try container.decodeIfPresent(String.self, forKey: "ClientName")
-        spanSeconds = try container.decodeIfPresent(Int.self, forKey: "SpanSeconds")
-    }
 }
 

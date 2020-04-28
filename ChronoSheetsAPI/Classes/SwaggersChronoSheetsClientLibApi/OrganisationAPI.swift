@@ -19,7 +19,7 @@ open class OrganisationAPI {
      */
     open class func organisationGetOrganisation(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseOrganisation?,_ error: Error?) -> Void)) {
         organisationGetOrganisationWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -108,9 +108,8 @@ open class OrganisationAPI {
         let path = "/api/Organisation/GetOrganisation"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -130,7 +129,7 @@ open class OrganisationAPI {
      */
     open class func organisationUpdateOrganisation(request: CSUpdateOrganisationRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUpdateOrganisationResponse?,_ error: Error?) -> Void)) {
         organisationUpdateOrganisationWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -169,8 +168,7 @@ open class OrganisationAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

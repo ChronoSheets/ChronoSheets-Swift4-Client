@@ -10,10 +10,10 @@ import Foundation
 
 /** Fields for saving an existing Vehicle */
 
-open class CSSaveVehicleRequest: Codable {
+public struct CSSaveVehicleRequest: Codable {
 
     /** The Id of the Vehicle that is being updated */
-    public var id: Int?
+    public var _id: Int?
     /** The Name of the Vehicle */
     public var name: String?
     /** The fuel cost / running cost of the Vehicle, measured per kilometer */
@@ -31,10 +31,8 @@ open class CSSaveVehicleRequest: Codable {
     /** Whether or not this Vehicle is to be marked as deleted */
     public var isDeleted: Bool?
 
-
-    
-    public init(id: Int?, name: String?, costPerKilometer: Double?, make: String?, model: String?, year: String?, licencePlateNumber: String?, linkedOrgGroupIds: [Int]?, isDeleted: Bool?) {
-        self.id = id
+    public init(_id: Int?, name: String?, costPerKilometer: Double?, make: String?, model: String?, year: String?, licencePlateNumber: String?, linkedOrgGroupIds: [Int]?, isDeleted: Bool?) {
+        self._id = _id
         self.name = name
         self.costPerKilometer = costPerKilometer
         self.make = make
@@ -44,39 +42,19 @@ open class CSSaveVehicleRequest: Codable {
         self.linkedOrgGroupIds = linkedOrgGroupIds
         self.isDeleted = isDeleted
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(name, forKey: "Name")
-        try container.encodeIfPresent(costPerKilometer, forKey: "CostPerKilometer")
-        try container.encodeIfPresent(make, forKey: "Make")
-        try container.encodeIfPresent(model, forKey: "Model")
-        try container.encodeIfPresent(year, forKey: "Year")
-        try container.encodeIfPresent(licencePlateNumber, forKey: "LicencePlateNumber")
-        try container.encodeIfPresent(linkedOrgGroupIds, forKey: "LinkedOrgGroupIds")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case name = "Name"
+        case costPerKilometer = "CostPerKilometer"
+        case make = "Make"
+        case model = "Model"
+        case year = "Year"
+        case licencePlateNumber = "LicencePlateNumber"
+        case linkedOrgGroupIds = "LinkedOrgGroupIds"
+        case isDeleted = "IsDeleted"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        name = try container.decodeIfPresent(String.self, forKey: "Name")
-        costPerKilometer = try container.decodeIfPresent(Double.self, forKey: "CostPerKilometer")
-        make = try container.decodeIfPresent(String.self, forKey: "Make")
-        model = try container.decodeIfPresent(String.self, forKey: "Model")
-        year = try container.decodeIfPresent(String.self, forKey: "Year")
-        licencePlateNumber = try container.decodeIfPresent(String.self, forKey: "LicencePlateNumber")
-        linkedOrgGroupIds = try container.decodeIfPresent([Int].self, forKey: "LinkedOrgGroupIds")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-    }
 }
 

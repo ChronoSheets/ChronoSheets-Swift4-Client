@@ -12,7 +12,7 @@ import Alamofire
 
 open class FileAttachmentsAPI {
     /**
-     Delete a particular timesheet file attachment
+     Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.
      
      - parameter fileAttachmentId: (query) The Id of the file attachment to delete 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -20,13 +20,13 @@ open class FileAttachmentsAPI {
      */
     open class func fileAttachmentsDeleteTimesheetFileAttachment(fileAttachmentId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         fileAttachmentsDeleteTimesheetFileAttachmentWithRequestBuilder(fileAttachmentId: fileAttachmentId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
 
     /**
-     Delete a particular timesheet file attachment
+     Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.
      - DELETE /api/FileAttachments/DeleteTimesheetFileAttachment
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -56,12 +56,11 @@ open class FileAttachmentsAPI {
         let path = "/api/FileAttachments/DeleteTimesheetFileAttachment"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "FileAttachmentId": fileAttachmentId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -70,6 +69,114 @@ open class FileAttachmentsAPI {
         let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
+     Get a particular file attachment by ID.  User must own the file attachment for access.
+     
+     - parameter fileAttachmentId: (query) The ID of the file attachment 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func fileAttachmentsGetFileAttachmentById(fileAttachmentId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseTimesheetFileAttachment?,_ error: Error?) -> Void)) {
+        fileAttachmentsGetFileAttachmentByIdWithRequestBuilder(fileAttachmentId: fileAttachmentId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     Get a particular file attachment by ID.  User must own the file attachment for access.
+     - GET /api/FileAttachments/GetFileAttachmentById
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : {
+    "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
+    "TimesheetEnd" : "2000-01-23T04:56:07.000+00:00",
+    "AttachmentType" : "Image",
+    "DateImageCaptured" : "2000-01-23T04:56:07.000+00:00",
+    "OriginalFileName" : "OriginalFileName",
+    "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
+    "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
+    "TimesheetId" : 6,
+    "Latitude" : 2.3021358869347655,
+    "AudioDurationSeconds" : 3,
+    "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
+    "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
+    "StorageAllocationBytes" : 9,
+    "Longitude" : 7.061401241503109,
+    "FileAttachmentId" : 1,
+    "ImageMediumFilePath" : "ImageMediumFilePath",
+    "OrgId" : 5,
+    "ImageSmallFilePath" : "ImageSmallFilePath",
+    "MobilePlatform" : "Unknown",
+    "ImageLargeFilePath" : "ImageLargeFilePath",
+    "UserId" : 5,
+    "NonImageFilePath" : "NonImageFilePath",
+    "Notes" : "Notes",
+    "DateUploaded" : "2000-01-23T04:56:07.000+00:00"
+  }
+}}, {contentType=application/xml, example=<null>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : {
+    "TimesheetStart" : "2000-01-23T04:56:07.000+00:00",
+    "TimesheetEnd" : "2000-01-23T04:56:07.000+00:00",
+    "AttachmentType" : "Image",
+    "DateImageCaptured" : "2000-01-23T04:56:07.000+00:00",
+    "OriginalFileName" : "OriginalFileName",
+    "ImageLargeS3SignedUrl" : "ImageLargeS3SignedUrl",
+    "DocumentS3SignedUrl" : "DocumentS3SignedUrl",
+    "TimesheetId" : 6,
+    "Latitude" : 2.3021358869347655,
+    "AudioDurationSeconds" : 3,
+    "ImageSmallS3SignedUrl" : "ImageSmallS3SignedUrl",
+    "ImageMediumS3SignedUrl" : "ImageMediumS3SignedUrl",
+    "StorageAllocationBytes" : 9,
+    "Longitude" : 7.061401241503109,
+    "FileAttachmentId" : 1,
+    "ImageMediumFilePath" : "ImageMediumFilePath",
+    "OrgId" : 5,
+    "ImageSmallFilePath" : "ImageSmallFilePath",
+    "MobilePlatform" : "Unknown",
+    "ImageLargeFilePath" : "ImageLargeFilePath",
+    "UserId" : 5,
+    "NonImageFilePath" : "NonImageFilePath",
+    "Notes" : "Notes",
+    "DateUploaded" : "2000-01-23T04:56:07.000+00:00"
+  }
+}}, {contentType=application/xml, example=<null>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter fileAttachmentId: (query) The ID of the file attachment 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CSApiResponseTimesheetFileAttachment> 
+     */
+    open class func fileAttachmentsGetFileAttachmentByIdWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTimesheetFileAttachment> {
+        let path = "/api/FileAttachments/GetFileAttachmentById"
+        let URLString = ChronoSheetsAPIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "FileAttachmentId": fileAttachmentId.encodeToJSON()
+        ])
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CSApiResponseTimesheetFileAttachment>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
 
     /**
@@ -84,7 +191,7 @@ open class FileAttachmentsAPI {
      */
     open class func fileAttachmentsGetMyFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListTimesheetFileAttachment?,_ error: Error?) -> Void)) {
         fileAttachmentsGetMyFileAttachmentsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -225,15 +332,14 @@ open class FileAttachmentsAPI {
         let path = "/api/FileAttachments/GetMyFileAttachments"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "Skip": skip?.encodeToJSON(), 
             "Take": take?.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

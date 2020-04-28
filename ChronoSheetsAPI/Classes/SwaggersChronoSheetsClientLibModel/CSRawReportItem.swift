@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSRawReportItem: Codable {
+public struct CSRawReportItem: Codable {
 
     public var organisationId: Int?
     public var userId: Int?
@@ -22,15 +22,15 @@ open class CSRawReportItem: Codable {
     public var startDate: Date?
     public var endDate: Date?
     public var spanSeconds: Int?
-    public var description: String?
+    public var _description: String?
     public var payAmount: Double?
     public var payOvertimeAmount: Double?
     public var tripCost: Double?
     public var tripDistanceMeters: Double?
+    public var spanSecondsNormalTime: Int?
+    public var spanSecondsOvertime: Int?
 
-
-    
-    public init(organisationId: Int?, userId: Int?, username: String?, emailAddress: String?, jobCode: String?, taskName: String?, clientName: String?, projectName: String?, startDate: Date?, endDate: Date?, spanSeconds: Int?, description: String?, payAmount: Double?, payOvertimeAmount: Double?, tripCost: Double?, tripDistanceMeters: Double?) {
+    public init(organisationId: Int?, userId: Int?, username: String?, emailAddress: String?, jobCode: String?, taskName: String?, clientName: String?, projectName: String?, startDate: Date?, endDate: Date?, spanSeconds: Int?, _description: String?, payAmount: Double?, payOvertimeAmount: Double?, tripCost: Double?, tripDistanceMeters: Double?, spanSecondsNormalTime: Int?, spanSecondsOvertime: Int?) {
         self.organisationId = organisationId
         self.userId = userId
         self.username = username
@@ -42,59 +42,36 @@ open class CSRawReportItem: Codable {
         self.startDate = startDate
         self.endDate = endDate
         self.spanSeconds = spanSeconds
-        self.description = description
+        self._description = _description
         self.payAmount = payAmount
         self.payOvertimeAmount = payOvertimeAmount
         self.tripCost = tripCost
         self.tripDistanceMeters = tripDistanceMeters
-    }
-    
-
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(username, forKey: "Username")
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
-        try container.encodeIfPresent(jobCode, forKey: "JobCode")
-        try container.encodeIfPresent(taskName, forKey: "TaskName")
-        try container.encodeIfPresent(clientName, forKey: "ClientName")
-        try container.encodeIfPresent(projectName, forKey: "ProjectName")
-        try container.encodeIfPresent(startDate, forKey: "StartDate")
-        try container.encodeIfPresent(endDate, forKey: "EndDate")
-        try container.encodeIfPresent(spanSeconds, forKey: "SpanSeconds")
-        try container.encodeIfPresent(description, forKey: "Description")
-        try container.encodeIfPresent(payAmount, forKey: "PayAmount")
-        try container.encodeIfPresent(payOvertimeAmount, forKey: "PayOvertimeAmount")
-        try container.encodeIfPresent(tripCost, forKey: "TripCost")
-        try container.encodeIfPresent(tripDistanceMeters, forKey: "TripDistanceMeters")
+        self.spanSecondsNormalTime = spanSecondsNormalTime
+        self.spanSecondsOvertime = spanSecondsOvertime
     }
 
-    // Decodable protocol methods
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        username = try container.decodeIfPresent(String.self, forKey: "Username")
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
-        jobCode = try container.decodeIfPresent(String.self, forKey: "JobCode")
-        taskName = try container.decodeIfPresent(String.self, forKey: "TaskName")
-        clientName = try container.decodeIfPresent(String.self, forKey: "ClientName")
-        projectName = try container.decodeIfPresent(String.self, forKey: "ProjectName")
-        startDate = try container.decodeIfPresent(Date.self, forKey: "StartDate")
-        endDate = try container.decodeIfPresent(Date.self, forKey: "EndDate")
-        spanSeconds = try container.decodeIfPresent(Int.self, forKey: "SpanSeconds")
-        description = try container.decodeIfPresent(String.self, forKey: "Description")
-        payAmount = try container.decodeIfPresent(Double.self, forKey: "PayAmount")
-        payOvertimeAmount = try container.decodeIfPresent(Double.self, forKey: "PayOvertimeAmount")
-        tripCost = try container.decodeIfPresent(Double.self, forKey: "TripCost")
-        tripDistanceMeters = try container.decodeIfPresent(Double.self, forKey: "TripDistanceMeters")
+    public enum CodingKeys: String, CodingKey { 
+        case organisationId = "OrganisationId"
+        case userId = "UserId"
+        case username = "Username"
+        case emailAddress = "EmailAddress"
+        case jobCode = "JobCode"
+        case taskName = "TaskName"
+        case clientName = "ClientName"
+        case projectName = "ProjectName"
+        case startDate = "StartDate"
+        case endDate = "EndDate"
+        case spanSeconds = "SpanSeconds"
+        case _description = "Description"
+        case payAmount = "PayAmount"
+        case payOvertimeAmount = "PayOvertimeAmount"
+        case tripCost = "TripCost"
+        case tripDistanceMeters = "TripDistanceMeters"
+        case spanSecondsNormalTime = "SpanSecondsNormalTime"
+        case spanSecondsOvertime = "SpanSecondsOvertime"
     }
+
+
 }
 

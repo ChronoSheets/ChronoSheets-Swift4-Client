@@ -10,38 +10,23 @@ import Foundation
 
 /** Fields for inserting a new Organisation Group */
 
-open class CSInsertOrganisationGroupRequest: Codable {
+public struct CSInsertOrganisationGroupRequest: Codable {
 
     /** The name of the new Organisation Group.  This is used when you&#39;re looking up Organisation Groups elsewhere through ChronoSheets */
     public var organisationGroupName: String?
     /** The Ids of the Users that are going to be in this Organisation Group */
     public var organisationGroupUserIds: [Int]?
 
-
-    
     public init(organisationGroupName: String?, organisationGroupUserIds: [Int]?) {
         self.organisationGroupName = organisationGroupName
         self.organisationGroupUserIds = organisationGroupUserIds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(organisationGroupName, forKey: "OrganisationGroupName")
-        try container.encodeIfPresent(organisationGroupUserIds, forKey: "OrganisationGroupUserIds")
+    public enum CodingKeys: String, CodingKey { 
+        case organisationGroupName = "OrganisationGroupName"
+        case organisationGroupUserIds = "OrganisationGroupUserIds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        organisationGroupName = try container.decodeIfPresent(String.self, forKey: "OrganisationGroupName")
-        organisationGroupUserIds = try container.decodeIfPresent([Int].self, forKey: "OrganisationGroupUserIds")
-    }
 }
 

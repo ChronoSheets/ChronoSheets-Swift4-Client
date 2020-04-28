@@ -19,7 +19,7 @@ open class UserProfileAPI {
      */
     open class func userProfileDoLogin(request: CSDoLoginRequest, completion: @escaping ((_ data: CSApiResponseDoLoginResponse?,_ error: Error?) -> Void)) {
         userProfileDoLoginWithRequestBuilder(request: request).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -141,8 +141,7 @@ open class UserProfileAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
 
         let requestBuilder: RequestBuilder<CSApiResponseDoLoginResponse>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
@@ -157,7 +156,7 @@ open class UserProfileAPI {
      */
     open class func userProfileDoLogout(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         userProfileDoLogoutWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -192,9 +191,8 @@ open class UserProfileAPI {
         let path = "/api/UserProfile/DoLogout"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -213,7 +211,7 @@ open class UserProfileAPI {
      */
     open class func userProfileGetMyProfile(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUserProfile?,_ error: Error?) -> Void)) {
         userProfileGetMyProfileWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -272,9 +270,8 @@ open class UserProfileAPI {
         let path = "/api/UserProfile/GetMyProfile"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -293,7 +290,7 @@ open class UserProfileAPI {
      */
     open class func userProfileKeepSessionAlive(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         userProfileKeepSessionAliveWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -328,9 +325,8 @@ open class UserProfileAPI {
         let path = "/api/UserProfile/KeepSessionAlive"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -350,7 +346,7 @@ open class UserProfileAPI {
      */
     open class func userProfileUpdateMyProfile(request: CSUpdateMyProfileRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseUpdateProfileResponse?,_ error: Error?) -> Void)) {
         userProfileUpdateMyProfileWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -393,8 +389,7 @@ open class UserProfileAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

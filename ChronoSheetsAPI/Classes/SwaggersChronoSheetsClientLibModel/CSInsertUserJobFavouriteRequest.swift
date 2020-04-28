@@ -10,33 +10,19 @@ import Foundation
 
 /** Used to mark a JobCode as a Favourite.  Favourites can be used in the Mobile app and on the ChronoSheets website */
 
-open class CSInsertUserJobFavouriteRequest: Codable {
+public struct CSInsertUserJobFavouriteRequest: Codable {
 
     /** The Id of the JobCode that is being marked as a favourite */
     public var jobId: Int?
 
-
-    
     public init(jobId: Int?) {
         self.jobId = jobId
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(jobId, forKey: "JobId")
+    public enum CodingKeys: String, CodingKey { 
+        case jobId = "JobId"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        jobId = try container.decodeIfPresent(Int.self, forKey: "JobId")
-    }
 }
 

@@ -20,7 +20,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesCreateJobCode(request: CSInsertJobCodeRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         jobCodesCreateJobCodeWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class JobCodesAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -78,7 +77,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesDeleteJobCode(jobCodeId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         jobCodesDeleteJobCodeWithRequestBuilder(jobCodeId: jobCodeId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -114,12 +113,11 @@ open class JobCodesAPI {
         let path = "/api/JobCodes/DeleteJobCode"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "JobCodeId": jobCodeId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -139,7 +137,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesGetJobCodeById(jobCodeId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseJobCode?,_ error: Error?) -> Void)) {
         jobCodesGetJobCodeByIdWithRequestBuilder(jobCodeId: jobCodeId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -191,12 +189,11 @@ open class JobCodesAPI {
         let path = "/api/JobCodes/GetJobCodeById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "JobCodeId": jobCodeId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -215,7 +212,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesGetJobCodes(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListJobCode?,_ error: Error?) -> Void)) {
         jobCodesGetJobCodesWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -284,9 +281,8 @@ open class JobCodesAPI {
         let path = "/api/JobCodes/GetJobCodes"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -306,7 +302,7 @@ open class JobCodesAPI {
      */
     open class func jobCodesUpdateJobCode(request: CSUpdateJobCodeRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         jobCodesUpdateJobCodeWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -343,8 +339,7 @@ open class JobCodesAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

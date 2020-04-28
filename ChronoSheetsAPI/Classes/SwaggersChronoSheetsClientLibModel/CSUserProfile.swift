@@ -9,9 +9,9 @@ import Foundation
 
 
 
-open class CSUserProfile: Codable {
+public struct CSUserProfile: Codable {
 
-    public var id: Int?
+    public var _id: Int?
     public var organisationId: Int?
     public var userName: String?
     public var firstName: String?
@@ -24,10 +24,8 @@ open class CSUserProfile: Codable {
     public var organisationSuburb: String?
     public var organisationCountry: String?
 
-
-    
-    public init(id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, isSubscribedToNewsletter: Bool?, roles: Int64?, alertSettings: Int64?, organisationName: String?, organisationSuburb: String?, organisationCountry: String?) {
-        self.id = id
+    public init(_id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, isSubscribedToNewsletter: Bool?, roles: Int64?, alertSettings: Int64?, organisationName: String?, organisationSuburb: String?, organisationCountry: String?) {
+        self._id = _id
         self.organisationId = organisationId
         self.userName = userName
         self.firstName = firstName
@@ -40,45 +38,22 @@ open class CSUserProfile: Codable {
         self.organisationSuburb = organisationSuburb
         self.organisationCountry = organisationCountry
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(userName, forKey: "UserName")
-        try container.encodeIfPresent(firstName, forKey: "FirstName")
-        try container.encodeIfPresent(lastName, forKey: "LastName")
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
-        try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
-        try container.encodeIfPresent(roles, forKey: "Roles")
-        try container.encodeIfPresent(alertSettings, forKey: "AlertSettings")
-        try container.encodeIfPresent(organisationName, forKey: "OrganisationName")
-        try container.encodeIfPresent(organisationSuburb, forKey: "OrganisationSuburb")
-        try container.encodeIfPresent(organisationCountry, forKey: "OrganisationCountry")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case organisationId = "OrganisationId"
+        case userName = "UserName"
+        case firstName = "FirstName"
+        case lastName = "LastName"
+        case emailAddress = "EmailAddress"
+        case isSubscribedToNewsletter = "IsSubscribedToNewsletter"
+        case roles = "Roles"
+        case alertSettings = "AlertSettings"
+        case organisationName = "OrganisationName"
+        case organisationSuburb = "OrganisationSuburb"
+        case organisationCountry = "OrganisationCountry"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        userName = try container.decodeIfPresent(String.self, forKey: "UserName")
-        firstName = try container.decodeIfPresent(String.self, forKey: "FirstName")
-        lastName = try container.decodeIfPresent(String.self, forKey: "LastName")
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
-        isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
-        roles = try container.decodeIfPresent(Int64.self, forKey: "Roles")
-        alertSettings = try container.decodeIfPresent(Int64.self, forKey: "AlertSettings")
-        organisationName = try container.decodeIfPresent(String.self, forKey: "OrganisationName")
-        organisationSuburb = try container.decodeIfPresent(String.self, forKey: "OrganisationSuburb")
-        organisationCountry = try container.decodeIfPresent(String.self, forKey: "OrganisationCountry")
-    }
 }
 

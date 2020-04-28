@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSCombinedReportsData: Codable {
+public struct CSCombinedReportsData: Codable {
 
     public var seriesJobCodes: [CSJobSeriesReportItem]?
     public var seriesTasks: [CSTaskSeriesReportItem]?
@@ -20,8 +20,6 @@ open class CSCombinedReportsData: Codable {
     public var totalsClients: [CSClientTotalsReportItem]?
     public var totalsProjects: [CSProjectTotalsReportItem]?
 
-
-    
     public init(seriesJobCodes: [CSJobSeriesReportItem]?, seriesTasks: [CSTaskSeriesReportItem]?, seriesClients: [CSClientSeriesReportItem]?, seriesProjects: [CSProjectSeriesReportItem]?, totalsJobCodes: [CSJobTotalsReportItem]?, totalsTasks: [CSTaskTotalsReportItem]?, totalsClients: [CSClientTotalsReportItem]?, totalsProjects: [CSProjectTotalsReportItem]?) {
         self.seriesJobCodes = seriesJobCodes
         self.seriesTasks = seriesTasks
@@ -32,37 +30,18 @@ open class CSCombinedReportsData: Codable {
         self.totalsClients = totalsClients
         self.totalsProjects = totalsProjects
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(seriesJobCodes, forKey: "SeriesJobCodes")
-        try container.encodeIfPresent(seriesTasks, forKey: "SeriesTasks")
-        try container.encodeIfPresent(seriesClients, forKey: "SeriesClients")
-        try container.encodeIfPresent(seriesProjects, forKey: "SeriesProjects")
-        try container.encodeIfPresent(totalsJobCodes, forKey: "TotalsJobCodes")
-        try container.encodeIfPresent(totalsTasks, forKey: "TotalsTasks")
-        try container.encodeIfPresent(totalsClients, forKey: "TotalsClients")
-        try container.encodeIfPresent(totalsProjects, forKey: "TotalsProjects")
+    public enum CodingKeys: String, CodingKey { 
+        case seriesJobCodes = "SeriesJobCodes"
+        case seriesTasks = "SeriesTasks"
+        case seriesClients = "SeriesClients"
+        case seriesProjects = "SeriesProjects"
+        case totalsJobCodes = "TotalsJobCodes"
+        case totalsTasks = "TotalsTasks"
+        case totalsClients = "TotalsClients"
+        case totalsProjects = "TotalsProjects"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        seriesJobCodes = try container.decodeIfPresent([CSJobSeriesReportItem].self, forKey: "SeriesJobCodes")
-        seriesTasks = try container.decodeIfPresent([CSTaskSeriesReportItem].self, forKey: "SeriesTasks")
-        seriesClients = try container.decodeIfPresent([CSClientSeriesReportItem].self, forKey: "SeriesClients")
-        seriesProjects = try container.decodeIfPresent([CSProjectSeriesReportItem].self, forKey: "SeriesProjects")
-        totalsJobCodes = try container.decodeIfPresent([CSJobTotalsReportItem].self, forKey: "TotalsJobCodes")
-        totalsTasks = try container.decodeIfPresent([CSTaskTotalsReportItem].self, forKey: "TotalsTasks")
-        totalsClients = try container.decodeIfPresent([CSClientTotalsReportItem].self, forKey: "TotalsClients")
-        totalsProjects = try container.decodeIfPresent([CSProjectTotalsReportItem].self, forKey: "TotalsProjects")
-    }
 }
 

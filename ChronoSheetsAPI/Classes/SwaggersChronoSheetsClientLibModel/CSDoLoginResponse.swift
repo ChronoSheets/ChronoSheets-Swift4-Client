@@ -10,38 +10,23 @@ import Foundation
 
 /** A Response object containing important information that can be used after the user has logged in */
 
-open class CSDoLoginResponse: Codable {
+public struct CSDoLoginResponse: Codable {
 
     /** The ChronoSheets Auth Token.  Use this token for all subsequent requests to the API.  The Auth Token does these things: holds your session and gives you appropraite authorisation to access API endpoints based on your UserRoles */
     public var cSAuthToken: String?
     /** An object containg all your account information */
     public var loggedInUser: CSClientSideUser?
 
-
-    
     public init(cSAuthToken: String?, loggedInUser: CSClientSideUser?) {
         self.cSAuthToken = cSAuthToken
         self.loggedInUser = loggedInUser
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(cSAuthToken, forKey: "CSAuthToken")
-        try container.encodeIfPresent(loggedInUser, forKey: "LoggedInUser")
+    public enum CodingKeys: String, CodingKey { 
+        case cSAuthToken = "CSAuthToken"
+        case loggedInUser = "LoggedInUser"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        cSAuthToken = try container.decodeIfPresent(String.self, forKey: "CSAuthToken")
-        loggedInUser = try container.decodeIfPresent(CSClientSideUser.self, forKey: "LoggedInUser")
-    }
 }
 

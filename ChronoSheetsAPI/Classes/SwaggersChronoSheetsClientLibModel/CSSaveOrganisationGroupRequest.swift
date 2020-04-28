@@ -10,43 +10,27 @@ import Foundation
 
 /** Fields used to save an OrganisationGroup */
 
-open class CSSaveOrganisationGroupRequest: Codable {
+public struct CSSaveOrganisationGroupRequest: Codable {
 
     /** The Id of the Organisation Group you want to update/save */
-    public var id: Int?
+    public var _id: Int?
     /** The updated name of the Organisation Group */
     public var organisationGroupName: String?
     /** Whether or not the Organisation Group is to be marked as deleted */
     public var isDeleted: Bool?
 
-
-    
-    public init(id: Int?, organisationGroupName: String?, isDeleted: Bool?) {
-        self.id = id
+    public init(_id: Int?, organisationGroupName: String?, isDeleted: Bool?) {
+        self._id = _id
         self.organisationGroupName = organisationGroupName
         self.isDeleted = isDeleted
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(organisationGroupName, forKey: "OrganisationGroupName")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case organisationGroupName = "OrganisationGroupName"
+        case isDeleted = "IsDeleted"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        organisationGroupName = try container.decodeIfPresent(String.self, forKey: "OrganisationGroupName")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-    }
 }
 

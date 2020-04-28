@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSProjectCostingReportItem: Codable {
+public struct CSProjectCostingReportItem: Codable {
 
     public var projectId: Int?
     public var projectName: String?
@@ -20,8 +20,6 @@ open class CSProjectCostingReportItem: Codable {
     public var actualCostFiltered: Double?
     public var actualCost: Double?
 
-
-    
     public init(projectId: Int?, projectName: String?, clientId: Int?, organisationId: Int?, clientName: String?, estimatedCost: Double?, actualCostFiltered: Double?, actualCost: Double?) {
         self.projectId = projectId
         self.projectName = projectName
@@ -32,37 +30,18 @@ open class CSProjectCostingReportItem: Codable {
         self.actualCostFiltered = actualCostFiltered
         self.actualCost = actualCost
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(projectId, forKey: "ProjectId")
-        try container.encodeIfPresent(projectName, forKey: "ProjectName")
-        try container.encodeIfPresent(clientId, forKey: "ClientId")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(clientName, forKey: "ClientName")
-        try container.encodeIfPresent(estimatedCost, forKey: "EstimatedCost")
-        try container.encodeIfPresent(actualCostFiltered, forKey: "ActualCostFiltered")
-        try container.encodeIfPresent(actualCost, forKey: "ActualCost")
+    public enum CodingKeys: String, CodingKey { 
+        case projectId = "ProjectId"
+        case projectName = "ProjectName"
+        case clientId = "ClientId"
+        case organisationId = "OrganisationId"
+        case clientName = "ClientName"
+        case estimatedCost = "EstimatedCost"
+        case actualCostFiltered = "ActualCostFiltered"
+        case actualCost = "ActualCost"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        projectId = try container.decodeIfPresent(Int.self, forKey: "ProjectId")
-        projectName = try container.decodeIfPresent(String.self, forKey: "ProjectName")
-        clientId = try container.decodeIfPresent(Int.self, forKey: "ClientId")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        clientName = try container.decodeIfPresent(String.self, forKey: "ClientName")
-        estimatedCost = try container.decodeIfPresent(Double.self, forKey: "EstimatedCost")
-        actualCostFiltered = try container.decodeIfPresent(Double.self, forKey: "ActualCostFiltered")
-        actualCost = try container.decodeIfPresent(Double.self, forKey: "ActualCost")
-    }
 }
 

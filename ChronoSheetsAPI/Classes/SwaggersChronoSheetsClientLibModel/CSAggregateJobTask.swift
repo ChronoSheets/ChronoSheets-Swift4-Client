@@ -9,43 +9,27 @@ import Foundation
 
 
 
-open class CSAggregateJobTask: Codable {
+public struct CSAggregateJobTask: Codable {
 
     /** The Id of the task */
-    public var id: Int?
+    public var _id: Int?
     /** The label of the task */
     public var label: String?
     /** A flag indicating that this task has been marked as deleted */
     public var isDeleted: Bool?
 
-
-    
-    public init(id: Int?, label: String?, isDeleted: Bool?) {
-        self.id = id
+    public init(_id: Int?, label: String?, isDeleted: Bool?) {
+        self._id = _id
         self.label = label
         self.isDeleted = isDeleted
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(label, forKey: "Label")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case label = "Label"
+        case isDeleted = "IsDeleted"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        label = try container.decodeIfPresent(String.self, forKey: "Label")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-    }
 }
 

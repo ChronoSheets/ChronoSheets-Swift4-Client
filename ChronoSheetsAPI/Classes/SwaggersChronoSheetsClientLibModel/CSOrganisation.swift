@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSOrganisation: Codable {
+public struct CSOrganisation: Codable {
 
     public enum CSSubscriptionSource: String, Codable { 
         case _none = "None"
@@ -22,7 +22,7 @@ open class CSOrganisation: Codable {
         case mobileiOS = "MobileiOS"
         case mobileAndroid = "MobileAndroid"
     }
-    public var id: Int?
+    public var _id: Int?
     public var name: String?
     public var addressLine01: String?
     public var addressLine02: String?
@@ -44,10 +44,8 @@ open class CSOrganisation: Codable {
     public var subscriptionCycleEnd: Date?
     public var pricingPlans: [CSOrganisationPricingPlan]?
 
-
-    
-    public init(id: Int?, name: String?, addressLine01: String?, addressLine02: String?, suburb: String?, state: String?, postcode: String?, country: String?, phone: String?, emailAddress: String?, timezone: String?, subscriptionCustomerId: String?, signupToken: String?, isActive: Bool?, stripeCouponCode: String?, subscriptionSource: CSSubscriptionSource?, signUpSource: CSSignUpSource?, mobileSignUpCode: String?, subscriptionCycleStart: Date?, subscriptionCycleEnd: Date?, pricingPlans: [CSOrganisationPricingPlan]?) {
-        self.id = id
+    public init(_id: Int?, name: String?, addressLine01: String?, addressLine02: String?, suburb: String?, state: String?, postcode: String?, country: String?, phone: String?, emailAddress: String?, timezone: String?, subscriptionCustomerId: String?, signupToken: String?, isActive: Bool?, stripeCouponCode: String?, subscriptionSource: CSSubscriptionSource?, signUpSource: CSSignUpSource?, mobileSignUpCode: String?, subscriptionCycleStart: Date?, subscriptionCycleEnd: Date?, pricingPlans: [CSOrganisationPricingPlan]?) {
+        self._id = _id
         self.name = name
         self.addressLine01 = addressLine01
         self.addressLine02 = addressLine02
@@ -69,63 +67,31 @@ open class CSOrganisation: Codable {
         self.subscriptionCycleEnd = subscriptionCycleEnd
         self.pricingPlans = pricingPlans
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(name, forKey: "Name")
-        try container.encodeIfPresent(addressLine01, forKey: "AddressLine01")
-        try container.encodeIfPresent(addressLine02, forKey: "AddressLine02")
-        try container.encodeIfPresent(suburb, forKey: "Suburb")
-        try container.encodeIfPresent(state, forKey: "State")
-        try container.encodeIfPresent(postcode, forKey: "Postcode")
-        try container.encodeIfPresent(country, forKey: "Country")
-        try container.encodeIfPresent(phone, forKey: "Phone")
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
-        try container.encodeIfPresent(timezone, forKey: "Timezone")
-        try container.encodeIfPresent(subscriptionCustomerId, forKey: "SubscriptionCustomerId")
-        try container.encodeIfPresent(signupToken, forKey: "SignupToken")
-        try container.encodeIfPresent(isActive, forKey: "IsActive")
-        try container.encodeIfPresent(stripeCouponCode, forKey: "StripeCouponCode")
-        try container.encodeIfPresent(subscriptionSource, forKey: "SubscriptionSource")
-        try container.encodeIfPresent(signUpSource, forKey: "SignUpSource")
-        try container.encodeIfPresent(mobileSignUpCode, forKey: "MobileSignUpCode")
-        try container.encodeIfPresent(subscriptionCycleStart, forKey: "SubscriptionCycleStart")
-        try container.encodeIfPresent(subscriptionCycleEnd, forKey: "SubscriptionCycleEnd")
-        try container.encodeIfPresent(pricingPlans, forKey: "PricingPlans")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case name = "Name"
+        case addressLine01 = "AddressLine01"
+        case addressLine02 = "AddressLine02"
+        case suburb = "Suburb"
+        case state = "State"
+        case postcode = "Postcode"
+        case country = "Country"
+        case phone = "Phone"
+        case emailAddress = "EmailAddress"
+        case timezone = "Timezone"
+        case subscriptionCustomerId = "SubscriptionCustomerId"
+        case signupToken = "SignupToken"
+        case isActive = "IsActive"
+        case stripeCouponCode = "StripeCouponCode"
+        case subscriptionSource = "SubscriptionSource"
+        case signUpSource = "SignUpSource"
+        case mobileSignUpCode = "MobileSignUpCode"
+        case subscriptionCycleStart = "SubscriptionCycleStart"
+        case subscriptionCycleEnd = "SubscriptionCycleEnd"
+        case pricingPlans = "PricingPlans"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        name = try container.decodeIfPresent(String.self, forKey: "Name")
-        addressLine01 = try container.decodeIfPresent(String.self, forKey: "AddressLine01")
-        addressLine02 = try container.decodeIfPresent(String.self, forKey: "AddressLine02")
-        suburb = try container.decodeIfPresent(String.self, forKey: "Suburb")
-        state = try container.decodeIfPresent(String.self, forKey: "State")
-        postcode = try container.decodeIfPresent(String.self, forKey: "Postcode")
-        country = try container.decodeIfPresent(String.self, forKey: "Country")
-        phone = try container.decodeIfPresent(String.self, forKey: "Phone")
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
-        timezone = try container.decodeIfPresent(String.self, forKey: "Timezone")
-        subscriptionCustomerId = try container.decodeIfPresent(String.self, forKey: "SubscriptionCustomerId")
-        signupToken = try container.decodeIfPresent(String.self, forKey: "SignupToken")
-        isActive = try container.decodeIfPresent(Bool.self, forKey: "IsActive")
-        stripeCouponCode = try container.decodeIfPresent(String.self, forKey: "StripeCouponCode")
-        subscriptionSource = try container.decodeIfPresent(CSSubscriptionSource.self, forKey: "SubscriptionSource")
-        signUpSource = try container.decodeIfPresent(CSSignUpSource.self, forKey: "SignUpSource")
-        mobileSignUpCode = try container.decodeIfPresent(String.self, forKey: "MobileSignUpCode")
-        subscriptionCycleStart = try container.decodeIfPresent(Date.self, forKey: "SubscriptionCycleStart")
-        subscriptionCycleEnd = try container.decodeIfPresent(Date.self, forKey: "SubscriptionCycleEnd")
-        pricingPlans = try container.decodeIfPresent([CSOrganisationPricingPlan].self, forKey: "PricingPlans")
-    }
 }
 

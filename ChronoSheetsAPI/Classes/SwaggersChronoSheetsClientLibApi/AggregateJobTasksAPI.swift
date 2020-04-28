@@ -19,7 +19,7 @@ open class AggregateJobTasksAPI {
      */
     open class func aggregateJobTasksGetAggregateJobTasks(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListAggregateJobCode?,_ error: Error?) -> Void)) {
         aggregateJobTasksGetAggregateJobTasksWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -128,9 +128,8 @@ open class AggregateJobTasksAPI {
         let path = "/api/AggregateJobTasks/GetAggregateJobTasks"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

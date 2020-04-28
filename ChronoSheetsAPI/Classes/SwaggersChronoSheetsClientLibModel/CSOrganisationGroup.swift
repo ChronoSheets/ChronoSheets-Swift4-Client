@@ -9,44 +9,27 @@ import Foundation
 
 
 
-open class CSOrganisationGroup: Codable {
+public struct CSOrganisationGroup: Codable {
 
-    public var id: Int?
+    public var _id: Int?
     public var organisationId: Int?
     public var organisationGroupName: String?
     public var isDeleted: Bool?
 
-
-    
-    public init(id: Int?, organisationId: Int?, organisationGroupName: String?, isDeleted: Bool?) {
-        self.id = id
+    public init(_id: Int?, organisationId: Int?, organisationGroupName: String?, isDeleted: Bool?) {
+        self._id = _id
         self.organisationId = organisationId
         self.organisationGroupName = organisationGroupName
         self.isDeleted = isDeleted
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(organisationGroupName, forKey: "OrganisationGroupName")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case organisationId = "OrganisationId"
+        case organisationGroupName = "OrganisationGroupName"
+        case isDeleted = "IsDeleted"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        organisationGroupName = try container.decodeIfPresent(String.self, forKey: "OrganisationGroupName")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-    }
 }
 

@@ -20,7 +20,7 @@ open class FleetAPI {
      */
     open class func fleetCreateVehicle(request: CSInsertVehicleRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         fleetCreateVehicleWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class FleetAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -70,6 +69,66 @@ open class FleetAPI {
     }
 
     /**
+     Delete a vehicle from the fleet.  Requires the 'ManageFleet' permission.
+     
+     - parameter vehicleId: (query) The unique ID of the vehicle you wish to delete 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func fleetDeleteVehicle(vehicleId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
+        fleetDeleteVehicleWithRequestBuilder(vehicleId: vehicleId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     Delete a vehicle from the fleet.  Requires the 'ManageFleet' permission.
+     - DELETE /api/Fleet/DeleteVehicle
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : true
+}}, {contentType=application/xml, example=<null>
+  <Data>true</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : true
+}}, {contentType=application/xml, example=<null>
+  <Data>true</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter vehicleId: (query) The unique ID of the vehicle you wish to delete 
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CSApiResponseBoolean> 
+     */
+    open class func fleetDeleteVehicleWithRequestBuilder(vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
+        let path = "/api/Fleet/DeleteVehicle"
+        let URLString = ChronoSheetsAPIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "VehicleId": vehicleId.encodeToJSON()
+        ])
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      Get a particular vehicle.  Does not require any special permission.
      
      - parameter vehicleId: (query) The ID of the Vehicle you want to get 
@@ -78,7 +137,7 @@ open class FleetAPI {
      */
     open class func fleetGetVehicleById(vehicleId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseFleetVehicle?,_ error: Error?) -> Void)) {
         fleetGetVehicleByIdWithRequestBuilder(vehicleId: vehicleId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -134,12 +193,11 @@ open class FleetAPI {
         let path = "/api/Fleet/GetVehicleById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "VehicleId": vehicleId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -159,7 +217,7 @@ open class FleetAPI {
      */
     open class func fleetGetVehicles(xChronosheetsAuth: String, includeDeleted: Bool? = nil, completion: @escaping ((_ data: CSApiResponseListFleetVehicle?,_ error: Error?) -> Void)) {
         fleetGetVehiclesWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth, includeDeleted: includeDeleted).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -237,12 +295,11 @@ open class FleetAPI {
         let path = "/api/Fleet/GetVehicles"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "IncludeDeleted": includeDeleted
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -262,7 +319,7 @@ open class FleetAPI {
      */
     open class func fleetUpdateVehicle(request: CSSaveVehicleRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         fleetUpdateVehicleWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -299,8 +356,7 @@ open class FleetAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

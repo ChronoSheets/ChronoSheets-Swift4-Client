@@ -9,48 +9,30 @@ import Foundation
 
 
 
-open class CSTimesheetTask: Codable {
+public struct CSTimesheetTask: Codable {
 
-    public var id: Int?
+    public var _id: Int?
     public var taskName: String?
     public var organisationId: Int?
     public var isDeleted: Bool?
     public var tripEnabled: Bool?
 
-
-    
-    public init(id: Int?, taskName: String?, organisationId: Int?, isDeleted: Bool?, tripEnabled: Bool?) {
-        self.id = id
+    public init(_id: Int?, taskName: String?, organisationId: Int?, isDeleted: Bool?, tripEnabled: Bool?) {
+        self._id = _id
         self.taskName = taskName
         self.organisationId = organisationId
         self.isDeleted = isDeleted
         self.tripEnabled = tripEnabled
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(taskName, forKey: "TaskName")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
-        try container.encodeIfPresent(tripEnabled, forKey: "TripEnabled")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case taskName = "TaskName"
+        case organisationId = "OrganisationId"
+        case isDeleted = "IsDeleted"
+        case tripEnabled = "TripEnabled"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        taskName = try container.decodeIfPresent(String.self, forKey: "TaskName")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-        tripEnabled = try container.decodeIfPresent(Bool.self, forKey: "TripEnabled")
-    }
 }
 

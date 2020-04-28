@@ -9,36 +9,21 @@ import Foundation
 
 
 
-open class CSTripCoordinate: Codable {
+public struct CSTripCoordinate: Codable {
 
     public var latitude: Double?
     public var longitude: Double?
 
-
-    
     public init(latitude: Double?, longitude: Double?) {
         self.latitude = latitude
         self.longitude = longitude
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(latitude, forKey: "Latitude")
-        try container.encodeIfPresent(longitude, forKey: "Longitude")
+    public enum CodingKeys: String, CodingKey { 
+        case latitude = "Latitude"
+        case longitude = "Longitude"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        latitude = try container.decodeIfPresent(Double.self, forKey: "Latitude")
-        longitude = try container.decodeIfPresent(Double.self, forKey: "Longitude")
-    }
 }
 

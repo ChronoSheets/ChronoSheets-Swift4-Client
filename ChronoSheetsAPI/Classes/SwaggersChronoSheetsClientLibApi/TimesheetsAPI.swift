@@ -20,7 +20,7 @@ open class TimesheetsAPI {
      */
     open class func timesheetsCreateSingleTimesheet(request: CSTimesheet, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         timesheetsCreateSingleTimesheetWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class TimesheetsAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -78,7 +77,7 @@ open class TimesheetsAPI {
      */
     open class func timesheetsDeleteTimesheet(timesheetId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         timesheetsDeleteTimesheetWithRequestBuilder(timesheetId: timesheetId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -114,12 +113,11 @@ open class TimesheetsAPI {
         let path = "/api/Timesheets/DeleteTimesheet"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "TimesheetId": timesheetId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -140,7 +138,7 @@ open class TimesheetsAPI {
      */
     open class func timesheetsGetTimesheets(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListTimesheet?,_ error: Error?) -> Void)) {
         timesheetsGetTimesheetsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -227,13 +225,12 @@ open class TimesheetsAPI {
         let path = "/api/Timesheets/GetTimesheets"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -253,7 +250,7 @@ open class TimesheetsAPI {
      */
     open class func timesheetsUpdateTimesheets(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListInt32?,_ error: Error?) -> Void)) {
         timesheetsUpdateTimesheetsWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -290,8 +287,7 @@ open class TimesheetsAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

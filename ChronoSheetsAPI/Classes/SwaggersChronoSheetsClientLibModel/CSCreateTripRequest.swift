@@ -10,7 +10,7 @@ import Foundation
 
 /** Contains fields for creating a Trip */
 
-open class CSCreateTripRequest: Codable {
+public struct CSCreateTripRequest: Codable {
 
     public enum CSMobilePlatform: String, Codable { 
         case unknown = "Unknown"
@@ -28,8 +28,6 @@ open class CSCreateTripRequest: Codable {
     /** The Mobile platform that the Trip was recorded on */
     public var mobilePlatform: CSMobilePlatform?
 
-
-    
     public init(timesheetId: Int?, vehicleId: Int?, pathCoordsStringCsv: String?, distanceMeters: Double?, mobilePlatform: CSMobilePlatform?) {
         self.timesheetId = timesheetId
         self.vehicleId = vehicleId
@@ -37,31 +35,15 @@ open class CSCreateTripRequest: Codable {
         self.distanceMeters = distanceMeters
         self.mobilePlatform = mobilePlatform
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(timesheetId, forKey: "TimesheetId")
-        try container.encodeIfPresent(vehicleId, forKey: "VehicleId")
-        try container.encodeIfPresent(pathCoordsStringCsv, forKey: "PathCoordsStringCsv")
-        try container.encodeIfPresent(distanceMeters, forKey: "DistanceMeters")
-        try container.encodeIfPresent(mobilePlatform, forKey: "MobilePlatform")
+    public enum CodingKeys: String, CodingKey { 
+        case timesheetId = "TimesheetId"
+        case vehicleId = "VehicleId"
+        case pathCoordsStringCsv = "PathCoordsStringCsv"
+        case distanceMeters = "DistanceMeters"
+        case mobilePlatform = "MobilePlatform"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        timesheetId = try container.decodeIfPresent(Int.self, forKey: "TimesheetId")
-        vehicleId = try container.decodeIfPresent(Int.self, forKey: "VehicleId")
-        pathCoordsStringCsv = try container.decodeIfPresent(String.self, forKey: "PathCoordsStringCsv")
-        distanceMeters = try container.decodeIfPresent(Double.self, forKey: "DistanceMeters")
-        mobilePlatform = try container.decodeIfPresent(CSMobilePlatform.self, forKey: "MobilePlatform")
-    }
 }
 

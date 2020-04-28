@@ -10,7 +10,7 @@ import Foundation
 
 /** Field for updating your Organisation */
 
-open class CSUpdateOrganisationRequest: Codable {
+public struct CSUpdateOrganisationRequest: Codable {
 
     /** The Id of your Organisation.  This is validated based on your current Auth Token */
     public var organsationId: Int?
@@ -33,8 +33,6 @@ open class CSUpdateOrganisationRequest: Codable {
     /** The update organisation email address */
     public var organisationEmailAddress: String?
 
-
-    
     public init(organsationId: Int?, organisationName: String?, addressLine01: String?, addressLine02: String?, organisationSuburb: String?, organisationState: String?, organisationPostcode: String?, organisationCountry: String?, organisationPhone: String?, organisationEmailAddress: String?) {
         self.organsationId = organsationId
         self.organisationName = organisationName
@@ -47,41 +45,20 @@ open class CSUpdateOrganisationRequest: Codable {
         self.organisationPhone = organisationPhone
         self.organisationEmailAddress = organisationEmailAddress
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(organsationId, forKey: "OrgansationId")
-        try container.encodeIfPresent(organisationName, forKey: "OrganisationName")
-        try container.encodeIfPresent(addressLine01, forKey: "AddressLine01")
-        try container.encodeIfPresent(addressLine02, forKey: "AddressLine02")
-        try container.encodeIfPresent(organisationSuburb, forKey: "OrganisationSuburb")
-        try container.encodeIfPresent(organisationState, forKey: "OrganisationState")
-        try container.encodeIfPresent(organisationPostcode, forKey: "OrganisationPostcode")
-        try container.encodeIfPresent(organisationCountry, forKey: "OrganisationCountry")
-        try container.encodeIfPresent(organisationPhone, forKey: "OrganisationPhone")
-        try container.encodeIfPresent(organisationEmailAddress, forKey: "OrganisationEmailAddress")
+    public enum CodingKeys: String, CodingKey { 
+        case organsationId = "OrgansationId"
+        case organisationName = "OrganisationName"
+        case addressLine01 = "AddressLine01"
+        case addressLine02 = "AddressLine02"
+        case organisationSuburb = "OrganisationSuburb"
+        case organisationState = "OrganisationState"
+        case organisationPostcode = "OrganisationPostcode"
+        case organisationCountry = "OrganisationCountry"
+        case organisationPhone = "OrganisationPhone"
+        case organisationEmailAddress = "OrganisationEmailAddress"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        organsationId = try container.decodeIfPresent(Int.self, forKey: "OrgansationId")
-        organisationName = try container.decodeIfPresent(String.self, forKey: "OrganisationName")
-        addressLine01 = try container.decodeIfPresent(String.self, forKey: "AddressLine01")
-        addressLine02 = try container.decodeIfPresent(String.self, forKey: "AddressLine02")
-        organisationSuburb = try container.decodeIfPresent(String.self, forKey: "OrganisationSuburb")
-        organisationState = try container.decodeIfPresent(String.self, forKey: "OrganisationState")
-        organisationPostcode = try container.decodeIfPresent(String.self, forKey: "OrganisationPostcode")
-        organisationCountry = try container.decodeIfPresent(String.self, forKey: "OrganisationCountry")
-        organisationPhone = try container.decodeIfPresent(String.self, forKey: "OrganisationPhone")
-        organisationEmailAddress = try container.decodeIfPresent(String.self, forKey: "OrganisationEmailAddress")
-    }
 }
 

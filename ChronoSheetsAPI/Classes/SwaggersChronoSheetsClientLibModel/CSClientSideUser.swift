@@ -9,9 +9,9 @@ import Foundation
 
 
 
-open class CSClientSideUser: Codable {
+public struct CSClientSideUser: Codable {
 
-    public var id: Int?
+    public var _id: Int?
     public var organisationId: Int?
     public var userName: String?
     public var firstName: String?
@@ -24,10 +24,8 @@ open class CSClientSideUser: Codable {
     public var organisation: CSOrganisation?
     public var isPrimaryAccount: Bool?
 
-
-    
-    public init(id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CSOrganisation?, isPrimaryAccount: Bool?) {
-        self.id = id
+    public init(_id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: CSOrganisation?, isPrimaryAccount: Bool?) {
+        self._id = _id
         self.organisationId = organisationId
         self.userName = userName
         self.firstName = firstName
@@ -40,45 +38,22 @@ open class CSClientSideUser: Codable {
         self.organisation = organisation
         self.isPrimaryAccount = isPrimaryAccount
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(userName, forKey: "UserName")
-        try container.encodeIfPresent(firstName, forKey: "FirstName")
-        try container.encodeIfPresent(lastName, forKey: "LastName")
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
-        try container.encodeIfPresent(roles, forKey: "Roles")
-        try container.encodeIfPresent(alertSettings, forKey: "AlertSettings")
-        try container.encodeIfPresent(setupWizardRequired, forKey: "SetupWizardRequired")
-        try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
-        try container.encodeIfPresent(organisation, forKey: "Organisation")
-        try container.encodeIfPresent(isPrimaryAccount, forKey: "IsPrimaryAccount")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case organisationId = "OrganisationId"
+        case userName = "UserName"
+        case firstName = "FirstName"
+        case lastName = "LastName"
+        case emailAddress = "EmailAddress"
+        case roles = "Roles"
+        case alertSettings = "AlertSettings"
+        case setupWizardRequired = "SetupWizardRequired"
+        case isSubscribedToNewsletter = "IsSubscribedToNewsletter"
+        case organisation = "Organisation"
+        case isPrimaryAccount = "IsPrimaryAccount"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        userName = try container.decodeIfPresent(String.self, forKey: "UserName")
-        firstName = try container.decodeIfPresent(String.self, forKey: "FirstName")
-        lastName = try container.decodeIfPresent(String.self, forKey: "LastName")
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
-        roles = try container.decodeIfPresent(Int64.self, forKey: "Roles")
-        alertSettings = try container.decodeIfPresent(Int64.self, forKey: "AlertSettings")
-        setupWizardRequired = try container.decodeIfPresent(Bool.self, forKey: "SetupWizardRequired")
-        isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
-        organisation = try container.decodeIfPresent(CSOrganisation.self, forKey: "Organisation")
-        isPrimaryAccount = try container.decodeIfPresent(Bool.self, forKey: "IsPrimaryAccount")
-    }
 }
 

@@ -10,10 +10,10 @@ import Foundation
 
 /** Fields used to save a Client */
 
-open class CSSaveClientRequest: Codable {
+public struct CSSaveClientRequest: Codable {
 
     /** The Id of the Client */
-    public var id: Int?
+    public var _id: Int?
     /** The name of the Client */
     public var clientName: String?
     /** Address line 1 of the Client */
@@ -37,10 +37,8 @@ open class CSSaveClientRequest: Codable {
     /** The Client&#39;s website URL */
     public var clientWebURL: String?
 
-
-    
-    public init(id: Int?, clientName: String?, clientAddressLine1: String?, clientAddressLine2: String?, clientSuburb: String?, clientState: String?, clientPostCode: String?, personOfContact: String?, clientPhoneNumber: String?, clientMobileNumber: String?, clientEmailAddress: String?, clientWebURL: String?) {
-        self.id = id
+    public init(_id: Int?, clientName: String?, clientAddressLine1: String?, clientAddressLine2: String?, clientSuburb: String?, clientState: String?, clientPostCode: String?, personOfContact: String?, clientPhoneNumber: String?, clientMobileNumber: String?, clientEmailAddress: String?, clientWebURL: String?) {
+        self._id = _id
         self.clientName = clientName
         self.clientAddressLine1 = clientAddressLine1
         self.clientAddressLine2 = clientAddressLine2
@@ -53,45 +51,22 @@ open class CSSaveClientRequest: Codable {
         self.clientEmailAddress = clientEmailAddress
         self.clientWebURL = clientWebURL
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(clientName, forKey: "ClientName")
-        try container.encodeIfPresent(clientAddressLine1, forKey: "ClientAddressLine1")
-        try container.encodeIfPresent(clientAddressLine2, forKey: "ClientAddressLine2")
-        try container.encodeIfPresent(clientSuburb, forKey: "ClientSuburb")
-        try container.encodeIfPresent(clientState, forKey: "ClientState")
-        try container.encodeIfPresent(clientPostCode, forKey: "ClientPostCode")
-        try container.encodeIfPresent(personOfContact, forKey: "PersonOfContact")
-        try container.encodeIfPresent(clientPhoneNumber, forKey: "ClientPhoneNumber")
-        try container.encodeIfPresent(clientMobileNumber, forKey: "ClientMobileNumber")
-        try container.encodeIfPresent(clientEmailAddress, forKey: "ClientEmailAddress")
-        try container.encodeIfPresent(clientWebURL, forKey: "ClientWebURL")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case clientName = "ClientName"
+        case clientAddressLine1 = "ClientAddressLine1"
+        case clientAddressLine2 = "ClientAddressLine2"
+        case clientSuburb = "ClientSuburb"
+        case clientState = "ClientState"
+        case clientPostCode = "ClientPostCode"
+        case personOfContact = "PersonOfContact"
+        case clientPhoneNumber = "ClientPhoneNumber"
+        case clientMobileNumber = "ClientMobileNumber"
+        case clientEmailAddress = "ClientEmailAddress"
+        case clientWebURL = "ClientWebURL"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        clientName = try container.decodeIfPresent(String.self, forKey: "ClientName")
-        clientAddressLine1 = try container.decodeIfPresent(String.self, forKey: "ClientAddressLine1")
-        clientAddressLine2 = try container.decodeIfPresent(String.self, forKey: "ClientAddressLine2")
-        clientSuburb = try container.decodeIfPresent(String.self, forKey: "ClientSuburb")
-        clientState = try container.decodeIfPresent(String.self, forKey: "ClientState")
-        clientPostCode = try container.decodeIfPresent(String.self, forKey: "ClientPostCode")
-        personOfContact = try container.decodeIfPresent(String.self, forKey: "PersonOfContact")
-        clientPhoneNumber = try container.decodeIfPresent(String.self, forKey: "ClientPhoneNumber")
-        clientMobileNumber = try container.decodeIfPresent(String.self, forKey: "ClientMobileNumber")
-        clientEmailAddress = try container.decodeIfPresent(String.self, forKey: "ClientEmailAddress")
-        clientWebURL = try container.decodeIfPresent(String.self, forKey: "ClientWebURL")
-    }
 }
 

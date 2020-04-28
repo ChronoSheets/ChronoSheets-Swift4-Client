@@ -12,7 +12,7 @@ import Alamofire
 
 open class UsualHoursAPI {
     /**
-     Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+     Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
      
      - parameter userId: (query) The ID of the User for which you want to get UsualHours for 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -20,13 +20,13 @@ open class UsualHoursAPI {
      */
     open class func usualHoursGetUsualHours(userId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUsualHoursDay?,_ error: Error?) -> Void)) {
         usualHoursGetUsualHoursWithRequestBuilder(userId: userId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
 
     /**
-     Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+     Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
      - GET /api/UsualHours/GetUsualHours
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -134,12 +134,11 @@ open class UsualHoursAPI {
         let path = "/api/UsualHours/GetUsualHours"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "UserId": userId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -151,7 +150,7 @@ open class UsualHoursAPI {
     }
 
     /**
-     Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+     Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
      
      - parameter request: (body) A Set UsualHours Request object containing updated data.  Make sure to specify the Day types in the request object so that ChronoSheets knows which Days to update 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
@@ -159,13 +158,13 @@ open class UsualHoursAPI {
      */
     open class func usualHoursSetUsualHours(request: CSSetUsualHoursRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         usualHoursSetUsualHoursWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
 
     /**
-     Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationUsers' permissions.
+     Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
      - PUT /api/UsualHours/SetUsualHours
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
@@ -196,8 +195,7 @@ open class UsualHoursAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

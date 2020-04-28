@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSTimeSlot: Codable {
+public struct CSTimeSlot: Codable {
 
     public enum CSDayType: String, Codable { 
         case monday = "Monday"
@@ -28,8 +28,6 @@ open class CSTimeSlot: Codable {
     public var endMinute: Int?
     public var isValid: Bool?
 
-
-    
     public init(dayType: CSDayType?, usualHourId: Int?, startHour: Int?, startMinute: Int?, endHour: Int?, endMinute: Int?, isValid: Bool?) {
         self.dayType = dayType
         self.usualHourId = usualHourId
@@ -39,35 +37,17 @@ open class CSTimeSlot: Codable {
         self.endMinute = endMinute
         self.isValid = isValid
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(dayType, forKey: "DayType")
-        try container.encodeIfPresent(usualHourId, forKey: "UsualHourId")
-        try container.encodeIfPresent(startHour, forKey: "StartHour")
-        try container.encodeIfPresent(startMinute, forKey: "StartMinute")
-        try container.encodeIfPresent(endHour, forKey: "EndHour")
-        try container.encodeIfPresent(endMinute, forKey: "EndMinute")
-        try container.encodeIfPresent(isValid, forKey: "IsValid")
+    public enum CodingKeys: String, CodingKey { 
+        case dayType = "DayType"
+        case usualHourId = "UsualHourId"
+        case startHour = "StartHour"
+        case startMinute = "StartMinute"
+        case endHour = "EndHour"
+        case endMinute = "EndMinute"
+        case isValid = "IsValid"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        dayType = try container.decodeIfPresent(CSDayType.self, forKey: "DayType")
-        usualHourId = try container.decodeIfPresent(Int.self, forKey: "UsualHourId")
-        startHour = try container.decodeIfPresent(Int.self, forKey: "StartHour")
-        startMinute = try container.decodeIfPresent(Int.self, forKey: "StartMinute")
-        endHour = try container.decodeIfPresent(Int.self, forKey: "EndHour")
-        endMinute = try container.decodeIfPresent(Int.self, forKey: "EndMinute")
-        isValid = try container.decodeIfPresent(Bool.self, forKey: "IsValid")
-    }
 }
 

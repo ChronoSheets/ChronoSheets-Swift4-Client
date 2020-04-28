@@ -20,7 +20,7 @@ open class TripsAPI {
      */
     open class func tripsCreateTrip(request: CSCreateTripRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         tripsCreateTripWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class TripsAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -78,7 +77,7 @@ open class TripsAPI {
      */
     open class func tripsGetMyTripById(tripId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseTrip?,_ error: Error?) -> Void)) {
         tripsGetMyTripByIdWithRequestBuilder(tripId: tripId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -164,12 +163,11 @@ open class TripsAPI {
         let path = "/api/Trips/GetMyTripById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "TripId": tripId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -193,7 +191,7 @@ open class TripsAPI {
      */
     open class func tripsGetMyTrips(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, vehicleId: Int? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListTrip?,_ error: Error?) -> Void)) {
         tripsGetMyTripsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, vehicleId: vehicleId).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -339,16 +337,15 @@ open class TripsAPI {
         let path = "/api/Trips/GetMyTrips"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "Skip": skip?.encodeToJSON(), 
             "Take": take?.encodeToJSON(), 
             "VehicleId": vehicleId?.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

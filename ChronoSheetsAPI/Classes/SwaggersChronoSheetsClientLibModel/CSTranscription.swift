@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSTranscription: Codable {
+public struct CSTranscription: Codable {
 
     public enum CSStatus: String, Codable { 
         case saved = "Saved"
@@ -24,7 +24,7 @@ open class CSTranscription: Codable {
         case wav = "Wav"
         case flac = "Flac"
     }
-    public var id: Int?
+    public var _id: Int?
     public var orgId: Int?
     public var fileAttachmentId: Int?
     public var created: Date?
@@ -32,10 +32,8 @@ open class CSTranscription: Codable {
     public var mediaType: CSMediaType?
     public var contents: String?
 
-
-    
-    public init(id: Int?, orgId: Int?, fileAttachmentId: Int?, created: Date?, status: CSStatus?, mediaType: CSMediaType?, contents: String?) {
-        self.id = id
+    public init(_id: Int?, orgId: Int?, fileAttachmentId: Int?, created: Date?, status: CSStatus?, mediaType: CSMediaType?, contents: String?) {
+        self._id = _id
         self.orgId = orgId
         self.fileAttachmentId = fileAttachmentId
         self.created = created
@@ -43,35 +41,17 @@ open class CSTranscription: Codable {
         self.mediaType = mediaType
         self.contents = contents
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(orgId, forKey: "OrgId")
-        try container.encodeIfPresent(fileAttachmentId, forKey: "FileAttachmentId")
-        try container.encodeIfPresent(created, forKey: "Created")
-        try container.encodeIfPresent(status, forKey: "Status")
-        try container.encodeIfPresent(mediaType, forKey: "MediaType")
-        try container.encodeIfPresent(contents, forKey: "Contents")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case orgId = "OrgId"
+        case fileAttachmentId = "FileAttachmentId"
+        case created = "Created"
+        case status = "Status"
+        case mediaType = "MediaType"
+        case contents = "Contents"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        orgId = try container.decodeIfPresent(Int.self, forKey: "OrgId")
-        fileAttachmentId = try container.decodeIfPresent(Int.self, forKey: "FileAttachmentId")
-        created = try container.decodeIfPresent(Date.self, forKey: "Created")
-        status = try container.decodeIfPresent(CSStatus.self, forKey: "Status")
-        mediaType = try container.decodeIfPresent(CSMediaType.self, forKey: "MediaType")
-        contents = try container.decodeIfPresent(String.self, forKey: "Contents")
-    }
 }
 

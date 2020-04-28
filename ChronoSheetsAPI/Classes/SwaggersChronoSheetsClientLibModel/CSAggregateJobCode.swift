@@ -9,14 +9,14 @@ import Foundation
 
 
 
-open class CSAggregateJobCode: Codable {
+public struct CSAggregateJobCode: Codable {
 
     /** The list of available tasks under this job code */
     public var availableTasks: [CSAggregateJobTask]?
     /** The list of employee IDs that are permitted to record timesheets with this job code (empty means everyone) */
     public var permittedEmployees: [Int]?
     /** The ID of the job code (not the code itself) */
-    public var id: Int?
+    public var _id: Int?
     /** The job code itself */
     public var code: String?
     /** The name of the client */
@@ -32,12 +32,10 @@ open class CSAggregateJobCode: Codable {
     /** A flag indicating whether or not the job code has been marked as deleted */
     public var isDeleted: Bool?
 
-
-    
-    public init(availableTasks: [CSAggregateJobTask]?, permittedEmployees: [Int]?, id: Int?, code: String?, client: String?, clientId: Int?, project: String?, projectId: Int?, organisationId: Int?, isDeleted: Bool?) {
+    public init(availableTasks: [CSAggregateJobTask]?, permittedEmployees: [Int]?, _id: Int?, code: String?, client: String?, clientId: Int?, project: String?, projectId: Int?, organisationId: Int?, isDeleted: Bool?) {
         self.availableTasks = availableTasks
         self.permittedEmployees = permittedEmployees
-        self.id = id
+        self._id = _id
         self.code = code
         self.client = client
         self.clientId = clientId
@@ -46,41 +44,20 @@ open class CSAggregateJobCode: Codable {
         self.organisationId = organisationId
         self.isDeleted = isDeleted
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(availableTasks, forKey: "AvailableTasks")
-        try container.encodeIfPresent(permittedEmployees, forKey: "PermittedEmployees")
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(code, forKey: "Code")
-        try container.encodeIfPresent(client, forKey: "Client")
-        try container.encodeIfPresent(clientId, forKey: "ClientId")
-        try container.encodeIfPresent(project, forKey: "Project")
-        try container.encodeIfPresent(projectId, forKey: "ProjectId")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
+    public enum CodingKeys: String, CodingKey { 
+        case availableTasks = "AvailableTasks"
+        case permittedEmployees = "PermittedEmployees"
+        case _id = "Id"
+        case code = "Code"
+        case client = "Client"
+        case clientId = "ClientId"
+        case project = "Project"
+        case projectId = "ProjectId"
+        case organisationId = "OrganisationId"
+        case isDeleted = "IsDeleted"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        availableTasks = try container.decodeIfPresent([CSAggregateJobTask].self, forKey: "AvailableTasks")
-        permittedEmployees = try container.decodeIfPresent([Int].self, forKey: "PermittedEmployees")
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        code = try container.decodeIfPresent(String.self, forKey: "Code")
-        client = try container.decodeIfPresent(String.self, forKey: "Client")
-        clientId = try container.decodeIfPresent(Int.self, forKey: "ClientId")
-        project = try container.decodeIfPresent(String.self, forKey: "Project")
-        projectId = try container.decodeIfPresent(Int.self, forKey: "ProjectId")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-    }
 }
 

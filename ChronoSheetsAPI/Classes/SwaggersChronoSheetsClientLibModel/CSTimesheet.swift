@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSTimesheet: Codable {
+public struct CSTimesheet: Codable {
 
     public var timesheetId: Int?
     public var userId: Int?
@@ -17,68 +17,43 @@ open class CSTimesheet: Codable {
     public var taskId: Int?
     public var startDateTime: Date?
     public var endDateTime: Date?
-    public var description: String?
+    public var _description: String?
     public var tripId: Int?
     public var fileAttachmentCount: Int?
     public var payAmount: Double?
     public var overtimePayAmount: Double?
     public var includesOvertime: Bool?
 
-
-    
-    public init(timesheetId: Int?, userId: Int?, jobId: Int?, taskId: Int?, startDateTime: Date?, endDateTime: Date?, description: String?, tripId: Int?, fileAttachmentCount: Int?, payAmount: Double?, overtimePayAmount: Double?, includesOvertime: Bool?) {
+    public init(timesheetId: Int?, userId: Int?, jobId: Int?, taskId: Int?, startDateTime: Date?, endDateTime: Date?, _description: String?, tripId: Int?, fileAttachmentCount: Int?, payAmount: Double?, overtimePayAmount: Double?, includesOvertime: Bool?) {
         self.timesheetId = timesheetId
         self.userId = userId
         self.jobId = jobId
         self.taskId = taskId
         self.startDateTime = startDateTime
         self.endDateTime = endDateTime
-        self.description = description
+        self._description = _description
         self.tripId = tripId
         self.fileAttachmentCount = fileAttachmentCount
         self.payAmount = payAmount
         self.overtimePayAmount = overtimePayAmount
         self.includesOvertime = includesOvertime
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(timesheetId, forKey: "TimesheetId")
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(jobId, forKey: "JobId")
-        try container.encodeIfPresent(taskId, forKey: "TaskId")
-        try container.encodeIfPresent(startDateTime, forKey: "StartDateTime")
-        try container.encodeIfPresent(endDateTime, forKey: "EndDateTime")
-        try container.encodeIfPresent(description, forKey: "Description")
-        try container.encodeIfPresent(tripId, forKey: "TripId")
-        try container.encodeIfPresent(fileAttachmentCount, forKey: "FileAttachmentCount")
-        try container.encodeIfPresent(payAmount, forKey: "PayAmount")
-        try container.encodeIfPresent(overtimePayAmount, forKey: "OvertimePayAmount")
-        try container.encodeIfPresent(includesOvertime, forKey: "IncludesOvertime")
+    public enum CodingKeys: String, CodingKey { 
+        case timesheetId = "TimesheetId"
+        case userId = "UserId"
+        case jobId = "JobId"
+        case taskId = "TaskId"
+        case startDateTime = "StartDateTime"
+        case endDateTime = "EndDateTime"
+        case _description = "Description"
+        case tripId = "TripId"
+        case fileAttachmentCount = "FileAttachmentCount"
+        case payAmount = "PayAmount"
+        case overtimePayAmount = "OvertimePayAmount"
+        case includesOvertime = "IncludesOvertime"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        timesheetId = try container.decodeIfPresent(Int.self, forKey: "TimesheetId")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        jobId = try container.decodeIfPresent(Int.self, forKey: "JobId")
-        taskId = try container.decodeIfPresent(Int.self, forKey: "TaskId")
-        startDateTime = try container.decodeIfPresent(Date.self, forKey: "StartDateTime")
-        endDateTime = try container.decodeIfPresent(Date.self, forKey: "EndDateTime")
-        description = try container.decodeIfPresent(String.self, forKey: "Description")
-        tripId = try container.decodeIfPresent(Int.self, forKey: "TripId")
-        fileAttachmentCount = try container.decodeIfPresent(Int.self, forKey: "FileAttachmentCount")
-        payAmount = try container.decodeIfPresent(Double.self, forKey: "PayAmount")
-        overtimePayAmount = try container.decodeIfPresent(Double.self, forKey: "OvertimePayAmount")
-        includesOvertime = try container.decodeIfPresent(Bool.self, forKey: "IncludesOvertime")
-    }
 }
 

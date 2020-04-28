@@ -10,7 +10,7 @@ import Foundation
 
 /** Fields for inserting a new Job Code */
 
-open class CSInsertJobCodeRequest: Codable {
+public struct CSInsertJobCodeRequest: Codable {
 
     /** A short code for the Job.  This is referred to as a Job Code */
     public var code: String?
@@ -23,8 +23,6 @@ open class CSInsertJobCodeRequest: Codable {
     /** Optionally restrict access to the JobCode by specifying which Organisation Groups can use it */
     public var linkedOrgGroupIds: [Int]?
 
-
-    
     public init(code: String?, projectId: Int?, clientId: Int?, linkedTaskIds: [Int]?, linkedOrgGroupIds: [Int]?) {
         self.code = code
         self.projectId = projectId
@@ -32,31 +30,15 @@ open class CSInsertJobCodeRequest: Codable {
         self.linkedTaskIds = linkedTaskIds
         self.linkedOrgGroupIds = linkedOrgGroupIds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(code, forKey: "Code")
-        try container.encodeIfPresent(projectId, forKey: "ProjectId")
-        try container.encodeIfPresent(clientId, forKey: "ClientId")
-        try container.encodeIfPresent(linkedTaskIds, forKey: "LinkedTaskIds")
-        try container.encodeIfPresent(linkedOrgGroupIds, forKey: "LinkedOrgGroupIds")
+    public enum CodingKeys: String, CodingKey { 
+        case code = "Code"
+        case projectId = "ProjectId"
+        case clientId = "ClientId"
+        case linkedTaskIds = "LinkedTaskIds"
+        case linkedOrgGroupIds = "LinkedOrgGroupIds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        code = try container.decodeIfPresent(String.self, forKey: "Code")
-        projectId = try container.decodeIfPresent(Int.self, forKey: "ProjectId")
-        clientId = try container.decodeIfPresent(Int.self, forKey: "ClientId")
-        linkedTaskIds = try container.decodeIfPresent([Int].self, forKey: "LinkedTaskIds")
-        linkedOrgGroupIds = try container.decodeIfPresent([Int].self, forKey: "LinkedOrgGroupIds")
-    }
 }
 

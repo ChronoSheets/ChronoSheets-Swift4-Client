@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSOrgReportTimesheetFileAttachment: Codable {
+public struct CSOrgReportTimesheetFileAttachment: Codable {
 
     public enum CSMobilePlatform: String, Codable { 
         case unknown = "Unknown"
@@ -56,8 +56,6 @@ open class CSOrgReportTimesheetFileAttachment: Codable {
     public var storageAllocationBytes: Int64?
     public var audioDurationSeconds: Int?
 
-
-    
     public init(username: String?, emailAddress: String?, firstName: String?, lastName: String?, timesheetId: Int?, documentS3SignedUrl: String?, imageLargeS3SignedUrl: String?, imageMediumS3SignedUrl: String?, imageSmallS3SignedUrl: String?, timesheetStart: Date?, timesheetEnd: Date?, fileAttachmentId: Int?, userId: Int?, orgId: Int?, mobilePlatform: CSMobilePlatform?, attachmentType: CSAttachmentType?, notes: String?, nonImageFilePath: String?, imageLargeFilePath: String?, imageMediumFilePath: String?, imageSmallFilePath: String?, originalFileName: String?, latitude: Double?, longitude: Double?, dateUploaded: Date?, dateImageCaptured: Date?, storageAllocationBytes: Int64?, audioDurationSeconds: Int?) {
         self.username = username
         self.emailAddress = emailAddress
@@ -88,77 +86,38 @@ open class CSOrgReportTimesheetFileAttachment: Codable {
         self.storageAllocationBytes = storageAllocationBytes
         self.audioDurationSeconds = audioDurationSeconds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(username, forKey: "Username")
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
-        try container.encodeIfPresent(firstName, forKey: "FirstName")
-        try container.encodeIfPresent(lastName, forKey: "LastName")
-        try container.encodeIfPresent(timesheetId, forKey: "TimesheetId")
-        try container.encodeIfPresent(documentS3SignedUrl, forKey: "DocumentS3SignedUrl")
-        try container.encodeIfPresent(imageLargeS3SignedUrl, forKey: "ImageLargeS3SignedUrl")
-        try container.encodeIfPresent(imageMediumS3SignedUrl, forKey: "ImageMediumS3SignedUrl")
-        try container.encodeIfPresent(imageSmallS3SignedUrl, forKey: "ImageSmallS3SignedUrl")
-        try container.encodeIfPresent(timesheetStart, forKey: "TimesheetStart")
-        try container.encodeIfPresent(timesheetEnd, forKey: "TimesheetEnd")
-        try container.encodeIfPresent(fileAttachmentId, forKey: "FileAttachmentId")
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(orgId, forKey: "OrgId")
-        try container.encodeIfPresent(mobilePlatform, forKey: "MobilePlatform")
-        try container.encodeIfPresent(attachmentType, forKey: "AttachmentType")
-        try container.encodeIfPresent(notes, forKey: "Notes")
-        try container.encodeIfPresent(nonImageFilePath, forKey: "NonImageFilePath")
-        try container.encodeIfPresent(imageLargeFilePath, forKey: "ImageLargeFilePath")
-        try container.encodeIfPresent(imageMediumFilePath, forKey: "ImageMediumFilePath")
-        try container.encodeIfPresent(imageSmallFilePath, forKey: "ImageSmallFilePath")
-        try container.encodeIfPresent(originalFileName, forKey: "OriginalFileName")
-        try container.encodeIfPresent(latitude, forKey: "Latitude")
-        try container.encodeIfPresent(longitude, forKey: "Longitude")
-        try container.encodeIfPresent(dateUploaded, forKey: "DateUploaded")
-        try container.encodeIfPresent(dateImageCaptured, forKey: "DateImageCaptured")
-        try container.encodeIfPresent(storageAllocationBytes, forKey: "StorageAllocationBytes")
-        try container.encodeIfPresent(audioDurationSeconds, forKey: "AudioDurationSeconds")
+    public enum CodingKeys: String, CodingKey { 
+        case username = "Username"
+        case emailAddress = "EmailAddress"
+        case firstName = "FirstName"
+        case lastName = "LastName"
+        case timesheetId = "TimesheetId"
+        case documentS3SignedUrl = "DocumentS3SignedUrl"
+        case imageLargeS3SignedUrl = "ImageLargeS3SignedUrl"
+        case imageMediumS3SignedUrl = "ImageMediumS3SignedUrl"
+        case imageSmallS3SignedUrl = "ImageSmallS3SignedUrl"
+        case timesheetStart = "TimesheetStart"
+        case timesheetEnd = "TimesheetEnd"
+        case fileAttachmentId = "FileAttachmentId"
+        case userId = "UserId"
+        case orgId = "OrgId"
+        case mobilePlatform = "MobilePlatform"
+        case attachmentType = "AttachmentType"
+        case notes = "Notes"
+        case nonImageFilePath = "NonImageFilePath"
+        case imageLargeFilePath = "ImageLargeFilePath"
+        case imageMediumFilePath = "ImageMediumFilePath"
+        case imageSmallFilePath = "ImageSmallFilePath"
+        case originalFileName = "OriginalFileName"
+        case latitude = "Latitude"
+        case longitude = "Longitude"
+        case dateUploaded = "DateUploaded"
+        case dateImageCaptured = "DateImageCaptured"
+        case storageAllocationBytes = "StorageAllocationBytes"
+        case audioDurationSeconds = "AudioDurationSeconds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        username = try container.decodeIfPresent(String.self, forKey: "Username")
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
-        firstName = try container.decodeIfPresent(String.self, forKey: "FirstName")
-        lastName = try container.decodeIfPresent(String.self, forKey: "LastName")
-        timesheetId = try container.decodeIfPresent(Int.self, forKey: "TimesheetId")
-        documentS3SignedUrl = try container.decodeIfPresent(String.self, forKey: "DocumentS3SignedUrl")
-        imageLargeS3SignedUrl = try container.decodeIfPresent(String.self, forKey: "ImageLargeS3SignedUrl")
-        imageMediumS3SignedUrl = try container.decodeIfPresent(String.self, forKey: "ImageMediumS3SignedUrl")
-        imageSmallS3SignedUrl = try container.decodeIfPresent(String.self, forKey: "ImageSmallS3SignedUrl")
-        timesheetStart = try container.decodeIfPresent(Date.self, forKey: "TimesheetStart")
-        timesheetEnd = try container.decodeIfPresent(Date.self, forKey: "TimesheetEnd")
-        fileAttachmentId = try container.decodeIfPresent(Int.self, forKey: "FileAttachmentId")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        orgId = try container.decodeIfPresent(Int.self, forKey: "OrgId")
-        mobilePlatform = try container.decodeIfPresent(CSMobilePlatform.self, forKey: "MobilePlatform")
-        attachmentType = try container.decodeIfPresent(CSAttachmentType.self, forKey: "AttachmentType")
-        notes = try container.decodeIfPresent(String.self, forKey: "Notes")
-        nonImageFilePath = try container.decodeIfPresent(String.self, forKey: "NonImageFilePath")
-        imageLargeFilePath = try container.decodeIfPresent(String.self, forKey: "ImageLargeFilePath")
-        imageMediumFilePath = try container.decodeIfPresent(String.self, forKey: "ImageMediumFilePath")
-        imageSmallFilePath = try container.decodeIfPresent(String.self, forKey: "ImageSmallFilePath")
-        originalFileName = try container.decodeIfPresent(String.self, forKey: "OriginalFileName")
-        latitude = try container.decodeIfPresent(Double.self, forKey: "Latitude")
-        longitude = try container.decodeIfPresent(Double.self, forKey: "Longitude")
-        dateUploaded = try container.decodeIfPresent(Date.self, forKey: "DateUploaded")
-        dateImageCaptured = try container.decodeIfPresent(Date.self, forKey: "DateImageCaptured")
-        storageAllocationBytes = try container.decodeIfPresent(Int64.self, forKey: "StorageAllocationBytes")
-        audioDurationSeconds = try container.decodeIfPresent(Int.self, forKey: "AudioDurationSeconds")
-    }
 }
 

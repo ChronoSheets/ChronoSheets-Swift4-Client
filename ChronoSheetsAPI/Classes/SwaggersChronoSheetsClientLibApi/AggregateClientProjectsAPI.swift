@@ -19,7 +19,7 @@ open class AggregateClientProjectsAPI {
      */
     open class func aggregateClientProjectsGetAggregateClientProjects(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListAggregateClient?,_ error: Error?) -> Void)) {
         aggregateClientProjectsGetAggregateClientProjectsWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -180,9 +180,8 @@ open class AggregateClientProjectsAPI {
         let path = "/api/AggregateClientProjects/GetAggregateClientProjects"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

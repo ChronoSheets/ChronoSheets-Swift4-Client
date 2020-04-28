@@ -38,7 +38,7 @@ open class ReportsAPI {
      */
     open class func reportsGetAllChartsDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, forceOnlyThisChart: CSForceOnlyThisChart_reportsGetAllChartsDataAdmin? = nil, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
         reportsGetAllChartsDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds, forceOnlyThisChart: forceOnlyThisChart).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -313,15 +313,14 @@ open class ReportsAPI {
         let path = "/api/Reports/GetAllChartsDataAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "UserIds": userIds, 
             "ForceOnlyThisChart": forceOnlyThisChart?.rawValue
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -342,7 +341,7 @@ open class ReportsAPI {
      */
     open class func reportsGetAllChartsDataUser(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseCombinedReportsData?,_ error: Error?) -> Void)) {
         reportsGetAllChartsDataUserWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -615,13 +614,12 @@ open class ReportsAPI {
         let path = "/api/Reports/GetAllChartsDataUser"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -643,7 +641,7 @@ open class ReportsAPI {
      */
     open class func reportsGetFleetSummaryAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseListFleetSummaryReportItem?,_ error: Error?) -> Void)) {
         reportsGetFleetSummaryAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -739,14 +737,13 @@ open class ReportsAPI {
         let path = "/api/Reports/GetFleetSummaryAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "UserIds": userIds
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -766,7 +763,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrgTripById(tripId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseTrip?,_ error: Error?) -> Void)) {
         reportsGetOrgTripByIdWithRequestBuilder(tripId: tripId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -852,12 +849,11 @@ open class ReportsAPI {
         let path = "/api/Reports/GetOrgTripById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "TripId": tripId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -881,7 +877,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrganisationTimesheetFileAttachments(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment?,_ error: Error?) -> Void)) {
         reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, userIds: userIds).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -1039,16 +1035,15 @@ open class ReportsAPI {
         let path = "/api/Reports/GetOrganisationTimesheetFileAttachments"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "Skip": skip?.encodeToJSON(), 
             "Take": take?.encodeToJSON(), 
             "UserIds": userIds
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -1073,7 +1068,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrganisationTranscripts(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, keywords: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTranscript?,_ error: Error?) -> Void)) {
         reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, userIds: userIds, keywords: keywords).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -1268,9 +1263,9 @@ open class ReportsAPI {
         let path = "/api/Reports/GetOrganisationTranscripts"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "Skip": skip?.encodeToJSON(), 
@@ -1278,7 +1273,6 @@ open class ReportsAPI {
             "UserIds": userIds, 
             "Keywords": keywords
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -1302,7 +1296,7 @@ open class ReportsAPI {
      */
     open class func reportsGetOrganisationTrips(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListOrgReportTrip?,_ error: Error?) -> Void)) {
         reportsGetOrganisationTripsWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take, userIds: userIds).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -1464,16 +1458,15 @@ open class ReportsAPI {
         let path = "/api/Reports/GetOrganisationTrips"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "Skip": skip?.encodeToJSON(), 
             "Take": take?.encodeToJSON(), 
             "UserIds": userIds
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -1496,7 +1489,7 @@ open class ReportsAPI {
         case startDate = "StartDate"
         case endDate = "EndDate"
         case spanSeconds = "SpanSeconds"
-        case description = "Description"
+        case _description = "Description"
         case payAmount = "PayAmount"
         case payOvertimeAmount = "PayOvertimeAmount"
         case tripCost = "TripCost"
@@ -1527,7 +1520,7 @@ open class ReportsAPI {
      */
     open class func reportsGetRawDataAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, sort: CSSort_reportsGetRawDataAdmin? = nil, order: CSOrder_reportsGetRawDataAdmin? = nil, skip: Int? = nil, take: Int? = nil, completion: @escaping ((_ data: CSApiResponseForPaginatedListRawReportItem?,_ error: Error?) -> Void)) {
         reportsGetRawDataAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds, sort: sort, order: order, skip: skip, take: take).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -1541,9 +1534,11 @@ open class ReportsAPI {
   "Message" : "Message",
   "Data" : [ {
     "PayOvertimeAmount" : 2.3021358869347655,
+    "SpanSecondsOvertime" : 2,
     "Description" : "Description",
     "ProjectName" : "ProjectName",
     "PayAmount" : 5.637376656633329,
+    "SpanSecondsNormalTime" : 3,
     "OrganisationId" : 6,
     "SpanSeconds" : 5,
     "EndDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1558,9 +1553,11 @@ open class ReportsAPI {
     "TripDistanceMeters" : 9.301444243932576
   }, {
     "PayOvertimeAmount" : 2.3021358869347655,
+    "SpanSecondsOvertime" : 2,
     "Description" : "Description",
     "ProjectName" : "ProjectName",
     "PayAmount" : 5.637376656633329,
+    "SpanSecondsNormalTime" : 3,
     "OrganisationId" : 6,
     "SpanSeconds" : 5,
     "EndDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1585,9 +1582,11 @@ open class ReportsAPI {
   "Message" : "Message",
   "Data" : [ {
     "PayOvertimeAmount" : 2.3021358869347655,
+    "SpanSecondsOvertime" : 2,
     "Description" : "Description",
     "ProjectName" : "ProjectName",
     "PayAmount" : 5.637376656633329,
+    "SpanSecondsNormalTime" : 3,
     "OrganisationId" : 6,
     "SpanSeconds" : 5,
     "EndDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1602,9 +1601,11 @@ open class ReportsAPI {
     "TripDistanceMeters" : 9.301444243932576
   }, {
     "PayOvertimeAmount" : 2.3021358869347655,
+    "SpanSecondsOvertime" : 2,
     "Description" : "Description",
     "ProjectName" : "ProjectName",
     "PayAmount" : 5.637376656633329,
+    "SpanSecondsNormalTime" : 3,
     "OrganisationId" : 6,
     "SpanSeconds" : 5,
     "EndDate" : "2000-01-23T04:56:07.000+00:00",
@@ -1639,9 +1640,9 @@ open class ReportsAPI {
         let path = "/api/Reports/GetRawDataAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "UserIds": userIds, 
@@ -1650,7 +1651,6 @@ open class ReportsAPI {
             "Skip": skip?.encodeToJSON(), 
             "Take": take?.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -1672,7 +1672,7 @@ open class ReportsAPI {
      */
     open class func reportsProjectCostingsAdmin(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, completion: @escaping ((_ data: CSApiResponseListProjectCostingReportItem?,_ error: Error?) -> Void)) {
         reportsProjectCostingsAdminWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth, userIds: userIds).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -1744,14 +1744,13 @@ open class ReportsAPI {
         let path = "/api/Reports/ProjectCostingsAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON(), 
             "UserIds": userIds
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -1772,7 +1771,7 @@ open class ReportsAPI {
      */
     open class func reportsUserJobsOverTime(startDate: Date, endDate: Date, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListJobSeriesReportItem?,_ error: Error?) -> Void)) {
         reportsUserJobsOverTimeWithRequestBuilder(startDate: startDate, endDate: endDate, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -1847,13 +1846,12 @@ open class ReportsAPI {
         let path = "/api/Reports/UserJobsOverTime"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "StartDate": startDate.encodeToJSON(), 
             "EndDate": endDate.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

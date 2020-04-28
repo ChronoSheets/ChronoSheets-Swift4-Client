@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSUsualHoursDay: Codable {
+public struct CSUsualHoursDay: Codable {
 
     public enum CSDayType: String, Codable { 
         case monday = "Monday"
@@ -27,34 +27,18 @@ open class CSUsualHoursDay: Codable {
     /** Mark here which existing UsualHours are to be deleted */
     public var deleteUsualHours: [Int]?
 
-
-    
     public init(dayType: CSDayType?, timeSlots: [CSTimeSlot]?, deleteUsualHours: [Int]?) {
         self.dayType = dayType
         self.timeSlots = timeSlots
         self.deleteUsualHours = deleteUsualHours
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(dayType, forKey: "DayType")
-        try container.encodeIfPresent(timeSlots, forKey: "TimeSlots")
-        try container.encodeIfPresent(deleteUsualHours, forKey: "DeleteUsualHours")
+    public enum CodingKeys: String, CodingKey { 
+        case dayType = "DayType"
+        case timeSlots = "TimeSlots"
+        case deleteUsualHours = "DeleteUsualHours"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        dayType = try container.decodeIfPresent(CSDayType.self, forKey: "DayType")
-        timeSlots = try container.decodeIfPresent([CSTimeSlot].self, forKey: "TimeSlots")
-        deleteUsualHours = try container.decodeIfPresent([Int].self, forKey: "DeleteUsualHours")
-    }
 }
 

@@ -9,9 +9,9 @@ import Foundation
 
 
 
-open class CSFleetVehicle: Codable {
+public struct CSFleetVehicle: Codable {
 
-    public var id: Int?
+    public var _id: Int?
     public var organisationId: Int?
     public var name: String?
     public var costPerKilometer: Double?
@@ -22,10 +22,8 @@ open class CSFleetVehicle: Codable {
     public var isDeleted: Bool?
     public var permittedEmployees: [Int]?
 
-
-    
-    public init(id: Int?, organisationId: Int?, name: String?, costPerKilometer: Double?, make: String?, model: String?, year: String?, licencePlateNumber: String?, isDeleted: Bool?, permittedEmployees: [Int]?) {
-        self.id = id
+    public init(_id: Int?, organisationId: Int?, name: String?, costPerKilometer: Double?, make: String?, model: String?, year: String?, licencePlateNumber: String?, isDeleted: Bool?, permittedEmployees: [Int]?) {
+        self._id = _id
         self.organisationId = organisationId
         self.name = name
         self.costPerKilometer = costPerKilometer
@@ -36,41 +34,20 @@ open class CSFleetVehicle: Codable {
         self.isDeleted = isDeleted
         self.permittedEmployees = permittedEmployees
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(id, forKey: "Id")
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(name, forKey: "Name")
-        try container.encodeIfPresent(costPerKilometer, forKey: "CostPerKilometer")
-        try container.encodeIfPresent(make, forKey: "Make")
-        try container.encodeIfPresent(model, forKey: "Model")
-        try container.encodeIfPresent(year, forKey: "Year")
-        try container.encodeIfPresent(licencePlateNumber, forKey: "LicencePlateNumber")
-        try container.encodeIfPresent(isDeleted, forKey: "IsDeleted")
-        try container.encodeIfPresent(permittedEmployees, forKey: "PermittedEmployees")
+    public enum CodingKeys: String, CodingKey { 
+        case _id = "Id"
+        case organisationId = "OrganisationId"
+        case name = "Name"
+        case costPerKilometer = "CostPerKilometer"
+        case make = "Make"
+        case model = "Model"
+        case year = "Year"
+        case licencePlateNumber = "LicencePlateNumber"
+        case isDeleted = "IsDeleted"
+        case permittedEmployees = "PermittedEmployees"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        id = try container.decodeIfPresent(Int.self, forKey: "Id")
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        name = try container.decodeIfPresent(String.self, forKey: "Name")
-        costPerKilometer = try container.decodeIfPresent(Double.self, forKey: "CostPerKilometer")
-        make = try container.decodeIfPresent(String.self, forKey: "Make")
-        model = try container.decodeIfPresent(String.self, forKey: "Model")
-        year = try container.decodeIfPresent(String.self, forKey: "Year")
-        licencePlateNumber = try container.decodeIfPresent(String.self, forKey: "LicencePlateNumber")
-        isDeleted = try container.decodeIfPresent(Bool.self, forKey: "IsDeleted")
-        permittedEmployees = try container.decodeIfPresent([Int].self, forKey: "PermittedEmployees")
-    }
 }
 

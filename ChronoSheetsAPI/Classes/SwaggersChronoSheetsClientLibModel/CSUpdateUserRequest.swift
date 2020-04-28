@@ -10,7 +10,7 @@ import Foundation
 
 /** Fields for updating an employee User Account */
 
-open class CSUpdateUserRequest: Codable {
+public struct CSUpdateUserRequest: Codable {
 
     /** The Id of the User that is to be updated */
     public var userId: Int?
@@ -29,8 +29,6 @@ open class CSUpdateUserRequest: Codable {
     /** A BIT field designating which Alerts the employee will receive.  See the {timesheets.types.Enums.AlertSettings} Enum for more details */
     public var alertSettings: Int64?
 
-
-    
     public init(userId: Int?, emailAddress: String?, firstName: String?, lastName: String?, isSubscribedToNewsletter: Bool?, isAccountActive: Bool?, roles: Int64?, alertSettings: Int64?) {
         self.userId = userId
         self.emailAddress = emailAddress
@@ -41,37 +39,18 @@ open class CSUpdateUserRequest: Codable {
         self.roles = roles
         self.alertSettings = alertSettings
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
-        try container.encodeIfPresent(firstName, forKey: "FirstName")
-        try container.encodeIfPresent(lastName, forKey: "LastName")
-        try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
-        try container.encodeIfPresent(isAccountActive, forKey: "IsAccountActive")
-        try container.encodeIfPresent(roles, forKey: "Roles")
-        try container.encodeIfPresent(alertSettings, forKey: "AlertSettings")
+    public enum CodingKeys: String, CodingKey { 
+        case userId = "UserId"
+        case emailAddress = "EmailAddress"
+        case firstName = "FirstName"
+        case lastName = "LastName"
+        case isSubscribedToNewsletter = "IsSubscribedToNewsletter"
+        case isAccountActive = "IsAccountActive"
+        case roles = "Roles"
+        case alertSettings = "AlertSettings"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
-        firstName = try container.decodeIfPresent(String.self, forKey: "FirstName")
-        lastName = try container.decodeIfPresent(String.self, forKey: "LastName")
-        isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
-        isAccountActive = try container.decodeIfPresent(Bool.self, forKey: "IsAccountActive")
-        roles = try container.decodeIfPresent(Int64.self, forKey: "Roles")
-        alertSettings = try container.decodeIfPresent(Int64.self, forKey: "AlertSettings")
-    }
 }
 

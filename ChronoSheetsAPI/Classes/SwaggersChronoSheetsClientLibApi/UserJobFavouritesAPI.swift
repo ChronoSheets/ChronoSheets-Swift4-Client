@@ -20,7 +20,7 @@ open class UserJobFavouritesAPI {
      */
     open class func userJobFavouritesCreateJobFavourite(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         userJobFavouritesCreateJobFavouriteWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class UserJobFavouritesAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -78,7 +77,7 @@ open class UserJobFavouritesAPI {
      */
     open class func userJobFavouritesDeleteJobFavourite(jobId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         userJobFavouritesDeleteJobFavouriteWithRequestBuilder(jobId: jobId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -114,12 +113,11 @@ open class UserJobFavouritesAPI {
         let path = "/api/UserJobFavourites/DeleteJobFavourite"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "JobId": jobId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -138,7 +136,7 @@ open class UserJobFavouritesAPI {
      */
     open class func userJobFavouritesGetJobFavourites(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListUserJobFavourite?,_ error: Error?) -> Void)) {
         userJobFavouritesGetJobFavouritesWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -183,9 +181,8 @@ open class UserJobFavouritesAPI {
         let path = "/api/UserJobFavourites/GetJobFavourites"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]

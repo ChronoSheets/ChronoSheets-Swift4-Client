@@ -9,36 +9,21 @@ import Foundation
 
 
 
-open class CSSetOrganisationGroupUsersRequest: Codable {
+public struct CSSetOrganisationGroupUsersRequest: Codable {
 
     public var organisationGroupId: Int?
     public var csvUserIds: String?
 
-
-    
     public init(organisationGroupId: Int?, csvUserIds: String?) {
         self.organisationGroupId = organisationGroupId
         self.csvUserIds = csvUserIds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(organisationGroupId, forKey: "OrganisationGroupId")
-        try container.encodeIfPresent(csvUserIds, forKey: "CsvUserIds")
+    public enum CodingKeys: String, CodingKey { 
+        case organisationGroupId = "OrganisationGroupId"
+        case csvUserIds = "CsvUserIds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        organisationGroupId = try container.decodeIfPresent(Int.self, forKey: "OrganisationGroupId")
-        csvUserIds = try container.decodeIfPresent(String.self, forKey: "CsvUserIds")
-    }
 }
 

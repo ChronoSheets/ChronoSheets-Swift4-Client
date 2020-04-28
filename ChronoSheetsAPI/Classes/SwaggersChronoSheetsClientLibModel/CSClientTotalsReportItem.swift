@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSClientTotalsReportItem: Codable {
+public struct CSClientTotalsReportItem: Codable {
 
     public var organisationId: Int?
     public var userId: Int?
@@ -17,8 +17,6 @@ open class CSClientTotalsReportItem: Codable {
     public var clientName: String?
     public var spanSeconds: Int?
 
-
-    
     public init(organisationId: Int?, userId: Int?, clientId: Int?, clientName: String?, spanSeconds: Int?) {
         self.organisationId = organisationId
         self.userId = userId
@@ -26,31 +24,15 @@ open class CSClientTotalsReportItem: Codable {
         self.clientName = clientName
         self.spanSeconds = spanSeconds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(clientId, forKey: "ClientId")
-        try container.encodeIfPresent(clientName, forKey: "ClientName")
-        try container.encodeIfPresent(spanSeconds, forKey: "SpanSeconds")
+    public enum CodingKeys: String, CodingKey { 
+        case organisationId = "OrganisationId"
+        case userId = "UserId"
+        case clientId = "ClientId"
+        case clientName = "ClientName"
+        case spanSeconds = "SpanSeconds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        clientId = try container.decodeIfPresent(Int.self, forKey: "ClientId")
-        clientName = try container.decodeIfPresent(String.self, forKey: "ClientName")
-        spanSeconds = try container.decodeIfPresent(Int.self, forKey: "SpanSeconds")
-    }
 }
 

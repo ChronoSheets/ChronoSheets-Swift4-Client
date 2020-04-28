@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSTaskTotalsReportItem: Codable {
+public struct CSTaskTotalsReportItem: Codable {
 
     public var organisationId: Int?
     public var userId: Int?
@@ -17,8 +17,6 @@ open class CSTaskTotalsReportItem: Codable {
     public var taskName: String?
     public var spanSeconds: Int?
 
-
-    
     public init(organisationId: Int?, userId: Int?, taskId: Int?, taskName: String?, spanSeconds: Int?) {
         self.organisationId = organisationId
         self.userId = userId
@@ -26,31 +24,15 @@ open class CSTaskTotalsReportItem: Codable {
         self.taskName = taskName
         self.spanSeconds = spanSeconds
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(organisationId, forKey: "OrganisationId")
-        try container.encodeIfPresent(userId, forKey: "UserId")
-        try container.encodeIfPresent(taskId, forKey: "TaskId")
-        try container.encodeIfPresent(taskName, forKey: "TaskName")
-        try container.encodeIfPresent(spanSeconds, forKey: "SpanSeconds")
+    public enum CodingKeys: String, CodingKey { 
+        case organisationId = "OrganisationId"
+        case userId = "UserId"
+        case taskId = "TaskId"
+        case taskName = "TaskName"
+        case spanSeconds = "SpanSeconds"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        organisationId = try container.decodeIfPresent(Int.self, forKey: "OrganisationId")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-        taskId = try container.decodeIfPresent(Int.self, forKey: "TaskId")
-        taskName = try container.decodeIfPresent(String.self, forKey: "TaskName")
-        spanSeconds = try container.decodeIfPresent(Int.self, forKey: "SpanSeconds")
-    }
 }
 

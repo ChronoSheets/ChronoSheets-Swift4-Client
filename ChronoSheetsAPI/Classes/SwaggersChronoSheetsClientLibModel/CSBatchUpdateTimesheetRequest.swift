@@ -10,33 +10,19 @@ import Foundation
 
 /** Contains a collection of Timesheet objects that are to be either created or updated.  If the ID of the timesheet is specified in the Timesheet object, then that Timesheet will be updated otherwise it will be created */
 
-open class CSBatchUpdateTimesheetRequest: Codable {
+public struct CSBatchUpdateTimesheetRequest: Codable {
 
     /** A collection of Timesheet objects to be either created or updated */
     public var timesheets: [CSTimesheet]?
 
-
-    
     public init(timesheets: [CSTimesheet]?) {
         self.timesheets = timesheets
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(timesheets, forKey: "Timesheets")
+    public enum CodingKeys: String, CodingKey { 
+        case timesheets = "Timesheets"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        timesheets = try container.decodeIfPresent([CSTimesheet].self, forKey: "Timesheets")
-    }
 }
 

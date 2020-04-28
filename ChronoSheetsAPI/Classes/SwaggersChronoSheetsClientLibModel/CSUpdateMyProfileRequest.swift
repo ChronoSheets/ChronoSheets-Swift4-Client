@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSUpdateMyProfileRequest: Codable {
+public struct CSUpdateMyProfileRequest: Codable {
 
     public var emailAddress: String?
     public var firstName: String?
@@ -20,8 +20,6 @@ open class CSUpdateMyProfileRequest: Codable {
     public var isSubscribedToNewsletter: Bool?
     public var wantsToChangePassword: Bool?
 
-
-    
     public init(emailAddress: String?, firstName: String?, lastName: String?, oldPassword: String?, newPassword: String?, confirmNewPassword: String?, isSubscribedToNewsletter: Bool?, wantsToChangePassword: Bool?) {
         self.emailAddress = emailAddress
         self.firstName = firstName
@@ -32,37 +30,18 @@ open class CSUpdateMyProfileRequest: Codable {
         self.isSubscribedToNewsletter = isSubscribedToNewsletter
         self.wantsToChangePassword = wantsToChangePassword
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(emailAddress, forKey: "EmailAddress")
-        try container.encodeIfPresent(firstName, forKey: "FirstName")
-        try container.encodeIfPresent(lastName, forKey: "LastName")
-        try container.encodeIfPresent(oldPassword, forKey: "OldPassword")
-        try container.encodeIfPresent(newPassword, forKey: "NewPassword")
-        try container.encodeIfPresent(confirmNewPassword, forKey: "ConfirmNewPassword")
-        try container.encodeIfPresent(isSubscribedToNewsletter, forKey: "IsSubscribedToNewsletter")
-        try container.encodeIfPresent(wantsToChangePassword, forKey: "WantsToChangePassword")
+    public enum CodingKeys: String, CodingKey { 
+        case emailAddress = "EmailAddress"
+        case firstName = "FirstName"
+        case lastName = "LastName"
+        case oldPassword = "OldPassword"
+        case newPassword = "NewPassword"
+        case confirmNewPassword = "ConfirmNewPassword"
+        case isSubscribedToNewsletter = "IsSubscribedToNewsletter"
+        case wantsToChangePassword = "WantsToChangePassword"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        emailAddress = try container.decodeIfPresent(String.self, forKey: "EmailAddress")
-        firstName = try container.decodeIfPresent(String.self, forKey: "FirstName")
-        lastName = try container.decodeIfPresent(String.self, forKey: "LastName")
-        oldPassword = try container.decodeIfPresent(String.self, forKey: "OldPassword")
-        newPassword = try container.decodeIfPresent(String.self, forKey: "NewPassword")
-        confirmNewPassword = try container.decodeIfPresent(String.self, forKey: "ConfirmNewPassword")
-        isSubscribedToNewsletter = try container.decodeIfPresent(Bool.self, forKey: "IsSubscribedToNewsletter")
-        wantsToChangePassword = try container.decodeIfPresent(Bool.self, forKey: "WantsToChangePassword")
-    }
 }
 

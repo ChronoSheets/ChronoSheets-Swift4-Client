@@ -10,38 +10,23 @@ import Foundation
 
 /** An object that can be used to set the Usual Hours (Rostered Hours) of an employee user account */
 
-open class CSSetUsualHoursRequest: Codable {
+public struct CSSetUsualHoursRequest: Codable {
 
     /** A Collection of days (Mon-Sun) with updated Roster timeslots */
     public var usualHoursData: [CSUsualHoursDay]?
     /** The Id of the User that these updated Rostered Hours will be applied to */
     public var userId: Int?
 
-
-    
     public init(usualHoursData: [CSUsualHoursDay]?, userId: Int?) {
         self.usualHoursData = usualHoursData
         self.userId = userId
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(usualHoursData, forKey: "UsualHoursData")
-        try container.encodeIfPresent(userId, forKey: "UserId")
+    public enum CodingKeys: String, CodingKey { 
+        case usualHoursData = "UsualHoursData"
+        case userId = "UserId"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        usualHoursData = try container.decodeIfPresent([CSUsualHoursDay].self, forKey: "UsualHoursData")
-        userId = try container.decodeIfPresent(Int.self, forKey: "UserId")
-    }
 }
 

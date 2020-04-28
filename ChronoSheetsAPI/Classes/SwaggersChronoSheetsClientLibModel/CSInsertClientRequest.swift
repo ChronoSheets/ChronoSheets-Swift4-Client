@@ -10,7 +10,7 @@ import Foundation
 
 /** Fields for inserting a new Client */
 
-open class CSInsertClientRequest: Codable {
+public struct CSInsertClientRequest: Codable {
 
     /** The name of the Client */
     public var clientName: String?
@@ -35,8 +35,6 @@ open class CSInsertClientRequest: Codable {
     /** The Client&#39;s website URL */
     public var clientWebURL: String?
 
-
-    
     public init(clientName: String?, clientAddressLine1: String?, clientAddressLine2: String?, clientSuburb: String?, clientState: String?, clientPostCode: String?, personOfContact: String?, clientPhoneNumber: String?, clientMobileNumber: String?, clientEmailAddress: String?, clientWebURL: String?) {
         self.clientName = clientName
         self.clientAddressLine1 = clientAddressLine1
@@ -50,43 +48,21 @@ open class CSInsertClientRequest: Codable {
         self.clientEmailAddress = clientEmailAddress
         self.clientWebURL = clientWebURL
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(clientName, forKey: "ClientName")
-        try container.encodeIfPresent(clientAddressLine1, forKey: "ClientAddressLine1")
-        try container.encodeIfPresent(clientAddressLine2, forKey: "ClientAddressLine2")
-        try container.encodeIfPresent(clientSuburb, forKey: "ClientSuburb")
-        try container.encodeIfPresent(clientState, forKey: "ClientState")
-        try container.encodeIfPresent(clientPostCode, forKey: "ClientPostCode")
-        try container.encodeIfPresent(personOfContact, forKey: "PersonOfContact")
-        try container.encodeIfPresent(clientPhoneNumber, forKey: "ClientPhoneNumber")
-        try container.encodeIfPresent(clientMobileNumber, forKey: "ClientMobileNumber")
-        try container.encodeIfPresent(clientEmailAddress, forKey: "ClientEmailAddress")
-        try container.encodeIfPresent(clientWebURL, forKey: "ClientWebURL")
+    public enum CodingKeys: String, CodingKey { 
+        case clientName = "ClientName"
+        case clientAddressLine1 = "ClientAddressLine1"
+        case clientAddressLine2 = "ClientAddressLine2"
+        case clientSuburb = "ClientSuburb"
+        case clientState = "ClientState"
+        case clientPostCode = "ClientPostCode"
+        case personOfContact = "PersonOfContact"
+        case clientPhoneNumber = "ClientPhoneNumber"
+        case clientMobileNumber = "ClientMobileNumber"
+        case clientEmailAddress = "ClientEmailAddress"
+        case clientWebURL = "ClientWebURL"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        clientName = try container.decodeIfPresent(String.self, forKey: "ClientName")
-        clientAddressLine1 = try container.decodeIfPresent(String.self, forKey: "ClientAddressLine1")
-        clientAddressLine2 = try container.decodeIfPresent(String.self, forKey: "ClientAddressLine2")
-        clientSuburb = try container.decodeIfPresent(String.self, forKey: "ClientSuburb")
-        clientState = try container.decodeIfPresent(String.self, forKey: "ClientState")
-        clientPostCode = try container.decodeIfPresent(String.self, forKey: "ClientPostCode")
-        personOfContact = try container.decodeIfPresent(String.self, forKey: "PersonOfContact")
-        clientPhoneNumber = try container.decodeIfPresent(String.self, forKey: "ClientPhoneNumber")
-        clientMobileNumber = try container.decodeIfPresent(String.self, forKey: "ClientMobileNumber")
-        clientEmailAddress = try container.decodeIfPresent(String.self, forKey: "ClientEmailAddress")
-        clientWebURL = try container.decodeIfPresent(String.self, forKey: "ClientWebURL")
-    }
 }
 

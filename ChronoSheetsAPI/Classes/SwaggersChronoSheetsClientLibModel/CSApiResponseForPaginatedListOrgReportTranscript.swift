@@ -9,7 +9,7 @@ import Foundation
 
 
 
-open class CSApiResponseForPaginatedListOrgReportTranscript: Codable {
+public struct CSApiResponseForPaginatedListOrgReportTranscript: Codable {
 
     public enum CSStatus: String, Codable { 
         case succeeded = "Succeeded"
@@ -24,37 +24,20 @@ open class CSApiResponseForPaginatedListOrgReportTranscript: Codable {
     public var status: CSStatus?
     public var message: String?
 
-
-    
     public init(totalSetCount: Int?, data: [CSOrgReportTranscript]?, status: CSStatus?, message: String?) {
         self.totalSetCount = totalSetCount
         self.data = data
         self.status = status
         self.message = message
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(totalSetCount, forKey: "TotalSetCount")
-        try container.encodeIfPresent(data, forKey: "Data")
-        try container.encodeIfPresent(status, forKey: "Status")
-        try container.encodeIfPresent(message, forKey: "Message")
+    public enum CodingKeys: String, CodingKey { 
+        case totalSetCount = "TotalSetCount"
+        case data = "Data"
+        case status = "Status"
+        case message = "Message"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        totalSetCount = try container.decodeIfPresent(Int.self, forKey: "TotalSetCount")
-        data = try container.decodeIfPresent([CSOrgReportTranscript].self, forKey: "Data")
-        status = try container.decodeIfPresent(CSStatus.self, forKey: "Status")
-        message = try container.decodeIfPresent(String.self, forKey: "Message")
-    }
 }
 

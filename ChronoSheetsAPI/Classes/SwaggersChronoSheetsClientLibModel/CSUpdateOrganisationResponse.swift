@@ -9,32 +9,18 @@ import Foundation
 
 
 
-open class CSUpdateOrganisationResponse: Codable {
+public struct CSUpdateOrganisationResponse: Codable {
 
     public var validationErrors: [String]?
 
-
-    
     public init(validationErrors: [String]?) {
         self.validationErrors = validationErrors
     }
-    
 
-    // Encodable protocol methods
-
-    public func encode(to encoder: Encoder) throws {
-
-        var container = encoder.container(keyedBy: String.self)
-
-        try container.encodeIfPresent(validationErrors, forKey: "ValidationErrors")
+    public enum CodingKeys: String, CodingKey { 
+        case validationErrors = "ValidationErrors"
     }
 
-    // Decodable protocol methods
 
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: String.self)
-
-        validationErrors = try container.decodeIfPresent([String].self, forKey: "ValidationErrors")
-    }
 }
 

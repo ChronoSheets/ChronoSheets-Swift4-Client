@@ -20,7 +20,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsCreateOrganisationGroup(request: CSInsertOrganisationGroupRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseInt32?,_ error: Error?) -> Void)) {
         organisationGroupsCreateOrganisationGroupWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -57,8 +57,7 @@ open class OrganisationGroupsAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -70,6 +69,64 @@ open class OrganisationGroupsAPI {
     }
 
     /**
+
+     - parameter organisationGroupId: (query)  
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func organisationGroupsDeleteOrganisationGroup(organisationGroupId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
+        organisationGroupsDeleteOrganisationGroupWithRequestBuilder(organisationGroupId: organisationGroupId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     - DELETE /api/OrganisationGroups/DeleteOrganisationGroup
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : true
+}}, {contentType=application/xml, example=<null>
+  <Data>true</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     - examples: [{contentType=application/json, example={
+  "Status" : "Succeeded",
+  "Message" : "Message",
+  "Data" : true
+}}, {contentType=application/xml, example=<null>
+  <Data>true</Data>
+  <Status>aeiou</Status>
+  <Message>aeiou</Message>
+</null>}]
+     
+     - parameter organisationGroupId: (query)  
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+
+     - returns: RequestBuilder<CSApiResponseBoolean> 
+     */
+    open class func organisationGroupsDeleteOrganisationGroupWithRequestBuilder(organisationGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
+        let path = "/api/OrganisationGroups/DeleteOrganisationGroup"
+        let URLString = ChronoSheetsAPIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "OrganisationGroupId": organisationGroupId.encodeToJSON()
+        ])
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<CSApiResponseBoolean>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "DELETE", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      Get a particular organisation group.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
      
      - parameter organisationGroupId: (query) The ID of the OrganisationGroup you want to get 
@@ -78,7 +135,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroup(organisationGroupId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseOrganisationGroup?,_ error: Error?) -> Void)) {
         organisationGroupsGetOrganisationGroupWithRequestBuilder(organisationGroupId: organisationGroupId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -122,12 +179,11 @@ open class OrganisationGroupsAPI {
         let path = "/api/OrganisationGroups/GetOrganisationGroup"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "OrganisationGroupId": organisationGroupId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -146,7 +202,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroups(xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListOrganisationGroup?,_ error: Error?) -> Void)) {
         organisationGroupsGetOrganisationGroupsWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -199,9 +255,8 @@ open class OrganisationGroupsAPI {
         let path = "/api/OrganisationGroups/GetOrganisationGroups"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-
+        
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -221,7 +276,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroupsForJob(jobId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListOrganisationGroup?,_ error: Error?) -> Void)) {
         organisationGroupsGetOrganisationGroupsForJobWithRequestBuilder(jobId: jobId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -275,12 +330,11 @@ open class OrganisationGroupsAPI {
         let path = "/api/OrganisationGroups/GetOrganisationGroupsForJob"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "JobId": jobId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -300,7 +354,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsGetOrganisationGroupsForVehicle(vehicleId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseListOrganisationGroup?,_ error: Error?) -> Void)) {
         organisationGroupsGetOrganisationGroupsForVehicleWithRequestBuilder(vehicleId: vehicleId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -354,12 +408,11 @@ open class OrganisationGroupsAPI {
         let path = "/api/OrganisationGroups/GetOrganisationGroupsForVehicle"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
-
-        let url = NSURLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems(values:[
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
             "VehicleId": vehicleId.encodeToJSON()
         ])
-        
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
@@ -379,7 +432,7 @@ open class OrganisationGroupsAPI {
      */
     open class func organisationGroupsUpdateOrganisationGroup(request: CSSaveOrganisationGroupRequest, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseBoolean?,_ error: Error?) -> Void)) {
         organisationGroupsUpdateOrganisationGroupWithRequestBuilder(request: request, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
-            completion(response?.body, error);
+            completion(response?.body, error)
         }
     }
 
@@ -416,8 +469,7 @@ open class OrganisationGroupsAPI {
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
-        let url = NSURLComponents(string: URLString)
-
+        let url = URLComponents(string: URLString)
         let nillableHeaders: [String: Any?] = [
             "x-chronosheets-auth": xChronosheetsAuth
         ]
