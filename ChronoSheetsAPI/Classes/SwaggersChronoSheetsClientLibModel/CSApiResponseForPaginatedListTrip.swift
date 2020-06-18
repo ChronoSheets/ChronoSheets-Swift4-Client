@@ -8,6 +8,7 @@
 import Foundation
 
 
+/** A paginated API repsonse */
 
 public struct CSApiResponseForPaginatedListTrip: Codable {
 
@@ -19,9 +20,13 @@ public struct CSApiResponseForPaginatedListTrip: Codable {
         case unAuthorized = "UnAuthorized"
         case sessionExpired = "SessionExpired"
     }
+    /** The count of total records that are being paginated */
     public var totalSetCount: Int?
+    /** The main Data of the response */
     public var data: [CSTrip]?
+    /** The API response status. Indicates if the request was successful, failed or was unauthorised. */
     public var status: CSStatus?
+    /** A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do. */
     public var message: String?
 
     public init(totalSetCount: Int?, data: [CSTrip]?, status: CSStatus?, message: String?) {

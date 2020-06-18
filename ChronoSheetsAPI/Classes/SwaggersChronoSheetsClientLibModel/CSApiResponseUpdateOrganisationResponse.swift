@@ -8,6 +8,7 @@
 import Foundation
 
 
+/** A standard API response */
 
 public struct CSApiResponseUpdateOrganisationResponse: Codable {
 
@@ -19,8 +20,11 @@ public struct CSApiResponseUpdateOrganisationResponse: Codable {
         case unAuthorized = "UnAuthorized"
         case sessionExpired = "SessionExpired"
     }
+    /** The main Data of the response */
     public var data: CSUpdateOrganisationResponse?
+    /** The API response status. Indicates if the request was successful, failed or was unauthorised. */
     public var status: CSStatus?
+    /** A message to accompany the response status.  If the Status is failed, this message will hint why it failed and what you need to do. */
     public var message: String?
 
     public init(data: CSUpdateOrganisationResponse?, status: CSStatus?, message: String?) {

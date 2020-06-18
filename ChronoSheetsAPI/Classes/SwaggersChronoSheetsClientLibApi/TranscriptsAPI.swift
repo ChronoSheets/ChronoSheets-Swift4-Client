@@ -18,7 +18,7 @@ open class TranscriptsAPI {
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func transcriptsGetMyTranscript(fileAttachmentId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseForPaginatedTranscription?,_ error: Error?) -> Void)) {
+    open class func transcriptsGetMyTranscript(fileAttachmentId: Int, xChronosheetsAuth: String, completion: @escaping ((_ data: CSApiResponseTranscription?,_ error: Error?) -> Void)) {
         transcriptsGetMyTranscriptWithRequestBuilder(fileAttachmentId: fileAttachmentId, xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -30,37 +30,33 @@ open class TranscriptsAPI {
      - GET /api/Transcripts/GetMyTranscript
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
-  "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : {
     "Status" : "Saved",
-    "OrgId" : 1,
+    "OrgId" : 6,
     "Contents" : "Contents",
     "MediaType" : "Other",
-    "Id" : 6,
-    "FileAttachmentId" : 5,
+    "Id" : 0,
+    "FileAttachmentId" : 1,
     "Created" : "2000-01-23T04:56:07.000+00:00"
   }
 }}, {contentType=application/xml, example=<null>
-  <TotalSetCount>123</TotalSetCount>
   <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
-  "TotalSetCount" : 0,
   "Message" : "Message",
   "Data" : {
     "Status" : "Saved",
-    "OrgId" : 1,
+    "OrgId" : 6,
     "Contents" : "Contents",
     "MediaType" : "Other",
-    "Id" : 6,
-    "FileAttachmentId" : 5,
+    "Id" : 0,
+    "FileAttachmentId" : 1,
     "Created" : "2000-01-23T04:56:07.000+00:00"
   }
 }}, {contentType=application/xml, example=<null>
-  <TotalSetCount>123</TotalSetCount>
   <Status>aeiou</Status>
   <Message>aeiou</Message>
 </null>}]
@@ -68,9 +64,9 @@ open class TranscriptsAPI {
      - parameter fileAttachmentId: (query) The ID of the file attachment that has a transcript.  It should be an audio file attachment. 
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
 
-     - returns: RequestBuilder<CSApiResponseForPaginatedTranscription> 
+     - returns: RequestBuilder<CSApiResponseTranscription> 
      */
-    open class func transcriptsGetMyTranscriptWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseForPaginatedTranscription> {
+    open class func transcriptsGetMyTranscriptWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTranscription> {
         let path = "/api/Transcripts/GetMyTranscript"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -84,7 +80,7 @@ open class TranscriptsAPI {
         ]
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<CSApiResponseForPaginatedTranscription>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<CSApiResponseTranscription>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
     }
