@@ -27,7 +27,7 @@ open class UsersAPI {
 
     /**
      Create a user account in your organisation.  Requires the 'ManageOrganisationUsers' permission.
-     - POST /api/Users/CreateTimesheetUser
+     - POST /Users/CreateTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -59,7 +59,7 @@ open class UsersAPI {
      - returns: RequestBuilder<CSApiResponseInsertUserResponse> 
      */
     open class func usersCreateTimesheetUserWithRequestBuilder(request: CSInsertUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInsertUserResponse> {
-        let path = "/api/Users/CreateTimesheetUser"
+        let path = "/Users/CreateTimesheetUser"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -90,7 +90,7 @@ open class UsersAPI {
 
     /**
      Get a particular user in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
-     - GET /api/Users/GetTimesheetUser
+     - GET /Users/GetTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -198,7 +198,7 @@ open class UsersAPI {
      - returns: RequestBuilder<CSApiResponseUserForManagement> 
      */
     open class func usersGetTimesheetUserWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUserForManagement> {
-        let path = "/api/Users/GetTimesheetUser"
+        let path = "/Users/GetTimesheetUser"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -231,7 +231,7 @@ open class UsersAPI {
 
     /**
      Get users accounts in your organisation.  Requires the 'ManageOrganisationUsers' or 'ManageOrganisationGroups' permissions.
-     - GET /api/Users/GetTimesheetUsers
+     - GET /Users/GetTimesheetUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -422,7 +422,7 @@ open class UsersAPI {
      - returns: RequestBuilder<CSApiResponseListUserForManagement> 
      */
     open class func usersGetTimesheetUsersWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserForManagement> {
-        let path = "/api/Users/GetTimesheetUsers"
+        let path = "/Users/GetTimesheetUsers"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -453,7 +453,7 @@ open class UsersAPI {
 
     /**
      Update a user account.  Requires the 'ManageOrganisationUsers' permission.
-     - PUT /api/Users/UpdateTimesheetUser
+     - PUT /Users/UpdateTimesheetUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -485,7 +485,7 @@ open class UsersAPI {
      - returns: RequestBuilder<CSApiResponseUpdateUserResponse> 
      */
     open class func usersUpdateTimesheetUserWithRequestBuilder(request: CSUpdateUserRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUpdateUserResponse> {
-        let path = "/api/Users/UpdateTimesheetUser"
+        let path = "/Users/UpdateTimesheetUser"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

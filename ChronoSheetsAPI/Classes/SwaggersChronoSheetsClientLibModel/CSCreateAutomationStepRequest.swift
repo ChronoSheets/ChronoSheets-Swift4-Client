@@ -21,13 +21,15 @@ public struct CSCreateAutomationStepRequest: Codable {
     public var automationActionType: CSAutomationActionType?
     public var latitude: Double?
     public var longitude: Double?
+    public var clientTime: Date?
 
-    public init(geofencingId: Int?, nfcId: Int?, automationActionType: CSAutomationActionType?, latitude: Double?, longitude: Double?) {
+    public init(geofencingId: Int?, nfcId: Int?, automationActionType: CSAutomationActionType?, latitude: Double?, longitude: Double?, clientTime: Date?) {
         self.geofencingId = geofencingId
         self.nfcId = nfcId
         self.automationActionType = automationActionType
         self.latitude = latitude
         self.longitude = longitude
+        self.clientTime = clientTime
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -36,6 +38,7 @@ public struct CSCreateAutomationStepRequest: Codable {
         case automationActionType = "AutomationActionType"
         case latitude = "Latitude"
         case longitude = "Longitude"
+        case clientTime = "ClientTime"
     }
 
 

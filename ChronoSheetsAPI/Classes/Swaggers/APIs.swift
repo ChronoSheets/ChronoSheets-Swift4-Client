@@ -7,7 +7,7 @@
 import Foundation
 
 open class ChronoSheetsAPIAPI {
-    open static var basePath = "https://www.chronosheets.com"
+    open static var basePath = "https://api.chronosheets.com"
     open static var credential: URLCredential?
     open static var customHeaders: [String:String] = [:]
     open static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()

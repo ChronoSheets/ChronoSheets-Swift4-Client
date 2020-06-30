@@ -27,7 +27,7 @@ open class FileAttachmentsAPI {
 
     /**
      Delete a particular timesheet file attachment  Requires the 'SubmitTimesheets' permission.
-     - DELETE /api/FileAttachments/DeleteTimesheetFileAttachment
+     - DELETE /FileAttachments/DeleteTimesheetFileAttachment
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class FileAttachmentsAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func fileAttachmentsDeleteTimesheetFileAttachmentWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/FileAttachments/DeleteTimesheetFileAttachment"
+        let path = "/FileAttachments/DeleteTimesheetFileAttachment"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -87,7 +87,7 @@ open class FileAttachmentsAPI {
 
     /**
      Get a particular file attachment by ID.  User must own the file attachment for access.
-     - GET /api/FileAttachments/GetFileAttachmentById
+     - GET /FileAttachments/GetFileAttachmentById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -161,7 +161,7 @@ open class FileAttachmentsAPI {
      - returns: RequestBuilder<CSApiResponseTimesheetFileAttachment> 
      */
     open class func fileAttachmentsGetFileAttachmentByIdWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTimesheetFileAttachment> {
-        let path = "/api/FileAttachments/GetFileAttachmentById"
+        let path = "/FileAttachments/GetFileAttachmentById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -198,7 +198,7 @@ open class FileAttachmentsAPI {
 
     /**
      Get my file attachments.  Get files you've attached to timesheets.
-     - GET /api/FileAttachments/GetMyFileAttachments
+     - GET /FileAttachments/GetMyFileAttachments
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -329,7 +329,7 @@ open class FileAttachmentsAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment> 
      */
     open class func fileAttachmentsGetMyFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil) -> RequestBuilder<CSApiResponseForPaginatedListTimesheetFileAttachment> {
-        let path = "/api/FileAttachments/GetMyFileAttachments"
+        let path = "/FileAttachments/GetMyFileAttachments"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

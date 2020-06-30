@@ -27,7 +27,7 @@ open class JobCodesAPI {
 
     /**
      Create a job code.    Requires the 'ManageJobsAndTask' permission.
-     - POST /api/JobCodes/CreateJobCode
+     - POST /JobCodes/CreateJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class JobCodesAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func jobCodesCreateJobCodeWithRequestBuilder(request: CSInsertJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/JobCodes/CreateJobCode"
+        let path = "/JobCodes/CreateJobCode"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class JobCodesAPI {
 
     /**
      Delete a job code.    Requires the 'ManageJobsAndTask' permission.
-     - DELETE /api/JobCodes/DeleteJobCode
+     - DELETE /JobCodes/DeleteJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -110,7 +110,7 @@ open class JobCodesAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func jobCodesDeleteJobCodeWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/JobCodes/DeleteJobCode"
+        let path = "/JobCodes/DeleteJobCode"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -144,7 +144,7 @@ open class JobCodesAPI {
 
     /**
      Get a particular job code by job code id.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
-     - GET /api/JobCodes/GetJobCodeById
+     - GET /JobCodes/GetJobCodeById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -186,7 +186,7 @@ open class JobCodesAPI {
      - returns: RequestBuilder<CSApiResponseJobCode> 
      */
     open class func jobCodesGetJobCodeByIdWithRequestBuilder(jobCodeId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseJobCode> {
-        let path = "/api/JobCodes/GetJobCodeById"
+        let path = "/JobCodes/GetJobCodeById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -219,7 +219,7 @@ open class JobCodesAPI {
 
     /**
      Get job codes for your organisation.    Requires 'SubmitTimesheets' or 'ManageJobsAndTasks' permissions.
-     - GET /api/JobCodes/GetJobCodes
+     - GET /JobCodes/GetJobCodes
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -278,7 +278,7 @@ open class JobCodesAPI {
      - returns: RequestBuilder<CSApiResponseListJobCode> 
      */
     open class func jobCodesGetJobCodesWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListJobCode> {
-        let path = "/api/JobCodes/GetJobCodes"
+        let path = "/JobCodes/GetJobCodes"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -309,7 +309,7 @@ open class JobCodesAPI {
 
     /**
      Update a job code.    Requires the 'ManageJobsAndTask' permission.
-     - PUT /api/JobCodes/UpdateJobCode
+     - PUT /JobCodes/UpdateJobCode
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -335,7 +335,7 @@ open class JobCodesAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func jobCodesUpdateJobCodeWithRequestBuilder(request: CSUpdateJobCodeRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/JobCodes/UpdateJobCode"
+        let path = "/JobCodes/UpdateJobCode"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

@@ -27,7 +27,7 @@ open class ProjectsAPI {
 
     /**
      Create a project.    Requires the 'ManageClientsAndProjects' permission.
-     - POST /api/Projects/CreateProject
+     - POST /Projects/CreateProject
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class ProjectsAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func projectsCreateProjectWithRequestBuilder(request: CSInsertProjectRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/Projects/CreateProject"
+        let path = "/Projects/CreateProject"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class ProjectsAPI {
 
     /**
      Get a project by its Id.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
-     - GET /api/Projects/GetProjectById
+     - GET /Projects/GetProjectById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -126,7 +126,7 @@ open class ProjectsAPI {
      - returns: RequestBuilder<CSApiResponseProject> 
      */
     open class func projectsGetProjectByIdWithRequestBuilder(projectId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseProject> {
-        let path = "/api/Projects/GetProjectById"
+        let path = "/Projects/GetProjectById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -160,7 +160,7 @@ open class ProjectsAPI {
 
     /**
      Get projects for a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
-     - GET /api/Projects/GetProjectsForClient
+     - GET /Projects/GetProjectsForClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -220,7 +220,7 @@ open class ProjectsAPI {
      - returns: RequestBuilder<CSApiResponseListProject> 
      */
     open class func projectsGetProjectsForClientWithRequestBuilder(clientId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListProject> {
-        let path = "/api/Projects/GetProjectsForClient"
+        let path = "/Projects/GetProjectsForClient"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -254,7 +254,7 @@ open class ProjectsAPI {
 
     /**
      Update a project.    Requires the 'ManageClientsAndProjects' permission.
-     - PUT /api/Projects/UpdateProject
+     - PUT /Projects/UpdateProject
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -280,7 +280,7 @@ open class ProjectsAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func projectsUpdateProjectWithRequestBuilder(request: CSUpdateProjectRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/Projects/UpdateProject"
+        let path = "/Projects/UpdateProject"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

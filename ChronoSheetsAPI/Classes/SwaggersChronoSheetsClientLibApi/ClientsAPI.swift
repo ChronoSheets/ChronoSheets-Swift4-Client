@@ -27,7 +27,7 @@ open class ClientsAPI {
 
     /**
      Create a client.    Requires the 'ManageClientsAndProjects' permission.
-     - POST /api/Clients/CreateClient
+     - POST /Clients/CreateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class ClientsAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func clientsCreateClientWithRequestBuilder(request: CSInsertClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/Clients/CreateClient"
+        let path = "/Clients/CreateClient"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class ClientsAPI {
 
     /**
      Get a particular client.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
-     - GET /api/Clients/GetClient
+     - GET /Clients/GetClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -138,7 +138,7 @@ open class ClientsAPI {
      - returns: RequestBuilder<CSApiResponseClient> 
      */
     open class func clientsGetClientWithRequestBuilder(clientId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseClient> {
-        let path = "/api/Clients/GetClient"
+        let path = "/Clients/GetClient"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -171,7 +171,7 @@ open class ClientsAPI {
 
     /**
      Get a collection of clients that are under your organisation.    Requires the 'ManageClientsAndProjects' or 'ManageJobsAndTask' permissions.
-     - GET /api/Clients/GetClients
+     - GET /Clients/GetClients
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -254,7 +254,7 @@ open class ClientsAPI {
      - returns: RequestBuilder<CSApiResponseListClient> 
      */
     open class func clientsGetClientsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListClient> {
-        let path = "/api/Clients/GetClients"
+        let path = "/Clients/GetClients"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -285,7 +285,7 @@ open class ClientsAPI {
 
     /**
      Update a client.    Requires the 'ManageClientsAndProjects' permission.
-     - PUT /api/Clients/UpdateClient
+     - PUT /Clients/UpdateClient
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -311,7 +311,7 @@ open class ClientsAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func clientsUpdateClientWithRequestBuilder(request: CSSaveClientRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/Clients/UpdateClient"
+        let path = "/Clients/UpdateClient"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

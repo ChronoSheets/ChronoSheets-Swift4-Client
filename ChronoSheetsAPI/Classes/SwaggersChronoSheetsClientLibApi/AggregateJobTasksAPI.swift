@@ -26,7 +26,7 @@ open class AggregateJobTasksAPI {
 
     /**
      Get jobs and tasks information, aggregated.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
-     - GET /api/AggregateJobTasks/GetAggregateJobTasks
+     - GET /AggregateJobTasks/GetAggregateJobTasks
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -125,7 +125,7 @@ open class AggregateJobTasksAPI {
      - returns: RequestBuilder<CSApiResponseListAggregateJobCode> 
      */
     open class func aggregateJobTasksGetAggregateJobTasksWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListAggregateJobCode> {
-        let path = "/api/AggregateJobTasks/GetAggregateJobTasks"
+        let path = "/AggregateJobTasks/GetAggregateJobTasks"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

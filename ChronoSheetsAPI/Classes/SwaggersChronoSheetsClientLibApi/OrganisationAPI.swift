@@ -26,7 +26,7 @@ open class OrganisationAPI {
 
     /**
      Get your organisation.    Requires 'OrganisationAdmin' permission.
-     - GET /api/Organisation/GetOrganisation
+     - GET /Organisation/GetOrganisation
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -105,7 +105,7 @@ open class OrganisationAPI {
      - returns: RequestBuilder<CSApiResponseOrganisation> 
      */
     open class func organisationGetOrganisationWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseOrganisation> {
-        let path = "/api/Organisation/GetOrganisation"
+        let path = "/Organisation/GetOrganisation"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -136,7 +136,7 @@ open class OrganisationAPI {
 
     /**
      Update an organisation.    Requires 'OrganisationAdmin' permission.
-     - PUT /api/Organisation/UpdateOrganisation
+     - PUT /Organisation/UpdateOrganisation
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -164,7 +164,7 @@ open class OrganisationAPI {
      - returns: RequestBuilder<CSApiResponseUpdateOrganisationResponse> 
      */
     open class func organisationUpdateOrganisationWithRequestBuilder(request: CSUpdateOrganisationRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseUpdateOrganisationResponse> {
-        let path = "/api/Organisation/UpdateOrganisation"
+        let path = "/Organisation/UpdateOrganisation"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

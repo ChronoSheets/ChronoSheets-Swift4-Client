@@ -27,7 +27,7 @@ open class UserJobFavouritesAPI {
 
     /**
      Create a job favourite.    Requires the 'SubmitTimesheets' permission.
-     - POST /api/UserJobFavourites/CreateJobFavourite
+     - POST /UserJobFavourites/CreateJobFavourite
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class UserJobFavouritesAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func userJobFavouritesCreateJobFavouriteWithRequestBuilder(request: CSInsertUserJobFavouriteRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/UserJobFavourites/CreateJobFavourite"
+        let path = "/UserJobFavourites/CreateJobFavourite"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class UserJobFavouritesAPI {
 
     /**
      Delete a job favourite.    Requires the 'SubmitTimesheets' permission.
-     - DELETE /api/UserJobFavourites/DeleteJobFavourite
+     - DELETE /UserJobFavourites/DeleteJobFavourite
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -110,7 +110,7 @@ open class UserJobFavouritesAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func userJobFavouritesDeleteJobFavouriteWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/UserJobFavourites/DeleteJobFavourite"
+        let path = "/UserJobFavourites/DeleteJobFavourite"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -143,7 +143,7 @@ open class UserJobFavouritesAPI {
 
     /**
      Get your job favourites.    Requires the 'SubmitTimesheets' permission.
-     - GET /api/UserJobFavourites/GetJobFavourites
+     - GET /UserJobFavourites/GetJobFavourites
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -178,7 +178,7 @@ open class UserJobFavouritesAPI {
      - returns: RequestBuilder<CSApiResponseListUserJobFavourite> 
      */
     open class func userJobFavouritesGetJobFavouritesWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserJobFavourite> {
-        let path = "/api/UserJobFavourites/GetJobFavourites"
+        let path = "/UserJobFavourites/GetJobFavourites"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

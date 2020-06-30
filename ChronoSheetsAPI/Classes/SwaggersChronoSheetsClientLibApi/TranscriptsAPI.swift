@@ -27,7 +27,7 @@ open class TranscriptsAPI {
 
     /**
      Get an audio to text transcript for a particular audio file attachment
-     - GET /api/Transcripts/GetMyTranscript
+     - GET /Transcripts/GetMyTranscript
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -67,7 +67,7 @@ open class TranscriptsAPI {
      - returns: RequestBuilder<CSApiResponseTranscription> 
      */
     open class func transcriptsGetMyTranscriptWithRequestBuilder(fileAttachmentId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTranscription> {
-        let path = "/api/Transcripts/GetMyTranscript"
+        let path = "/Transcripts/GetMyTranscript"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -105,7 +105,7 @@ open class TranscriptsAPI {
 
     /**
      Get my file transcripts.  Get audio to text transcripts that you've created.
-     - GET /api/Transcripts/GetMyTranscripts
+     - GET /Transcripts/GetMyTranscripts
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -289,7 +289,7 @@ open class TranscriptsAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> 
      */
     open class func transcriptsGetMyTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, keyword: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
-        let path = "/api/Transcripts/GetMyTranscripts"
+        let path = "/Transcripts/GetMyTranscripts"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

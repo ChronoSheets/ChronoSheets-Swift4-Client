@@ -27,7 +27,7 @@ open class TasksAPI {
 
     /**
      Create a task.    Requires the 'ManageJobsAndTask' permission.
-     - POST /api/Tasks/CreateTask
+     - POST /Tasks/CreateTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class TasksAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func tasksCreateTaskWithRequestBuilder(request: CSInsertTaskRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/Tasks/CreateTask"
+        let path = "/Tasks/CreateTask"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class TasksAPI {
 
     /**
      Delete a task.    Requires the 'ManageJobsAndTask' permission.
-     - DELETE /api/Tasks/DeleteTask
+     - DELETE /Tasks/DeleteTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -110,7 +110,7 @@ open class TasksAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func tasksDeleteTaskWithRequestBuilder(taskId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/Tasks/DeleteTask"
+        let path = "/Tasks/DeleteTask"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -144,7 +144,7 @@ open class TasksAPI {
 
     /**
      Get a particular task by Id.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
-     - GET /api/Tasks/GetTaskById
+     - GET /Tasks/GetTaskById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -180,7 +180,7 @@ open class TasksAPI {
      - returns: RequestBuilder<CSApiResponseTimesheetTask> 
      */
     open class func tasksGetTaskByIdWithRequestBuilder(taskId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTimesheetTask> {
-        let path = "/api/Tasks/GetTaskById"
+        let path = "/Tasks/GetTaskById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -213,7 +213,7 @@ open class TasksAPI {
 
     /**
      Get tasks in your organisation.   Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
-     - GET /api/Tasks/GetTasks
+     - GET /Tasks/GetTasks
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -260,7 +260,7 @@ open class TasksAPI {
      - returns: RequestBuilder<CSApiResponseListTimesheetTask> 
      */
     open class func tasksGetTasksWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListTimesheetTask> {
-        let path = "/api/Tasks/GetTasks"
+        let path = "/Tasks/GetTasks"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -291,7 +291,7 @@ open class TasksAPI {
 
     /**
      Get a collection of tasks for a particular Job, specified by JobId.    Requires the 'SubmitTimesheets' or 'ManageJobsAndTask' permissions.
-     - GET /api/Tasks/GetTasksForJob
+     - GET /Tasks/GetTasksForJob
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -339,7 +339,7 @@ open class TasksAPI {
      - returns: RequestBuilder<CSApiResponseListTimesheetTask> 
      */
     open class func tasksGetTasksForJobWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListTimesheetTask> {
-        let path = "/api/Tasks/GetTasksForJob"
+        let path = "/Tasks/GetTasksForJob"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -373,7 +373,7 @@ open class TasksAPI {
 
     /**
      Update a task.    Requires the 'ManageJobsAndTask' permission.
-     - PUT /api/Tasks/UpdateTask
+     - PUT /Tasks/UpdateTask
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -399,7 +399,7 @@ open class TasksAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func tasksUpdateTaskWithRequestBuilder(request: CSUpdateTaskRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/Tasks/UpdateTask"
+        let path = "/Tasks/UpdateTask"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

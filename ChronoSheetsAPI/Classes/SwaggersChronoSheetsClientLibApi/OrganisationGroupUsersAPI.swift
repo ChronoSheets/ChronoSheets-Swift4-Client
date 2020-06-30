@@ -27,7 +27,7 @@ open class OrganisationGroupUsersAPI {
 
     /**
      Get a collection of organisation group users that belong to an organisation group.    Requires the 'ManageOrganisationGroups' or 'ManageOrganisationUsers' permissions.
-     - GET /api/OrganisationGroupUsers/GetOrganisationGroupUsers
+     - GET /OrganisationGroupUsers/GetOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -219,7 +219,7 @@ open class OrganisationGroupUsersAPI {
      - returns: RequestBuilder<CSApiResponseListUserForManagement> 
      */
     open class func organisationGroupUsersGetOrganisationGroupUsersWithRequestBuilder(orgGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserForManagement> {
-        let path = "/api/OrganisationGroupUsers/GetOrganisationGroupUsers"
+        let path = "/OrganisationGroupUsers/GetOrganisationGroupUsers"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -253,7 +253,7 @@ open class OrganisationGroupUsersAPI {
 
     /**
      Set the users who belong to an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
-     - PUT /api/OrganisationGroupUsers/UpdateOrganisationGroupUsers
+     - PUT /OrganisationGroupUsers/UpdateOrganisationGroupUsers
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -279,7 +279,7 @@ open class OrganisationGroupUsersAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func organisationGroupUsersUpdateOrganisationGroupUsersWithRequestBuilder(request: CSSetOrganisationGroupUsersRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/OrganisationGroupUsers/UpdateOrganisationGroupUsers"
+        let path = "/OrganisationGroupUsers/UpdateOrganisationGroupUsers"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

@@ -45,7 +45,7 @@ open class ReportsAPI {
 
     /**
      Get Consolidated Admin Reports Data (Jobs, Tasks, Clients and Projects).  These are the organisation wide reports, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/GetAllChartsDataAdmin
+     - GET /Reports/GetAllChartsDataAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -310,7 +310,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
      */
     open class func reportsGetAllChartsDataAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, forceOnlyThisChart: CSForceOnlyThisChart_reportsGetAllChartsDataAdmin? = nil) -> RequestBuilder<CSApiResponseCombinedReportsData> {
-        let path = "/api/Reports/GetAllChartsDataAdmin"
+        let path = "/Reports/GetAllChartsDataAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -348,7 +348,7 @@ open class ReportsAPI {
 
     /**
      Get Consolidated User Reports Data (Jobs, Tasks, Clients and Projects).  These are the user's own reports.    Requires the 'ViewOwnReports' permission.
-     - GET /api/Reports/GetAllChartsDataUser
+     - GET /Reports/GetAllChartsDataUser
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -611,7 +611,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseCombinedReportsData> 
      */
     open class func reportsGetAllChartsDataUserWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseCombinedReportsData> {
-        let path = "/api/Reports/GetAllChartsDataUser"
+        let path = "/Reports/GetAllChartsDataUser"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -648,7 +648,7 @@ open class ReportsAPI {
 
     /**
      Gets a summary report, which includes total distance travelled and total running costs, for vehicles within your organisation  Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/GetFleetSummaryAdmin
+     - GET /Reports/GetFleetSummaryAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -734,7 +734,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseListFleetSummaryReportItem> 
      */
     open class func reportsGetFleetSummaryAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil) -> RequestBuilder<CSApiResponseListFleetSummaryReportItem> {
-        let path = "/api/Reports/GetFleetSummaryAdmin"
+        let path = "/Reports/GetFleetSummaryAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -770,7 +770,7 @@ open class ReportsAPI {
 
     /**
      Get trip by Id, for reporting purposes.    Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/GetOrgTripById
+     - GET /Reports/GetOrgTripById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -846,7 +846,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseTrip> 
      */
     open class func reportsGetOrgTripByIdWithRequestBuilder(tripId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTrip> {
-        let path = "/api/Reports/GetOrgTripById"
+        let path = "/Reports/GetOrgTripById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -884,7 +884,7 @@ open class ReportsAPI {
 
     /**
      Reports on Organisation timesheet file attachments (files uploaded and attached to timesheet records)  Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/GetOrganisationTimesheetFileAttachments
+     - GET /Reports/GetOrganisationTimesheetFileAttachments
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -1032,7 +1032,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> 
      */
     open class func reportsGetOrganisationTimesheetFileAttachmentsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTimesheetFileAttachment> {
-        let path = "/api/Reports/GetOrganisationTimesheetFileAttachments"
+        let path = "/Reports/GetOrganisationTimesheetFileAttachments"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -1075,7 +1075,7 @@ open class ReportsAPI {
 
     /**
      Reports on Organisation transcripts (When an audio file is attached, it will be automatically transcribed, these are the transcriptions)    Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/GetOrganisationTranscripts
+     - GET /Reports/GetOrganisationTranscripts
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -1260,7 +1260,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> 
      */
     open class func reportsGetOrganisationTranscriptsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil, keywords: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTranscript> {
-        let path = "/api/Reports/GetOrganisationTranscripts"
+        let path = "/Reports/GetOrganisationTranscripts"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -1303,7 +1303,7 @@ open class ReportsAPI {
 
     /**
      Reports on Organisation trips (GPS tracking from whole organisation).    Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/GetOrganisationTrips
+     - GET /Reports/GetOrganisationTrips
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -1455,7 +1455,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> 
      */
     open class func reportsGetOrganisationTripsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, userIds: String? = nil) -> RequestBuilder<CSApiResponseForPaginatedListOrgReportTrip> {
-        let path = "/api/Reports/GetOrganisationTrips"
+        let path = "/Reports/GetOrganisationTrips"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -1527,7 +1527,7 @@ open class ReportsAPI {
 
     /**
      Get Timesheets Raw Data.  This data details each timesheet record.  These are the organisation wide timesheet records, with data from potentially all employees.    Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/GetRawDataAdmin
+     - GET /Reports/GetRawDataAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -1637,7 +1637,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListRawReportItem> 
      */
     open class func reportsGetRawDataAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil, sort: CSSort_reportsGetRawDataAdmin? = nil, order: CSOrder_reportsGetRawDataAdmin? = nil, skip: Int? = nil, take: Int? = nil) -> RequestBuilder<CSApiResponseForPaginatedListRawReportItem> {
-        let path = "/api/Reports/GetRawDataAdmin"
+        let path = "/Reports/GetRawDataAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -1679,7 +1679,7 @@ open class ReportsAPI {
 
     /**
      Gets project cost estimations VS actual cost for date range and users.    Requires the 'ReportAdmin' permission.
-     - GET /api/Reports/ProjectCostingsAdmin
+     - GET /Reports/ProjectCostingsAdmin
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -1741,7 +1741,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseListProjectCostingReportItem> 
      */
     open class func reportsProjectCostingsAdminWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, userIds: String? = nil) -> RequestBuilder<CSApiResponseListProjectCostingReportItem> {
-        let path = "/api/Reports/ProjectCostingsAdmin"
+        let path = "/Reports/ProjectCostingsAdmin"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -1778,7 +1778,7 @@ open class ReportsAPI {
 
     /**
      Timeseries jobs data for the logged in user.    Requires the 'ViewOwnReports' or 'SubmitTimesheets'.
-     - GET /api/Reports/UserJobsOverTime
+     - GET /Reports/UserJobsOverTime
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -1843,7 +1843,7 @@ open class ReportsAPI {
      - returns: RequestBuilder<CSApiResponseListJobSeriesReportItem> 
      */
     open class func reportsUserJobsOverTimeWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListJobSeriesReportItem> {
-        let path = "/api/Reports/UserJobsOverTime"
+        let path = "/Reports/UserJobsOverTime"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

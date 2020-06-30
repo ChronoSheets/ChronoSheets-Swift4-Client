@@ -27,7 +27,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Create an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
-     - POST /api/OrganisationGroups/CreateOrganisationGroup
+     - POST /OrganisationGroups/CreateOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class OrganisationGroupsAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func organisationGroupsCreateOrganisationGroupWithRequestBuilder(request: CSInsertOrganisationGroupRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/OrganisationGroups/CreateOrganisationGroup"
+        let path = "/OrganisationGroups/CreateOrganisationGroup"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -82,7 +82,7 @@ open class OrganisationGroupsAPI {
 
 
     /**
-     - DELETE /api/OrganisationGroups/DeleteOrganisationGroup
+     - DELETE /OrganisationGroups/DeleteOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -108,7 +108,7 @@ open class OrganisationGroupsAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func organisationGroupsDeleteOrganisationGroupWithRequestBuilder(organisationGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/OrganisationGroups/DeleteOrganisationGroup"
+        let path = "/OrganisationGroups/DeleteOrganisationGroup"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -142,7 +142,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Get a particular organisation group.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
-     - GET /api/OrganisationGroups/GetOrganisationGroup
+     - GET /OrganisationGroups/GetOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -176,7 +176,7 @@ open class OrganisationGroupsAPI {
      - returns: RequestBuilder<CSApiResponseOrganisationGroup> 
      */
     open class func organisationGroupsGetOrganisationGroupWithRequestBuilder(organisationGroupId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseOrganisationGroup> {
-        let path = "/api/OrganisationGroups/GetOrganisationGroup"
+        let path = "/OrganisationGroups/GetOrganisationGroup"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -209,7 +209,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Get a collection of organisation groups that are under your organisation.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
-     - GET /api/OrganisationGroups/GetOrganisationGroups
+     - GET /OrganisationGroups/GetOrganisationGroups
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -252,7 +252,7 @@ open class OrganisationGroupsAPI {
      - returns: RequestBuilder<CSApiResponseListOrganisationGroup> 
      */
     open class func organisationGroupsGetOrganisationGroupsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListOrganisationGroup> {
-        let path = "/api/OrganisationGroups/GetOrganisationGroups"
+        let path = "/OrganisationGroups/GetOrganisationGroups"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -283,7 +283,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Get org groups for a particular job.    Requires the 'ManageOrganisationGroups', 'ManageJobsAndTask', 'ManageClientsAndProjects' or 'ManageOrganisationUsers' permissions.
-     - GET /api/OrganisationGroups/GetOrganisationGroupsForJob
+     - GET /OrganisationGroups/GetOrganisationGroupsForJob
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -327,7 +327,7 @@ open class OrganisationGroupsAPI {
      - returns: RequestBuilder<CSApiResponseListOrganisationGroup> 
      */
     open class func organisationGroupsGetOrganisationGroupsForJobWithRequestBuilder(jobId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListOrganisationGroup> {
-        let path = "/api/OrganisationGroups/GetOrganisationGroupsForJob"
+        let path = "/OrganisationGroups/GetOrganisationGroupsForJob"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -361,7 +361,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Get org groups for a particular vehicle.    Requires the 'ManageOrganisationGroups', 'ManageFleet' or 'ManageOrganisationUsers' permissions.
-     - GET /api/OrganisationGroups/GetOrganisationGroupsForVehicle
+     - GET /OrganisationGroups/GetOrganisationGroupsForVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -405,7 +405,7 @@ open class OrganisationGroupsAPI {
      - returns: RequestBuilder<CSApiResponseListOrganisationGroup> 
      */
     open class func organisationGroupsGetOrganisationGroupsForVehicleWithRequestBuilder(vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListOrganisationGroup> {
-        let path = "/api/OrganisationGroups/GetOrganisationGroupsForVehicle"
+        let path = "/OrganisationGroups/GetOrganisationGroupsForVehicle"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -439,7 +439,7 @@ open class OrganisationGroupsAPI {
 
     /**
      Update an organisation group.    Requires the 'ManageOrganisationGroups' permissions.
-     - PUT /api/OrganisationGroups/UpdateOrganisationGroup
+     - PUT /OrganisationGroups/UpdateOrganisationGroup
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -465,7 +465,7 @@ open class OrganisationGroupsAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func organisationGroupsUpdateOrganisationGroupWithRequestBuilder(request: CSSaveOrganisationGroupRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/OrganisationGroups/UpdateOrganisationGroup"
+        let path = "/OrganisationGroups/UpdateOrganisationGroup"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

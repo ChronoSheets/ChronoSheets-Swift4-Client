@@ -27,7 +27,7 @@ open class GeoFencingAPI {
 
     /**
      Create a geofencing with rules to be used for clock on/off automation.  Requires the 'ManageGeofencing' permission.
-     - POST /api/GeoFencing/CreateGeofence
+     - POST /GeoFencing/CreateGeofence
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class GeoFencingAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func geoFencingCreateGeofenceWithRequestBuilder(request: CSCreateGeoFenceRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/GeoFencing/CreateGeofence"
+        let path = "/GeoFencing/CreateGeofence"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class GeoFencingAPI {
 
     /**
      Deletes a geofence.  Requires the 'ManageGeofencing' permission.
-     - DELETE /api/GeoFencing/DeleteGeofence
+     - DELETE /GeoFencing/DeleteGeofence
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -158,7 +158,7 @@ open class GeoFencingAPI {
      - returns: RequestBuilder<CSApiResponseGeofence> 
      */
     open class func geoFencingDeleteGeofenceWithRequestBuilder(geofenceId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseGeofence> {
-        let path = "/api/GeoFencing/DeleteGeofence"
+        let path = "/GeoFencing/DeleteGeofence"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -192,7 +192,7 @@ open class GeoFencingAPI {
 
     /**
      Get a geofence by ID  Requires the 'SubmitTimesheets' permission.
-     - GET /api/GeoFencing/GetGeofenceById
+     - GET /GeoFencing/GetGeofenceById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -266,7 +266,7 @@ open class GeoFencingAPI {
      - returns: RequestBuilder<CSApiResponseGeofence> 
      */
     open class func geoFencingGetGeofenceByIdWithRequestBuilder(geofenceId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseGeofence> {
-        let path = "/api/GeoFencing/GetGeofenceById"
+        let path = "/GeoFencing/GetGeofenceById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -301,7 +301,7 @@ open class GeoFencingAPI {
 
     /**
      Get geofences belonging to your organisation  Requires the 'SubmitTimesheets' permission.
-     - GET /api/GeoFencing/GetGeofences
+     - GET /GeoFencing/GetGeofences
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -450,7 +450,7 @@ open class GeoFencingAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListExtendedGeofence> 
      */
     open class func geoFencingGetGeofencesWithRequestBuilder(xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil) -> RequestBuilder<CSApiResponseForPaginatedListExtendedGeofence> {
-        let path = "/api/GeoFencing/GetGeofences"
+        let path = "/GeoFencing/GetGeofences"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -485,7 +485,7 @@ open class GeoFencingAPI {
 
     /**
      Updates a geofencing with rules to be used for clock on/off automation.  Requires the 'ManageGeofencing' permission.
-     - PUT /api/GeoFencing/UpdateGeofence
+     - PUT /GeoFencing/UpdateGeofence
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -511,7 +511,7 @@ open class GeoFencingAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func geoFencingUpdateGeofenceWithRequestBuilder(request: CSUpdateGeoFenceRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/GeoFencing/UpdateGeofence"
+        let path = "/GeoFencing/UpdateGeofence"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

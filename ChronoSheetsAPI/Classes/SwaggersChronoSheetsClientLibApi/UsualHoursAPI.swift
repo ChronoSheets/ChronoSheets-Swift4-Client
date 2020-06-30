@@ -27,7 +27,7 @@ open class UsualHoursAPI {
 
     /**
      Get usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
-     - GET /api/UsualHours/GetUsualHours
+     - GET /UsualHours/GetUsualHours
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -131,7 +131,7 @@ open class UsualHoursAPI {
      - returns: RequestBuilder<CSApiResponseListUsualHoursDay> 
      */
     open class func usualHoursGetUsualHoursWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUsualHoursDay> {
-        let path = "/api/UsualHours/GetUsualHours"
+        let path = "/UsualHours/GetUsualHours"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -165,7 +165,7 @@ open class UsualHoursAPI {
 
     /**
      Set usual hours (rostered hours) for an employee.  Requires the 'ManageOrganisationUsers' permission.
-     - PUT /api/UsualHours/SetUsualHours
+     - PUT /UsualHours/SetUsualHours
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -191,7 +191,7 @@ open class UsualHoursAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func usualHoursSetUsualHoursWithRequestBuilder(request: CSSetUsualHoursRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/UsualHours/SetUsualHours"
+        let path = "/UsualHours/SetUsualHours"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

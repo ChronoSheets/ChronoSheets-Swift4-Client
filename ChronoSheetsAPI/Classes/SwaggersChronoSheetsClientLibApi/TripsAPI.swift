@@ -27,7 +27,7 @@ open class TripsAPI {
 
     /**
      Create a new trip.  Important: create a timesheet record before calling this, passing in the new timesheet record id as a reference.    Requires the 'SubmitTimesheets' permission.
-     - POST /api/Trips/CreateTrip
+     - POST /Trips/CreateTrip
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class TripsAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func tripsCreateTripWithRequestBuilder(request: CSCreateTripRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/Trips/CreateTrip"
+        let path = "/Trips/CreateTrip"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class TripsAPI {
 
     /**
      Get trip by Id.    Requires the 'ViewMyTrips' permission.
-     - GET /api/Trips/GetMyTripById
+     - GET /Trips/GetMyTripById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -160,7 +160,7 @@ open class TripsAPI {
      - returns: RequestBuilder<CSApiResponseTrip> 
      */
     open class func tripsGetMyTripByIdWithRequestBuilder(tripId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseTrip> {
-        let path = "/api/Trips/GetMyTripById"
+        let path = "/Trips/GetMyTripById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -198,7 +198,7 @@ open class TripsAPI {
 
     /**
      Get my trips.  Get the GPS trips you've recorded and submitted.    Requires the 'ViewMyTrips' permission.
-     - GET /api/Trips/GetMyTrips
+     - GET /Trips/GetMyTrips
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "TotalSetCount" : 0,
@@ -334,7 +334,7 @@ open class TripsAPI {
      - returns: RequestBuilder<CSApiResponseForPaginatedListTrip> 
      */
     open class func tripsGetMyTripsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, vehicleId: Int? = nil) -> RequestBuilder<CSApiResponseForPaginatedListTrip> {
-        let path = "/api/Trips/GetMyTrips"
+        let path = "/Trips/GetMyTrips"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

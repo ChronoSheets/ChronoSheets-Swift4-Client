@@ -27,7 +27,7 @@ open class UserPayRatesAPI {
 
     /**
      Create a new pay rate for a particular user, archiving the previous pay rate.    Requires the 'ManageOrganisationUsers' permission.
-     - POST /api/UserPayRates/CreatePayRate
+     - POST /UserPayRates/CreatePayRate
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class UserPayRatesAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func userPayRatesCreatePayRateWithRequestBuilder(request: CSInsertUserHourlyRateRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/UserPayRates/CreatePayRate"
+        let path = "/UserPayRates/CreatePayRate"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class UserPayRatesAPI {
 
     /**
      Get a collection of pay rates for a particular user, specified by user id.    Requires the 'ManageOrganisationUsers' permission.
-     - GET /api/UserPayRates/GetPayRates
+     - GET /UserPayRates/GetPayRates
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -144,7 +144,7 @@ open class UserPayRatesAPI {
      - returns: RequestBuilder<CSApiResponseListUserHourlyRate> 
      */
     open class func userPayRatesGetPayRatesWithRequestBuilder(userId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListUserHourlyRate> {
-        let path = "/api/UserPayRates/GetPayRates"
+        let path = "/UserPayRates/GetPayRates"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

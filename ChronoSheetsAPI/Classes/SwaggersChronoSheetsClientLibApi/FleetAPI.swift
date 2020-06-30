@@ -27,7 +27,7 @@ open class FleetAPI {
 
     /**
      Create a vehicle.    Requires the 'ManageFleet' permission.
-     - POST /api/Fleet/CreateVehicle
+     - POST /Fleet/CreateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class FleetAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func fleetCreateVehicleWithRequestBuilder(request: CSInsertVehicleRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/Fleet/CreateVehicle"
+        let path = "/Fleet/CreateVehicle"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class FleetAPI {
 
     /**
      Delete a vehicle from the fleet.  Requires the 'ManageFleet' permission.
-     - DELETE /api/Fleet/DeleteVehicle
+     - DELETE /Fleet/DeleteVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -110,7 +110,7 @@ open class FleetAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func fleetDeleteVehicleWithRequestBuilder(vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/Fleet/DeleteVehicle"
+        let path = "/Fleet/DeleteVehicle"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -144,7 +144,7 @@ open class FleetAPI {
 
     /**
      Get a particular vehicle.  Does not require any special permission.
-     - GET /api/Fleet/GetVehicleById
+     - GET /Fleet/GetVehicleById
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -190,7 +190,7 @@ open class FleetAPI {
      - returns: RequestBuilder<CSApiResponseFleetVehicle> 
      */
     open class func fleetGetVehicleByIdWithRequestBuilder(vehicleId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseFleetVehicle> {
-        let path = "/api/Fleet/GetVehicleById"
+        let path = "/Fleet/GetVehicleById"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -224,7 +224,7 @@ open class FleetAPI {
 
     /**
      Get a collection of vehicles that are under your organisation.    Does not require any special permission.
-     - GET /api/Fleet/GetVehicles
+     - GET /Fleet/GetVehicles
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -292,7 +292,7 @@ open class FleetAPI {
      - returns: RequestBuilder<CSApiResponseListFleetVehicle> 
      */
     open class func fleetGetVehiclesWithRequestBuilder(xChronosheetsAuth: String, includeDeleted: Bool? = nil) -> RequestBuilder<CSApiResponseListFleetVehicle> {
-        let path = "/api/Fleet/GetVehicles"
+        let path = "/Fleet/GetVehicles"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -326,7 +326,7 @@ open class FleetAPI {
 
     /**
      Update a vehicle.    Requires the 'ManageFleet' permission.
-     - PUT /api/Fleet/UpdateVehicle
+     - PUT /Fleet/UpdateVehicle
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -352,7 +352,7 @@ open class FleetAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func fleetUpdateVehicleWithRequestBuilder(request: CSSaveVehicleRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/Fleet/UpdateVehicle"
+        let path = "/Fleet/UpdateVehicle"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 

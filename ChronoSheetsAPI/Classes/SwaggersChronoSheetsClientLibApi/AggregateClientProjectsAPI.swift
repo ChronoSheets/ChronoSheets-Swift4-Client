@@ -26,7 +26,7 @@ open class AggregateClientProjectsAPI {
 
     /**
      Get client and project information, aggregated.    Requires the 'SubmitTimesheets' or 'ManageClientsAndProjects' permissions.
-     - GET /api/AggregateClientProjects/GetAggregateClientProjects
+     - GET /AggregateClientProjects/GetAggregateClientProjects
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -177,7 +177,7 @@ open class AggregateClientProjectsAPI {
      - returns: RequestBuilder<CSApiResponseListAggregateClient> 
      */
     open class func aggregateClientProjectsGetAggregateClientProjectsWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListAggregateClient> {
-        let path = "/api/AggregateClientProjects/GetAggregateClientProjects"
+        let path = "/AggregateClientProjects/GetAggregateClientProjects"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         

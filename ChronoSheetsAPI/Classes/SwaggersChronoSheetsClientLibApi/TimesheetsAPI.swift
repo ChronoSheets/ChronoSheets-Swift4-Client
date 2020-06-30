@@ -27,7 +27,7 @@ open class TimesheetsAPI {
 
     /**
      Inserts a single timesheet record.    Requires the 'SubmitTimesheets' permission.
-     - POST /api/Timesheets/CreateSingleTimesheet
+     - POST /Timesheets/CreateSingleTimesheet
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -53,7 +53,7 @@ open class TimesheetsAPI {
      - returns: RequestBuilder<CSApiResponseInt32> 
      */
     open class func timesheetsCreateSingleTimesheetWithRequestBuilder(request: CSTimesheet, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseInt32> {
-        let path = "/api/Timesheets/CreateSingleTimesheet"
+        let path = "/Timesheets/CreateSingleTimesheet"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
@@ -84,7 +84,7 @@ open class TimesheetsAPI {
 
     /**
      Delete a timesheet.    Requires the 'SubmitTimesheets' permission.
-     - DELETE /api/Timesheets/DeleteTimesheet
+     - DELETE /Timesheets/DeleteTimesheet
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -110,7 +110,7 @@ open class TimesheetsAPI {
      - returns: RequestBuilder<CSApiResponseBoolean> 
      */
     open class func timesheetsDeleteTimesheetWithRequestBuilder(timesheetId: Int, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseBoolean> {
-        let path = "/api/Timesheets/DeleteTimesheet"
+        let path = "/Timesheets/DeleteTimesheet"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -145,7 +145,7 @@ open class TimesheetsAPI {
 
     /**
      Get timesheets between start and end dates.  Note: the date range cannot exceed 24 hours.  This method is generally used to get timesheets for a particular day.    Requires the 'SubmitTimesheets' permission.
-     - GET /api/Timesheets/GetTimesheets
+     - GET /Timesheets/GetTimesheets
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -222,7 +222,7 @@ open class TimesheetsAPI {
      - returns: RequestBuilder<CSApiResponseListTimesheet> 
      */
     open class func timesheetsGetTimesheetsWithRequestBuilder(startDate: Date, endDate: Date, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListTimesheet> {
-        let path = "/api/Timesheets/GetTimesheets"
+        let path = "/Timesheets/GetTimesheets"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
         
@@ -257,7 +257,7 @@ open class TimesheetsAPI {
 
     /**
      Batch update timesheets.    Requires the 'SubmitTimesheets' permission.
-     - PUT /api/Timesheets/UpdateTimesheets
+     - PUT /Timesheets/UpdateTimesheets
      - examples: [{contentType=application/json, example={
   "Status" : "Succeeded",
   "Message" : "Message",
@@ -283,7 +283,7 @@ open class TimesheetsAPI {
      - returns: RequestBuilder<CSApiResponseListInt32> 
      */
     open class func timesheetsUpdateTimesheetsWithRequestBuilder(request: CSBatchUpdateTimesheetRequest, xChronosheetsAuth: String) -> RequestBuilder<CSApiResponseListInt32> {
-        let path = "/api/Timesheets/UpdateTimesheets"
+        let path = "/Timesheets/UpdateTimesheets"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: request)
 
