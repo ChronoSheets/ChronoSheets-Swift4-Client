@@ -68,6 +68,7 @@ open class TimesheetAutomationAPI {
      Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
      
      - parameter geofenceId: (query) The ID of the Geofence 
+     - parameter nfcId: (query)  
      - parameter userId: (query)  
      - parameter sort: (query)  
      - parameter order: (query)  
@@ -76,8 +77,8 @@ open class TimesheetAutomationAPI {
      - parameter take: (query) Take this many records (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: Int, userId: Int, sort: Sort_timesheetAutomationGetTimesheetAutomationAuditTrail, order: Order_timesheetAutomationGetTimesheetAutomationAuditTrail, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, completion: @escaping ((_ data: ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence?,_ error: Error?) -> Void)) {
-        timesheetAutomationGetTimesheetAutomationAuditTrailWithRequestBuilder(geofenceId: geofenceId, userId: userId, sort: sort, order: order, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take).execute { (response, error) -> Void in
+    open class func timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: Int, nfcId: Int, userId: Int, sort: Sort_timesheetAutomationGetTimesheetAutomationAuditTrail, order: Order_timesheetAutomationGetTimesheetAutomationAuditTrail, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, completion: @escaping ((_ data: ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence?,_ error: Error?) -> Void)) {
+        timesheetAutomationGetTimesheetAutomationAuditTrailWithRequestBuilder(geofenceId: geofenceId, nfcId: nfcId, userId: userId, sort: sort, order: order, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -86,6 +87,7 @@ open class TimesheetAutomationAPI {
      Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
      - GET /TimesheetAutomation/GetTimesheetAutomationAuditTrail
      - parameter geofenceId: (query) The ID of the Geofence 
+     - parameter nfcId: (query)  
      - parameter userId: (query)  
      - parameter sort: (query)  
      - parameter order: (query)  
@@ -94,7 +96,7 @@ open class TimesheetAutomationAPI {
      - parameter take: (query) Take this many records (optional)
      - returns: RequestBuilder<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence> 
      */
-    open class func timesheetAutomationGetTimesheetAutomationAuditTrailWithRequestBuilder(geofenceId: Int, userId: Int, sort: Sort_timesheetAutomationGetTimesheetAutomationAuditTrail, order: Order_timesheetAutomationGetTimesheetAutomationAuditTrail, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil) -> RequestBuilder<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence> {
+    open class func timesheetAutomationGetTimesheetAutomationAuditTrailWithRequestBuilder(geofenceId: Int, nfcId: Int, userId: Int, sort: Sort_timesheetAutomationGetTimesheetAutomationAuditTrail, order: Order_timesheetAutomationGetTimesheetAutomationAuditTrail, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil) -> RequestBuilder<ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence> {
         let path = "/TimesheetAutomation/GetTimesheetAutomationAuditTrail"
         let URLString = ChronoSheetsAPIAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -102,6 +104,7 @@ open class TimesheetAutomationAPI {
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "GeofenceId": geofenceId.encodeToJSON(), 
+            "NfcId": nfcId.encodeToJSON(), 
             "UserId": userId.encodeToJSON(), 
             "Sort": sort.encodeToJSON(), 
             "Order": order.encodeToJSON(), 

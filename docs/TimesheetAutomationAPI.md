@@ -60,7 +60,7 @@ No authorization required
 
 # **timesheetAutomationGetTimesheetAutomationAuditTrail**
 ```swift
-    open class func timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: Int, userId: Int, sort: Sort_timesheetAutomationGetTimesheetAutomationAuditTrail, order: Order_timesheetAutomationGetTimesheetAutomationAuditTrail, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, completion: @escaping (_ data: ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence?, _ error: Error?) -> Void)
+    open class func timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: Int, nfcId: Int, userId: Int, sort: Sort_timesheetAutomationGetTimesheetAutomationAuditTrail, order: Order_timesheetAutomationGetTimesheetAutomationAuditTrail, xChronosheetsAuth: String, skip: Int? = nil, take: Int? = nil, completion: @escaping (_ data: ApiResponseForPaginatedListTimesheetAutomationWithOrgAndGeofence?, _ error: Error?) -> Void)
 ```
 
 Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
@@ -71,6 +71,7 @@ Retrieve the timesheet automation / alerts for geofences activities or NFC tap o
 import ChronoSheetsAPI
 
 let geofenceId = 987 // Int | The ID of the Geofence
+let nfcId = 987 // Int | 
 let userId = 987 // Int | 
 let sort = "sort_example" // String | 
 let order = "order_example" // String | 
@@ -79,7 +80,7 @@ let skip = 987 // Int | Skip this many records (optional)
 let take = 987 // Int | Take this many records (optional)
 
 // Retrieve the timesheet automation / alerts for geofences activities or NFC tap on/off.  Requires the 'ManageGeofencing' permission.
-TimesheetAutomationAPI.timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: geofenceId, userId: userId, sort: sort, order: order, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take) { (response, error) in
+TimesheetAutomationAPI.timesheetAutomationGetTimesheetAutomationAuditTrail(geofenceId: geofenceId, nfcId: nfcId, userId: userId, sort: sort, order: order, xChronosheetsAuth: xChronosheetsAuth, skip: skip, take: take) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -96,6 +97,7 @@ TimesheetAutomationAPI.timesheetAutomationGetTimesheetAutomationAuditTrail(geofe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **geofenceId** | **Int** | The ID of the Geofence | 
+ **nfcId** | **Int** |  | 
  **userId** | **Int** |  | 
  **sort** | **String** |  | 
  **order** | **String** |  | 
