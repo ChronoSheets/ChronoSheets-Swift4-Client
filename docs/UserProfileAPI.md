@@ -23,7 +23,7 @@ Login to your ChronoSheets account and obtain an Auth Token which you can use fo
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import ChronoSheetsAPI
 
-let request = DoLoginRequest(usernameOrEmail: "usernameOrEmail_example", password: "password_example") // DoLoginRequest | A request object containing your username/email and password.
+let request = DoLoginRequest(usernameOrEmail: "usernameOrEmail_example", password: "password_example", rememberMe: false) // DoLoginRequest | A request object containing your username/email and password.
 
 // Login to your ChronoSheets account and obtain an Auth Token which you can use for other ChronoSheets API methods.    Does not require any special permissions.
 UserProfileAPI.userProfileDoLogin(request: request) { (response, error) in

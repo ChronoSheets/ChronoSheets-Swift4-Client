@@ -15,15 +15,19 @@ public struct DoLoginRequest: Codable {
     public var usernameOrEmail: String?
     /** Your ChronoSheets password */
     public var password: String?
+    /** Increase session expiry beyond default of 1 hour */
+    public var rememberMe: Bool?
 
-    public init(usernameOrEmail: String?, password: String?) {
+    public init(usernameOrEmail: String?, password: String?, rememberMe: Bool?) {
         self.usernameOrEmail = usernameOrEmail
         self.password = password
+        self.rememberMe = rememberMe
     }
 
     public enum CodingKeys: String, CodingKey { 
         case usernameOrEmail = "UsernameOrEmail"
         case password = "Password"
+        case rememberMe = "RememberMe"
     }
 
 }
