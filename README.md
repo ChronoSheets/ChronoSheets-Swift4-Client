@@ -45,6 +45,7 @@ Class | Method | HTTP request | Description
 *GeoFencingAPI* | [**geoFencingDeleteGeofence**](docs/GeoFencingAPI.md#geofencingdeletegeofence) | **DELETE** /GeoFencing/DeleteGeofence | Deletes a geofence.  Requires the &#39;ManageGeofencing&#39; permission.
 *GeoFencingAPI* | [**geoFencingGetGeofenceById**](docs/GeoFencingAPI.md#geofencinggetgeofencebyid) | **GET** /GeoFencing/GetGeofenceById | Get a geofence by ID  Requires the &#39;SubmitTimesheets&#39; permission.
 *GeoFencingAPI* | [**geoFencingGetGeofences**](docs/GeoFencingAPI.md#geofencinggetgeofences) | **GET** /GeoFencing/GetGeofences | Get geofences belonging to your organisation  Requires the &#39;SubmitTimesheets&#39; permission.
+*GeoFencingAPI* | [**geoFencingGetGeofencesBasicInfo**](docs/GeoFencingAPI.md#geofencinggetgeofencesbasicinfo) | **GET** /GeoFencing/GetGeofencesBasicInfo | Gets a list of all geofences in your organisation, including just the name and ID.
 *GeoFencingAPI* | [**geoFencingUpdateGeofence**](docs/GeoFencingAPI.md#geofencingupdategeofence) | **PUT** /GeoFencing/UpdateGeofence | Updates a geofencing with rules to be used for clock on/off automation.  Requires the &#39;ManageGeofencing&#39; permission.
 *JobCodesAPI* | [**jobCodesCreateJobCode**](docs/JobCodesAPI.md#jobcodescreatejobcode) | **POST** /JobCodes/CreateJobCode | Create a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.
 *JobCodesAPI* | [**jobCodesDeleteJobCode**](docs/JobCodesAPI.md#jobcodesdeletejobcode) | **DELETE** /JobCodes/DeleteJobCode | Delete a job code.    Requires the &#39;ManageJobsAndTask&#39; permission.
@@ -122,6 +123,7 @@ Class | Method | HTTP request | Description
  - [ApiResponseCombinedReportsData](docs/ApiResponseCombinedReportsData.md)
  - [ApiResponseDoLoginResponse](docs/ApiResponseDoLoginResponse.md)
  - [ApiResponseFleetVehicle](docs/ApiResponseFleetVehicle.md)
+ - [ApiResponseForPaginatedListBasicGeofence](docs/ApiResponseForPaginatedListBasicGeofence.md)
  - [ApiResponseForPaginatedListExtendedGeofence](docs/ApiResponseForPaginatedListExtendedGeofence.md)
  - [ApiResponseForPaginatedListOrgReportTimesheetFileAttachment](docs/ApiResponseForPaginatedListOrgReportTimesheetFileAttachment.md)
  - [ApiResponseForPaginatedListOrgReportTranscript](docs/ApiResponseForPaginatedListOrgReportTranscript.md)
@@ -164,6 +166,7 @@ Class | Method | HTTP request | Description
  - [ApiResponseUserForManagement](docs/ApiResponseUserForManagement.md)
  - [ApiResponseUserProfile](docs/ApiResponseUserProfile.md)
  - [BasicCoordinate](docs/BasicCoordinate.md)
+ - [BasicGeofence](docs/BasicGeofence.md)
  - [BatchUpdateTimesheetRequest](docs/BatchUpdateTimesheetRequest.md)
  - [Client](docs/Client.md)
  - [ClientSeriesReportItem](docs/ClientSeriesReportItem.md)

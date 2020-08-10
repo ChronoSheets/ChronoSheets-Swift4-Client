@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**geoFencingDeleteGeofence**](GeoFencingAPI.md#geofencingdeletegeofence) | **DELETE** /GeoFencing/DeleteGeofence | Deletes a geofence.  Requires the &#39;ManageGeofencing&#39; permission.
 [**geoFencingGetGeofenceById**](GeoFencingAPI.md#geofencinggetgeofencebyid) | **GET** /GeoFencing/GetGeofenceById | Get a geofence by ID  Requires the &#39;SubmitTimesheets&#39; permission.
 [**geoFencingGetGeofences**](GeoFencingAPI.md#geofencinggetgeofences) | **GET** /GeoFencing/GetGeofences | Get geofences belonging to your organisation  Requires the &#39;SubmitTimesheets&#39; permission.
+[**geoFencingGetGeofencesBasicInfo**](GeoFencingAPI.md#geofencinggetgeofencesbasicinfo) | **GET** /GeoFencing/GetGeofencesBasicInfo | Gets a list of all geofences in your organisation, including just the name and ID.
 [**geoFencingUpdateGeofence**](GeoFencingAPI.md#geofencingupdategeofence) | **PUT** /GeoFencing/UpdateGeofence | Updates a geofencing with rules to be used for clock on/off automation.  Requires the &#39;ManageGeofencing&#39; permission.
 
 
@@ -201,6 +202,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ApiResponseForPaginatedListExtendedGeofence**](ApiResponseForPaginatedListExtendedGeofence.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **geoFencingGetGeofencesBasicInfo**
+```swift
+    open class func geoFencingGetGeofencesBasicInfo(xChronosheetsAuth: String, completion: @escaping (_ data: ApiResponseForPaginatedListBasicGeofence?, _ error: Error?) -> Void)
+```
+
+Gets a list of all geofences in your organisation, including just the name and ID.
+
+### Example 
+```swift
+// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
+import ChronoSheetsAPI
+
+let xChronosheetsAuth = "xChronosheetsAuth_example" // String | The ChronoSheets Auth Token
+
+// Gets a list of all geofences in your organisation, including just the name and ID.
+GeoFencingAPI.geoFencingGetGeofencesBasicInfo(xChronosheetsAuth: xChronosheetsAuth) { (response, error) in
+    guard error == nil else {
+        print(error)
+        return
+    }
+
+    if (response) {
+        dump(response)
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xChronosheetsAuth** | **String** | The ChronoSheets Auth Token | 
+
+### Return type
+
+[**ApiResponseForPaginatedListBasicGeofence**](ApiResponseForPaginatedListBasicGeofence.md)
 
 ### Authorization
 

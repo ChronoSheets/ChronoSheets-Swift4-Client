@@ -167,6 +167,40 @@ open class GeoFencingAPI {
     }
 
     /**
+     Gets a list of all geofences in your organisation, including just the name and ID.
+     
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func geoFencingGetGeofencesBasicInfo(xChronosheetsAuth: String, completion: @escaping ((_ data: ApiResponseForPaginatedListBasicGeofence?,_ error: Error?) -> Void)) {
+        geoFencingGetGeofencesBasicInfoWithRequestBuilder(xChronosheetsAuth: xChronosheetsAuth).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+    /**
+     Gets a list of all geofences in your organisation, including just the name and ID.
+     - GET /GeoFencing/GetGeofencesBasicInfo
+     - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
+     - returns: RequestBuilder<ApiResponseForPaginatedListBasicGeofence> 
+     */
+    open class func geoFencingGetGeofencesBasicInfoWithRequestBuilder(xChronosheetsAuth: String) -> RequestBuilder<ApiResponseForPaginatedListBasicGeofence> {
+        let path = "/GeoFencing/GetGeofencesBasicInfo"
+        let URLString = ChronoSheetsAPIAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        let url = URLComponents(string: URLString)
+        let nillableHeaders: [String: Any?] = [
+            "x-chronosheets-auth": xChronosheetsAuth.encodeToJSON()
+        ]
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<ApiResponseForPaginatedListBasicGeofence>.Type = ChronoSheetsAPIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false, headers: headerParameters)
+    }
+
+    /**
      Updates a geofencing with rules to be used for clock on/off automation.  Requires the 'ManageGeofencing' permission.
      
      - parameter xChronosheetsAuth: (header) The ChronoSheets Auth Token 
