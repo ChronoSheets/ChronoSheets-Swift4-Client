@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/** An organisation in ChronoSheets */
 public struct Organisation: Codable { 
 
 
@@ -22,26 +22,47 @@ public struct Organisation: Codable {
         case mobileiOS = "MobileiOS"
         case mobileAndroid = "MobileAndroid"
     }
+    /** The ID of the organisation */
     public var id: Int?
+    /** The name of the organisation */
     public var name: String?
+    /** Address line 1 of the organisation */
     public var addressLine01: String?
+    /** Address line 2 of the organisation */
     public var addressLine02: String?
+    /** The suburb where the organisation is located */
     public var suburb: String?
+    /** The state where the organisation is located */
     public var state: String?
+    /** The postcode of the organisation */
     public var postcode: String?
+    /** The country of the organisation */
     public var country: String?
+    /** The primary phone contact number of the organisation */
     public var phone: String?
+    /** The primary email address of the organisation */
     public var emailAddress: String?
+    /** The timezone of the organisation */
     public var timezone: String?
+    /** The customer ID of the payments subscription */
     public var subscriptionCustomerId: String?
+    /** The sign up token */
     public var signupToken: String?
+    /** Whether or not the organisation is active */
     public var isActive: Bool?
+    /** The payments coupon code */
     public var stripeCouponCode: String?
+    /** The source of the subscription */
     public var subscriptionSource: SubscriptionSource?
+    /** The source where the organisation signed up */
     public var signUpSource: SignUpSource?
+    /** A temporary mobile sign up code */
     public var mobileSignUpCode: String?
+    /** The start date and time of the organisations subscription */
     public var subscriptionCycleStart: Date?
+    /** The end date and time of the organisations subscription */
     public var subscriptionCycleEnd: Date?
+    /** The organisation&#39;s pricing plans */
     public var pricingPlans: [OrganisationPricingPlan]?
 
     public init(id: Int?, name: String?, addressLine01: String?, addressLine02: String?, suburb: String?, state: String?, postcode: String?, country: String?, phone: String?, emailAddress: String?, timezone: String?, subscriptionCustomerId: String?, signupToken: String?, isActive: Bool?, stripeCouponCode: String?, subscriptionSource: SubscriptionSource?, signUpSource: SignUpSource?, mobileSignUpCode: String?, subscriptionCycleStart: Date?, subscriptionCycleEnd: Date?, pricingPlans: [OrganisationPricingPlan]?) {

@@ -7,17 +7,25 @@
 
 import Foundation
 
-
+/** A project in ChronoSheets */
 public struct Project: Codable { 
 
 
+    /** The ID of the project */
     public var id: Int?
+    /** The ID of the client for which the project is being undertaken for */
     public var clientId: Int?
+    /** The ID of the organisation that is completing the project */
     public var organisationId: Int?
+    /** A descriptive name of the project */
     public var projectName: String?
+    /** The project&#39;s estimated cost */
     public var costEstimation: Double?
+    /** The project&#39;s actual cost */
     public var costActual: Double?
+    /** The start date and time of the project */
     public var startDate: Date?
+    /** The end date and time of the project */
     public var endDate: Date?
 
     public init(id: Int?, clientId: Int?, organisationId: Int?, projectName: String?, costEstimation: Double?, costActual: Double?, startDate: Date?, endDate: Date?) {

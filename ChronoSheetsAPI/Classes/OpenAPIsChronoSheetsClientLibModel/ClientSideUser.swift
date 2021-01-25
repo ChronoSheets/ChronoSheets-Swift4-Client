@@ -7,21 +7,32 @@
 
 import Foundation
 
-
+/** A user within ChronoSheets */
 public struct ClientSideUser: Codable { 
 
 
+    /** The ID of the user */
     public var id: Int?
+    /** The ID of the organisation */
     public var organisationId: Int?
+    /** The username of the user */
     public var userName: String?
+    /** The first name of the user */
     public var firstName: String?
+    /** The last name of the user */
     public var lastName: String?
+    /** The email address of the user */
     public var emailAddress: String?
+    /** A BIT field designating which Roles/Permissions the employee will have when they sign in.  See the {timesheets.types.Enums.UserRoles} Enum for more details */
     public var roles: Int64?
+    /** A BIT field designating which Alerts the employee will receive.  See the {timesheets.types.Enums.AlertSettings} Enum for more details */
     public var alertSettings: Int64?
+    /** Whether or not the setup wizard is required */
     public var setupWizardRequired: Bool?
+    /** Whether or not the user is subscribed to the user */
     public var isSubscribedToNewsletter: Bool?
     public var organisation: Organisation?
+    /** Whether or not this account is the organisation&#39;s primary account. */
     public var isPrimaryAccount: Bool?
 
     public init(id: Int?, organisationId: Int?, userName: String?, firstName: String?, lastName: String?, emailAddress: String?, roles: Int64?, alertSettings: Int64?, setupWizardRequired: Bool?, isSubscribedToNewsletter: Bool?, organisation: Organisation?, isPrimaryAccount: Bool?) {

@@ -33,7 +33,7 @@ public struct CreateGeoFenceRequest: Codable {
     public var triggerTaskId: Int?
     /** Send an alert to a user, specified by their user ID */
     public var sendAlertToOrgGroupId: Int?
-    /** Define when you want the alerts to be setn */
+    /** Define when you want the alerts to be sent */
     public var alertSettings: AlertSettings?
     /** Define how to you want to trigger the timesheet automation */
     public var triggerSettings: TriggerSettings?

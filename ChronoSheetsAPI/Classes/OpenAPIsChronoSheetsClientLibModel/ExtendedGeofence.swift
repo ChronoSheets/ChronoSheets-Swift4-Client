@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+/** An extended geofence record */
 public struct ExtendedGeofence: Codable { 
 
 
@@ -23,28 +23,51 @@ public struct ExtendedGeofence: Codable {
         case sendWhenExiting = "SendWhenExiting"
         case sendWhenEnteringOrExiting = "SendWhenEnteringOrExiting"
     }
+    /** The Job code used when the employee enters/exits the geofence */
     public var jobCode: String?
+    /** The name of the task used when the employee enters/exits the geofence */
     public var taskName: String?
+    /** The name of the employee who created the geofence */
     public var createdBy: String?
+    /** The name of the employee who last updated the geofence */
     public var updatedBy: String?
+    /** The name of the organisation group who will be notified when the geofence is triggered */
     public var alertOrganisation: String?
+    /** The ID of the geofence */
     public var geoFencingId: Int?
+    /** The ID of the organisation owning the geofence record */
     public var orgId: Int?
+    /** The ID of the user/employee who created the geofence */
     public var createdByUserId: Int?
+    /** The ID of the user/employee who last updated the geofence */
     public var lastUpdatedByUserId: Int?
+    /** A descriptive name of the geofence */
     public var name: String?
+    /** The name of the approx. location of the geofence */
     public var locationName: String?
+    /** A list of co-ordinates specifying the geofence */
     public var coordinates: [BasicCoordinate]?
+    /** The date and time the geofence was created.  Time is in UTC. */
     public var createdAt: Date?
+    /** The date and time the geofence was updated last.  Time is in UTC. */
     public var updatedAt: Date?
+    /** The ID of the job code used when the employee enters/exits the geofence */
     public var triggerJobCodeId: Int?
+    /** The ID of the task used when the employee enters/exits the geofence */
     public var triggerTaskId: Int?
+    /** The settings for triggering actions */
     public var triggerSettings: TriggerSettings?
+    /** The organisation group that will be notified when the geofence is triggered */
     public var alertToOrgGroupId: Int?
+    /** The settings for trigger alerts */
     public var alertSettings: AlertSettings?
+    /** The hour start time. E.g. 13 would be 1pm.  Time is in 24hr format. */
     public var startTimeHour: Int?
+    /** The minute start time.  E.g. 46 would be the 46th minute of the hour. */
     public var startTimeMinute: Int?
+    /** The hour end time. E.g. 21 would be 9pm.  Time is in 24hr format. */
     public var endTimeHour: Int?
+    /** The minute end time.  E.g. 13 would be the 13th minute of the hour. */
     public var endTimeMinute: Int?
 
     public init(jobCode: String?, taskName: String?, createdBy: String?, updatedBy: String?, alertOrganisation: String?, geoFencingId: Int?, orgId: Int?, createdByUserId: Int?, lastUpdatedByUserId: Int?, name: String?, locationName: String?, coordinates: [BasicCoordinate]?, createdAt: Date?, updatedAt: Date?, triggerJobCodeId: Int?, triggerTaskId: Int?, triggerSettings: TriggerSettings?, alertToOrgGroupId: Int?, alertSettings: AlertSettings?, startTimeHour: Int?, startTimeMinute: Int?, endTimeHour: Int?, endTimeMinute: Int?) {

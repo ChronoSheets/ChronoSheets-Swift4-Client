@@ -7,19 +7,29 @@
 
 import Foundation
 
-
+/** A vehicle within the fleet */
 public struct FleetVehicle: Codable { 
 
 
+    /** The ID of the vehicle */
     public var id: Int?
+    /** The ID of the organisation managing the vehicle */
     public var organisationId: Int?
+    /** A name given to the vehicle */
     public var name: String?
+    /** The cost, in dollars, of running the vehicle over one kilometer */
     public var costPerKilometer: Double?
+    /** The make of the vehicle */
     public var make: String?
+    /** The model of the vehicle */
     public var model: String?
+    /** The year the vehicle was manufactured */
     public var year: String?
+    /** The licence plate number of the vehicle */
     public var licencePlateNumber: String?
+    /** Whether or not the vehicle is deleted */
     public var isDeleted: Bool?
+    /** An array of employee IDs that are permitted to use the vehicle */
     public var permittedEmployees: [Int]?
 
     public init(id: Int?, organisationId: Int?, name: String?, costPerKilometer: Double?, make: String?, model: String?, year: String?, licencePlateNumber: String?, isDeleted: Bool?, permittedEmployees: [Int]?) {
